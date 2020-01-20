@@ -1,3 +1,5 @@
+
+
 .iXDwCW {
 	width: 12.2667vw;
 	height: 12.2667vw;
@@ -94,7 +96,7 @@
 	-webkit-box-pack: end;
 	justify-content: flex-end;
 	width: 100%;
-	max-width: 1080px;
+	max-width: 1175px;
 	flex-direction: row;
 	margin: auto;
 }
@@ -221,8 +223,608 @@
 		url(https://t1.kakaocdn.net/friends/new_store/2.0/common/product-detail-cart-off.svg)
 		center center/4vw 5.06667vw no-repeat;
 }
+.eoPXCl {
+    position: relative;
+    margin: 6.4vw 5.33333vw 0px;
+}
+.eYsRXP {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.gBmHgl {
+    margin-top: 3.2vw;
+    font-size: 4.8vw;
+    color: rgb(51, 51, 51);
+}
+.dvwRmq {
+    display: flex;
+    margin-top: 2.93333vw;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(154, 154, 158);
+}
+.iNxZsY {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.fnAzHX {
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_on.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0.746667vw 0px 0px;
+}
+.cRYXvP {
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_on.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0.746667vw;
+}
+.grbwaB {
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_off.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0.746667vw;
+}
+.ImZfG {
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_off.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0px 0px 0.746667vw;
+}
+.dvwRmq > .totalCount {
+    font-size: 3.73333vw;
+    margin-left: 1.6vw;
+    color: rgb(51, 51, 51);
+}
+.oVMuJ {
+    margin-top: 13.3333vw;
+    padding-top: 0vw;
+    padding-bottom: 16vw;
+}
+.hyFLdY {
+    visibility: hidden;
+    width: 100%;
+    height: 8vw;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px;
+    margin: 0px;
+}
+.dwXJQx {
+    font-size: 28px;
+    padding: 38px 0px 10px;
+    border-top: 1px solid rgb(227, 229, 232);
+}
+.Joofx {
+    font-size: 4.26667vw;
+    line-height: 1.5;
+    letter-spacing: -0.0533333vw;
+    padding: 0px 5.33333vw 13.3333vw;
+}
+.exuhom {
+    position: relative;
+    padding-left: 2.13333vw;
+}
+.exuhom::before {
+    position: absolute;
+    left: 0px;
+    content: "";
+    width: 2.5px;
+    height: 2.5px;
+    background-color: rgb(51, 51, 51);
+    top: 2.86667vw;
+    border-radius: 50%;
+}
+.cLVfUZ {
+    font-size: 6.4vw;
+    line-height: 1.33;
+    height: 8.53333vw;
+}
+.ekNiY {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.dDoKnT::after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 2.66667vw;
+    margin: 0px 1.06667vw;
+    background: rgb(233, 233, 233);
+}
+.cIfwlK {
+    font-size: 3.73333vw;
+    color: rgb(154, 154, 158);
+    height: 4vw;
+    line-height: normal;
+}
+.fQZhjJ {
+    display: flex;
+    width: 100%;
+    height: 13.8667vw;
+    background-color: rgb(60, 64, 75);
+    color: rgb(255, 255, 255);
+    font-size: 4vw;
+    font-weight: bold;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 4vw 0px 10.6667vw;
+    border-radius: 4px;
+}
+.jSEjVi {
+    margin-top: 10.6667vw;
+}
+.fQZhjJ::before {
+    content: "";
+    display: inline-block;
+    width: 4.53333vw;
+    height: 4.53333vw;
+    margin-right: 7px;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/review_pen.png) center center / 100% no-repeat;
+}
+.hICAfU {
+    width: 17.0667vw;
+    height: 8vw;
+    margin-right: 1.6vw;
+    font-size: 3.46667vw;
+    color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-radius: 8vw;
+    background: rgb(141, 146, 161);
+    border-color: rgb(141, 146, 161);
+}
 
+.kdxpsC {
+    width: 17.0667vw;
+    height: 8vw;
+    margin-right: 1.6vw;
+    font-size: 3.46667vw;
+    color: rgb(128, 128, 128);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-radius: 8vw;
+    background: none;
+    border-color: rgb(228, 228, 228);
+}
+.gxJvJD {
+    margin-top: 4vw;
+}
+.jeZgoZ {
+    padding: 8vw 0px;
+    border-top: 1px solid rgb(233, 233, 233);
+}
+.kURoIF {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.hTSHGu {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 3.2vw;
+}
+.jwXKlH {
+    display: block;
+    font-weight: bold;
+    font-size: 4.8vw;
+}
+.hTSHGu {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 3.2vw;
+}
+.gDTuiP {
+    display: inline-block;
+    width: 3.46667vw;
+    height: 3.46667vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_on.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0.6vw 0px 0px;
+}
+
+.QDUaj {
+    display: inline-block;
+    width: 3.46667vw;
+    height: 3.46667vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_off.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0.6vw;
+}
+.cRGDxB {
+    display: inline-block;
+    width: 3.46667vw;
+    height: 3.46667vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/star_off.png) center center / 100% no-repeat;
+    outline: 0px;
+    margin: 0px 0px 0px 0.6vw;
+}
+.bFtzpx {
+    font-size: 4.26667vw;
+    word-break: break-all;
+    white-space: pre-line;
+}
+.jOEcHV {
+    height: 6.93333vw;
+    line-height: 7.46667vw;
+    margin-top: 5.33333vw;
+    padding-left: 8vw;
+    color: rgb(154, 154, 158);
+    font-size: 3.73333vw;
+    outline: none;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/ryan_gray.png) 0% 0% / auto 100% no-repeat;
+}
+.jxBTIN {
+    width: 134px;
+    text-align: center;
+    right: 0px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: rgb(154, 154, 158);
+}
+.cVEhEB {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 3.73333vw;
+    height: 4.53333vw;
+    line-height: 4.53333vw;
+    margin-top: 2.93333vw;
+    outline: none;
+}
+.cVEhEB::after {
+    position: relative;
+    content: "";
+    width: 4vw;
+    height: 4vw;
+    margin-left: 0.8vw;
+    background: url(https://t1.kakaocdn.net/friends/new_store/dropdown_down.png) 0% 0% / auto 4vw no-repeat;
+}
+.krWiaZ {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.yQNxU {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    visibility: hidden;
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+    margin: 0px 10px;
+}
+.hzoUKy {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 37px;
+    height: 30px;
+    cursor: pointer;
+}
+.hzoUKy div {
+    font-size: 15px;
+    letter-spacing: -0.23px;
+    color: rgb(0, 0, 0);
+    height: 19px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    border-bottom: 1px solid black;
+}
+
+.hWuFcD {
+    height: 6.93333vw;
+    line-height: 7.46667vw;
+    margin-top: 5.33333vw;
+    padding-left: 8vw;
+    color: rgb(154, 154, 158);
+    font-size: 3.73333vw;
+    outline: none;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/ryan_on.png) 0% 0% / auto 100% no-repeat;
+}
+.hWuFcD:hover {
+    background-color: rgb(247, 247, 247);
+}
+.hWuFcD span {
+    display: none;
+}
+.TvNiB {
+    border-top: 10px solid rgb(247, 247, 247);
+    padding: 9.6vw 3.6vw;
+}
+.FUbOH {
+    color: rgb(30, 30, 30);
+    font-size: 6.4vw;
+    line-height: 7.73333vw;
+    margin-bottom: 5.2vw;
+    padding-left: 1.73333vw;
+}
+.fQZhjJ::before {
+    content: "";
+    display: inline-block;
+    width: 4.53333vw;
+    height: 4.53333vw;
+    margin-right: 7px;
+    background: url(https://t1.kakaocdn.net/friends/new_store/2.0/common/review_pen.png) center center / 100% no-repeat;
+}
+.itdkzt {
+    position: relative;
+    border-top: 2.66667vw solid rgb(247, 247, 247);
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding: 9.33333vw 5.33333vw;
+}
 @media ( min-width : 769px) {
+	.itdkzt {
+    border-right-style: initial;
+    border-bottom-style: initial;
+    border-left-style: initial;
+    border-right-color: initial;
+    border-bottom-color: initial;
+    border-left-color: initial;
+    padding: 36px 0px 0px;
+    border-width: 1px 0px 0px;
+    border-image: initial;
+    border-top: 1px solid rgb(227, 229, 232);
+}
+	.fQZhjJ::before {
+    width: 20px;
+    height: 20px;
+}
+	.FUbOH {
+    padding-left: 0px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 1.29;
+}
+	.TvNiB {
+    margin-top: 60px;
+    border-top: 1px solid rgb(227, 229, 232);
+    padding: 38px 0px 0px;
+}
+	.hWuFcD {
+    width: 134px;
+    height: 44px;
+    padding-left: 60px;
+    line-height: normal;
+    background-size: 24px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    margin: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(228, 228, 228);
+    border-image: initial;
+    border-radius: 3px;
+    background-position: 27px center;
+}
+	.cVEhEB::after {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+    background-size: auto 15px;
+}
+	.cVEhEB {
+    font-size: 15px;
+    height: 17px;
+    line-height: 17px;
+    margin-top: 12px;
+}
+	.jOEcHV span {
+    display: none;
+}
+	.jOEcHV {
+    width: 134px;
+    height: 44px;
+    padding-left: 60px;
+    line-height: normal;
+    background-size: 24px;
+    text-align: left;
+    color: rgb(154, 154, 158);
+    font-size: 13px;
+    margin: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(228, 228, 228);
+    border-image: initial;
+    border-radius: 3px;
+    background-position: 27px center;
+}
+	.hURYlD {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+}
+	.bFtzpx {
+    font-size: 15px;
+    max-width: 680px;
+}
+	.cRGDxB {
+    width: 13px;
+    height: 13px;
+    margin: 0px 2.25px;
+}
+	.QDUaj {
+    width: 13px;
+    height: 13px;
+    margin: 0px 2.25px;
+}
+	.gDTuiP {
+    width: 13px;
+    height: 13px;
+    margin: 0px 2.25px;
+}
+	.hTSHGu {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+	.jwXKlH {
+    font-size: 17px;
+}
+	.hTSHGu {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+	.jeZgoZ {
+    position: relative;
+    padding: 40px 0px;
+}
+	.gxJvJD {
+    margin-top: 15px;
+}
+	.kdxpsC {
+    font-size: 13px;
+    width: 64px;
+    height: 30px;
+    margin-right: 6px;
+}
+	.hICAfU {
+    font-size: 13px;
+    width: 64px;
+    height: 30px;
+    margin-right: 6px;
+}
+	.jSEjVi {
+    margin-top: 81px;
+}
+	.fQZhjJ::before {
+    width: 20px;
+    height: 20px;
+}
+	.fQZhjJ {
+    position: absolute;
+    right: 0px;
+    top: 38px;
+    width: 270px;
+    height: 52px;
+    padding-right: 10px;
+    font-size: 15px;
+    margin: 0px;
+}
+	.cIfwlK {
+    font-size: 16px;
+    height: 20px;
+    line-height: 20px;
+}
+	.dDoKnT::after {
+    height: 12.8px;
+    margin: 0px 4px;
+}
+	.ekNiY {
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+}
+	.iNxZsY {
+    position: static;
+    display: flex;
+}
+	.cLVfUZ {
+    margin-right: 23px;
+    font-size: 28px;
+    height: 35px;
+}
+	.exuhom {
+    padding-left: 8px;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: rgb(51, 51, 51);
+}
+.exuhom::before {
+    top: 10.75px;
+}
+	.Joofx {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: rgb(51, 51, 51);
+    padding: 0px 0px 100px;
+}
+	.oVMuJ {
+    margin-top: 60px;
+    padding-top: 0px;
+    padding-bottom: 60px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+	
+	.dvwRmq > .totalCount {
+    font-size: 14px;
+    margin-left: 6px;
+}
+	.ImZfG {
+    width: 20px;
+    height: 20px;
+    margin: 0px 3.5px 3px;
+}
+	.grbwaB {
+    width: 20px;
+    height: 20px;
+    margin: 0px 3.5px 3px;
+}
+	.cRYXvP {
+    width: 20px;
+    height: 20px;
+    margin: 0px 3.5px 3px;
+}
+	.fnAzHX {
+    width: 20px;
+    height: 20px;
+    margin: 0px 3.5px 3px;
+}
+	.dvwRmq {
+    margin-top: 11px;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.iNxZsY {
+    position: static;
+    display: flex;
+}
+	.gBmHgl {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+	.eoPXCl {
+    margin: 15px 0px 0px;
+}
 	.hZwLyu {
 		bottom: 0px;
 	}
@@ -501,11 +1103,13 @@
 		url(https://t1.kakaocdn.net/friends/new_store/dropdown_up.png) 0% 0%/4.8vw
 		no-repeat;
 }
+
 .bljjmH {
-    font-size: 4.26667vw;
-    color: rgb(17, 17, 17);
-    letter-spacing: -0.0533333vw;
+	font-size: 4.26667vw;
+	color: rgb(17, 17, 17);
+	letter-spacing: -0.0533333vw;
 }
+
 .bljjmH::after {
 	content: "";
 	display: inline-block;
@@ -518,12 +1122,118 @@
 		no-repeat;
 }
 
-@media ( min-width : 769px) {
-	.bljjmH::after {
-    width: 18px;
-    height: 18px;
-    background-size: 18px;
+.bMzeRV {
+	text-align: center;
+	font-size: 4.26667vw;
+	font-weight: bold;
+	letter-spacing: -0.0533333vw;
+	color: rgb(154, 154, 158);
+	outline: none;
+	flex: 1 1 0%;
+	padding: 4.8vw 0px 4vw;
+	border-bottom: 1px solid rgb(242, 242, 242);
 }
+
+.ittGnH {
+	text-align: center;
+	font-size: 4.26667vw;
+	font-weight: bold;
+	letter-spacing: -0.0533333vw;
+	color: rgb(0, 0, 0);
+	outline: none;
+	flex: 1 1 0%;
+	padding: 4.8vw 0px 4vw;
+	border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.drWdwN {
+	flex: 1 1 0%;
+}
+
+.exNXXp {
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
+	height: 48px;
+	line-height: 48px;
+	cursor: pointer;
+}
+
+.jrtVOJ {
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
+	width: calc(100% - 20px);
+	height: 100%;
+	font-size: 16px;
+	background-color: rgb(247, 247, 247);
+	color: rgb(30, 30, 30);
+	padding: 0px 20px;
+}
+
+.cPoWav {
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
+	width: calc(100% - 20px);
+	height: 100%;
+	font-size: 16px;
+	background-color: rgb(255, 255, 255);
+	color: rgb(127, 127, 127);
+	padding: 0px 20px;
+}
+
+@media ( min-width : 769px) {
+	.cPoWav {
+		font-size: 16px;
+	}
+	.jrtVOJ {
+		font-size: 16px;
+	}
+	.drWdwN {
+		background-color: rgb(255, 255, 255);
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: rgb(227, 229, 232);
+		border-image: initial;
+		overflow: hidden;
+	}
+	.kDPxRN {
+		position: absolute;
+		top: 43px;
+		left: -1px;
+		right: -1px;
+		z-index: 2;
+	}
+	.ittGnH {
+		font-size: 17px;
+		letter-spacing: -0.21px;
+		margin-left: 30px;
+		padding: 32.5px 0px;
+		border-bottom: 0px;
+		flex: 0 0 auto;
+	}
+	.bMzeRV {
+		font-size: 17px;
+		letter-spacing: -0.21px;
+		margin-left: 0px;
+		padding: 32.5px 0px;
+		border-bottom: 0px;
+		flex: 0 0 auto;
+	}
+	.bljjmH::after {
+		width: 18px;
+		height: 18px;
+		background-size: 18px;
+	}
 	.cdlUDa::after {
 		top: auto;
 		margin-top: 1px;
@@ -622,7 +1332,6 @@
 		right: -1px;
 		z-index: 2;
 	}
-	
 	.bljjmH {
 		font-size: 15px;
 		display: flex;
@@ -647,3 +1356,1151 @@
 		align-items: center;
 	}
 }
+
+/* ///////////////contact ///////////마이페이지 1:1문의 */
+#mArticle {
+	padding-bottom: 0;
+}
+
+.fmXyox {
+	padding: 30px 16px 20px;
+	border-bottom: 1px solid rgb(227, 229, 232);
+}
+
+.gaRGea {
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: -0.19px;
+}
+
+.bdznXa {
+	font-size: 16px;
+	letter-spacing: -0.21px;
+	margin-top: 9px;
+	line-height: 1.38;
+}
+
+.cLlqjl {
+	height: 19px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.5;
+	color: rgb(255, 255, 255);
+}
+
+:lang(ko), :lang(en) {
+	font-family: SFProText, SFProText, "Apple SD Gothic Neo",
+		AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+.bkURUc {
+	height: calc(100vh - 215px);
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	background:
+		url(https://t1.kakaocdn.net/friends/new_store/2.0/mobile/mypage-contact-empty.png)
+		center 13vh/19vh no-repeat rgb(247, 247, 247);
+	background-position: center 13vh;
+}
+
+.bkURUc div {
+	margin-top: 36vh;
+	font-size: 16px;
+	line-height: 1.41;
+	letter-spacing: -0.21px;
+	color: rgb(154, 154, 158);
+}
+
+.gsNikK {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	width: 100%;
+	height: 60px;
+	background-color: rgb(60, 64, 75);
+	margin-top: 16.5px;
+	border-radius: 4px;
+}
+
+@media ( min-width : 769px) {
+	.encGOf {
+		max-width: 270px;
+		font-size: 16px;
+		padding: 13px 0px;
+		border-radius: 4px;
+	}
+	.bkURUc div {
+		margin-top: 147px;
+		font-size: 15px;
+		line-height .foukWS.foukWS: 1.47;
+		letter-spacing: -0.19px;
+	}
+	.bkURUc {
+		margin-bottom: 350px;
+		height: 310px;
+		border-top: 1px solid rgb(227, 229, 232);
+		border-bottom: 1px solid rgb(227, 229, 232);
+		background: none;
+	}
+	.cLlqjl {
+		font-size: 15px;
+		letter-spacing: -0.2px;
+	}
+	.gsNikK {
+		width: 270px;
+		margin-top: 0px;
+	}
+	.bdznXa {
+		font-size: 15px;
+		line-height: 1.47;
+		letter-spacing: -0.2px;
+		margin-top: 7px;
+	}
+	.gaRGea {
+		font-size: 36px;
+		font-weight: bold;
+		letter-spacing: -0.23px;
+	}
+	.fmXyox {
+		display: flex;
+		-webkit-box-pack: justify;
+		justify-content: space-between;
+		padding-bottom: 65px;
+		border-bottom: 0px;
+	}
+}
+/* ////////// contant_form ////////// */
+#mArticle {
+	padding-bottom: 0;
+}
+
+.foukWS {
+	background-color: rgb(255, 255, 255);
+	margin-bottom: 2.66667vw;
+	padding: 8vw 4.26667vw 6.66667vw;
+	/* border-top: 1px solid rgb(227, 229, 232); */
+	border-bottom: 1px solid rgb(227, 229, 232);
+}
+
+.kwFxWp {
+	background-color: rgb(247, 247, 247);
+}
+
+.jZWlvE {
+	background-color: rgb(255, 255, 255);
+}
+
+.eZonHy {
+	flex: 1 1 0%;
+	padding: 6.66667vw 4vw 5.86667vw;
+	border-bottom: 1px solid rgb(242, 242, 242);
+}
+
+.kHppkS {
+	flex: 1 1 0%;
+	padding: 6.66667vw 4vw 7.2vw;
+}
+
+.ibmozz {
+	font-size: 5.33333vw;
+	font-weight: bold;
+	line-height: 1.5;
+	letter-spacing: -0.0426667vw;
+	color: rgb(60, 64, 75);
+	margin-bottom: 4vw;
+}
+
+.dgNTux {
+	display: flex;
+}
+
+.BCbzT {
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	background-color: rgb(255, 255, 255);
+	padding: 0px 4vw 13.3333vw;
+}
+
+.cvQgXv {
+	color: rgb(0, 0, 0);
+	margin-right: 1.86667vw;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(227, 229, 232);
+	border-image: initial;
+}
+
+.ekjGWF {
+	color: rgb(255, 255, 255);
+	background-color: rgb(60, 64, 75);
+}
+
+.foukWS span {
+	font-size: 6.4vw;
+	font-weight: bold;
+	line-height: 1.25;
+}
+
+.eJxDUH {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin-bottom: 8px;
+	line-height: 35px;
+}
+
+.cCjyDE {
+	flex: 1 1 0%;
+}
+
+.jcHywt {
+	width: 100px;
+	height: 16px;
+	font-size: 13px;
+	letter-spacing: -0.19px;
+	margin-top: 14px;
+}
+
+.llGwgt {
+	position: relative;
+	/* 	height: 23px; */
+	line-height: 23px;
+	font-size: 16px;
+	-webkit-appearance: none;
+	width: calc(100% - 32px);
+	text-align: left;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(227, 229, 232);
+	border-image: initial;
+	outline: none;
+	padding: 10px 15px;
+	background: none;
+	border-radius: 4px !important;
+}
+
+:lang(ko), :lang(en) {
+	font-family: SFProText, SFProText, "Apple SD Gothic Neo",
+		AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+.dlszdh {
+	width: 100%;
+	height: 45px;
+	line-height: 100%;
+	opacity: 0;
+	padding: 0px 10px;
+	opacity: 0;
+}
+
+.ckvayf {
+	line-height: 35px;
+	width: 100%;
+	position: relative;
+	display: block;
+	color: rgb(212, 215, 225);
+}
+
+.bjRqPo {
+	position: relative;
+	width: calc(100% - 2px);
+	height: 45px;
+	margin-bottom: 2.13333vw;
+	background:
+		url(https://t1.kakaocdn.net/friends/new_store/ico_dropdown.png) right
+		12px center/12px no-repeat;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(227, 229, 232);
+	border-image: initial;
+	border-radius: 1.06667vw;
+}
+
+.howXoD {
+	margin-bottom: 2.13333vw;
+}
+
+.jGpjC {
+	width: calc(100% - 32px);
+	height: 177px;
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-appearance: none;
+	resize: none;
+	padding: 15px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(227, 229, 232);
+	border-image: initial;
+	border-radius: 4px;
+	background: none;
+	outline: none;
+}
+
+.bTDNUq {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	clip: rect(0px, 0px, 0px, 0px);
+	padding: 0px;
+	margin: -1px;
+	overflow: hidden;
+	border-width: 0px;
+	border-style: initial;
+	border-color: initial;
+	border-image: initial;
+}
+
+.cLHtJi {
+	display: block;
+	position: relative;
+	height: 45px;
+	line-height: 23px;
+	font-size: 16px;
+	-webkit-appearance: none;
+	width: calc(100vw - 62px);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(227, 229, 232);
+	border-image: initial;
+	outline: none;
+	padding: 10px 15px;
+	background: none;
+	border-radius: 4px !important;
+}
+
+.iIVffC {
+	position: absolute;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	height: 28px;
+	right: 15px;
+	top: 7.5px;
+	background-color: rgb(239, 240, 244);
+	box-sizing: border-box;
+	padding: 0px 10px;
+	border-radius: 4px;
+}
+
+.iIVffC span {
+	opacity: 0.5;
+	font-size: 13px;
+	letter-spacing: -0.16px;
+	color: rgb(30, 30, 30);
+}
+
+.lmFqbH {
+	margin: 4vw 0px 2.4vw;
+}
+
+.dLcMkL {
+	display: flex;
+}
+
+.dLcMkL span {
+	width: 0.8vw;
+	height: 0.8vw;
+	background-color: rgb(154, 154, 158);
+	margin-right: 2.13333vw;
+	margin-top: 2.4vw;
+	border-radius: 0.4vw;
+}
+
+.dLcMkL div {
+	font-size: 3.73333vw;
+	letter-spacing: -0.0586667vw;
+	color: rgb(154, 154, 158);
+}
+
+.exbTko {
+	padding-top: 4.26667vw;
+}
+
+.dWVyWd {
+	-webkit-box-pack: start;
+	justify-content: flex-start;
+	margin: 0px 0px 10px;
+}
+
+.kyicMO {
+	position: relative;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	margin-bottom: auto;
+}
+
+.bEvrkG {
+	visibility: hidden;
+}
+
+.kyicMO label {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	background:
+		url(https://t1.kakaocdn.net/friends/new_store/ico_checked.png) center
+		0px/25px no-repeat;
+}
+
+.jyoKnP {
+	max-width: calc(100% - 48px);
+	padding-top: 1px;
+	font-size: 15px;
+	letter-spacing: -0.2px;
+	margin: 0px 10px;
+}
+
+.jBTEoi {
+	text-decoration: underline;
+}
+
+.hqJXmu {
+	margin-left: 7px;
+	color: rgb(154, 154, 158);
+	font-size: 13px;
+}
+
+label {
+	cursor: default;
+}
+
+.ckvayf::before {
+	content: "문의 유형 선택";
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 15px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code,
+	form, fieldset, legend, textarea, p, blockquote, th, td, input, select,
+	textarea, button {
+	margin: 0;
+	padding: 0;
+}
+
+body, th, td, input, select, textarea, button {
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: 'Apple SD Gothic Neo', AppleSDGothicNeo, 'Malgun Gothic',
+		'맑은 고딕', sans-serif;
+	color: #1e1e1e;
+}
+
+input, select, textarea, button {
+	vertical-align: middle;
+	font-size: 100%;
+}
+
+.encGOf {
+	/* font-size: 4.26667vw; */
+	font-weight: bold;
+	line-height: 1.88;
+	text-align: center;
+	flex: 1 1 0%;
+	/* padding: 3.46667vw 0px;
+	border-radius: 1.06667vw; */
+}
+
+.gbuGih {
+	line-height: 35px;
+	width: 100%;
+	position: relative;
+	display: block;
+	color: rgb(0, 0, 0);
+}
+
+.gbuGih::before {
+	content: "교환/반품/환불";
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 15px;
+}
+
+.cvxdGv::before {
+	content: "배송";
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 15px;
+}
+
+.eUAHGi::before {
+	content: "기타";
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 15px;
+}
+
+.kqEPId::before {
+	content: "상품";
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 15px;
+}
+
+.DlPRr::before {
+	content: "주문결제";
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 15px;
+}
+
+.ZAepM {
+	display: inline-block;
+	max-width: calc(100vw - 186px);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+span[Attributes Style] {
+	-webkit-locale: "kr";
+}
+
+.bOawBQ {
+	position: absolute;
+	margin-left: 6px;
+	top: 6px;
+	width: 30px;
+	height: 30px;
+	background:
+		url(https://t1.kakaocdn.net/friends/new_store/2.0/common/ico_file_close.png)
+		center center/20px 20px no-repeat;
+	background-position: center center;
+}
+
+@media ( max-width : 768px) {
+	.jcHywt {
+		display: none;
+	}
+}
+
+@media ( min-width : 769px) {
+	.ZAepM {
+		max-width: 208px;
+	}
+	.cvQgXv {
+		margin-right: 7px;
+	}
+	.BCbzT {
+		/* margin-top: 25px; */
+		margin-top: 0px;
+		border-top: 1px solid rgb(227, 229, 232);
+		padding: 50px 15px 150px;
+	}
+	.dXGwvt {
+		display: flex;
+		min-width: 200px;
+		-webkit-box-align: center;
+		align-items: center;
+		position: static;
+		line-height: 22px;
+		flex: 1 1 0%;
+	}
+	.exbTko {
+		padding-top: 16px;
+	}
+	.dLcMkL div {
+		font-size: 13px;
+		line-height: 1.62;
+		letter-spacing: -0.2px;
+	}
+	.dLcMkL span {
+		width: 3px;
+		height: 3px;
+		margin-right: 8px;
+		margin-top: 9px;
+		border-radius: 1.5px;
+	}
+	.cLHtJi {
+		width: calc(100% - 32px);
+	}
+	.bjRqPo {
+		height: 45px;
+		margin-bottom: 8px;
+		background-size: 12px;
+		background-position: right 12px center;
+		border-radius: 4px;
+	}
+	.jZWlvE {
+		display: flex;
+		padding-top: 30px;
+	}
+	#mArticle {
+		padding-bottom: 0;
+	}
+	.foukWS {
+		margin-bottom: 0px;
+		padding: 56px 0px 45px;
+		border-bottom: 1px solid rgb(0, 0, 0);
+	}
+	.foukWS span {
+		font-size: 36px;
+		font-weight: bold;
+		letter-spacing: -0.23px;
+	}
+	.eZonHy {
+		padding: 0px;
+		border-bottom: none;
+	}
+	.kHppkS {
+		padding: 0px 50px;
+	}
+	.ibmozz {
+		font-size: 18px;
+		line-height: 1.22;
+		letter-spacing: -0.18px;
+		margin-bottom: 17px;
+	}
+	.dgNTux {
+		margin-bottom: 14px;
+	}
+	/* .jcHywt {
+		display: none;
+	} */
+	.howXoD {
+		margin-bottom: 8px;
+	}
+	.lmFqbH {
+		margin: 15px 0px 9px;
+	}
+}
+/* //////wishlist///////*/
+.cont_product {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.wishlist_detail .title {
+	display: block;
+	font-size: 32px;
+	padding: 24px 8px 24px;
+	border-bottom: 1px solid #e3e5e8;
+}
+
+.wishlist_detail .desc_nodata {
+	padding: 134px 0 139px;
+	font-size: 18px;
+	color: #666;
+	text-align: center;
+}
+
+.eZplGq {
+	display: none;
+}
+
+.dDDEDN {
+	padding-left: 130px;
+}
+
+.qvpR {
+	padding-right: 150px;
+}
+
+dl, ul, ol, menu, li {
+	list-style: none;
+}
+
+input:checked[type='checkbox'] {
+	background-color: #666;
+	-webkit-appearance: checkbox;
+}
+
+.dejnuF {
+	width: 5.33333vw;
+	height: 5.33333vw;
+	margin-right: 2.66667vw;
+	background:
+		url(http://t1.kakaocdn.net/friends/new_store/ico_checked_ok.png)
+		center center/5.33333vw 5.33333vw no-repeat;
+}
+
+.euYbXx {
+	width: 26.6667vw;
+	height: 26.6667vw;
+	margin-right: 3.46667vw;
+	object-fit: contain;
+}
+
+a {
+	color: #1e1e1e;
+	text-decoration: none;
+}
+
+.bfspSz {
+	position: relative;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+.fDGlIr {
+	position: relative;
+	width: 53.6vw;
+	padding-top: 1.6vw;
+}
+
+.BTcrB {
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
+	padding-bottom: 1.73333vw;
+}
+
+.bnlBze {
+	width: 49.3vw;
+	height: 4.93333vw;
+	line-height: 4.93333vw;
+	font-size: 4.26667vw;
+	letter-spacing: -0.0533333vw;
+	color: rgb(0, 0, 0);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.bHdxYH {
+	width: 4.93333vw;
+	height: 4.93333vw;
+	text-indent: -999em;
+	font-size: 1px;
+	background:
+		url(https://t1.kakaocdn.net/friends/new_store/btn_remove.png) center
+		center/3.73333vw no-repeat;
+}
+
+.hmRzec {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+fieldset, img {
+	border: 0 none;
+}
+
+.hmRzec::after {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	content: "";
+	width: 100%;
+	z-index: 0;
+	padding-top: 100%;
+	background: rgba(0, 0, 0, 0.02);
+}
+
+.izsgpp {
+	display: none;
+}
+
+.elMFjf {
+	width: 100%;
+	height: auto;
+}
+
+.evybcA {
+	display: flex;
+	-webkit-box-pack: start;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-top: 5.33333vw;
+	padding-bottom: 5.33333vw;
+	margin-left: 4vw;
+	margin-right: 4vw;
+	border-top: 1px solid rgb(242, 242, 242);
+}
+
+.dQdpLr {
+    display: block;
+    width: 53.6vw;
+    height: 9.33333vw;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 1.06667vw;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(227, 229, 232);
+    border-image: initial;
+}
+.crsOxf {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 53.5px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    padding: 0px 4vw;
+    background: rgb(255, 255, 255);
+}
+.bxBtII {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 50%;
+}
+.gTQHQA {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 4.26667vw;
+    letter-spacing: -0.056vw;
+    line-height: 1;
+    padding-top: 0.1vw;
+    color: rgb(51, 51, 51);
+}
+.gDxQLB {
+    font-family: SFProText;
+    font-weight: bold;
+}
+.jbYkPZ {
+    border-bottom: 1px solid rgb(227, 229, 232);
+    background: rgb(255, 255, 255);
+}
+.brYRBX {
+    height: 8vw;
+    font-size: 6.4vw;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: -0.0506667vw;
+    padding-bottom: 0.8vw;
+    padding-left: 4vw;
+    padding-right: 4.26667vw;
+    padding-top: 7.73333vw;
+}
+.lcYsvd {
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 50%;
+}
+.hSptdO {
+    color: rgb(102, 102, 102);
+    height: 8vw;
+    line-height: 8vw;
+    padding-right: 8px;
+}
+.gTQHQA {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 4.26667vw;
+    letter-spacing: -0.056vw;
+    line-height: 1;
+    padding-top: 0.1vw;
+    color: rgb(51, 51, 51);
+}
+.bnHBoH {
+    width: 4.26667vw;
+    height: 8vw;
+    background: url(http://t1.kakaocdn.net/friends/new_store/2.0/basket/trashcan-btn.png) center center / 4.26667vw 4.53333vw no-repeat;
+}
+
+	.dVWwMq {
+    height: 4vw;
+    font-family: SFProText;
+    font-size: 4.26667vw;
+    line-height: 0.94;
+    letter-spacing: -0.0533333vw;
+    padding-bottom: 2.66667vw;
+    color: rgb(0, 0, 0);
+}
+@media ( min-width : 769px) {
+.dVWwMq {
+    min-width: 105px;
+    height: unset;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: -0.19px;
+    text-align: right;
+    order: 3;
+    margin-right: 82px;
+    padding: 0px;
+}
+	.bnHBoH {
+    width: 16px;
+    height: 30px;
+    background-size: 16px 17px;
+}
+	.gTQHQA {
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    letter-spacing: -0.2px;
+    padding-top: 0px;
+}
+	.hSptdO {
+    height: 30px;
+    line-height: 32px;
+}
+	.brYRBX {
+    height: 60px;
+    font-size: 36px;
+    line-height: 1.67;
+    letter-spacing: -0.36px;
+    color: rgb(0, 0, 0);
+    padding: 56px 0px 34px;
+}
+	.fWUvvW {
+    margin-bottom: 167px;
+}
+.jbYkPZ {
+    width: 1080px;
+    border-bottom: 0px;
+}
+	.gDxQLB {
+    line-height: 30px;
+}
+	.gTQHQA {
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    letter-spacing: -0.2px;
+    padding-top: 0px;
+}
+	.crsOxf {
+    position: static;
+    height: 30px;
+    padding: 0px 0px 8px;
+}
+	.dQdpLr {
+    width: 80px;
+    height: 35px;
+    border-radius: 4px;
+}
+
+
+	.bHdxYH {
+		position: absolute;
+		width: 13px;
+		height: 13px;
+		background-size: 13px;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0px;
+	}
+	.bnlBze {
+		height: unset;
+		font-size: 15px;
+		max-width: 304px;
+		line-height: 1.47;
+		letter-spacing: -0.19px;
+	}
+	.BTcrB {
+		width: 304px;
+		padding: 0px;
+	}
+	.gNIdPH {
+		display: flex;
+		-webkit-box-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: center;
+		align-items: center;
+		margin: auto;
+	}
+	.fDGlIr {
+		width: 926px;
+		padding: 0px;
+	}
+	.bfspSz {
+		width: 100px;
+	}
+	.euYbXx {
+		width: 100px;
+		height: 100px;
+		margin-right: 14px;
+		padding: 0px;
+	}
+	.dejnuF {
+		width: 30px;
+		height: 25px;
+		margin-right: 10px;
+		background-size: 25px 25px;
+	}
+	.evybcA {
+		-webkit-box-align: center;
+		align-items: center;
+		height: 130px;
+		padding: 0px 20px 0px 0px;
+		margin: 0px;
+	}
+	.hMFYYJ {
+		/* width: 157px; */
+		font-size: 13px;
+		letter-spacing: -0.19px;
+		text-align: center;
+	}
+	.eZplGq {
+		display: flex;
+		-webkit-box-pack: justify;
+		justify-content: space-between;
+		background-color: rgb(255, 255, 255);
+		padding: 16px;
+		border-top: 1px solid rgb(0, 0, 0);
+		border-bottom: 1px solid rgb(227, 229, 232);
+	}
+}
+/* //////// signin /////////// */
+#mSub {
+    position: relative;
+}
+.visual_intro {
+    background-color: #ffdc00;
+}
+.login_intro .inner_intro {
+    width: 460px;
+    height: 480px;
+    margin: 0 auto;
+}
+.visual_intro .inner_intro {
+    position: relative;
+   /*  width: 1080px;
+    margin: 0 auto; */
+}
+.login_intro .tit_intro {
+    display: block;
+    padding-top: 140px;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 40px;
+}
+.login_intro .emph_tit {
+    display: block;
+    font-weight: bold;
+}
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+/* #mArticle {
+    padding-bottom: 0;
+} */
+.cont_login {
+    position: relative;
+    width: 492px;
+    margin: -155px auto 58px;
+}
+.cont_login .group_login {
+    padding: 164px 16px 0;
+    background: url(https://t1.kakaocdn.net/friends/kfo-common/pcrtn/bg_login_171129.png) 100% 0 no-repeat;
+    -webkit-background-size: 492px 155px;
+    background-size: 492px 155px;
+}
+.cont_login .group_btn {
+    margin-top: 51px;
+    padding: 0 16px 77px;
+}
+.btn_signup.bg_yellow {
+    background-color: #ffdc00;
+    border-color: #f8d200;
+}
+.btn_signup {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #1e1e1e;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 46px;
+}
+.btn_signup .ico_kakao {
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    margin: 15px 18px 0 0;
+    background-position: -38px 0;
+}
+.ico_newfriends_v1 {
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    background-image: url(https://t1.kakaocdn.net/friends/kfo-common/pc/ico_newfriends_v1_180920.png);
+    background-repeat: no-repeat;
+    vertical-align: top;
+    text-indent: -9999px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), not all
+.ico_newfriends_v1 {
+    background-image: url(https://t1.kakaocdn.net/friends/kfo-common/pcrtn/ico_newfriends_v1_180920.png);
+    background-size: 300px 300px;
+}
+.windows .btn_signup .txt_signup {
+    line-height: 42px;
+    vertical-align: top;
+}
+.btn_signup .txt_signup {
+    line-height: 52px;
+}
+.cont_login .group_attention {
+    padding-bottom: 10px;
+}
+.cont_login .tit_attention {
+    display: block;
+    margin-bottom: 25px;
+    padding: 0 35px;
+    font-size: 16px;
+}
+.cont_login .list_attention li {
+    position: relative;
+    margin-bottom: 22px;
+    padding: 0 35px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.008em;
+}
+.cont_login .list_attention li:before {
+    position: absolute;
+    left: 16px;
+    top: 11px;
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+    background: #666;
+    content: '';
+}
+@media ( min-width : 769px) {
+}
+/* /////////mypage - pointlist /////////// */
+

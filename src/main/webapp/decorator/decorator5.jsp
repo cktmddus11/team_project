@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript"
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 <head>
 <title><decorator:title /></title>
 <meta charset="UTF-8">
@@ -772,8 +772,8 @@ hover {
    </div> -->
 
    <!-- Product -->
-   <section class="bg0 p-b-140" style="    padding-top: 3%; padding-bottom: 10%;">
-  <!--     <div class="container"> -->
+   <section class="bg0 p-b-140" style="    padding-top: 6%; padding-bottom: 10%;">
+      <div class="container">
          <decorator:body />
          <div class="flex-w flex-sb-m p-b-25">
             <!-- Search product -->
@@ -910,7 +910,7 @@ hover {
                class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
                Load More </a>
          </div> -->
-      <!-- </div> -->
+      </div>
    </section>
 
 
@@ -1061,11 +1061,11 @@ hover {
 
 
    <!-- Back to top -->
-   <div class="btn-back-to-top" id="myBtn">
+    <div class="btn-back-to-top" id="myBtn">
       <span class="symbol-btn-back-to-top"> <i
          class="zmdi zmdi-chevron-up"></i>
       </span>
-   </div>
+   </div> 
 
    <!-- Modal1 -->
    <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
@@ -1189,7 +1189,55 @@ hover {
          </div>
       </div>
    </div>
+ <!-- Modal2 -->
+	<div class="wrap-modal2 js-modal2 p-b-20 bUaVHd">
+		<div class="overlay-modal2 js-hide-modal2"></div>
 
+		<div class="container" style="border-radius: 5px;">
+			<div class="bg0 p-t-60 p-b-0 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal2">
+					<img src="../images/icons/icon-close.png" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class=""
+						style="width: 100%; padding-left: 10%; padding-right: 10%;">
+						<div class="">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14"
+								style="text-align: center; font-weight: bold;">
+								카카오프렌즈 회원구매 혜택<br>
+							</h4>
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14"
+								style="text-align: center">
+								신규 가입시 1,000포인트 즉시 지급!<br> 회원 구매시 3% 적립!
+							</h4>
+							<div style="text-align: center">
+								<img
+									src="http://t1.kakaocdn.net/friends/new_store/bg_benefit2.png"
+									class="check-member-popup__TambourineRyan-sc-1mlxq2j-4 gNwgdH">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bg0">
+				<table
+					style="width: 100%; margin: auto; border-top: 1px solid #d8d8d8;">
+					<tr>
+						<td class="p-t-20 p-b-20"
+							style="text-align: center; font-size: 20px; border-right: 1px solid #d8d8d8; width: 50%;">
+							<a href="../order/directsheet.store" style="color: black;">비회원
+								구매</a>
+						</td>
+						<td class="p-t-20 p-b-20"
+							style="text-align: center; font-size: 20px;"><strong><a
+								href="../order/directsheet.store" style="color: black;">간편
+									회원 구매</a></strong></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
    <!--===============================================================================================-->
    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
    <!--===============================================================================================-->
@@ -1236,7 +1284,7 @@ hover {
    <script src="../vendor/isotope/isotope.pkgd.min.js"></script>
    <!--===============================================================================================-->
    <script src="../vendor/sweetalert/sweetalert.min.js"></script>
-   <script>
+   <script> // 찜 추가하는 부분
       $('.js-addwish-b2').on('click', function(e) {
          e.preventDefault();
       });
@@ -1296,7 +1344,25 @@ hover {
    </script>
    <!--===============================================================================================-->
    <!-- <script src="../js/main.js"></script> -->
+<script>
+$('.js-show-modal2').on('click',function(e){
+    e.preventDefault();
+    $('.js-modal2').addClass('show-modal2');
+});
 
+$('.js-hide-modal2').on('click',function(){
+    $('.js-modal2').removeClass('show-modal2');
+});
+//////////////
+$('.js-show-modal1').on('click',function(e){
+    e.preventDefault();
+    $('.js-modal1').addClass('show-modal1');
+});
+
+$('.js-hide-modal1').on('click',function(){
+    $('.js-modal1').removeClass('show-modal1');
+});
+</script>
    <!--===============================================================================================-->
    <script>
       /*Dropdown Menu*/
@@ -1317,16 +1383,6 @@ hover {
                      $(this).attr('id'));
             });
       /*End Dropdown Menu*/
-   </script>
-   <script>
-   $('.js-show-modal2').on('click',function(e){
-       e.preventDefault();
-       $('.js-modal2').addClass('show-modal2');
-   });
-
-   $('.js-hide-modal2').on('click',function(){
-       $('.js-modal2').removeClass('show-modal2');
-   });
    </script>
    <script src="../js/main_idx.js"></script>
    <!--===============================================================================================-->

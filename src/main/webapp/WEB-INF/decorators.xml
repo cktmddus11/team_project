@@ -7,17 +7,30 @@
 	<decorator name="main2" page="decorator2.jsp">
  		<pattern>/product/list*</pattern>
  		<pattern>/help*</pattern>
+ 		
  	</decorator>
  	<!--  매장소개 -->
  	<decorator name="main3" page="decorator3.jsp">
  		<pattern>/info/*</pattern>
  	</decorator>
  <decorator name="main4" page="decorator4.jsp">
- 		<pattern>/product/product*</pattern>
- 		<pattern>/order/dir*</pattern>
+ 		
+ 	<!-- 	<pattern>/order/dir*</pattern> -->
+ 			<pattern>/user/sign*</pattern>
  		
  	</decorator>
- 	
+ 	<decorator name="main5" page="decorator5.jsp">
+ 	<pattern>/mypage/myind*</pattern>
+ 	<pattern>/mypage/contactpage*</pattern>
+ 	<pattern>/mypage/contact_form*</pattern>
+ 	<pattern>/mypage/wish*</pattern>
+ 	<pattern>/mypage/myinfo*</pattern>
+ 	<pattern>/product/product*</pattern>
+ <pattern>/mypage/pointlist*</pattern>
+ 	</decorator>
+ 	<decorator name="main7" page="decorator7.jsp">
+ 		<pattern>/admin/*</pattern>
+ 	</decorator>
  	<!-- layout 제외 -->
  	<excludes></excludes>
 </decorators>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
+<link rel="stylesheet" type="text/css" href="../css/mypage_cyj.css">
 <style type="text/css">
 #my_b_b {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -34,14 +35,14 @@
 	font-size: 20px;
 }
 </style>
-<!-- mypage_cyj.css -->
+
 </head>
 <body>
 	<div class="mypage_header">
 		<div>
-			<span class="mypage_name" id="my_b_b">이름</span> <span
+			<span class="mypage_name" id="my_b_b">${sessionScope.kname }</span> <span
 				class="mypage_email"> <span class="mypage_imgemail"></span> <span
-				id="my_l_b">아이디</span>
+				id="my_l_b">${sessionScope.kemail}</span>
 			</span>
 		</div>
 		<a href="../member/update.store" class="mem_update" id="my_l_b">정보수정</a>
