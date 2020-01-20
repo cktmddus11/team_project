@@ -274,7 +274,7 @@ input[type=text] {
 						</a>
 						<div
 							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<a href="mypage/myindex.store"  style="color:black;"><i class="fa fa-user" aria-hidden="true"></i></a>
 						</div>
 					</div>
 					<br>

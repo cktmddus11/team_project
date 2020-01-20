@@ -206,7 +206,7 @@ input[type=text] {
 					</div>
 					<!-- Logo desktop -->
 					<div class="menu-desktop" style="width: 35%;">
-						<a href="index.store" class="logo" id="boldfont_black_de" style="padding-left: 145px;"> KAKAO FRIENDS </a>
+						<a href="../index.store" class="logo" id="boldfont_black_de" style="padding-left: 145px;"> KAKAO FRIENDS </a>
 					</div>
 
 					<!-- Icon header -->
@@ -221,7 +221,9 @@ input[type=text] {
 						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
 						</a>
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<a href="../mypage/myindex.store" style="color:black;">
+								<i class="fa fa-user" aria-hidden="true"></i>
+							</a>
 						</div>
 					</div>
 					<br>
