@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>포인트 리스트</title>
+<link rel="stylesheet" type="text/css" href="../css/main_csy.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="mArticle">
@@ -21,8 +26,8 @@
 		</div>
 		<div class="list__Header-j7zqmn-0 cKOECY">
 			<span class="list__HeaderTitle-j7zqmn-1 fusTrl">포인트 사용 내역</span><span
-				class="list__HeaderInfo-j7zqmn-2 iNARBl">최근 1년 내역만 확인할 수
-				있습니다.</span>
+				class="list__HeaderInfo-j7zqmn-2 iNARBl"><!-- 최근 1년 내역만 확인할 수
+				있습니다. --></span>
 		</div>
 		<div class="list__ContentWrapper-j7zqmn-3 kpgujp">
 			<ul class="table-head__Block-sc-1fwkjri-0 dIVlFl">

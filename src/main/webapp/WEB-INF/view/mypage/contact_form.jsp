@@ -6,9 +6,11 @@
 <meta charset="UTF-8">
 <title>카카오프렌즈 - 1:1 문의 작성</title>
 <link rel="stylesheet" type="text/css" href="../css/main_csy.css">
-</head>
-<body>
-	<script>
+<link rel="stylesheet" type="text/css"
+	href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<script>
 		function changecase() {
 			var content = $("select[name='case1']").val();
 			var write = null;
@@ -45,6 +47,9 @@
 			$("label[name='caselabel']").attr('content', write);
 		}
 	</script>
+</head>
+<body>
+	
 	<div id="mArticle">
 		<div class="question-form__FormWrapper-sc-14728i7-0 kwFxWp">
 			<form>
@@ -60,7 +65,7 @@
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
 									<input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
 										placeholder="이름" error="0" align="left" padding="15"
-										name="name" value="">
+										name="name" value="${sessionScope.kname}" readonly>
 								</div>
 							</div>
 						</div>
@@ -70,7 +75,7 @@
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
 									<input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
 										placeholder="이메일 입력" error="0" align="left" padding="15"
-										name="email" value="">
+										name="email" value="${sessionScope.kemail}" readonly>
 								</div>
 							</div>
 						</div>
@@ -80,7 +85,7 @@
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
 									<input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
-										placeholder="01012345678" error="0" align="left" padding="15"
+										placeholder="번호 입력" error="0" align="left" padding="15"
 										name="phone" value="">
 								</div>
 							</div>
@@ -111,7 +116,7 @@
 							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">제목</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
-									<input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
+									<input class="input-text__CustomText-sc-14n8vry-1 llGwgt" style="width : 100%"
 										placeholder="제목" error="0" align="left" padding="15"
 										name="title" value="">
 								</div>
@@ -122,7 +127,7 @@
 								내용</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="question-form__TextAreaWrapper-sc-14728i7-15 howXoD">
-									<textarea class="textarea__CustomTextArea-sc-11m4psx-0 jGpjC"
+									<textarea class="textarea__CustomTextArea-sc-11m4psx-0 jGpjC" style="width : 100%"
 										placeholder="문의 내용 입력" height="177" name="contents"></textarea>
 								</div>
 							</div>
@@ -131,11 +136,8 @@
 							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">사진
 								첨부</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
-								<div>
-									 	<label class="input-file__FileBox-uz5ebk-0 cLHtJi" for="file"><input
-										class="input-file__Input-uz5ebk-2 bTDNUq" id="file"
-										type="file"><span
-										class="input-file__Button-uz5ebk-3 iIVffC"><span>파일선택</span></span></label>
+								<input type="file" class="i-t-name-1" id="my_ll_b"
+									placeholder="사진을 첨부하세요" name="file1" value="">
 									<!-- <label class="input-file__FileBox-uz5ebk-0 cLHtJi" for="file"><span
 										class="input-file__Name-uz5ebk-1 ZAepM" lang="kr">kakao_account_login_btn_medium_narrow.png</span>
 									<button class="input-file__Delete-uz5ebk-4 bOawBQ"
@@ -167,7 +169,6 @@
 												class="check-box__Text-sc-1dmnxgb-4 jBTEoi">개인정보 수집 및
 													이용에 동의합니다</span><span
 												class="check-box__Required-sc-1dmnxgb-7 hqJXmu">[필수]</span></label>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -177,10 +178,11 @@
 				<div class="question-form__FooterBlock-sc-14728i7-7 BCbzT">
 					<button
 						class="question-form__CancelButton-sc-14728i7-9 cvQgXv question-form__Button-sc-14728i7-8 encGOf"
+						onclick="location.href='../mypage/contactpage.store'"
 						type="button">취소</button>
 					<button
 						class="question-form__SubmitButton-sc-14728i7-10 ekjGWF question-form__Button-sc-14728i7-8 encGOf"
-						type="button">등록하기</button>
+						type="button" onclick="location.href='../mypage/contactpage.store'">등록하기</button>
 				</div>
 			</form>
 		</div>

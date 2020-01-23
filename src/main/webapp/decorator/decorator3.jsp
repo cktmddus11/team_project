@@ -111,7 +111,6 @@ a.noul:hover {
 		<div class="container-menu-desktop" >
 			<!-- Topbar -->
 
-
 			<div class="wrap-menu-desktop" >
 				<nav class="limiter-menu-desktop container" >
 
@@ -119,7 +118,7 @@ a.noul:hover {
 				<div style="width: 75%;">
 					<div style="width: 210px;">
 						<a href="../index.store" class="logo" id="boldfont_white" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 					</div>
 				</div>
@@ -155,7 +154,7 @@ a.noul:hover {
 			<div style="width: 95%;">
 				<div style="width: 210px;">
 					<a href="../index.store" class="logo" id="boldfont_white" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 				</div>
 			</div>
@@ -202,10 +201,11 @@ a.noul:hover {
 				<div style="width: 75%;">
 					<div style="width: 210px;">
 						<a href="../index.store" class="logo" id="boldfont_black_de" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 					</div>
 				</div>
+				
 				
 
 					<!-- Menu desktop -->
@@ -238,7 +238,7 @@ a.noul:hover {
 			<div style="width: 95%; float: left;">
 				<div style="width: 210px;">
 					<a href="../index.store" class="logo" id="boldfont_black_de" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 				</div>
 			</div>

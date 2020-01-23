@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>카카오프렌즈 - 찜 리스트</title>
 <link rel="stylesheet" type="text/css" href="../css/main_csy.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="mArticle">
@@ -57,7 +61,7 @@
 							for="checkbox-12047162"></label>
 							<div class="basket-item__ImageWrap-sc-1bhrte-2 euYbXx">
 								<a class="link_thumb basket-item__ImageLink-sc-1bhrte-1 guGymS"
-									href="../product/product-detail.store"><span
+									href="../item/product-detail.store"><span
 									class="thumbnail__ThumbnailWrap-sc-1ev0rt3-0 bfspSz"
 									itemtype="basket"><span
 										class="img__Wrap-tev7mj-0 hmRzec"><img

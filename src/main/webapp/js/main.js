@@ -287,5 +287,4 @@
         $('.js-modal2').removeClass('show-modal2');
     });
 
-
 })(jQuery);

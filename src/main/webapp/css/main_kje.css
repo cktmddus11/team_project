@@ -3378,16 +3378,36 @@ span.choose {
 .dropdown .select {
     cursor: pointer;
     display: block;
-    padding: 10px
+    padding-left: 10px;
+    padding-top: 10px;
 }
+@media (min-width: 769px){
+.dropdown .select {
+    cursor: pointer;
+    display: block;
+    padding-left: 10px;
+}}
 .dropdown .select > i {
     font-size: 13px;
     color: #888;
     cursor: pointer;
     transition: all .3s ease-in-out;
     float: right;
-    line-height: 20px
+    line-height: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
+@media (min-width: 769px){
+.dropdown .select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-right: 10px;
+}}
 .dropdown:hover {
     box-shadow: 0 0 4px rgb(204, 204, 204)
 }

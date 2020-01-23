@@ -57,6 +57,7 @@
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/main_kje.css">
 <link rel="stylesheet" type="text/css" href="../css/mypage_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/category_cyj.css">
 <!--===============================================================================================-->
 <link href="../css/modern-business.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet"
@@ -150,6 +151,22 @@ hover {
    font-weight: 700;
    color: black;
 }
+#ll_b_de {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 200;
+	color: black;
+	font-size: 15px;
+}
+.deco7_hamburger_list {
+	position: absolute;
+	top: 100%;
+	right: 20%;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid black; border-radius : 3.2px;
+	padding: 1vw 0;
+	animation: 0.5s ease-in-out 0s 1 normal none running fadeIn;
+	border-radius: 3.2px;
+}
 </style>
 <!-- ... -->
 </head>
@@ -168,107 +185,186 @@ hover {
          <div class="wrap-menu-desktop" style="top: 0; width: 100%;">
             <div class="limiter-menu-desktop container">
                <!-- Menu desktop -->
-               <div class="menu-desktop" style="width: 30%;">
-                  <ul class="main-menu" id="lightfont_black_de">
-                     <li class="active-menu"><a href="product/list.store">카테고리
-                           <img src="../images/index_deco/ico-header-triangle.png"
-                           width="7" height="4">
-                     </a>
-                        <ul class="sub-menu" style="position: absolute;">
-                           <li>
-                              <div style="width: 90%;" id="h">
-                                 <a href="../product/list.store"
-                                    style="border-right: 1px solid rgba(0, 0, 0, 0.2);">전체</a>
-                              </div>
-                           </li>
-                           <li>
-                              <div style="width: 90%;" id="h">
-                                 <a href="../product/list.store"
-                                    style="border-right: 1px solid rgba(0, 0, 0, 0.2);">토이</a>
-                              </div>
-                           </li>
-                        </ul>
-                        <ul class="sub-menu"
-                           style="position: absolute; margin-left: 225px;">
-                           <li>
-                              <div style="width: 90%;" id="h">
-                                 <a href="../product/list.store"
-                                    style="border-right: 1px solid rgba(0, 0, 0, 0.2);">전체</a>
-                              </div>
-                           </li>
-                           <li>
-                              <div style="width: 90%;" id="h">
-                                 <a href="../product/list.store"
-                                    style="border-right: 1px solid rgba(0, 0, 0, 0.2);">토이</a>
-                              </div>
-                           </li>
-                        </ul>
-                        <ul class="sub-menu"
-                           style="position: absolute; margin-left: 450px;">
-                           <li>
-                              <div style="width: 90%;">
-                                 <a href="../product/list.store"> <img height="60"
-                                    width="60"
-                                    src="../images/index_deco/character/category_rion_off.png"
-                                    onmouseout="this.src='../images/index_deco/character/category_rion_off.png'"
-                                    onmouseover="this.src='../images/index_deco/character/category_rion_on.png'">
-                                    <img height="60" width="60"
-                                    src="../images/index_deco/character/category_apeach_off.png"
-                                    onmouseout="this.src='../images/index_deco/character/category_apeach_off.png'"
-                                    onmouseover="this.src='../images/index_deco/character/category_apeach_on.png'">
-                                 </a>
-                              </div>
-                           </li>
-                           <li>
-                              <div style="width: 90%;">
-                                 <a href="../product/list.store"> <img height="60"
-                                    width="60"
-                                    src="../images/index_deco/character/category_rion_off.png"
-                                    onmouseout="this.src='../images/index_deco/character/category_rion_off.png'"
-                                    onmouseover="this.src='../images/index_deco/character/category_rion_on.png'">
-                                    <img height="60" width="60"
-                                    src="../images/index_deco/character/category_apeach_off.png"
-                                    onmouseout="this.src='../images/index_deco/character/category_apeach_off.png'"
-                                    onmouseover="this.src='../images/index_deco/character/category_apeach_on.png'">
-                                 </a>
-                              </div>
-                           </li>
-                        </ul></li>
+              <div class="menu-desktop" style="width: 30%;">
+						<ul class="main-menu" id="lightfont_black_de">
+							<li class="active-menu"><a href="item/list.store"
+								id="my_ll_b" style="font-size: 17px;">카테고리 <img
+									src="images/index_deco/ico-header-triangle.png" width="7"
+									height="4">
+							</a>
+								<ul class="sub-menu" style="position: absolute;">
+									<li><div class="cate_list">
+											<div class="cate_main_sub">
+												<div class="cate_main">
+													<ul>
+														<li class="cate_main_notclick" id="all"><a
+															style="font-size: 17px;" href="../item/list.store">전체</a></li>
+														<li class="cate_main_notclick" id="toy"><a
+															style="font-size: 17px;" href="../item/list.store">토이</a></li>
+														<li class="cate_main_notclick" id="cloth"><a
+															style="font-size: 17px;" href="../item/list.store">의류</a></li>
+														<li class="cate_main_notclick" id="tech"><a
+															style="font-size: 17px;" href="../item/list.store">생활 테크</a></li>
+													</ul>
 
-                     <li><a href="../info/storeInfo.store">매장안내</a></li>
+												</div>
+												<ul id="all_ul" style="display: none;">
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">인기 순</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">리뷰 순</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">신상품 순</a></li>
+												</ul>
+												<ul id="toy_ul" style="display: none;">
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">미니 인형</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">중형 인형</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">대형 인형</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">키체인 인형</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">피규어/브릭</a></li>
+												</ul>
+												<ul id="cloth_ul" style="display: none;">
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">여성</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">남성</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">키즈</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">속옷</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">양말</a></li>
+												</ul>
+												<ul id="tech_ul" style="display: none;">
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">노트북
+															액세서리</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">에어팟
+															케이스</a></li>
+													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">에어팟
+															액세서리</a></li>
+												</ul>
 
-                     <!--class="label1"  data-label1="hot"-->
-                     <li><a href="../shoping-cart.html">고객센터</a></li>
-                  </ul>
-               </div>
+											</div>
+											<div class="cate_character">
+												<div class="cate_character_in">
+													<ul class="friends">
+														<li>
+															<div class="friend_one" id="rion">
+																<div>
+																	<span class="friend_pic"> <img
+																		class="friend_img" id="friend_img_rion"
+																		src="../images/index_deco/character/category_rion_off.png"
+																		alt="라이언">
+																	</span>
+																</div>
+																<span class="friend_name friend_name_rion" id="my_l_b">라이언</span>
+															</div>
+
+														</li>
+														<li>
+															<div class="friend_one" id="apeach">
+																<div>
+																	<span class="friend_pic"> <img
+																		class="friend_img" id="friend_img_apeach"
+																		src="../images/index_deco/character/category_apeach_off.png"
+																		alt="어피치">
+																	</span>
+																</div>
+																<span class="friend_name friend_name_apeach" id="my_l_b">어피치</span>
+															</div>
+
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div></li>
+								</ul></li>
+							<li><a href="../info/storeInfo.store" id="my_ll_b"
+								style="font-size: 17px;">매장안내</a></li>
+							<!--class="label1"  data-label1="hot"-->
+							<li><a href="../help/notice.store" id="my_ll_b"
+								style="font-size: 17px;">고객센터</a></li>
+						</ul>
+
+					</div>
+
+                     
                <!-- Logo desktop -->
-               <div class="menu-desktop" style="width: 35%;">
-                  <a href="../index.store" class="logo" id="boldfont_black_de"
-                     style="padding-left: 145px;"> KAKAO FRIENDS </a>
-               </div>
+               <div class="menu-desktop" style="width: 22vw;">
+						<a href="../index.store" class="logo" id="boldfont_black_de"
+							style="padding-left: 100px;">FRIEND STORE</a>
+					</div>
 
                <!-- Icon header -->
-               <div class="wrap-icon-header flex-w flex-r-m" style="width: 35%;">
-                  <form style="width: 60%;">
-                     <input type="text" name="search" placeholder="무엇을 찾으세요?">
-                  </form>
-                  <div
-                     class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                     data-notify="2">
-                     <i class="zmdi zmdi-shopping-cart"></i>
-                  </div>
+               					<div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
+						<form style="width: 50%;">
+							<input type="text" name="search" placeholder="무엇을 찾으세요?">
+						</form>
+						<ul class="main-menu" id="lightfont_black_de">
+							<li class="active-menu"><a href="../mypage/myindex.store" id="lightfont_black_de"
+								><span style="margin:0.3vw;"> <i
+										class="fa fa-user" aria-hidden="true"></i></span> </a>
+								<ul class="sub-menu deco7_hamburger_list"
+									style="position: absolute;">
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../user/signin.store" id="ll_b_de">로그인</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="" id="ll_b_de">로그아웃</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="mypage/orderlistpage.store" id="ll_b_de">주문내역</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../mypage/wishlist.store" id="ll_b_de">찜</a>
+										</div>
+									</li>
+								
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../mypage/pointlist.store" id="ll_b_de">포인트</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../help/notice.store" id="ll_b_de">1:1문의</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="#" id="ll_b_de">비회원 주문조회</a>
+										</div>
+									</li>
+								</ul></li>
+						</ul>
+					<div
+						class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+						data-notify="2">
+						<i class="zmdi zmdi-shopping-cart"></i>
+					</div>
 
-                  <a href="#"
-                     class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-                     data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
-                  </a>
-                  <div
-                     class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                     <a href="../mypage/myindex.store" style="color: black;"> <i
-                        class="fa fa-user" aria-hidden="true"></i>
-                     </a>
-                  </div>
-               </div>
+					<a href="../mypage/wishlist.store"
+						class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+						data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
+					</a>
+				</div>
                <br>
             </div>
             <hr style="margin-top: 0.01%; margin-bottom: 0.01%;">
@@ -1330,6 +1426,110 @@ hover {
    </script>
    <script src="../js/main_idx.js"></script>
    <!--===============================================================================================-->
-
+<script type="text/javascript">
+		$("#all").hover(function() {
+			$(this).attr('class', 'cate_main_click');
+			$("#toy").attr('class', 'cate_main_notclick')
+			$("#cloth").attr('class', 'cate_main_notclick')
+			$("#tech").attr('class', 'cate_main_notclick')
+		});
+		$("#toy").hover(function() {
+			$(this).attr('class', 'cate_main_click');
+			$("#all").attr('class', 'cate_main_notclick')
+			$("#cloth").attr('class', 'cate_main_notclick')
+			$("#tech").attr('class', 'cate_main_notclick')
+		});
+		$("#cloth").hover(function() {
+			$(this).attr('class', 'cate_main_click');
+			$("#all").attr('class', 'cate_main_notclick')
+			$("#toy").attr('class', 'cate_main_notclick')
+			$("#tech").attr('class', 'cate_main_notclick')
+		});
+		$("#tech").hover(function() {
+			$(this).attr('class', 'cate_main_click');
+			$("#all").attr('class', 'cate_main_notclick')
+			$("#toy").attr('class', 'cate_main_notclick')
+			$("#cloth").attr('class', 'cate_main_notclick')
+		});
+	</script>
+	<script type="text/javascript">
+		$("#all").hover(function() {
+			$("#all_ul").show()
+			$("#toy_ul").hide()
+			$("#cloth_ul").hide()
+			$("#tech_ul").hide()
+		}, function() {
+			$("#toy_ul").hide()
+			$("#cloth_ul").hide()
+			$("#tech_ul").hide()
+		});
+		$("#toy").hover(function() {
+			$("#toy_ul").show()
+			$("#all_ul").hide()
+			$("#cloth_ul").hide()
+			$("#tech_ul").hide()
+		}, function() {
+			$("#all_ul").hide()
+			$("#cloth_ul").hide()
+			$("#tech_ul").hide()
+		});
+		$("#cloth").hover(function() {
+			$("#cloth_ul").show()
+			$("#all_ul").hide()
+			$("#toy_ul").hide()
+			$("#tech_ul").hide()
+		}, function() {
+			$("#all_ul").hide()
+			$("#toy_ul").hide()
+			$("#tech_ul").hide()
+		});
+		$("#tech").hover(function() {
+			$("#tech_ul").show()
+			$("#all_ul").hide()
+			$("#toy_ul").hide()
+			$("#cloth_ul").hide()
+		}, function() {
+			$("#all_ul").hide()
+			$("#toy_ul").hide()
+			$("#cloth_ul").hide()
+		});
+	</script>
+	<script type="text/javascript">
+		$(".cate_sub_notclick").hover(function() {
+			$(this).attr('class', 'cate_sub_click');
+		}, function() {
+			$(this).attr('class', 'cate_sub_notclick');
+		});
+	</script>
+	<script type="text/javascript">
+		$("#rion")
+				.hover(
+						function() {
+							$("#friend_img_rion")
+									.attr("src",
+											"images/index_deco/character/category_rion_on.png")
+							$(".friend_name_rion").css('font-weight', '700')
+						},
+						function() {
+							$("#friend_img_rion")
+									.attr("src",
+											'images/index_deco/character/category_rion_off.png')
+							$(".friend_name_rion").css('font-weight', '200')
+						});
+		$("#apeach")
+				.hover(
+						function() {
+							$("#friend_img_apeach")
+									.attr("src",
+											'images/index_deco/character/category_apeach_on.png')
+							$(".friend_name_apeach").css('font-weight', '700')
+						},
+						function() {
+							$("#friend_img_apeach")
+									.attr("src",
+											'images/index_deco/character/category_apeach_off.png')
+							$(".friend_name_apeach").css('font-weight', '200')
+						});
+	</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
    <div class="col-lg-4 col-sm-6 portfolio-item" style="cursor: pointer;" onclick="location.href='#'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" 
-             src="https://t1.kakaocdn.net/friends/prod/main_tab/home/home_20200102184146_kr.jpg?type=thumb&opt=R335x187@2xa"
+             src="images/home_20200115141636_kr.jpg"
               alt=""></a>
           <div class="card-body">
             <h4 class="card-title" style="font-weight: bold;">

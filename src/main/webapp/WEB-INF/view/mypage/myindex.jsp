@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" type="text/css" href="../css/mypage_cyj.css">
 <style type="text/css">
 #my_b_b {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -35,17 +34,17 @@
 	font-size: 20px;
 }
 </style>
-
+<!-- mypage_cyj.css -->
 </head>
 <body>
 	<div class="mypage_header">
 		<div>
-			<span class="mypage_name" id="my_b_b">${sessionScope.kname }</span> <span
+			<span class="mypage_name" id="my_b_b">${sessionScope.kname}</span> <span
 				class="mypage_email"> <span class="mypage_imgemail"></span> <span
-				id="my_l_b">${sessionScope.kemail}</span>
+				id="my_l_b">${sessionScope.kemail }</span>
 			</span>
 		</div>
-		<a href="../member/update.store" class="mem_update" id="my_l_b">정보수정</a>
+		<a href="../member/update.store" class="mem_update" id="my_l_b">배송지수정</a>
 	</div>
 	<div class="mypage_list">
 		<a href="orderlistpage.store?status=receive" class="list_1"> <span class="list_2" id="my_bb_b">0</span>
@@ -62,10 +61,10 @@
 				<span class="list_3" id="my_ll_b">취소/반품/교환</span> <span
 					class="next_img"></span>
 			</div>
-		</a> <a href="pointlistpage.store" class="list_4"> <span class="list_2" id="my_bb_b">1,000&nbsp;P</span>
+		</a> <a href="../mypage/pointlist.store" class="list_4"> <span class="list_2" id="my_bb_b">1,000&nbsp;P</span>
 			<div>
 				<span class="list_3" id="my_ll_b">사용가능한 포인트</span> <span
-					class="next_img"></span>
+					class="next_img" ></span>
 			</div>
 		</a>
 	</div>

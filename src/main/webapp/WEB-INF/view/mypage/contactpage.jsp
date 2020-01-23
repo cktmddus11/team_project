@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>카카오프렌즈-1:1문의</title>
 <link rel="stylesheet" type="text/css" href="../css/main_csy.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <script>
 	$(document).ready(function() {
 		if($(".list__EmptyBlock-rbnwxz-11").hasClass('list__EmptyBlock-rbnwxz-11')){
@@ -93,10 +97,10 @@
 
 					</button>
 				</form>
-				<div class="list__EmptyBlock-rbnwxz-11 bkURUc">
+				<!-- <div class="list__EmptyBlock-rbnwxz-11 bkURUc">
 					<div>아직 문의하신 내역이 없어요</div>
-				</div> 
-				<!-- <div id="FAQ" class="FAQ">
+				</div>  -->
+				<div id="FAQ" class="FAQ">
 					<div class="list__ItemWrapper-sc-15wis6g-0 fkzQYP">
 						<div class="list__TitleBlock-sc-15wis6g-3 gxwoaN">
 							<div class="faq_info fuoFjD">기타</div>
@@ -116,12 +120,12 @@
 								캐시 삭제는 어떻게 하나요?</div>
 						</div>
 					</div>
-					<div class="faq_replyBlock iyrEsZ" id="faqreplynum1">
+					<!-- <div class="faq_replyBlock iyrEsZ" id="faqreplynum1">
 						<div class="reply-template__ReplyContents-kvnc78-1 kYyZhV">
 							<p>잘하세요 ~</p>
 						</div> 
-					</div>
-				</div> -->
+					</div> -->
+				</div> <!--   여기서닫기 -->
 			</div>
 
 			<!-- 	<script>

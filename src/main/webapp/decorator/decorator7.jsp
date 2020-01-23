@@ -57,6 +57,10 @@
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/main_kje.css">
 <link rel="stylesheet" type="text/css" href="../css/mypage_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/main_kje2.css">
+<link rel="stylesheet" type="text/css" href="../css/item_kje.css">
+<link rel="stylesheet" type="text/css" href="../css/mypage_cyj2.css">
+
 <!--===============================================================================================-->
 <link href="../css/modern-business.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet"
@@ -67,11 +71,15 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,700,900&display=swap"
 	rel="stylesheet">
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
 <!-- ... -->
 </head>
 <style type="text/css">
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-	width: 40px;
+	width: 30px;
 	height: 4px;
 	background-color: black;
 	border-radius: 4px;
@@ -80,16 +88,31 @@
 	transition-duration: 0.15s;
 	transition-timing-function: ease;
 }
-input[type='text'], 
-input[type='password'], 
-input[type='submit'], 
-input[type='search'], 
-input[type='tel'],
-input[type='email'], 
-html input[type='button'], 
-input[type='reset'] {
-    -webkit-appearance: none;
-    border-radius: 0;
+input[type=text] {
+   width: 100%;
+   box-sizing: border-box;
+  /*  border: 1px solid #ccc; */
+   font-family: 'Noto Sans KR', sans-serif;
+   font-weight: 100;
+   color: black;
+   border-radius: 4px;
+   font-size: 16px;
+   background-color: white;
+/*    background-size: 20px;
+   background-image: url('../images/product/ico-header-search.png');
+   background-position: 10px 15px;
+   background-repeat: no-repeat; */
+   padding-top: 14px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+   font-weight: 100;
+   color: black;
+}
+input[type='text'], input[type='password'], input[type='submit'], input[type='search'],
+	input[type='tel'], input[type='email'], html input[type='button'],
+	input[type='reset'] {
+	-webkit-appearance: none;
+	border-radius: 0;
 }
 </style>
 <style type="text/css">
@@ -100,6 +123,7 @@ input[type='reset'] {
 	width: 100%;
 	font-size: 25px;
 }
+
 #boldfont_black_de {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 900;
@@ -107,6 +131,7 @@ input[type='reset'] {
 	width: 100%;
 	font-size: 20px;
 }
+
 #lightfont_white {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 100;
@@ -114,24 +139,35 @@ input[type='reset'] {
 	width: 100%;
 	font-size: 18px;
 }
+
 #lightfont_black_de {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 300;
 	color: black;
 	font-size: 16px;
 }
+
 hover {
 	color: black;
 }
+
 #search {
 	position: absolute;
 }
+
 #urlchg:hover {
 	color: black;
 }
+
 #h a:hover {
 	font-weight: 700;
 	color: black;
+}
+.hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 10px;
 }
 </style>
 <!-- ... -->
@@ -151,98 +187,53 @@ hover {
 			<div class="wrap-menu-desktop" style="top: 0; width: 100%;">
 				<div class="limiter-menu-desktop container">
 					<!-- Menu desktop -->
-					<div class="menu-desktop" style="width: 23vw;">
+					<div class="menu-desktop" style="width: 32vw;">
 						<ul class="main-menu" id="lightfont_black_de">
-							<li class="active-menu"><a href="" id="lightfont_black_de" onclick="return false;">상품관리
-									<img src="../images/index_deco/ico-header-triangle.png"
-									width="7" height="4">
+							<li class="active-menu"><a href="" id="lightfont_black_de"
+								onclick="return false;">상품관리 <img
+									src="../images/index_deco/ico-header-triangle.png" width="7"
+									height="4">
 							</a>
-							 <ul class="sub-menu" style="position: absolute;">
+								<ul class="sub-menu deco7_hamburger_list" style="position: absolute;">
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../product/list.store" id="lightfont_black_de" 
-												style="border: 1px solid rgba(0, 0, 0, 0.2);">상품 목록 관리</a>
-										</div>
-									</li>
-									<li>
-										<div style="width: 90%;" id="h">
-											<a href="../product/list.store" id="lightfont_black_de"
-												style="border: 1px solid rgba(0, 0, 0, 0.2);">상품 입고 관리</a>
+											<a href="../admin/product-list.store" id="lightfont_black_de">상품 목록 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../product/list.store" id="lightfont_black_de"
-												style="border: 1px solid rgba(0, 0, 0, 0.2);">상품 재고 관리</a>
+											<a href="../admin/order-item-in.store"
+												id="lightfont_black_de">상품 입고 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../product/list.store" id="lightfont_black_de"
-												style="border: 1px solid rgba(0, 0, 0, 0.2);">상품 출고 관리</a>
-										</div>
-									</li>
-								</ul>
-								</li>
-								<!-- <ul class="sub-menu"
-									style="position: absolute; margin-left: 225px;">
-									<li>
-										<div style="width: 90%;" id="h">
-											<a href="../product/list.store"
-												style="border-right: 1px solid rgba(0, 0, 0, 0.2);">전체</a>
+											<a href="../admin/order-item-list.store"
+												id="lightfont_black_de">상품 재고 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../product/list.store"
-												style="border-right: 1px solid rgba(0, 0, 0, 0.2);">토이</a>
+											<a href="../admin/order-item-out.store"
+												id="lightfont_black_de">상품 출고 관리</a>
 										</div>
 									</li>
-								</ul> -->
-								<!-- <ul class="sub-menu"
-									style="position: absolute; margin-left: 450px;">
-									<li>
-										<div style="width: 90%;">
-											<a href="../product/list.store"> <img height="60"
-												width="60"
-												src="../images/index_deco/character/category_rion_off.png"
-												onmouseout="this.src='../images/index_deco/character/category_rion_off.png'"
-												onmouseover="this.src='../images/index_deco/character/category_rion_on.png'">
-												<img height="60" width="60"
-												src="../images/index_deco/character/category_apeach_off.png"
-												onmouseout="this.src='../images/index_deco/character/category_apeach_off.png'"
-												onmouseover="this.src='../images/index_deco/character/category_apeach_on.png'">
-											</a>
-										</div>
-									</li>
-									<li>
-										<div style="width: 90%;">
-											<a href="../product/list.store"> <img height="60"
-												width="60"
-												src="../images/index_deco/character/category_rion_off.png"
-												onmouseout="this.src='../images/index_deco/character/category_rion_off.png'"
-												onmouseover="this.src='../images/index_deco/character/category_rion_on.png'">
-												<img height="60" width="60"
-												src="../images/index_deco/character/category_apeach_off.png"
-												onmouseout="this.src='../images/index_deco/character/category_apeach_off.png'"
-												onmouseover="this.src='../images/index_deco/character/category_apeach_on.png'">
-											</a>
-										</div>
-									</li>
-								</ul> 
-								</li> -->
+								</ul></li>
+							<li><a href="../admin/orderstate.store"
+								id="lightfont_black_de">주문 상태 관리</a></li>
+							<li><a href="../admin/store_list.store"
+								id="lightfont_black_de">매장 관리</a></li>
+							<li><a href="../admin/change_return_order_list.store"
+								id="lightfont_black_de">환불/교환/반품 관리</a></li>
 
-							<li><a href="../admin/orderstate.store" id="lightfont_black_de">주문 상태 관리</a></li>
-							<li><a href="../admin/store_list.store" id="lightfont_black_de">매장 관리</a></li>
-							
 
 							<!--class="label1"  data-label1="hot"-->
 						</ul>
 					</div>
 					<!-- Logo desktop -->
-					<div class="menu-desktop" style="width: 32vw;">
+					<div class="menu-desktop" style="width: 16vw;">
 						<a href="../index.store" class="logo" id="boldfont_black_de"
-							style="padding-left: 13vw;"> FRIEND STORE </a>
+							style="padding-left: 0px; text-decoration: none;">FRIEND STORE</a>
 					</div>
 
 					<!-- Icon header -->
@@ -266,13 +257,32 @@ hover {
 							</a>
 						</div>
 					</div> -->
-					<div class="menu-desktop" style="width: 29vw;">
+					
+					<div class="menu-desktop" style="width: 32vw;">
 						<ul class="main-menu">
-					<li><a href="../info/storeInfo.store" id="lightfont_black_de">고객 센터 관리</a></li>
-					<li><a href="../info/storeInfo.store" id="lightfont_black_de">1:1 문의 관리</a></li>
-					<li><a href="../info/storeInfo.store" id="lightfont_black_de">admin</a></li>
-					<li><a href="../info/storeInfo.store" id="lightfont_black_de">로그아웃</a></li>
-					</ul>
+							<li class="active-menu"><a href="" id="lightfont_black_de"
+								onclick="return false;"><span style="margin: 1vw;">고객센터 관리</span>
+								</a>
+								<ul class="sub-menu deco7_hamburger_list" style="position: absolute;">
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../admin/notice_list.store" id="lightfont_black_de">공지사항 목록 관리</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../admin/faq_list.store"
+												id="lightfont_black_de">FAQ 목록 관리</a>
+										</div>
+									</li>
+								</ul></li>
+							<li><a href="../admin/contact_list.store"
+								id="lightfont_black_de">1:1 문의 관리</a></li>
+							<li><a href="../admin/manage_index.store"
+								id="lightfont_black_de">로그아웃</a></li>
+								<li><a href="../admin/manager.store"
+								id="lightfont_black_de">관리자 목록 관리</a></li>
+						</ul>
 					</div>
 					<br>
 				</div>
@@ -285,11 +295,7 @@ hover {
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile" style="width: 100%;">
 			<!-- Button show menu -->
-			<div style="width: 8%;"
-				class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box"> <span class="hamburger-inner"></span>
-				</span>
-			</div>
+
 			<div style="width: 4%;"
 				class="icon-header-item cl2 hov-cl1 trans-04 js-show-modal-search">
 				<i class="zmdi zmdi-search"></i>
@@ -683,8 +689,7 @@ hover {
 															function() {
 																var _width = $(
 																		this)
-																		.width(), _length = $(this).length,
-																$
+																		.width(), _length = $(this).length, $
 																('.scroll-wrap')
 																		.scrollLeft((_width / _length)
 																				* _index);
@@ -776,7 +781,8 @@ hover {
    </div> -->
 
 	<!-- Product -->
-	<section class="bg0 p-b-140" style="    padding-top: 6%; padding-bottom: 10%;">
+	<section class="bg0 p-b-140"
+		style="padding-top: 6%; padding-bottom: 10%;">
 		<div class="container">
 			<decorator:body />
 			<div class="flex-w flex-sb-m p-b-25">
@@ -909,7 +915,7 @@ hover {
 			<div class="row isotope-grid"></div>
 
 			<!-- Load more -->
-<!-- 			<div class="flex-c-m flex-w w-full p-t-45">
+			<!-- 			<div class="flex-c-m flex-w w-full p-t-45">
 				<a href="#"
 					class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 					Load More </a>

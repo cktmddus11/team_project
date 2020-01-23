@@ -3518,3 +3518,13 @@ input.num-product::-webkit-inner-spin-button {
 .liroll:first-child a {
 	margin-left: 0;
 }
+.deco7_hamburger_list {
+	position: absolute;
+	top: 100%;
+	right: 20%;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid black; border-radius : 3.2px;
+	padding: 1vw 0;
+	animation: 0.5s ease-in-out 0s 1 normal none running fadeIn;
+	border-radius: 3.2px;
+}

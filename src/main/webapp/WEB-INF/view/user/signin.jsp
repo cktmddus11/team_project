@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>카카오페이지 - 로그인</title>
 <link rel="stylesheet" type="text/css" href="../css/main_csy.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="mSub">

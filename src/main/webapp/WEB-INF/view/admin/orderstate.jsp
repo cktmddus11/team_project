@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../jspHeader.jsp" %>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +13,21 @@
 	color: black;
 	font-size: 36px;
 }
+
 #my_l_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
 	color: black;
 	font-size: 16px;
 }
+
 #my_bb_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 900;
 	color: black;
 	font-size: 25px;
 }
+
 #my_ll_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
@@ -72,7 +75,6 @@
 								<li><a class="my_ll_b" id="배송준비중">배송준비중</a></li>
 								<li><a class="my_ll_b" id="배송중">배송중</a></li>
 								<li><a class="my_ll_b" id="주문확정">주문확정</a></li>
-								<li><a class="my_ll_b" id="취소/반품/교환">취소/반품/교환</a></li>
 							</ul>
 						</div>
 					</div>
@@ -82,7 +84,7 @@
 				<!-- count > 0  -->
 				<ul class="admin_list_no_ul">
 					<li class="order_num" id="my_bb_b" style="font-size: 20px;">주문 번호</li>
-					<li class="item_num" id="my_bb_b" style="font-size: 20px;">주문 상품</li>
+					<li class="item_num_2" id="my_bb_b" style="font-size: 20px;">주문 상품</li>
 					<li class="order_date" id="my_bb_b" style="font-size: 20px;">주문 일자</li>
 					<li class="order_state" id="my_bb_b" style="font-size: 20px;">주문 상태</li>
 				</ul>
@@ -102,7 +104,7 @@
 							</a>
 							<div class="order_list_content">
 								<div>
-									<div class="item_name" id="my_ll_b">페이스형안대_라이언</div>
+									<div class="item_name_2" id="my_ll_b">페이스형안대_라이언</div>
 									<div class="price_quant" id="my_ll_b">
 										<span>14,000</span>원/ <span>1</span>개
 									</div>
@@ -119,19 +121,13 @@
 						<div class="order_list2_state" id="my_ll_b"
 							style=" display: inline-block;">
 							<br>주문확정<br><br>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">미결제</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">결제확인</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">배송준비중</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">미결제</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">결제확인</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">배송준비중</button>
 							<br class="desktop_br">
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">배송중</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">배송완료</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">주문확정</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">배송중</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">배송완료</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">주문확정</button>
 							</div>
 					</div>
 				</div>
@@ -151,7 +147,7 @@
 							</a>
 							<div class="order_list_content">
 								<div>
-									<div class="item_name" id="my_ll_b">페이스형안대_라이언</div>
+									<div class="item_name_2" id="my_ll_b" >페이스형안대_라이언</div>
 									<div class="price_quant" id="my_ll_b">
 										<span>14,000</span>원/ <span>1</span>개
 									</div>
@@ -167,19 +163,13 @@
 						<div class="order_list2_state" id="my_ll_b"
 							style=" display: inline-block;">
 						<br>미결제<br><br>
-						<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">미결제</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">결제확인</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">배송준비중</button>
-							<br class="desktop_br">
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">배송중</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">배송완료</button>
-							<button class="admin_store_update" id="my_ll_w" 
-							onclick="window.location.reload()">주문확정</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">미결제</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">결제확인</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">배송준비중</button>
+						<br class="desktop_br">
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">배송중</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">배송완료</button>
+							<button class="order_state_btn" id="my_ll_w" style="font-size: 18px;">주문확정</button>
 						</div>
 					</div>
 				</div>

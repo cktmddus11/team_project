@@ -35,18 +35,18 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import logic.Kakaoupdate;
+
 
 public class KakaoController {
 
 	/*
-	 * static ¸Þ¼­µå·Î ¼±¾ðÇØ¼­ °´Ã¼°¡ »ý¼ºµÇÁö ¾ÊÀº »óÈ²¿¡¼­µµ »ç¿ëÀÌ °¡´É. ±×·¡¼­ static ¸â¹öµé¸¸ »ç¿ë °¡´É
+	 * static ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½×·ï¿½ï¿½ï¿½ static ï¿½ï¿½ï¿½ï¿½é¸¸ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 
 	private final static String K_CLIENT_ID = "e26813a1bfbea6b3df6f9370af454e33";
 	private final static String K_REDIRECT_URl = "http://localhost:8080/kakaofriends/user/login.store";
 
-	// Ä«Ä«¿À ·Î±×ÀÎ È­¸éÀÌ·Î ÀÌµ¿ÇÏ´Â ÁÖ¼Ò°ª ¸®ÅÏ
+	// Ä«Ä«ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String getAuthorizationUrl(HttpSession session) {
 		String kakaoUrl = "https://kauth.kakao.com/oauth/authorize?" + "client_id=" + K_CLIENT_ID + "&redirect_uri="
 				+ K_REDIRECT_URl + "&response_type=code";
@@ -54,14 +54,14 @@ public class KakaoController {
 
 	}
 
-	// »ç¿ëÀÚ Á¤º¸°¡ ÀúÀåµÇ¾îÀÖ´Â ÅäÅ« ºÒ·¯¿À´Â ÇÔ¼ö
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½Å« ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	public static JsonNode getAccessToken(String autorize_code) {
 		final String RequestUrl = "https://kauth.kakao.com/oauth/token";
 		final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
 		postParams.add(new BasicNameValuePair("grant_type", "authorization_code"));
 		postParams.add(new BasicNameValuePair("client_id", K_CLIENT_ID));// REST API KEY
-		postParams.add(new BasicNameValuePair("redirect_uri", K_REDIRECT_URl)); // ¸®´ÙÀÌ·ºÆ® URI
-		postParams.add(new BasicNameValuePair("code", autorize_code)); // ·Î±×ÀÎ °úÁ¤Áß ¾òÀº ÄÚµå
+		postParams.add(new BasicNameValuePair("redirect_uri", K_REDIRECT_URl)); // ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½Æ® URI
+		postParams.add(new BasicNameValuePair("code", autorize_code)); // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
 		final HttpClient client = HttpClientBuilder.create().build();
 		final HttpPost post = new HttpPost(RequestUrl);
 		JsonNode returnNode = null;
@@ -71,7 +71,7 @@ public class KakaoController {
 			final HttpResponse response = client.execute(post);
 			final int responseCode = response.getStatusLine().getStatusCode();
 
-			// JSON ÇüÅÂ ¹ÝÈ¯°ª Ã³¸®
+			// JSON ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ Ã³ï¿½ï¿½
 			ObjectMapper mapper = new ObjectMapper();
 			returnNode = mapper.readTree(response.getEntity().getContent());
 
@@ -87,9 +87,9 @@ public class KakaoController {
 		return returnNode;
 	}
 
-	// »ç¿ëÀÚ Á¤º¸¸¦ jsonNode Å¸ÀÔÀ¸·Î ¸®ÅÏ½ÃÅ´
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ jsonNode Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½ï¿½Å´
 	public static JsonNode getKakaoUserInfo(JsonNode accessToken) {
-		// v1À¸·Î ÇÏ¸é ÀÌ¸ÞÀÏ Á¤º¸Á¤µµ¸¸ °¡Á®¿È
+		// v1ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		final String RequestUrl = "https://kapi.kakao.com/v2/user/me";
 		final HttpClient client = HttpClientBuilder.create().build();
 		final HttpPost post = new HttpPost(RequestUrl);
@@ -106,7 +106,7 @@ public class KakaoController {
 			System.out.println("\nSending 'POST' request to URL : " + RequestUrl);
 			System.out.println("Response Code : " + responseCode);
 
-			// JSON ÇüÅÂ ¹ÝÈ¯°ª Ã³¸®
+			// JSON ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ Ã³ï¿½ï¿½
 			ObjectMapper mapper = new ObjectMapper();
 			returnNode = mapper.readTree(response.getEntity().getContent());
 			System.out.println(returnNode);
@@ -128,8 +128,8 @@ public class KakaoController {
 	}
 
 	/*
-	 * Çì´õ¿¡ Authorization : "Bearer {access_Token}" À» Æ÷ÇÔÇÏ¿© ¿äÃ»ÇÏ¸é ·Î±×¾Æ¿ôÀ» ¼öÇàÇÑ Å¬¶óÀÌ¾ðÆ®ÀÇ ¾ÆÀÌµð¸¦
-	 * ¹ÝÈ¯
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ Authorization : "Bearer {access_Token}" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ã»ï¿½Ï¸ï¿½ ï¿½Î±×¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+	 * ï¿½ï¿½È¯
 	 */
 	public static JsonNode kakaoLogout(String autorize_code) {
 		final String RequestUrl = "https://kapi.kakao.com/v2/user/logout";
@@ -161,28 +161,28 @@ public class KakaoController {
 	      final HttpPost post = new HttpPost(RequestUrl);
 	      
 	      post.addHeader("Authorization","Bearer "+autorize_code);
-	      // JSONÀ¸·Î ¹ÞÀº µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ±â À§ÇÑ °ÍÀ¸·Î ¾Õ, µÚÀÇ "¸¦ Á¦°Å
+	      // JSONï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	      nickname = nickname.replace("\"", "");
 	      gender = gender.replace("\"", "");
 	      
-	      // json µ¥ÀÌÅÍ »ý¼º
+	      // json ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	      JSONObject personInfo = new JSONObject();
-	      // µ¥ÀÌÅÍ Ãß°¡
+	      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	      personInfo.put("nickname", nickname);
 	      //personInfo.put("gender", gender);
 	      
-	      // body ¿¡ Ãß°¡ÇÏ±â À§ÇÑ List»ý¼º
+	      // body ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Listï¿½ï¿½ï¿½ï¿½
 	      final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
 	      postParams.add(new BasicNameValuePair("properties", ""+personInfo));
 	      System.out.println(personInfo);
 	      JsonNode returnNode = null;
 	      try {
-	         // ¿äÃ» urlÀÇ body¿¡ Á¤º¸ Ãß°¡
+	         // ï¿½ï¿½Ã» urlï¿½ï¿½ bodyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	         post.setEntity(new UrlEncodedFormEntity(postParams));
 	         final HttpResponse response = client.execute(post);
-	         // ÀÀ´äÄÚµå
+	         // ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 	         final int responseCode = response.getStatusLine().getStatusCode();
-	         System.out.println("ÀÀ´ä Code : "+responseCode);
+	         System.out.println("ï¿½ï¿½ï¿½ï¿½ Code : "+responseCode);
 	         ObjectMapper mapper = new ObjectMapper();
 	         returnNode = mapper.readTree(response.getEntity().getContent());
 	      }catch (UnsupportedEncodingException e) {
@@ -193,7 +193,7 @@ public class KakaoController {
 	         e.printStackTrace();
 	      }
 	      
-	      System.out.println("¤Ì¤Ñ¤Ì"+returnNode);
+	      System.out.println("ï¿½Ì¤Ñ¤ï¿½"+returnNode);
 	      return  returnNode;
 	}
 

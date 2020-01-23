@@ -79,7 +79,7 @@ public class UserController {
 		session.setAttribute("kage", kage);
 		// 세션에 토큰 저장
 		session.setAttribute("access_Token", accessToken);
-		mav.setViewName("user/login"); // ../index
+		mav.setViewName("redirect:../index.store"); // ../index
 		return mav;
 	}
 
@@ -93,7 +93,7 @@ public class UserController {
 			throw new LoginException("이미 로그아웃된 계정입니다", "loginForm.store");
 		}
 		session.invalidate();
-		mav.setViewName("redirect:loginForm.store");
+		mav.setViewName("redirect:../index.store");
 		return mav;
 	}
 
@@ -109,7 +109,7 @@ public class UserController {
 		JsonNode accessToken = (JsonNode) session.getAttribute("access_Token");
 		JsonNode userid = KakaoController.kakaoupdate(nickname, gender, accessToken);
 		System.out.println("수정된 사람의 아이디 : " + userid.get("id"));
-		return "redirect:loginForm.store";
+		return "redirect:../index.store";
 	}
 
 }
