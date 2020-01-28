@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ÁÖ¹® ÆäÀÌÁö</title>
+<meta charset="UTF-8">
+<title>ì£¼ë¬¸ íŽ˜ì´ì§€</title>
 <style type="text/css">
 #ex_chk1{
 	width: 25px;
@@ -77,9 +77,9 @@
 </script>
 	<div id="order_item_list">
 		<form class="order_item_list_padding">
-		<!-- ÁÖ¹® »óÇ° -->
+		<!-- ì£¼ë¬¸ ìƒí’ˆ -->
 			<h3 class="select_item">
-				<span>01</span> ÁÖ¹®»óÇ°
+				<span>01</span> ì£¼ë¬¸ìƒí’ˆ
 			</h3>
 			<div class="select_item_list" style="height: 243;">
 				<div>
@@ -88,12 +88,12 @@
 							<div class="select_item_list1_img">
 								<span class="img_span"> <img
 									src="../images/product/ryan_license_plate.jpg"
-									alt="ÇÇ±Ô¾îÁÖÂ÷ÆÇ_¸®Æ²¶óÀÌ¾ð" style="width: 100px;"></span>
+									alt="í”¼ê·œì–´ì£¼ì°¨íŒ_ë¦¬í‹€ë¼ì´ì–¸" style="width: 100px;"></span>
 								<div class="item_option">
-									<strong class="item_name">ÇÇ±Ô¾îÁÖÂ÷¹øÈ£ÆÇ_¸®Æ²¶óÀÌ¾ð</strong>
+									<strong class="item_name">í”¼ê·œì–´ì£¼ì°¨ë²ˆí˜¸íŒ_ë¦¬í‹€ë¼ì´ì–¸</strong>
 									<p class="space_p"></p>
 									<div class="item_option2">
-										<span>15,000</span> <span>¿ø</span>
+										<span>15,000</span> <span>ì›</span>
 									</div>
 								</div>
 							</div>
@@ -112,39 +112,39 @@
 					</ul>
 					<ul class="listinfo_total_price">
 						<li class="total_info">
-							<strong class="total_price">»óÇ°°¡</strong>
+							<strong class="total_price">ìƒí’ˆê°€</strong>
 							<p class="total_price_1">
-								<span>15,000¿ø</span>
+								<span>15,000ì›</span>
 							</p>
 						</li>
 						<li class="total_info">
-							<strong class="total_price">¹è¼Ûºñ</strong>
+							<strong class="total_price">ë°°ì†¡ë¹„</strong>
 							<p class="total_price_1">
-								<span>¹«·á</span>
+								<span>ë¬´ë£Œ</span>
 							</p>
 						</li>
 						<li class="total_info">
-							<strong class="total_price">ÃÑÇÕ</strong>
+							<strong class="total_price">ì´í•©</strong>
 							<p class="total_price_1">
-								<span>15,000¿ø</span>
+								<span>15,000ì›</span>
 							</p>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div class="address"></div>
-			<!-- ¹è¼ÛÁö -->
+			<!-- ë°°ì†¡ì§€ -->
 				<h3 class="select_item">
-					<span>02</span> ¹è¼ÛÁö Á¤º¸ 
+					<span>02</span> ë°°ì†¡ì§€ ì •ë³´ 
 				</h3>
 			<div class="recipient_info">
 				<div>
-					<!-- ÁÖ¹®°í°´°ú µ¿ÀÏ div Àá½Ã »ý·« -->
+					<!-- ì£¼ë¬¸ê³ ê°ê³¼ ë™ì¼ div ìž ì‹œ ìƒëžµ -->
 					<div class="recipient_info_1">
-						<h4 class="recipient_1">¹Þ´ÂºÐ</h4>
+						<h4 class="recipient_1">ë°›ëŠ”ë¶„</h4>
 						<div class="order_same_div1 order_same_div2">
 							<label class="order_same_div1_label" for="sameBuyer">
-								<span>ÁÖ¹® °í°´°ú µ¿ÀÏ</span>
+								<span>ì£¼ë¬¸ ê³ ê°ê³¼ ë™ì¼</span>
 							</label>
 							<div class="order_primary_1">
 								<input type="checkbox" class="order_primary" 
@@ -154,49 +154,49 @@
 						</div>
 					</div>
 					<div class="order_info">
-						<input class="order_info_list" placeholder="ÀÌ¸§">
+						<input class="order_info_list" placeholder="ì´ë¦„">
 					</div>
 					<div class="order_info">
-						<input class="order_info_list" placeholder="ÀüÈ­¹øÈ£">
+						<input class="order_info_list" placeholder="ì „í™”ë²ˆí˜¸">
 					</div>
 					<div class="order_info">
-						<input class="order_info_list" placeholder="ÀÌ¸ÞÀÏ">
+						<input class="order_info_list" placeholder="ì´ë©”ì¼">
 					</div>
 					<div class="order_info">
-						<input class="order_info_list" placeholder="ÁÖ¼ÒÃ£±â">
+						<input class="order_info_list" placeholder="ì£¼ì†Œì°¾ê¸°">
 					</div>
 					<div class="order_info">
-						<input class="order_info_list" placeholder="³ª¸ÓÁöÁÖ¼Ò">
+						<input class="order_info_list" placeholder="ë‚˜ë¨¸ì§€ì£¼ì†Œ">
 					</div>
-					<textarea class="request" placeholder="¹è¼Û ¿äÃ»¸Þ½ÃÁö°¡ ÀÖÀ¸½Ã¸é ³²°ÜÁÖ¼¼¿ä. (ÁÖ¼Ò ÀÛ¼º¶õÀÌ ¾Æ´Õ´Ï´Ù.)"></textarea>
-					<p class="max_length">50ÀÚ ÀÌ³»·Î ÀÔ·ÂÇØÁÖ¼¼¿ä (0 / 50)</p>
+					<textarea class="request" placeholder="ë°°ì†¡ ìš”ì²­ë©”ì‹œì§€ê°€ ìžˆìœ¼ì‹œë©´ ë‚¨ê²¨ì£¼ì„¸ìš”. (ì£¼ì†Œ ìž‘ì„±ëž€ì´ ì•„ë‹™ë‹ˆë‹¤.)"></textarea>
+					<p class="max_length">50ìž ì´ë‚´ë¡œ ìž…ë ¥í•´ì£¼ì„¸ìš” (0 / 50)</p>
 				</div>
 			</div>
-			<!-- °áÁ¦ÇÏ±â -->
+			<!-- ê²°ì œí•˜ê¸° -->
 			<div class="pay">
 				<div class="purchase"></div>
 				<h3 class="select_item">
-					<span>03</span> °áÁ¦ÇÏ±â
+					<span>03</span> ê²°ì œí•˜ê¸°
 				</h3>
 				<div class="topay">
 					<div>
 						<div class="topay_1">
-							<button class="point_info" type="button">Æ÷ÀÎÆ® ¾È³»</button>
+							<button class="point_info" type="button">í¬ì¸íŠ¸ ì•ˆë‚´</button>
 						<ul class="topay_space">
 							<li class="pay_list_space pay_list_space_all">
-								<strong class="pay_info_list">»óÇ°°¡</strong>
+								<strong class="pay_info_list">ìƒí’ˆê°€</strong>
 							<div class="order_item_price_all order_item_price">
-								<span>15,000¿ø</span>
+								<span>15,000ì›</span>
 							</div>
 							</li>
 							<li class="pay_list_space pay_list_space_all">
-								<strong class="pay_info_list">¹è¼Ûºñ</strong>
+								<strong class="pay_info_list">ë°°ì†¡ë¹„</strong>
 							<div class="order_item_price_all">
-								<span>¹«·á</span>
+								<span>ë¬´ë£Œ</span>
 							</div>
 							</li>
 							<li class="pay_list_space pay_list_space_all">
-								<strong class="point pay_info_list">Æ÷ÀÎÆ®
+								<strong class="point pay_info_list">í¬ì¸íŠ¸
 									<span class="point_op">(OP)</span>
 								</strong>
 								<div class="point_bank">
@@ -205,45 +205,45 @@
 								</div>
 							</li>
 							<li class="pay_list_space">
-								<strong class="final_order_price pay_info_list">ÃÖÁ¾ °áÁ¦ ±Ý¾×</strong>
+								<strong class="final_order_price pay_info_list">ìµœì¢… ê²°ì œ ê¸ˆì•¡</strong>
 								<div class="final_order_price1 order_item_price_all">
-									<span>15,000¿ø</span>
+									<span>15,000ì›</span>
 								</div>
 							</li>
 						</ul>
-						<!-- °áÁ¦ ¼ö´Ü -->
+						<!-- ê²°ì œ ìˆ˜ë‹¨ -->
 						<div class="pay_method">
-							<h4 class="recipient_1 pay_method_select">°áÁ¦¼ö´Ü ¼±ÅÃ</h4>
+							<h4 class="recipient_1 pay_method_select">ê²°ì œìˆ˜ë‹¨ ì„ íƒ</h4>
 							<div class="pay_method1">
 								<label id="pay_method_or_1 tab1" class="tab">
-								<!-- pay_method_or_1 : Ä«µå -->
-									<a href="javascript:disp_div('pay_method_or_1', 'tab1')">Ä«µå¼±ÅÃ</a></label>
+								<!-- pay_method_or_1 : ì¹´ë“œ -->
+									<a href="javascript:disp_div('pay_method_or_1', 'tab1')">ì¹´ë“œì„ íƒ</a></label>
 									<div id="pay_method_or_1">
 										<div class="pay_select">
-											<!-- <input type="button" id="bank" value="KB±¹¹ÎÀºÇà"> 
-											<input type="button" id="bank" value="ÇÏ³ªÀºÇà"> -->
+											<!-- <input type="button" id="bank" value="KBêµ­ë¯¼ì€í–‰"> 
+											<input type="button" id="bank" value="í•˜ë‚˜ì€í–‰"> -->
 										</div>
 									</div><br>
 								<label id="pay_method_or_2 tab2" class="tab">
-								<!-- pay_method_or_2 : ¹«ÅëÀå ÀÔ±Ý -->
-									<a href="javascript:disp_div('pay_method_or_2', 'tab2')">¹«ÅëÀå ÀÔ±Ý</a></label>
+								<!-- pay_method_or_2 : ë¬´í†µìž¥ ìž…ê¸ˆ -->
+									<a href="javascript:disp_div('pay_method_or_2', 'tab2')">ë¬´í†µìž¥ ìž…ê¸ˆ</a></label>
 									<div id="pay_method_or_2">
 										<div class="pay_select">
 											<div class="input_info">
-												<span style="font-weight: bold;">ÀÔ±ÝÁ¤º¸</span>
+												<span style="font-weight: bold;">ìž…ê¸ˆì •ë³´</span>
 											</div>
 											<div class="all_bank_info">
 												<div class="input_bank_info">
 													<div class="bank_div">
-														<span class="input_bank">ÀÔ±ÝÀºÇà</span> 
-														<span class="bank_account">±¹¹ÎÀºÇà: 807-24-0257-128 [¹ÚÇÏ¿µ]</span>
+														<span class="input_bank">ìž…ê¸ˆì€í–‰</span> 
+														<span class="bank_account">êµ­ë¯¼ì€í–‰: 807-24-0257-128 [ë°•í•˜ì˜]</span>
 													</div>
 												</div>
 												<div class="input_bank_info">
 													<div class="bank_div">
-														<span class="input_bank">ÀÔ±Ý±Ý¾×</span> 
+														<span class="input_bank">ìž…ê¸ˆê¸ˆì•¡</span> 
 														<span class="bank_account"> 
-															<input type="tel" placeholder="0" id="amount"><span> ¿ø</span>
+															<input type="tel" placeholder="0" id="amount"><span> ì›</span>
 														</span>
 													</div>
 												</div>
@@ -258,8 +258,8 @@
 									<label for="ex_chk1"></label>
 								</div>
 								<label class="check_payment1">
-									<span class="payment_agree">»óÇ° ÁÖ¹® ¹× ¹è¼ÛÁ¤º¸ ¼öÁý¿¡ µ¿ÀÇÇÕ´Ï´Ù.</span>
-									<span class="musthave">[ÇÊ¼ö]</span>
+									<span class="payment_agree">ìƒí’ˆ ì£¼ë¬¸ ë° ë°°ì†¡ì •ë³´ ìˆ˜ì§‘ì— ë™ì˜í•©ë‹ˆë‹¤.</span>
+									<span class="musthave">[í•„ìˆ˜]</span>
 								</label>
 							</div>
 							<div class="payment order_same_div2">
@@ -268,8 +268,8 @@
 									<label for="ex_chk2"></label>
 								</div>
 								<label class="check_payment1">
-									<span class="payment_agree">ÁÖ¹® »óÇ°ÀÇ ¸í½Ã³»¿ë°ú »ç¿ëÁ¶°ÇÀ» È®ÀÎÇÏ¿´À¸¸ç, Ãë¼ÒÈ¯ºÒ ±ÔÁ¤¿¡ µ¿ÀÇÇÕ´Ï´Ù</span>
-									<span class="musthave">[ÇÊ¼ö]</span>
+									<span class="payment_agree">ì£¼ë¬¸ ìƒí’ˆì˜ ëª…ì‹œë‚´ìš©ê³¼ ì‚¬ìš©ì¡°ê±´ì„ í™•ì¸í•˜ì˜€ìœ¼ë©°, ì·¨ì†Œí™˜ë¶ˆ ê·œì •ì— ë™ì˜í•©ë‹ˆë‹¤</span>
+									<span class="musthave">[í•„ìˆ˜]</span>
 								</label>
 							</div>
 							<div class="payment order_same_div2">
@@ -278,12 +278,12 @@
 									<label for="ex_chk3"></label>
 								</div>
 								<label class="check_payment1">
-									<span class="payment_agree">Ä«Ä«¿ÀÇÁ·»Áî ¼­ºñ½º ÀÌ¿ë¾à°ü¿¡ µ¿ÀÇÇÕ´Ï´Ù</span>
-									<span class="musthave">[ÇÊ¼ö]</span>
+									<span class="payment_agree">ì¹´ì¹´ì˜¤í”„ë Œì¦ˆ ì„œë¹„ìŠ¤ ì´ìš©ì•½ê´€ì— ë™ì˜í•©ë‹ˆë‹¤</span>
+									<span class="musthave">[í•„ìˆ˜]</span>
 								</label>
 							</div>
 							<div class="purchase_pay_btn_div">
-								<button class="purchase_btn1 purchase_btn2" onclick="location.href='orderchk.store'">°áÁ¦ÇÏ±â</button>
+								<button class="purchase_btn1 purchase_btn2" onclick="location.href='orderchk.store'">ê²°ì œí•˜ê¸°</button>
 							</div>
 						</div>
 					</div>
