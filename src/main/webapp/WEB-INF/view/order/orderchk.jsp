@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>ÁÖ¹® È®ÀÎ ÆäÀÌÁö</title>
+<title>ì£¼ë¬¸ í™•ì¸ íŽ˜ì´ì§€</title>
 <style type="text/css">
 #my_b_b {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -125,9 +125,9 @@
 <body>
 	<div id="order_item_list">
 		<form class="order_item_list_padding">
-		<!-- ÁÖ¹® »óÇ° -->
+		<!-- ì£¼ë¬¸ ìƒí’ˆ -->
 			<h3 class="select_item_chk" id="my_b_b">
-				&nbsp;&nbsp;<span>ÁÖ¹® »óÇ° È®ÀÎ</span> 
+				&nbsp;&nbsp;<span>ì£¼ë¬¸ ìƒí’ˆ í™•ì¸</span> 
 			</h3>
 			<div class="select_item_list" style="height: 243;">
 				<div>
@@ -136,64 +136,64 @@
 							<div class="select_item_list1_img">
 								<span class="img_span"> 
 								<img src="../images/product/ryan_license_plate.jpg"
-									alt="ÇÇ±Ô¾îÁÖÂ÷ÆÇ_¸®Æ²¶óÀÌ¾ð" style="width: 100px;"></span>
+									alt="í”¼ê·œì–´ì£¼ì°¨íŒ_ë¦¬í‹€ë¼ì´ì–¸" style="width: 100px;"></span>
 								<div class="item_option">
-									<strong class="item_name">ÇÇ±Ô¾îÁÖÂ÷¹øÈ£ÆÇ_¸®Æ²¶óÀÌ¾ð</strong>
+									<strong class="item_name">í”¼ê·œì–´ì£¼ì°¨ë²ˆí˜¸íŒ_ë¦¬í‹€ë¼ì´ì–¸</strong>
 									<p class="space_p"></p>
 									<div class="item_option2" id="my_l_b">
-										<span>15,000</span><span>¿ø</span>
+										<span>15,000</span><span>ì›</span>
 									</div>
 								</div>
 							</div>
-							<div class="quantity_chk" id="my_l_b">¼ö·®: 1°³</div>
+							<div class="quantity_chk" id="my_l_b">ìˆ˜ëŸ‰: 1ê°œ</div>
 						</li>
 					</ul>
 					<ul class="listinfo_total_price">
 						<li class="total_info">
-							<strong class="total_price" id="my_l_b">»óÇ°°¡</strong>
+							<strong class="total_price" id="my_l_b">ìƒí’ˆê°€</strong>
 							<p class="total_price_1" id="my_l_b">
-								<span>15,000¿ø</span>
+								<span>15,000ì›</span>
 							</p>
 						</li>
 						<li class="total_info">
-							<strong class="total_price" id="my_l_b">¹è¼Ûºñ</strong>
+							<strong class="total_price" id="my_l_b">ë°°ì†¡ë¹„</strong>
 							<p class="total_price_1" id="my_l_b">
-								<span>¹«·á</span>
+								<span>ë¬´ë£Œ</span>
 							</p>
 						</li>
 						<li class="total_info">
-							<strong class="total_price" id="my_l_b">ÃÑÇÕ</strong>
+							<strong class="total_price" id="my_l_b">ì´í•©</strong>
 							<p class="total_price_1" id="my_l_b">
-								<span>15,000¿ø</span>
+								<span>15,000ì›</span>
 							</p>
 						</li>
 					</ul>
 				</div>
 			</div>
-			<!-- °áÁ¦ Á¤º¸ -->
+			<!-- ê²°ì œ ì •ë³´ -->
 			<div class="paychk">
 				<div class="purchase_chk"></div>
 				<h3 class="select_item_chk" id="my_b_b">
-					&nbsp;&nbsp;<span> °áÁ¦ Á¤º¸</span>
+					&nbsp;&nbsp;<span> ê²°ì œ ì •ë³´</span>
 				</h3>
 				<div>
 					<div>
 						<div class="topay_1">
 						<ul class="topay_space">
 							<li class="pay_list_space pay_list_space_all">
-								<strong class="pay_info_list" id="my_l_b">»óÇ°°¡</strong>
+								<strong class="pay_info_list" id="my_l_b">ìƒí’ˆê°€</strong>
 							<div class="order_item_price_all order_item_price" id="my_l_b">
-								<span>15,000¿ø</span>
+								<span>15,000ì›</span>
 							</div>
 							</li>
 							<li class="pay_list_space pay_list_space_all">
-								<strong class="pay_info_list" id="my_l_b">¹è¼Ûºñ</strong>
+								<strong class="pay_info_list" id="my_l_b">ë°°ì†¡ë¹„</strong>
 							<div class="order_item_price_all" id="my_l_b">
-								<span>¹«·á</span>
+								<span>ë¬´ë£Œ</span>
 							</div>
 							</li>
 							<li class="pay_list_space pay_list_space_all">
-								<strong class="point pay_info_list" id="my_l_b">Æ÷ÀÎÆ®
+								<strong class="point pay_info_list" id="my_l_b">í¬ì¸íŠ¸
 									<span class="point_op" id="my_l_b">(OP)</span>
 								</strong>
 								<div class="point_bank" id="my_l_b">
@@ -201,9 +201,9 @@
 								</div>
 							</li>
 							<li class="pay_list_space">
-								<strong class="final_order_price pay_info_list" id="my_l_b">ÃÖÁ¾ °áÁ¦ ±Ý¾×</strong>
+								<strong class="final_order_price pay_info_list" id="my_l_b">ìµœì¢… ê²°ì œ ê¸ˆì•¡</strong>
 								<div class="final_order_price1 order_item_price_all" id="my_bb_b">
-									<span>14,000¿ø</span>
+									<span>14,000ì›</span>
 								</div>
 							</li>
 						</ul>
@@ -212,32 +212,36 @@
 				</div>
 			</div>
 			<div class="address_chk"></div>
-			<!-- ¹è¼ÛÁöÁ¤º¸ -->
+			<!-- ë°°ì†¡ì§€ì •ë³´ -->
 				<h3 class="select_item_chk" id="my_b_b">
-					&nbsp;&nbsp;<span>¹è¼ÛÁö Á¤º¸</span> 
+					&nbsp;&nbsp;<span>ë°°ì†¡ì§€ ì •ë³´</span> 
 				</h3>
 			<div class="recipient_info_chk">
 				<div>
 					<div class="order_info" id="my_l_b">
-						¹ÞÀ¸½Ã´ÂºÐ <input type="text" class="order_info_list_chk" value="¹ÚÇÏ¿µ" readonly />
+						ë°›ìœ¼ì‹œëŠ”ë¶„ <input type="text" class="order_info_list_chk" value="ë°•í•˜ì˜" readonly />
 					</div>
 					<div class="order_info" id="my_l_b">
-						ÁÖ¼Ò <input class="order_info_list_chk" value="¼­¿ï½Ã ÀºÆò±¸ Áø°üµ¿ aaµ¿ bbbÈ£" readonly />
+						ì£¼ì†Œ <input class="order_info_list_chk" value="ì„œìš¸ì‹œ ì€í‰êµ¬ ì§„ê´€ë™ aaë™ bbbí˜¸" readonly />
 					</div>
 					<div class="order_info" id="my_l_b">
-						ÀüÈ­¹øÈ£ <input class="order_info_list_chk" value="010-1234-5678" readonly />
+						ì „í™”ë²ˆí˜¸ <input class="order_info_list_chk" value="010-1234-5678" readonly />
 					</div>
 					<div class="order_info" id="my_l_b">
-						ÀÌ¸ÞÀÏ <input class="order_info_list_chk" value="hyp3221@naver.com" readonly />
+						ì´ë©”ì¼ <input class="order_info_list_chk" value="hyp3221@naver.com" readonly />
 					</div>
 				</div>
 			</div>
 			<div class="order_continue_or_break">
-				<input type="button" value="¼îÇÎ°è¼ÓÇÏ±â" id="order my_l_b" class="jWeebG">
+				<input type="button" value="ì‡¼í•‘ê³„ì†í•˜ê¸°" id="order my_l_b" class="jWeebG">
 				&nbsp;&nbsp;
-				<input type="button" value="ÁÖ¹®³»¿ªÈ®ÀÎ" id="order my_l_b" class="jWeebG">
+				<input type="button" value="ì£¼ë¬¸ë‚´ì—­í™•ì¸" id="order my_l_b" class="jWeebG">
 			</div>
 		</form>
 	</div>
 </body>
-</html>
+
+          
+          
+          
+          
