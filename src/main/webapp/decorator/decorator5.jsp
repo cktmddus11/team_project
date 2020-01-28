@@ -63,6 +63,7 @@
 <link rel="stylesheet" type="text/css" href="../css/mycart.css">
 <link rel="stylesheet" type="text/css" href="../css/category_cyj.css">
 <link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/order.css">
 <!--===============================================================================================-->
 <link href="../css/modern-business.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet"
