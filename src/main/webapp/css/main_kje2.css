@@ -3904,7 +3904,7 @@ span.msg, span.choose {
 }
 
 .p-name {
-	width: 100px;
+	width: 10vw;
 	height: 16px;
 	font-size: 13px;
 	letter-spacing: -0.19px;
@@ -3932,9 +3932,7 @@ span.msg, span.choose {
 	-webkit-appearance: none;
 	width: 99%;
 	text-align: left;
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(255, 215, 000);
+	border: 1px solid rgb(227, 229, 232);
 	border-image: initial;
 	outline: none;
 	padding: 10px 15px;
@@ -3956,9 +3954,7 @@ span.msg, span.choose {
 	font-size: 16px;
 	-webkit-appearance: none;
 	width: 99%;
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(255, 215, 000);
+	border: 1px solid rgb(227, 229, 232);
 	border-image: initial;
 	outline: none;
 	padding: 10px 15px;
@@ -4011,9 +4007,7 @@ span.msg, span.choose {
 	-webkit-appearance: none;
 	width: 99%;
 	text-align: left;
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(255, 215, 000);
+	border: 1px solid rgb(227, 229, 232);
 	border-image: initial;
 	outline: none;
 	padding: 10px 15px;
@@ -4104,9 +4098,7 @@ span.msg, span.choose {
 	background:
 		url(https://t1.kakaocdn.net/friends/new_store/ico_dropdown.png) right
 		12px center/12px no-repeat;
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(255, 215, 000);
+	border: 1px solid rgb(227, 229, 232);
 	border-image: initial;
 	border-radius: 4px;
 	-webkit-appearance: none;

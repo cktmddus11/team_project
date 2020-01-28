@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*------------------------------------------------------------------
 Project:  
 Version:  
@@ -107,6 +108,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 		max-width: 1200px;
 	}
 }
+@media ( min-width : 769px) {
+	.container {
+		max-width: 1200px;
+	}
+}
 
 /*------------------------------------------------------------------
 [ Slick2 ]*/
@@ -146,13 +152,50 @@ keyframes loader-scale { 0% {
 
 50%
 {
-opacity:1;
+opacity
+
+
+
+
+:
+
+
+ 
+
+
+1;
 }
 100%
 {
-transform:
-scale(1);
-opacity:0;
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+opacity
+
+
+
+
+:
+
+
+ 
+
+
+0;
 }
 }
 
@@ -3585,7 +3628,7 @@ span.msg, span.choose {
 	cursor: pointer;
 	display: block;
 	padding-left: 10px;
-	padding-top: 0px;
+	padding-top: 15px;
 }
 
 @media ( min-width : 769px) {
@@ -3593,7 +3636,7 @@ span.msg, span.choose {
 		cursor: pointer;
 		display: block;
 		padding-left: 10px;
-		padding-top: 5px;
+		padding-top: 15px;
 	}
 }
 
@@ -4195,6 +4238,125 @@ span.msg, span.choose {
 		2.93333vw no-repeat;
 }
 /* ---------------------------------------------------------------------------  */
+#order { /* 주문하기 버튼 */
+	font-size: 15px;
+	font-weight: normal;
+	color: white;
+	width: 270px;
+	height: 60px;
+	background-color: rgba(60, 64, 75, 0.95);
+	border-radius: 4px;
+	width: 270px;
+}
+
+.check_all {
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	background: rgb(255, 255, 255);
+}
+
+.checks {
+	position: relative;
+	width: 50%;
+	padding-top: 30px;
+	padding-right: 15px;
+}
+
+.checks_delete {
+	display: flex;
+	-webkit-box-pack: end;
+	justify-content: flex-end;
+	-webkit-box-align: center;
+	align-items: center;
+	width: 50%;
+}
+
+.selects {
+	color: rgb(102, 102, 102);
+}
+
+.checks input[name=allchk]{ /* 실제 체크박스는 화면에서 숨김 */
+	position: absolute;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+.checks input[name=allchk]+label:before{
+	/* 가짜 체크박스 */
+	content: ' ';
+	display: inline-block;
+	line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */
+	margin: -2px 8px 0 0;
+	text-align: center;
+	vertical-align: middle;
+	background: url(../images/icons/check_icon_off.png);
+	border-radius: 50%;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0.05);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+}
+
+.checks input[name=allchk]:checked+label:before{
+	/* 체크박스를 체크했을때 */
+	background: url(../images/icons/check_icon_on.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+}
+
+#ex_chk{
+	width: 25px;
+	height: 25px;
+}
+
+#ex_chk1{
+	width: 25px;
+	height: 25px;
+}
+
+.delete_btn {
+	width: 18px;
+	height: 22px;
+	background: url(../images/icons/trashcan-btn.png);
+	background-size: 18px 22px;
+}
+
+.checks input[name=itemchks]{
+	position: absolute;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+.checks input[name=itemchks]+label{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.checks input[name=itemchks]:checked+label{
+	background: url(../images/icons/check_icon_on.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+}
+
+.checks input[name=itemchks]+label{
+	background: url(../images/icons/check_icon_off.png);
+	width: 25px;
+	height: 25px;
+	background-size: 25px 25px;
+}
+
 @media ( min-width : 769px) {
 	.admin_order_list {
 		margin-bottom: 350px;
@@ -4412,31 +4574,36 @@ span.msg, span.choose {
 }
 
 .order_num {
-	width: 15vw;
-	font-size: 13px;
+	width: 25%;
+	font-size: 9px;
 	letter-spacing: -0.19px;
 	text-align: center;
+	padding-left: 130px;
 }
 
-.item_num_2 {
-	width: 15vw;
-	font-size: 13px;
+.item_num {
+	width: 25%;
+	font-size: 9px;
 	letter-spacing: -0.19px;
 	text-align: center;
-}
-
-.order_state {
-	width: 14vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
+	padding-left: 160px;
 }
 
 .order_date {
-	width: 6vw;
-	font-size: 13px;
+	width: 25%;
+	font-size: 9px;
 	letter-spacing: -0.19px;
 	text-align: center;
+	padding-left: 120px;
+}
+
+.order_state {
+	width: 25%;
+	font-size: 9px;
+	letter-spacing: -0.19px;
+	text-align: center;
+	padding-right: 30px;
+	padding-left: 30px;
 }
 
 .order_list1 {
@@ -4452,6 +4619,17 @@ span.msg, span.choose {
 		-webkit-box-pack: justify;
 		justify-content: space-between;
 		margin-bottom: 0px;
+	}
+}
+.option_select{
+	box-sizing: border-box;
+    margin-top: 2.66667vw;
+}
+@media (min-width: 769px){
+	.option_select{
+	width: 160px;
+		border-width: 0px 1px;
+		margin: 0px;
 	}
 }
 
@@ -4494,9 +4672,7 @@ span.msg, span.choose {
 	letter-spacing: -0.23px;
 	color: rgb(17, 17, 17);
 	text-align: center;
-	margin-left: 12vw;
 }
-
 .order_list4_2_fin {
 	display: flex;
 	-webkit-box-align: center;
@@ -4532,17 +4708,17 @@ span.msg, span.choose {
 
 @media ( min-width : 769px) {
 	.order_list4_2 {
-		order: 3;
+		order: 4;
 		font-size: 15px;
 		margin-left: 0;
 	}
 }
 @media ( min-width : 769px) {
-	.order_list4_2_fin {
+	.order_list4_2_fin{
 		order: 3;
 		font-size: 15px;
 		margin-right: 50px;
-		margin-left: 55px;
+   		margin-left: 55px;
 	}
 }
 @media ( min-width : 769px) {
@@ -4589,7 +4765,6 @@ span.msg, span.choose {
 	color: rgb(154, 154, 158);
 	display: inline-block;
 }
-
 @media ( min-width : 769px) {
 	.order_list2_date {
 		font-size: 13px;
@@ -4598,26 +4773,18 @@ span.msg, span.choose {
 	}
 }
 
-@media ( min-width : 769px) {
-	.order_list3 {
-		order: 2;
-		width: 350px;
-	}
-}
-
 .order_list3_item {
 	display: flex;
 	padding: 15px 0px;
-	border-bottom: 1px solid rgb(242, 242, 242);
+	/* border-bottom: 1px solid rgb(242, 242, 242); */
 }
-
 @media ( min-width : 769px) {
 	.order_list3_item {
-		border-bottom: 1px solid rgb(227, 229, 232);
+		/* border-bottom: 1px solid rgb(227, 229, 232); */
 	}
 }
 
-.order_list3_item:last-child {
+ .order_list3_item:last-child {
 	padding-bottom: 9px;
 	border-bottom: 0px;
 }
@@ -4653,7 +4820,18 @@ span.msg, span.choose {
 	padding-top: 100%;
 	background: rgba(0, 0, 0, 0.02);
 }
-
+@media ( min-width : 769px) {
+	.order_list3 {
+		order: 2;
+		width: 335px;
+	}
+}
+@media ( min-width : 769px) {
+	.option_select {
+		order: 2;
+		width: 200px;
+	}
+}
 .order_list_content {
 	display: flex;
 	flex-direction: column;
@@ -4667,16 +4845,19 @@ span.msg, span.choose {
 	}
 }
 
-.item_name_2 {
+.item_name {
 	max-width: calc(100vw - 145px);
 	line-height: 1.88;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	padding-top: 20px;
+	font-size: 17px;
+	font-weight: bold;
 }
 
 @media ( min-width : 769px) {
-	.item_name_2 {
+	.item_name {
 		max-width: 457px;
 	}
 }
@@ -4715,6 +4896,116 @@ span.msg, span.choose {
 	border-radius: 10px;
 }
 
+.count { /* 제품 총 수량, 가격 div */
+    height: 170px;
+    background-color: rgb(247, 247, 247);
+    margin-bottom: 51px;
+    /* display: flex; */
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    /* padding: 0px 86.5px 0px 33px; */
+    border-top: 1px solid rgb(0, 0, 0);
+}
+/* @media ( min-width : 769px) {
+	.count {
+		-webkit-box-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: center;
+		align-items: center;
+	}
+} */
+.cart_log {
+    height: 24vw;
+    font-size: 8.5vw;
+    font-weight: bolder;
+    line-height: 1.25;
+    letter-spacing: -0.0506667vw;
+    padding-bottom: 0.8vw;
+    padding-left: 4vw;
+    padding-right: 4.26667vw;
+    padding-top: 7.73333vw;
+}
+@media (min-width: 769px){ /* 769픽셀 이하일때 적용되는 css */
+	.cart_log {
+    	height: 12vw;
+		font-size: 36px;
+		line-height: 1.67;
+		letter-spacing: -0.36px;
+		color: rgb(0, 0, 0);
+		padding: 56px 0px 34px;
+	}
+}
+
+.item_price{
+	min-width: 105px;
+    height: unset;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: -0.19px;
+    text-align: right;
+    order: 3;
+    margin-right: 82px;
+    padding: 0px;
+}
+.count_block{
+	display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.all_order_price { /* 주문금액 */
+	font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: -0.19px;
+}
+.all_order_price_plus /* 배송비 */ {
+	font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: -0.19px;
+}
+.all_payment_price{ /* 총 결제 금액 */
+	font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: -0.19px;
+}
+.price {
+	font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+	font-size: 20px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.25px;
+    text-align: right;
+}
+.shipping_fee {
+	font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+	font-size: 20px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.25px;
+    text-align: right;
+}
+.all_count_price {
+	font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Malgun Gothic", "맑은 고딕", sans-serif;
+	font-size: 30px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.25px;
+    text-align: right;	
+}
+
 @media ( min-width : 769px) {
 	.order_list2_state {
 		font-size: 13px;
@@ -4750,10 +5041,6 @@ moblie_line {
 		padding: 90px 0px 150px;
 	}
 }
-.list_footer2 {
-	padding: 30px 0px 60px;
-}
-
 
 .page_block {
 	display: flex;
@@ -4857,344 +5144,4 @@ moblie_line {
 	.desktop_br {
 		display: flex;
 	}
-}
-/* [관리자] 매장 목록 관리  */
-.admin_store_write {
-	float: right;
-	height: 100%;
-	width: 20vw;
-	background-color: rgb(60, 64, 75);
-	border: 1px solid rgb(60, 64, 75);
-	border-radius: 20px;
-}
-.admin_order_btn {
-	float: right;
-	height: 100%;
-	width: 10vw;
-	background-color: rgb(60, 64, 75);
-	border: 1px solid rgb(60, 64, 75);
-	border-radius: 20px;
-}
-
-.order_state_btn {
-	float: right;
-	height: 100%;
-	background-color: rgb(60, 64, 75);
-	border: 1px solid rgb(60, 64, 75);
-	border-radius: 10px;
-}
-.store_map_url {
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	font-size: 16px;
-	line-height: 1.88;
-	letter-spacing: -0.23px;
-	color: rgb(17, 17, 17);
-}
-
-@media ( min-width : 769px) {
-	.store_map_url {
-		order: 1;
-		padding-left: 20px;
-		font-size: 15px;
-	}
-}
-.store_name {
-	width: 27vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-
-.store_address {
-	width: 36vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-
-.store_pic {
-	width: 20vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-.store_tel {
-	width: 15vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-.store_time {
-	width: 15vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-
-.store_mapchk {
-	width: 4vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-.store_manage {
-	width: 7vw;
-	font-size: 13px;
-	letter-spacing: -0.19px;
-	text-align: center;
-}
-.store_list {
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	font-size: 16px;
-	line-height: 1.88;
-	letter-spacing: -0.23px;
-	color: rgb(17, 17, 17);
-	text-align: center;
-	margin-left: 0vw;
-}
-@media ( min-width : 769px) {
-	.store_list {
-		order: 3;
-		padding-left: 0px;
-		padding-right: 0px;
-		font-size: 15px;
-		margin-left: 0;
-	}
-}
-.admin_store_update {
-	height: 100%;
-	background-color: rgb(60, 64, 75);
-	border: 1px solid rgb(60, 64, 75);
-	border-radius: 10px;
-}
-
-/* [愿�由ъ옄] 留ㅼ옣 �벑濡� 愿�由�  */
-.store_write_header {
-	padding: 8vw 4.2666666667vw 3.3333333333vw;
-	font-size: 6.4vw;
-	font-weight: bold;
-	line-height: 1.25;
-	letter-spacing: -0.05066666667vw;
-	color: #1e1e1e;
-}
-
-@media ( min-width : 768px) {
-	.store_write_header {
-		font-size: 36px;
-		letter-spacing: -0.23px;
-		padding: 56px 0 42px;
-		border-bottom: 1px solid #000;
-	}
-}
-
-@media ( min-width : 768px) {
-	.store_write_body {
-		display: flex;
-	}
-}
-
-.store_write_edit {
-	padding: 0 4.2666666667vw 7.3333333333vw;
-	border-bottom: 1px solid #f2f2f2;
-}
-
-@media ( min-width : 768px) {
-	.store_write_edit {
-		flex: 1;
-		padding: 29px 0 21px;
-		border-bottom: 0;
-	}
-}
-
-.store_write_input {
-	display: inline-block;
-	width: 100%;
-	margin: 2.8vw 0;
-}
-
-@media ( min-width : 768px) {
-	.store_write_input {
-		display: flex;
-		width: 100%;
-		padding: 5px 0;
-		margin: 6px 0;
-	}
-}
-
-.input_label {
-	font-size: 4vw;
-	letter-spacing: -0.056vw;
-}
-
-@media ( min-width : 768px) {
-	.input_label {
-		font-size: 15px;
-		letter-spacing: -0.19px;
-		margin-top: 0.7vw;
-		width: 7vw;
-	}
-}
-
-.input_storename {
-	position: relative;
-	border: 1px solid #e3e5e8;
-	border-radius: 1.0666666667vw;
-	margin-top: 1.8666666667vw;
-}
-
-@media ( min-width : 768px) {
-	.input_storename {
-		flex: 1;
-		position: relative;
-		border-radius: 0;
-		margin-top: 0;
-	}
-}
-
-.input_img {
-	position: relative;
-	margin-top: 1.8666666667vw;
-}
-
-@media ( min-width : 768px) {
-	.input_img {
-		flex: 1;
-		position: relative;
-		margin-top: 0;
-	}
-}
-
-.storename {
-	height: 12vw;
-	padding: 3.2vw 4vw;
-	font-size: 4.2666666667vw;
-	letter-spacing: -0.056vw;
-	border-radius: 1.0666666667vw;
-}
-
-@media ( min-width : 768px) {
-	.storename {
-		height: 100%;
-		font-size: 15px;
-		letter-spacing: normal;
-		padding: 12px 15px;
-		border-radius: 4px;
-		width: 100%;
-	}
-}
-
-.store_write_footer {
-	padding: 8.5333333333vw 3.3333333333vw 5.3333333333vw;
-}
-
-@media ( min-width : 768px) {
-	.store_write_footer {
-		padding: 10vw 0 1vw;
-		border-top: 1px solid black;
-	}
-}
-
-.out_write_footer {
-	padding: 8.5333333333vw 3.3333333333vw 5.3333333333vw;
-}
-@media ( min-width : 768px) {
-	.out_write_footer {
-		padding: 10vw 0 1vw;
-		border-top: 1px solid black;	
-	}
-}
-
-.btn_block {
-	display: flex;
-	justify-content: center;
-}
-
-.btn_cancel {
-	flex: 1;
-	height: 16vw;
-	border-radius: 1.0666666667vw;
-	border: solid 1px #e3e5e8;
-	font-size: 4.2666666667vw;
-	font-weight: bold;
-	line-height: 1.88;
-	letter-spacing: -0.056vw;
-	margin: 0 0.9333333333vw;
-}
-
-@media ( min-width : 768px) {
-	.btn_cancel {
-		max-width: 270px;
-		height: 60px;
-		border-radius: 4px;
-		font-size: 16px;
-		letter-spacing: -0.21px;
-		margin: 0 3.5px;
-	}
-}
-
-.btn_save {
-	flex: 1;
-	height: 16vw;
-	border-radius: 1.0666666667vw;
-	background-color: #3c404b;
-	font-size: 4.2666666667vw;
-	font-weight: bold;
-	line-height: 1.88;
-	letter-spacing: -0.056vw;
-	color: #ffffff;
-	margin: 0 0.9333333333vw;
-}
-
-@media ( min-width : 768px) {
-	.btn_save {
-		max-width: 270px;
-		height: 60px;
-		border-radius: 4px;
-		font-size: 16px;
-		letter-spacing: -0.21px;
-		margin: 0 3.5px;
-	}
-}
-
-.delete_comment {
-	margin: 5.3333333333vw 0.9333333333vw 0;
-	font-size: 3.4666666667vw;
-	line-height: 1.62;
-	letter-spacing: -0.05333333333vw;
-	color: #9a9a9e;
-}
-
-@media ( min-width : 768px) {
-	.delete_comment {
-		margin: 0 30vw;
-		font-size: 13px;
-		letter-spacing: -0.2px;
-		display: flex;
-		justify-content: center;
-	}
-}
-
-.deco7_hamburger_list {
-	position: absolute;
-	top: 100%;
-	right: 20%;
-	background-color: rgb(255, 255, 255);
-	border: 1px solid black; border-radius : 3.2px;
-	padding: 1vw 0;
-	animation: 0.5s ease-in-out 0s 1 normal none running fadeIn;
-	border-radius: 3.2px;
-}
-
-.list_button {
-	min-width: 155px;
-	display: block;
-	font-size: 15px;
-	color: rgb(30, 30, 30);
-	text-align: left;
-	outline: none;
-	padding: 6.5px 32px;
 }
