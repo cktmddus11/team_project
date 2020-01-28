@@ -28,6 +28,7 @@
 		<pattern>/item/review*</pattern>
 		<pattern>/item/search*</pattern><!-- юс╫ц╥н -->	
 		<pattern>/nonmember/nonmem*</pattern>
+		<pattern>/order/*</pattern>
 	</decorator>
 	<decorator name="main7" page="decorator7.jsp">
 		<pattern>/admin/*</pattern>
