@@ -58,6 +58,7 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="../css/util.css">
 <link rel="stylesheet" type="text/css" href="../css/main_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
 <!--===============================================================================================-->
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans">
 <link rel="shortcut icon" href="//t1.kakaocdn.net/kakaofriends_global/static/img/favicon.ico" type="image/x-ico">
@@ -566,11 +567,7 @@ a.noul:hover {
 
 
 	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top"> <i
-			class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
+	<div class="page_up" id="myBtn" style="display: none;">TOP</div>
 
 	<!-- Modal1
 	<!--

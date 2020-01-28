@@ -329,9 +329,9 @@ input[type=text] {
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m" style="width: 35%;">
-						 <form style="width: 50%;" action="item/search.store">
-                     <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
-                  </form>
+						<form style="width: 50%;">
+							<input type="text" name="search" placeholder="무엇을 찾으세요?">
+						</form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="mypage/myindex.store"
 								id="lightfont_black_de"><span style="margin: 0.3vw;">
@@ -372,7 +372,7 @@ input[type=text] {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="#" onclick="javascript:nonmember()" id="ll_b_de">비회원 주문조회</a>
+											<a href="nonmember/nonmember.store" id="ll_b_de">비회원 주문조회</a>
 										</div>
 									</li>
 								</ul></li>
@@ -1097,28 +1097,26 @@ input[type=text] {
 							$(".friend_name_apeach").css('font-weight', '200')
 						});
 	</script>
-     <script type="text/javascript">
-   $('#new_main_block').click(function() {
-      $('.new_block').attr('aria-hidden','false')
-      $('.all_block').attr('aria-hidden','true')
-      $('.wish_block').attr('aria-hidden','true')
-      $('.main_block_list').css('transform','translate3d(0px, 0px, 0px)')
-      
-   })
-   $('#wish_main_block').on('click',function() {
-      $('.wish_block').attr('aria-hidden','false')
-      $('.new_block').attr('aria-hidden','true')
-      $('.all_block').attr('aria-hidden','true')
-      $('.main_block_list').css('transform','translate3d(-1180px, 0px, 0px)')
-   })
-   $('#all_main_block').on('click',function() {
-      $('.all_block').attr('aria-hidden','false')
-      $('.new_block').attr('aria-hidden','true')
-      $('.wish_block').attr('aria-hidden','true')
-      $('.main_block_list').css('transform','translate3d(-2345px, 0px, 0px)')
-   })
-   </script>
-   
-		    	
+	<script type="text/javascript">
+	$('#new_main_block').click(function() {
+		$('.new_block').attr('aria-hidden','false')
+		$('.all_block').attr('aria-hidden','true')
+		$('.wish_block').attr('aria-hidden','true')
+		$('.main_block_list').css('transform','translate3d(0px, 0px, 0px)')
+		
+	})
+	$('#wish_main_block').on('click',function() {
+		$('.wish_block').attr('aria-hidden','false')
+		$('.new_block').attr('aria-hidden','true')
+		$('.all_block').attr('aria-hidden','true')
+		$('.main_block_list').css('transform','translate3d(-1320px, 0px, 0px)')
+	})
+	$('#all_main_block').on('click',function() {
+		$('.all_block').attr('aria-hidden','false')
+		$('.new_block').attr('aria-hidden','true')
+		$('.wish_block').attr('aria-hidden','true')
+		$('.main_block_list').css('transform','translate3d(-2640px, 0px, 0px)')
+	})
+	</script>
 </body>
 </html>

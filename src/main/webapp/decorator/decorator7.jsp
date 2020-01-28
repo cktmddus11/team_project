@@ -60,6 +60,7 @@
 <link rel="stylesheet" type="text/css" href="../css/main_kje2.css">
 <link rel="stylesheet" type="text/css" href="../css/item_kje.css">
 <link rel="stylesheet" type="text/css" href="../css/mypage_cyj2.css">
+<link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
 
 <!--===============================================================================================-->
 <link href="../css/modern-business.css" rel="stylesheet">
@@ -197,33 +198,33 @@ hover {
 								<ul class="sub-menu deco7_hamburger_list" style="position: absolute;">
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/product-list.store" id="lightfont_black_de">상품 목록 관리</a>
+											<a href="../admin_item/product-list.store" id="lightfont_black_de">상품 목록 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/order-item-in.store"
+											<a href="../admin_in/order-item-in.store"
 												id="lightfont_black_de">상품 입고 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/order-item-list.store"
+											<a href="../admin_keep/order-item-list.store"
 												id="lightfont_black_de">상품 재고 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/order-item-out.store"
+											<a href="../admin_out/order-item-out.store"
 												id="lightfont_black_de">상품 출고 관리</a>
 										</div>
 									</li>
 								</ul></li>
-							<li><a href="../admin/orderstate.store"
+							<li><a href="../admin_order/orderstate.store"
 								id="lightfont_black_de">주문 상태 관리</a></li>
-							<li><a href="../admin/store_list.store"
+							<li><a href="../admin_store/store_list.store"
 								id="lightfont_black_de">매장 관리</a></li>
-							<li><a href="../admin/change_return_order_list.store"
+							<li><a href="../admin_change/change_return_order_list.store"
 								id="lightfont_black_de">환불/교환/반품 관리</a></li>
 
 
@@ -232,7 +233,7 @@ hover {
 					</div>
 					<!-- Logo desktop -->
 					<div class="menu-desktop" style="width: 16vw;">
-						<a href="../index.store" class="logo" id="boldfont_black_de"
+						<a href="../admin/manager_index.store" class="logo" id="boldfont_black_de"
 							style="padding-left: 0px; text-decoration: none;">FRIEND STORE</a>
 					</div>
 
@@ -266,20 +267,25 @@ hover {
 								<ul class="sub-menu deco7_hamburger_list" style="position: absolute;">
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/notice_list.store" id="lightfont_black_de">공지사항 목록 관리</a>
+											<a href="../admin_help/notice_list.store" id="lightfont_black_de">공지사항 목록 관리</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/faq_list.store"
+											<a href="../admin_help/faq_list.store"
 												id="lightfont_black_de">FAQ 목록 관리</a>
 										</div>
 									</li>
 								</ul></li>
-							<li><a href="../admin/contact_list.store"
+							<li><a href="../admin_contact/contact_list.store"
 								id="lightfont_black_de">1:1 문의 관리</a></li>
-							<li><a href="../admin/manage_index.store"
-								id="lightfont_black_de">로그아웃</a></li>
+							<li><a href="../admin/manager_index.store"
+								id="lightfont_black_de">admin</a></li>
+								<!-- 상태확인 -->
+								<c:if test="${1==0 }">
+							<li><a href="" onclick="return false;"
+								id="lightfont_black_de">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+								</c:if>
 							<li class="active-menu"><a href="" id="lightfont_black_de"
 								onclick="return false;">관리자 <img
 									src="../images/index_deco/ico-header-triangle.png" width="7"
@@ -299,13 +305,13 @@ hover {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/manage_login.store"
+											<a href="../admin/manager_login.store"
 												id="lightfont_black_de">관리자 로그인</a>
 										</div>
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin/manager_update.store"
+											<a href="../admin/manager_info.store"
 												id="lightfont_black_de">관리자 정보확인</a>
 										</div>
 									</li>
@@ -730,72 +736,7 @@ hover {
 	</header>
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
 
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2"> Your Cart </span>
-
-				<div
-					class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="../images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat </a> <span class="header-cart-item-info"> 1
-								x $19.00 </span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="../images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star </a> <span class="header-cart-item-info"> 1
-								x $39.00 </span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="../images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather </a> <span class="header-cart-item-info">
-								1 x $17.00 </span>
-						</div>
-					</li>
-				</ul>
-
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">Total: $75.00</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart </a> <a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out </a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 
@@ -827,127 +768,10 @@ hover {
 				</div>
 
 				<!-- Filter -->
-				<div class="dis-none panel-filter w-full p-t-10">
-					<div
-						class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-						<div class="filter-col1 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">Sort By</div>
-
-							<ul>
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> Default </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> Popularity </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> Average rating </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04 filter-link-active">
-										Newness </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> Price: Low to High
-								</a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> Price: High to Low
-								</a></li>
-							</ul>
-						</div>
-
-						<div class="filter-col2 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">Price</div>
-
-							<ul>
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04 filter-link-active">
-										All </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> $0.00 - $50.00 </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> $50.00 - $100.00 </a></li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> $100.00 - $150.00 </a>
-								</li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> $150.00 - $200.00 </a>
-								</li>
-
-								<li class="p-b-6"><a href="#"
-									class="filter-link stext-106 trans-04"> $200.00+ </a></li>
-							</ul>
-						</div>
-
-						<div class="filter-col3 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">Color</div>
-
-							<ul>
-								<li class="p-b-6"><span class="fs-15 lh-12 m-r-6"
-									style="color: #222;"> <i class="zmdi zmdi-circle"></i>
-								</span> <a href="#" class="filter-link stext-106 trans-04"> Black </a>
-								</li>
-
-								<li class="p-b-6"><span class="fs-15 lh-12 m-r-6"
-									style="color: #4272d7;"> <i class="zmdi zmdi-circle"></i>
-								</span> <a href="#"
-									class="filter-link stext-106 trans-04 filter-link-active">
-										Blue </a></li>
-
-								<li class="p-b-6"><span class="fs-15 lh-12 m-r-6"
-									style="color: #b3b3b3;"> <i class="zmdi zmdi-circle"></i>
-								</span> <a href="#" class="filter-link stext-106 trans-04"> Grey </a></li>
-
-								<li class="p-b-6"><span class="fs-15 lh-12 m-r-6"
-									style="color: #00ad5f;"> <i class="zmdi zmdi-circle"></i>
-								</span> <a href="#" class="filter-link stext-106 trans-04"> Green </a>
-								</li>
-
-								<li class="p-b-6"><span class="fs-15 lh-12 m-r-6"
-									style="color: #fa4251;"> <i class="zmdi zmdi-circle"></i>
-								</span> <a href="#" class="filter-link stext-106 trans-04"> Red </a></li>
-
-								<li class="p-b-6"><span class="fs-15 lh-12 m-r-6"
-									style="color: #aaa;"> <i class="zmdi zmdi-circle-o"></i>
-								</span> <a href="#" class="filter-link stext-106 trans-04"> White </a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col4 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">Tags</div>
-
-							<div class="flex-w p-t-4 m-r--5">
-								<a href="#"
-									class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Fashion </a> <a href="#"
-									class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Lifestyle </a> <a href="#"
-									class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Denim </a> <a href="#"
-									class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Streetstyle </a> <a href="#"
-									class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Crafts </a>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 
 			<div class="row isotope-grid"></div>
-
-			<!-- Load more -->
-			<!-- 			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#"
-					class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More </a>
-			</div> -->
 		</div>
 	</section>
 
@@ -982,121 +806,9 @@ hover {
 		</div>
 	</footer>
 
-	<!-- <div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1"> <img
-						src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
-				</div> 
-				<p class="stext-107 cl6 txt-center">
-					Copyright &copy;
-					<script>document.write(new Date().getFullYear());</script>
-					All rights reserved | Made with <i class="fa fa-heart-o"
-						aria-hidden="true"></i> by <a href="https://colorlib.com"
-						target="_blank">Colorlib</a> &amp; distributed by <a
-						href="https://themewagon.com" target="_blank">ThemeWagon</a>
-				</p>
-			</div>
-		</div>
-		-->
-	<!-- <footer class="bg3 p-t-75 p-b-32">
-      <div class="container">
-         <div class="row">
-            <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">GET IN TOUCH</h4>
-               <p class="stext-107 cl7 size-201">카카오아이엑스 사업자등록번호 : 354-86-00070<br>
-통신판매업 신고번호 : 2017-서울강남-02573<br>
-대표이사 : 권승조<br>
-주소 : 서울특별시 강남구 테헤란로 521 파르나스타워, 27층<br>
-고객센터 : 1577-6263 / 평일 10시 ~ 18시 -->
-	<!--    <div class="p-t-27">
-                  <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
-                     class="fa fa-facebook"></i>
-                  </a> <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
-                     class="fa fa-instagram"></i>
-                  </a> <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
-                     class="fa fa-pinterest-p"></i>
-                  </a>
-               </div> -->
-	<!-- </div> -->
-	<!-- <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">
-                        Questions</h4>
-               <form>
-                  <div class="wrap-input1 w-full p-b-4">
-                     <input class="input1 bg-none plh1 stext-107 cl7" type="text"
-                        name="email" placeholder="store@kakaofriends.com">
-                     <div class="focus-input1 trans-04"></div>
-                  </div>
-                  <div class="p-t-18">
-                     <button
-                        class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                        Subscribe</button>
-                  </div>
-               </form>
-               
-            </div> -->
-	<!--  <div class="col-sm-6 col-lg-3 p-b-50">
-               <h4 class="stext-301 cl0 p-b-30">Global Questions</h4>
-            <form>
-                  <div class="wrap-input1 w-full p-b-4">
-                     <input class="input1 bg-none plh1 stext-107 cl7" type="text"
-                        name="email" placeholder="global@kakaofriends.com">
-                     <div class="focus-input1 trans-04"></div>
-                  </div>
-                  <div class="p-t-18">
-                     <button
-                        class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                        Subscribe</button>
-                  </div>
-               </form>
-               
-            </div> -->
-	<!-- </div> -->
-
-	<!-- <div class="p-t-40">
-            <div class="flex-c-m flex-w p-b-18">
-               <a href="#" class="m-all-1"> <img
-                  src="../images/icons/icon-pay-01.png" alt="ICON-PAY">
-               </a> <a href="#" class="m-all-1"> <img
-                  src="../images/icons/icon-pay-02.png" alt="ICON-PAY">
-               </a> <a href="#" class="m-all-1"> <img
-                  src="../images/icons/icon-pay-03.png" alt="ICON-PAY">
-               </a> <a href="#" class="m-all-1"> <img
-                  src="../images/icons/icon-pay-04.png" alt="ICON-PAY">
-               </a> <a href="#" class="m-all-1"> <img
-                  src="../images/icons/icon-pay-05.png" alt="ICON-PAY">
-               </a>
-            </div> -->
-
-	<!--             <p class="stext-107 cl6 txt-center">
-               Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-               Copyright &copy;
-               <script>document.write(new Date().getFullYear());</script>
-               All rights reserved | Made with <i class="fa fa-heart-o"
-                  aria-hidden="true"></i> by <a href="https://colorlib.com"
-                  target="_blank">Colorlib</a> &amp; distributed by <a
-                  href="https://themewagon.com" target="_blank">ThemeWagon</a>
-               Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-            </p>
-         </div>
-   </footer> -->
-
 
 	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top"> <i
-			class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
+	<div class="page_up" id="myBtn" style="display: none;">TOP</div>
 
 	<!-- Modal1 -->
 	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">

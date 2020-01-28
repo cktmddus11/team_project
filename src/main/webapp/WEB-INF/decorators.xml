@@ -27,11 +27,12 @@
 		<pattern>/item/cart*</pattern>
 		<pattern>/item/review*</pattern>
 		<pattern>/item/search*</pattern><!-- 임시로 -->	
+		<pattern>/nonmember/nonmem*</pattern>
 	</decorator>
 	<decorator name="main7" page="decorator7.jsp">
 		<pattern>/admin/*</pattern>
 		<pattern>/item/*</pattern>
-
+		<pattern>/admin*</pattern>
 	</decorator>
 	<!-- layout 제외 -->
 	<excludes></excludes>

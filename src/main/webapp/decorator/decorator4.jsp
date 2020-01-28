@@ -55,10 +55,10 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="../css/util.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
-<link rel="stylesheet" type="text/css" href="../css/mycart.css">
 <link rel="stylesheet" type="text/css" href="../css/main_kje.css">
 <link rel="stylesheet" type="text/css" href="../css/mypage_cyj.css">
 <link rel="stylesheet" type="text/css" href="../css/category_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
 <!--===============================================================================================-->
 <link href="../css/modern-business.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet"
@@ -69,7 +69,6 @@
 <link
    href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,700,900&display=swap"
    rel="stylesheet">
-   
 <!-- ... -->
 </head>
 <style type="text/css">
@@ -309,9 +308,9 @@ hover {
 
                <!-- Icon header -->
                					<div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-						 <form style="width: 50%;" action="../item/search.store">
-                     <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
-                  </form>
+						<form style="width: 50%;">
+							<input type="text" name="search" placeholder="무엇을 찾으세요?">
+						</form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="../mypage/myindex.store" id="lightfont_black_de"
 								><span style="margin:0.3vw;"> <i
@@ -351,7 +350,7 @@ hover {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="#" onclick="javascript:nonmember()" id="ll_b_de">비회원 주문조회</a>
+											<a href="#" id="ll_b_de">비회원 주문조회</a>
 										</div>
 									</li>
 								</ul></li>
@@ -1159,11 +1158,7 @@ hover {
 
 
    <!-- Back to top -->
-   <div class="btn-back-to-top" id="myBtn">
-      <span class="symbol-btn-back-to-top"> <i
-         class="zmdi zmdi-chevron-up"></i>
-      </span>
-   </div>
+  <div class="page_up" id="myBtn" style="display: none;">TOP</div>
 
    <!-- Modal1 -->
    <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">

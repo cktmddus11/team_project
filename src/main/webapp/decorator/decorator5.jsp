@@ -62,6 +62,7 @@
 <link rel="stylesheet" type="text/css" href="../css/item_list_cyj.css">
 <link rel="stylesheet" type="text/css" href="../css/mycart.css">
 <link rel="stylesheet" type="text/css" href="../css/category_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
 <!--===============================================================================================-->
 <link href="../css/modern-business.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet"
@@ -314,8 +315,8 @@ hover {
 
               <!-- Icon header -->
                <div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-                  <form style="width: 50%;" action="../item/search.store">
-                     <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+                  <form style="width: 50%;">
+                     <input type="text" name="search" placeholder="무엇을 찾으세요?">
                   </form>
                   <ul class="main-menu" id="lightfont_black_de">
                      <li class="active-menu"><a href="../mypage/myindex.store"
@@ -880,7 +881,7 @@ hover {
    </div> -->
 
    <!-- Product -->
-   <section class="bg0 p-b-140" style="    padding-top: 4%; padding-bottom: 10%;">
+   <section class="bg0 p-b-140" style="    padding-top: 6%; padding-bottom: 10%;">
       <div class="container">
          <decorator:body />
          <div class="flex-w flex-sb-m p-b-25">
@@ -1169,11 +1170,7 @@ hover {
 
 
    <!-- Back to top -->
-    <div class="btn-back-to-top" id="myBtn">
-      <span class="symbol-btn-back-to-top"> <i
-         class="zmdi zmdi-chevron-up"></i>
-      </span>
-   </div> 
+    <div class="page_up" id="myBtn" style="display: none;">TOP</div>
 
    <!-- Modal1 -->
    <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
@@ -1346,57 +1343,6 @@ hover {
 			</div>
 		</div>
 	</div>
-		<!-- <div class="wrap-modal3 js-modal3 p-b-20 bUaVHd">
-		<div class="overlay-modal3 js-hide-modal3"></div>
-
-		<div class="container" style="border-radius: 5px;">
-			<div class="bg0 p-t-60 p-b-0 p-lr-15-lg how-pos3-parent">
-				<button class="how-pos3 hov3 trans-04 js-hide-modal3">
-					<img src="../images/icons/icon-close.png" alt="CLOSE">
-				</button>
-
-				<div class="row">
-					<div class=""
-						style="width: 100%; padding-left: 10%; padding-right: 10%;">
-						<div class="">
-
-							<div style="text-align: center">
-								<img
-									src="../images/product-detail/img-review-popup.png"
-									class="check-member-popup__TambourineRyan-sc-1mlxq2j-4 gNwgdH">
-							</div>
-							<h4 class="mtext-105 cl2 js-name-detail p-b-14"
-								style="text-align: center">	
-									리뷰는 구매 확정 후 14일 이내에만 작성 가능하며, 이후에는 작성이 불가합니다.
-							</h4>
-						</div>
-					</div>
-				</div>
-				<div class="bg0">
-					<table
-						style="width: 100%; margin: auto; border-top: 1px solid #d8d8d8;">
-						<tr>
-							<td class="p-t-20 p-b-20"
-								style="text-align: center; font-size: 20px; border-right: 1px solid #d8d8d8; width: 50%;">
-									<div onclick="cancel()">
-									취소</div>
-									<script>
-									function cancel(){
-										$(".wrap-modal3").removeClass('show-modal3');
-									}
-									</script>
-							</td>
-							<td class="p-t-20 p-b-20"
-								style="text-align: center; font-size: 20px;"><strong><a
-									href="../mypage/orderlistpage.store" style="color: black;">구매확정하러 가기</a></strong></td>
-						</tr> 구매확정하기 눌렀을 떄 로그인 안되있으면 로그인 signin 으로 이동
-						로그인 되어있으면 구매 내역으로 이동해서 
-					</table>
-				</div>
-			</div>
-		</div>
-		</div>
-		 -->
    <!--===============================================================================================-->
    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
    <!--===============================================================================================-->
@@ -1442,7 +1388,7 @@ hover {
    <!--===============================================================================================-->
    <script src="../vendor/isotope/isotope.pkgd.min.js"></script>
    <!--===============================================================================================-->
-<!--    <script src="../vendor/sweetalert/sweetalert.min.js"></script>
+   <script src="../vendor/sweetalert/sweetalert.min.js"></script>
    <script> // 찜 추가하는 부분
       $('.js-addwish-b2').on('click', function(e) {
          e.preventDefault();
@@ -1483,7 +1429,7 @@ hover {
                   swal(nameProduct, "is added to cart !", "success");
                });
             });
-   </script> -->
+   </script>
    <!--===============================================================================================-->
    <script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
    <script>
@@ -1521,14 +1467,6 @@ $('.js-show-modal1').on('click',function(e){
 $('.js-hide-modal1').on('click',function(){
     $('.js-modal1').removeClass('show-modal1');
 });
-/* $('.js-show-modal3').on('click', function(e) {
-e.preventDefault();
-$('.js-modal3').addClass('show-modal3');
-});
-
-$('.js-hide-modal3').on('click', function() {
-$('.js-modal3').removeClass('show-modal3');
-}); */
 </script>
    <!--===============================================================================================-->
    <script>
