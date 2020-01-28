@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,12 @@ import exception.LoginException;
 @Controller
 @RequestMapping("user")
 public class UserController {
-	@RequestMapping("loginForm")
+	@RequestMapping("*")
+	public String form(Model model) {
+		return null; // null : url로  보고 이동?
+	}
+
+	@RequestMapping("signin")
 	public ModelAndView loginForm(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		/* 네아로 인증 URL을 생성하기 위하여 getAuthorizationUrl을 호출 */
@@ -27,12 +34,11 @@ public class UserController {
 		String kakaoUrl = KakaoController.getAuthorizationUrl(session);
 
 		/* 생성한 인증 URL을 View로 전달 */
-		mav.setViewName("user/loginForm");
-		// 카카오 로그인
+		mav.setViewName("user/signin");
 		mav.addObject("kakao_url", kakaoUrl);
 
 		return mav;
-	}// end memberLoginForm()
+	}
 
 	@RequestMapping("login")
 	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpServletRequest request,
@@ -73,7 +79,7 @@ public class UserController {
 		session.setAttribute("kage", kage);
 		// 세션에 토큰 저장
 		session.setAttribute("access_Token", accessToken);
-		mav.setViewName("user/login");
+		mav.setViewName("redirect:../index.store"); // ../index
 		return mav;
 	}
 
@@ -87,7 +93,7 @@ public class UserController {
 			throw new LoginException("이미 로그아웃된 계정입니다", "loginForm.store");
 		}
 		session.invalidate();
-		mav.setViewName("redirect:loginForm.store");
+		mav.setViewName("redirect:../index.store");
 		return mav;
 	}
 
@@ -103,7 +109,7 @@ public class UserController {
 		JsonNode accessToken = (JsonNode) session.getAttribute("access_Token");
 		JsonNode userid = KakaoController.kakaoupdate(nickname, gender, accessToken);
 		System.out.println("수정된 사람의 아이디 : " + userid.get("id"));
-		return "redirect:loginForm.store";
+		return "redirect:../index.store";
 	}
 
 }
