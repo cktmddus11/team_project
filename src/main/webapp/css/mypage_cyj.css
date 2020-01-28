@@ -146,13 +146,64 @@ keyframes loader-scale { 0% {
 
 50%
 {
-opacity:1;
+opacity
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+1;
 }
 100%
 {
-transform:
-scale(1);
-opacity:0;
+transform
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+scale
+
+
+
+
+
+
+(1);
+opacity
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+0;
 }
 }
 
@@ -4508,6 +4559,7 @@ span.msg, span.choose {
 	text-align: center;
 	margin-left: 38vw;
 }
+
 .order_list4_2_mem {
 	display: flex;
 	-webkit-box-align: center;
@@ -4537,6 +4589,7 @@ span.msg, span.choose {
 		margin-left: 0;
 	}
 }
+
 @media ( min-width : 769px) {
 	.order_list4_2_fin {
 		order: 3;
@@ -4545,6 +4598,7 @@ span.msg, span.choose {
 		margin-left: 55px;
 	}
 }
+
 @media ( min-width : 769px) {
 	.order_list4_2_mem {
 		order: 3;
@@ -4754,6 +4808,11 @@ moblie_line {
 	padding: 30px 0px 60px;
 }
 
+@media ( min-width : 769px) {
+	.list_footer2 {
+		padding: 90px 0px 150px;
+	}
+}
 
 .page_block {
 	display: flex;
@@ -4858,7 +4917,7 @@ moblie_line {
 		display: flex;
 	}
 }
-/* [관리자] 매장 목록 관리  */
+/* [愿�由ъ옄] 留ㅼ옣 紐⑸줉 愿�由�  */
 .admin_store_write {
 	float: right;
 	height: 100%;
@@ -4900,6 +4959,7 @@ moblie_line {
 		font-size: 15px;
 	}
 }
+
 .store_name {
 	width: 27vw;
 	font-size: 13px;
@@ -4920,12 +4980,14 @@ moblie_line {
 	letter-spacing: -0.19px;
 	text-align: center;
 }
+
 .store_tel {
 	width: 15vw;
 	font-size: 13px;
 	letter-spacing: -0.19px;
 	text-align: center;
 }
+
 .store_time {
 	width: 15vw;
 	font-size: 13px;
@@ -4939,12 +5001,14 @@ moblie_line {
 	letter-spacing: -0.19px;
 	text-align: center;
 }
+
 .store_manage {
 	width: 7vw;
 	font-size: 13px;
 	letter-spacing: -0.19px;
 	text-align: center;
 }
+
 .store_list {
 	display: flex;
 	-webkit-box-align: center;
@@ -4956,6 +5020,7 @@ moblie_line {
 	text-align: center;
 	margin-left: 0vw;
 }
+
 @media ( min-width : 769px) {
 	.store_list {
 		order: 3;
@@ -4965,6 +5030,7 @@ moblie_line {
 		margin-left: 0;
 	}
 }
+
 .admin_store_update {
 	height: 100%;
 	background-color: rgb(60, 64, 75);

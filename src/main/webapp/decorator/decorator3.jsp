@@ -58,6 +58,7 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="../css/util.css">
 <link rel="stylesheet" type="text/css" href="../css/main_cyj.css">
+<link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
 <!--===============================================================================================-->
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans">
 <link rel="shortcut icon" href="//t1.kakaocdn.net/kakaofriends_global/static/img/favicon.ico" type="image/x-ico">
@@ -111,7 +112,6 @@ a.noul:hover {
 		<div class="container-menu-desktop" >
 			<!-- Topbar -->
 
-
 			<div class="wrap-menu-desktop" >
 				<nav class="limiter-menu-desktop container" >
 
@@ -119,7 +119,7 @@ a.noul:hover {
 				<div style="width: 75%;">
 					<div style="width: 210px;">
 						<a href="../index.store" class="logo" id="boldfont_white" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 					</div>
 				</div>
@@ -155,7 +155,7 @@ a.noul:hover {
 			<div style="width: 95%;">
 				<div style="width: 210px;">
 					<a href="../index.store" class="logo" id="boldfont_white" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 				</div>
 			</div>
@@ -202,10 +202,11 @@ a.noul:hover {
 				<div style="width: 75%;">
 					<div style="width: 210px;">
 						<a href="../index.store" class="logo" id="boldfont_black_de" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 					</div>
 				</div>
+				
 				
 
 					<!-- Menu desktop -->
@@ -238,7 +239,7 @@ a.noul:hover {
 			<div style="width: 95%; float: left;">
 				<div style="width: 210px;">
 					<a href="../index.store" class="logo" id="boldfont_black_de" > 
-							KAKAO FRIENDS
+							FRIEND STORE
 						</a>
 				</div>
 			</div>
@@ -566,11 +567,7 @@ a.noul:hover {
 
 
 	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top"> <i
-			class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
+	<div class="page_up" id="myBtn" style="display: none;">TOP</div>
 
 	<!-- Modal1
 	<!--
