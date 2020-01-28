@@ -309,7 +309,7 @@ hover {
 
                <!-- Icon header -->
                					<div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-						 <form style="width: 50%;" action="../search.store">
+						 <form style="width: 50%;" action="../item/search.store">
                      <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
                   </form>
 						<ul class="main-menu" id="lightfont_black_de">
@@ -351,7 +351,7 @@ hover {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="#" id="ll_b_de">비회원 주문조회</a>
+											<a href="#" onclick="javascript:nonmember()" id="ll_b_de">비회원 주문조회</a>
 										</div>
 									</li>
 								</ul></li>

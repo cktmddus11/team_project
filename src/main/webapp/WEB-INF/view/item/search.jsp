@@ -8,29 +8,45 @@
 <title>검색결과</title>
 
 <link rel="stylesheet" type="text/css" href="../css/main_csy.css">
+<link rel="stylesheet" type="text/css" href="../css/idx_cyj.css">
 <link rel="stylesheet" type="text/css"
    href="../fonts/iconic/css/material-design-iconic-font.min.css">
    <link rel="stylesheet" type="text/css"
    href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<script>
-		$(function() {
-			if ($(".add-to-cart__Basket-k28stc-0").hasClass("dYJVae") === true) {
-				$(".add-to-cart__Basket-k28stc-0").addClass("select")
+<script>
+	$(document).ready(function() {
+		$("input:checkbox").on('click', function() {
+			if ($(this).prop('checked')) {
+				var listnum = $(this).val();
+				$.ajax("" + $(this).val(), {
+					success : function(data) {//콜백함수
+						/* alert("나의 리스트에 저장하였습니다.") */
+					},
+					error : function(e) {
+						/* alert("나의 리스트에 저장하는 것에 실패하였습니다.") */
+					}
+				})
+				$(this).parent().removeClass("wish_btn")
+				$(this).parent().addClass("wish_btn").addClass("on")
+			} else {
+				var listnum = $(this).val();
+				$.ajax("" + $(this).val(), {
+					success : function(data) {//콜백함수
+						/* alert("나의 리스트에서 삭제하였습니다.") */
+					},
+					error : function(e) {
+						/* alert("나의 리스트에 삭제하는 것에 실패하였습니다.") */
+					}
+				})
+				$(this).parent().removeClass("wish_btn").removeClass("on")
+				$(this).parent().addClass("wish_btn")
 			}
-			$(".add-to-cart__Basket-k28stc-0").click(function() {
-				if ($(this).hasClass("dYJVae") === true) {
-					$(this).removeClass("dYJVae")
-					$(this).addClass("eQccag")
-					return false;
-				} else {
-					$(this).removeClass("eQccag")
-					$(this).addClass("dYJVae select")
-				}
-			})
-		})
-	</script>
+
+		});
+	});
+</script>
 	<div id="mArticle">
 		<h1 class="search-result__Keywords-sc-1y2po8m-0 itJrQV">
 			‘<strong style="color: black;"> <c:if
@@ -133,15 +149,12 @@
 							<p class="item__Price-sc-1eldrmh-3 gTnMRv" itemtype="search">
 								<span class="item__ScreenOut-sc-1eldrmh-5 gPRlEQ">금액</span><span>94,000</span>원
 							</p>
-							<p class="item__OrgPrice-sc-1eldrmh-4 hwownV" itemtype="search">
-								<span class="item__ScreenOut-sc-1eldrmh-5 gPRlEQ">할인 전 금액</span><span>99,000</span>원
-							</p>
-							<div class="item__LabelWrap-sc-1eldrmh-6 bycDdO">
-								<span class="label__LabelStyle-sc-61cw8i-0 haHYUu" color="red">5%</span>
-							</div></a>
-						<div class="item__CartWrap-sc-1eldrmh-7 goDjPh" itemtype="search">
-							<button type="button" class="add-to-cart__Basket-k28stc-0 eQccag">담기</button>
-						</div>
+							</a>
+								<div class="wish_check" itemtype="new">
+												<input id="all_item1" type="checkbox" data-toggle="tooltip"
+													data-placement="top" title="찜하기"<%-- <c:if test="${jjimcount>0}">checked="checked"</c:if> --%>>
+												<label for="all_item1"> </label>
+								</div>
 					</div></li>
 				<li class="item__Li-sc-1eldrmh-0 lnYegB" itemtype="search"><div>
 						<a href="/kr/products/6498" class="item__Link-sc-1eldrmh-8 xJJuU"><span
@@ -156,9 +169,11 @@
 								<span class="item__ScreenOut-sc-1eldrmh-5 gPRlEQ">금액</span><span>19,000</span>원
 							</p>
 							<div class="item__LabelWrap-sc-1eldrmh-6 bycDdO"></div></a>
-						<div class="item__CartWrap-sc-1eldrmh-7 goDjPh" itemtype="search">
-							<button type="button" class="add-to-cart__Basket-k28stc-0 dYJVae">담기</button>
-						</div>
+						<div class="wish_check" itemtype="new">
+												<input id="all_item2" type="checkbox" data-toggle="tooltip"
+													data-placement="top" title="찜하기"<%-- <c:if test="${jjimcount>0}">checked="checked"</c:if> --%>>
+												<label for="all_item2"> </label>
+								</div>
 					</div></li>
 				<li class="item__Li-sc-1eldrmh-0 lnYegB" itemtype="search"><div>
 						<a href="/kr/products/6539" class="item__Link-sc-1eldrmh-8 xJJuU"><span
@@ -172,9 +187,11 @@
 								<span class="item__ScreenOut-sc-1eldrmh-5 gPRlEQ">금액</span><span>15,000</span>원
 							</p>
 							<div class="item__LabelWrap-sc-1eldrmh-6 bycDdO"></div></a>
-						<div class="item__CartWrap-sc-1eldrmh-7 goDjPh" itemtype="search">
-							<button type="button" class="add-to-cart__Basket-k28stc-0 dYJVae">담기</button>
-						</div>
+							<div class="wish_check" itemtype="new">
+												<input id="all_item3" type="checkbox" data-toggle="tooltip"
+													data-placement="top" title="찜하기"<%-- <c:if test="${jjimcount>0}">checked="checked"</c:if> --%>>
+												<label for="all_item3"> </label>
+								</div>
 					</div></li>
 				<li class="item__Li-sc-1eldrmh-0 lnYegB" itemtype="search"><div>
 						<a href="/kr/products/6528" class="item__Link-sc-1eldrmh-8 xJJuU"><span
@@ -189,9 +206,11 @@
 								<span class="item__ScreenOut-sc-1eldrmh-5 gPRlEQ">금액</span><span>18,000</span>원
 							</p>
 							<div class="item__LabelWrap-sc-1eldrmh-6 bycDdO"></div></a>
-						<div class="item__CartWrap-sc-1eldrmh-7 goDjPh" itemtype="search">
-							<button type="button" class="add-to-cart__Basket-k28stc-0 dYJVae">담기</button>
-						</div>
+							<div class="wish_check" itemtype="new">
+												<input id="all_item4" type="checkbox" data-toggle="tooltip"
+													data-placement="top" title="찜하기"<%-- <c:if test="${jjimcount>0}">checked="checked"</c:if> --%>>
+												<label for="all_item4"> </label>
+								</div>
 					</div></li>
 				<li class="item__Li-sc-1eldrmh-0 lnYegB" itemtype="search"><div>
 						<a href="/kr/products/6528" class="item__Link-sc-1eldrmh-8 xJJuU"><span
@@ -206,9 +225,11 @@
 								<span class="item__ScreenOut-sc-1eldrmh-5 gPRlEQ">금액</span><span>18,000</span>원
 							</p>
 							<div class="item__LabelWrap-sc-1eldrmh-6 bycDdO"></div></a>
-						<div class="item__CartWrap-sc-1eldrmh-7 goDjPh" itemtype="search">
-							<button type="button" class="add-to-cart__Basket-k28stc-0 dYJVae">담기</button>
-						</div>
+							<div class="wish_check" itemtype="new">
+												<input id="all_item5" type="checkbox" data-toggle="tooltip"
+													data-placement="top" title="찜하기"<%-- <c:if test="${jjimcount>0}">checked="checked"</c:if> --%>>
+												<label for="all_item5"> </label>
+								</div>
 					</div></li>
 
 			</ul>

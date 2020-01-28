@@ -3245,31 +3245,35 @@ input:checked[type='checkbox'] {
 	-webkit-appearance: checkbox;
 }
 
-.dejnuF {
-	width: 5.33333vw;
+.dejnuF+label {
+	/* width: 5.33333vw;
 	height: 5.33333vw;
-	margin-right: 2.66667vw;
+	margin-right: 2.66667vw; */
 	background: url(../images/product-detail/ico_checked_ok.png) center
-		center/5.33333vw 5.33333vw no-repeat;
+		center/ 25px 25px no-repeat;
 }
-.jDnUiM {
-    width: 5.33333vw;
+.jDnUiM+label {
+    /* width: 5.33333vw;
     height: 5.33333vw;
-    margin-right: 2.66667vw;
-    background: url(../images/product-detail/ico_checked.png) center center / 5.33333vw 5.33333vw no-repeat;
+    margin-right: 2.66667vw; */
+    background: url(../images/product-detail/ico_checked.png) center center / 25px 25px no-repeat;
 }
 @media ( min-width : 769px) {
-	.dejnuF {
+	.dejnuF{
 		width: 30px;
 		height: 25px;
 		margin-right: 10px;
 		background-size: 25px 25px;
+		background: url(../images/product-detail/ico_checked_ok.png) center
+		center/ 25px 25px no-repeat;
 	}
 	.jDnUiM {
     width: 30px;
     height: 25px;
     margin-right: 10px;
     background-size: 25px 25px;
+        background: url(../images/product-detail/ico_checked.png) center center / 25px 25px no-repeat;
+    
 }
 }
 .dimmed_layer {
@@ -3379,4 +3383,66 @@ fieldset, img {
     border: 1px solid #ddd;
     color: #535353;
     background-color: #fff;
+}
+
+
+input[type="checkbox"]:checked + label {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-indent: -9999em;
+	font-size: 1px;
+	background-image: url(../images/icons/icon-heart-01.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-position:center center/57%;
+	border-radius: 3px;
+	outline: none;
+}
+
+@media ( min-width : 769px) {
+	input[type="checkbox"]:checked + label {
+		background-size: 100%;
+	}
+}
+input[type="checkbox"] {
+	display: none;
+}
+input[type="checkbox"] + label{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-indent: -9999em;
+	font-size: 1px;
+	background-image: url(../images/icons/icon-heart-02.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-position:center center/57%;
+	border-radius: 3px;
+	outline: none;
+}
+
+@media ( min-width : 769px) {
+	input[type="checkbox"] + label {
+		background-size: 100%;
+	}
+}
+
+
+.wish_check {
+/* 	position: absolute;
+	right: 2.53333vw;
+	top: 34.8vw; */
+	width: 6.53333vw;
+	height: 6.53333vw;
+}
+
+@media ( min-width : 769px) {
+	.wish_check {
+		/* top: 221px;
+		right: 10px; */
+		width: 24px;
+		height: 24px;
+		    margin-right: 16px;
+	}
 }
