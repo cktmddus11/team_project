@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator"
 	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -290,9 +290,9 @@ hover {
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-						<form style="width: 50%;">
-							<input type="text" name="search" placeholder="무엇을 찾으세요?">
-						</form>
+						 <form style="width: 50%;" action="../search.store">
+                		     <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+                 		 </form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="../mypage/myindex.store"
 								id="lightfont_black_de"><span
@@ -328,7 +328,7 @@ hover {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../help/notice.store" id="ll_b_de">1:1문의</a>
+											<a href="../mypage/contactpage.store" id="ll_b_de">1:1문의</a>
 										</div>
 									</li>
 									<li>

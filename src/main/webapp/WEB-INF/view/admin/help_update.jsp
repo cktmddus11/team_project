@@ -93,7 +93,7 @@ textarea {
 		<span class="p-name">항목선택</span>
 		<div class="input-name">
 			<form name="search">
-				<select class="select-box" style='color: #555;' name="category2"
+				<select class="select-box" style='color: #555;padding-left: 10px;' name="category2"
 					onchange="">
 					<option value="1">전체</option>
 					<option value="2">배송</option>

@@ -2,12 +2,13 @@
 <decorators defaultdir="/decorator">
 	<decorator name="main" page="decorator.jsp">
 		<pattern>/index*</pattern>
+		
 	</decorator>
 	<!-- 상품리스트 -->
 	<decorator name="main2" page="decorator2.jsp">
 		<pattern>/help*</pattern>
 <!-- 		<pattern>/item/list*</pattern> -->
-		
+	
 	</decorator>
 	<!-- 매장소개 -->
 	<decorator name="main3" page="decorator3.jsp">
@@ -25,6 +26,7 @@
 		<pattern>/item/list*</pattern>
 		<pattern>/item/cart*</pattern>
 		<pattern>/item/review*</pattern>
+		<pattern>/item/search*</pattern><!-- 임시로 -->	
 	</decorator>
 	<decorator name="main7" page="decorator7.jsp">
 		<pattern>/admin/*</pattern>

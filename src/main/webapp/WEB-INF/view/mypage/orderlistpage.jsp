@@ -91,7 +91,7 @@
 					<li class="order_state" id="my_bb_b" style="font-size: 20px;">주문 상태</li>
 				</ul>
 				<div class="order_list1">
-					<a class="order_list2" href="orderlistpage.store"
+					<a class="order_list2" href="ordernum.store"
 						style="padding-left: 0; color: black;"> <span
 						class="order_list1_span">주문번호</span> <span class="order_list1_num"
 						id="my_bb_b" style="font-size: 15px">20200115-123456789</span>

@@ -454,7 +454,7 @@
 
 		}
 	$(function() {
-			$(".icon-heart2").hide()
+		$(".icon-heart2").hide()
 		$(".hearticon").click(function() {
 			if ($(this).children().children('.icon-heart2').hasClass("select") === true) {
 				$(this).children().children('.icon-heart1').show()

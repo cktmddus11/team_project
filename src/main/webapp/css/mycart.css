@@ -3628,7 +3628,7 @@ span.msg, span.choose {
 	cursor: pointer;
 	display: block;
 	padding-left: 10px;
-	padding-top: 0px;
+	padding-top: 15px;
 }
 
 @media ( min-width : 769px) {
@@ -3636,7 +3636,7 @@ span.msg, span.choose {
 		cursor: pointer;
 		display: block;
 		padding-left: 10px;
-		padding-top: 5px;
+		padding-top: 15px;
 	}
 }
 

@@ -100,8 +100,8 @@
 				<ul class="admin_list_no_ul">
 					<li class="notice_num" id="my_bb_b" style="font-size: 20px;">번호</li>
 					<li class="notice_title" id="my_bb_b"
-						style="font-size: 20px; width: 40vw; text-align: left;">제목</li>
-					<li class="notice_date" id="my_bb_b" style="font-size: 20px;padding-right: 80px;">항목</li>
+						style="font-size: 20px; width: 31vw; text-align: left;">제목</li>
+					<li class="notice_date" id="my_bb_b" style="font-size: 20px;padding-right:7px;">항목</li>
 					<li class="notice_manage" id="my_bb_b" style="font-size: 20px;">관리</li>
 				</ul>
 				<div class="order_list1" style="height: 70px;">

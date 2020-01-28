@@ -78,7 +78,7 @@
 				<ul class="admin_list_no_ul">
 					<li class="notice_num" id="my_bb_b" style="font-size: 20px;">번호</li>
 					<li class="notice_title" id="my_bb_b"
-						style="font-size: 20px; width: 40vw; text-align: left;">제목</li>
+						style="font-size: 20px; width: 33vw; text-align: left;">제목</li>
 					<li class="notice_date" id="my_bb_b" style="font-size: 20px;">작성일자</li>
 					<li class="notice_manage" id="my_bb_b" style="font-size: 20px;">관리</li>
 				</ul>
@@ -102,7 +102,7 @@
 
 					<div class="order_list4_2" style="text-align: center;">
 						<div class="order_list2_state" id="my_ll_b"
-							style="display: inline-block;">
+							style="display: inline-block; padding-right: 15px;">
 							<button class="admin_store_update" id="my_ll_w"
 								onclick="location.href='./help_update.store?select=notice'">수정</button>
 
@@ -132,7 +132,7 @@
 
 					<div class="order_list4_2" style="text-align: center;">
 						<div class="order_list2_state" id="my_ll_b"
-							style="display: inline-block;">
+							style="display: inline-block; padding-right: 15px;">
 							<button class="admin_store_update" id="my_ll_w"
 								onclick="location.href='./help_update.store?select=notice">수정</button>
 
@@ -161,7 +161,7 @@
 
 					<div class="order_list4_2" style="text-align: center;">
 						<div class="order_list2_state" id="my_ll_b"
-							style="display: inline-block;">
+							style="display: inline-block; padding-right: 15px;">
 							<button class="admin_store_update" id="my_ll_w"
 								onclick="location.href='./help_update.store?select=notice'">수정</button>
 

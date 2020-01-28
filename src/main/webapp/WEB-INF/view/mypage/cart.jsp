@@ -140,6 +140,55 @@ input.sel_delete {
 						</div>
 					</div>
 				</div>
+				<div class="order_list1">
+					<div class="order_list3">
+						<div class="order_list3_item">
+							<div class="checks"> 
+								<input type="checkbox" id="ex_chk1" name="itemchks">
+								<label for="ex_chk1"></label>
+							</div>
+							<a class="order_list3_img"> 
+								<span><img
+									style="width: 100%; height: auto;"
+									src="../images/product/20191224172856717_8809681705172_8809681705196_AW_00.jpg"
+									alt="상품명"> </span>
+							</a>
+							<div class="order_list_content">
+								<div>
+									<div class="item_name" id="my_ll_b">(IX/XS)치즈 피규어 케이스 어피치</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="option_select"
+						style="padding-top: 50px; padding-left: 30px;">
+						<select style="width: 150px;">
+							<option>(IX/XS)치즈 피규어 케이스 어피치</option>
+							<option>(I11Pro)치즈 피규어 케이스 어피치</option>
+							<option>(I11ProMax)치즈 피규어 케이스 어피치</option>
+						</select>
+					</div>
+					<hr class="moblie_line">
+					<div class="order_list4_1"
+						style="text-align: center; padding-right: 50px; padding-left: 40px;">
+						<div>
+							<select
+								style="width: 100px; height: 40px; border-radius: 4.5px; font-size: 18px;">
+								<option value="1" style="font-size: 13pt;">1</option>
+								<option value="2" style="font-size: 13pt;">2</option>
+								<option value="3" style="font-size: 13pt;">3</option>
+								<option value="4" style="font-size: 13pt;">4</option>
+							</select>
+						</div>
+					</div>
+					<div class="order_list4_2">
+						<div class="item_price">
+						<!--  style="padding-right: 30px;" -->
+							<span>23,000 원</span>
+							<span><input type="button" class="sel_delete"></span>
+						</div>
+					</div>
+				</div>
 				<div class="count">
 					<div class="count_block">
 						<span class="all_order_price"

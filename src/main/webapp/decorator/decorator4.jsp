@@ -55,6 +55,7 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="../css/util.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/mycart.css">
 <link rel="stylesheet" type="text/css" href="../css/main_kje.css">
 <link rel="stylesheet" type="text/css" href="../css/mypage_cyj.css">
 <link rel="stylesheet" type="text/css" href="../css/category_cyj.css">
@@ -68,6 +69,7 @@
 <link
    href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,700,900&display=swap"
    rel="stylesheet">
+   
 <!-- ... -->
 </head>
 <style type="text/css">
@@ -307,9 +309,9 @@ hover {
 
                <!-- Icon header -->
                					<div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-						<form style="width: 50%;">
-							<input type="text" name="search" placeholder="무엇을 찾으세요?">
-						</form>
+						 <form style="width: 50%;" action="../search.store">
+                     <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+                  </form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="../mypage/myindex.store" id="lightfont_black_de"
 								><span style="margin:0.3vw;"> <i

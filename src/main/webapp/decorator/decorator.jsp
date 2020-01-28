@@ -51,6 +51,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/main_phy.css">
 <link rel="stylesheet" type="text/css" href="css/category_cyj.css">
+<link rel="stylesheet" type="text/css" href="css/main_csy.css">
 <!--===============================================================================================-->
 
 <link href="css/modern-business.css" rel="stylesheet">
@@ -62,6 +63,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,700,900&display=swap"
 	rel="stylesheet">
+      <script type="text/javascript" 
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
 <style type="text/css">
 #boldfont_black_de {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -146,7 +149,7 @@ input[type=text] {
 	font-size: 16px;
 	background-color: white;
 	background-size: 20px;
-	background-image: url('images/product/ico-header-search.png');
+	background-image: url('images/product/ico-header-search.png'); 
 	background-position: 10px 15px;
 	background-repeat: no-repeat;
 	padding: 12px 20px 12px 40px;
@@ -295,15 +298,15 @@ input[type=text] {
 					</div>
 					<!-- Logo desktop -->
 					<div class="menu-desktop" style="width: 22vw;">
-						<a href="../index.store" class="logo" id="boldfont_black_de"
+						<a href="index.store" class="logo" id="boldfont_black_de"
 							style="padding-left: 100px;">FRIEND STORE</a>
 					</div>
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m" style="width: 35%;">
-						<form style="width: 50%;">
-							<input type="text" name="search" placeholder="무엇을 찾으세요?">
-						</form>
+						<form style="width: 50%;" action="item/search.store" accept-charset="UTF-8" method="get">
+                  		   <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+                  			</form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="mypage/myindex.store"
 								id="lightfont_black_de"><span style="margin: 0.3vw;">
@@ -344,7 +347,7 @@ input[type=text] {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="#" id="ll_b_de">비회원 주문조회</a>
+											<a href="#" onclick="javascript:nonmember()" id="ll_b_de">비회원 주문조회</a>
 										</div>
 									</li>
 								</ul></li>
@@ -1408,7 +1411,11 @@ input[type=text] {
 			</div>
 		</div>
 	</div>
+	<!-- -------------------------------------------------------------------------------- -->
 
+	
+	
+	
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->

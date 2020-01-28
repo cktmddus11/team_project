@@ -280,8 +280,36 @@ hover {
 								id="lightfont_black_de">1:1 문의 관리</a></li>
 							<li><a href="../admin/manage_index.store"
 								id="lightfont_black_de">로그아웃</a></li>
-								<li><a href="../admin/manager.store"
-								id="lightfont_black_de">관리자 목록 관리</a></li>
+							<li class="active-menu"><a href="" id="lightfont_black_de"
+								onclick="return false;">관리자 <img
+									src="../images/index_deco/ico-header-triangle.png" width="7"
+									height="4">
+							</a>
+								<ul class="sub-menu deco7_hamburger_list" style="position: absolute;">
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../admin/manager.store" id="lightfont_black_de">관리자 목록 관리</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../admin/manager_write.store"
+												id="lightfont_black_de">관리자 회원가입</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../admin/manage_login.store"
+												id="lightfont_black_de">관리자 로그인</a>
+										</div>
+									</li>
+									<li>
+										<div style="width: 90%;" id="h">
+											<a href="../admin/manager_update.store"
+												id="lightfont_black_de">관리자 정보확인</a>
+										</div>
+									</li>
+								</ul></li>
 						</ul>
 					</div>
 					<br>

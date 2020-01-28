@@ -44,7 +44,7 @@
 				id="my_l_b">${sessionScope.kemail }</span>
 			</span>
 		</div>
-		<a href="../member/update.store" class="mem_update" id="my_l_b">배송지수정</a>
+		<a href="../mypage/orderupdate.store" class="mem_update" id="my_l_b">배송지수정</a>
 	</div>
 	<div class="mypage_list">
 		<a href="orderlistpage.store?status=receive" class="list_1"> <span class="list_2" id="my_bb_b">0</span>

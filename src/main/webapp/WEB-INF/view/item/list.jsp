@@ -56,7 +56,7 @@
 		style="display: inline-block; position: relative; padding-top: 20px; float: right;">
 		<div class="dropdown" style="width: 200px; height: 50px;">
 			<div class="select">
-				<span>선택하세요</span> <i class="fa fa-chevron-up"></i>
+				<span>선택하세요</span> <i class="fa fa-chevron-up" style="margin-right: 0px; margin-top: 0px;"></i>
 			</div>
 			<input type="hidden" name="order">
 			<ul class="dropdown-menu">
@@ -73,7 +73,7 @@
 		style="display: inline-block; position: relative; padding-top: 20px; float: right;">
 		<div class="dropdown" style="width: 200px; height: 50px;">
 			<div class="select">
-				<span>캐릭터를 선택하세요</span> <i class="fa fa-chevron-up"></i>
+				<span>캐릭터를 선택하세요</span> <i class="fa fa-chevron-up" style="margin-right: 0px; margin-top: 0px;"></i>
 			</div>
 			<input type="hidden" name="character">
 			<ul class="dropdown-menu">
@@ -132,9 +132,9 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102183712810_8809681703895_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
+						alt="IMG-PRODUCT"> <!-- <a href="#"
 						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						장바구니 담기 </a> -->
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -162,11 +162,11 @@
 			<!-- Block2 -->
 			<div class="block2">
 				<div class="block2-pic hov-img0">
-					<img
+					 <img
 						src="../images/product/20200102182723911_8809681706049_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
+						alt="IMG-PRODUCT"> <!-- <a href="#"
 						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						장바구니 담기 </a>  -->
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -196,10 +196,8 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102182656442_8809681706056_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
-				</div>
+						alt="IMG-PRODUCT"> 
+				</div> 
 
 				<div class="block2-txt flex-w flex-t p-t-14">
 					<div class="block2-txt-child1 flex-col-l ">
@@ -228,9 +226,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102182615044_8809681704977_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -259,9 +255,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102182543318_8809681704984_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -290,9 +284,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102182459246_8809681704991_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT">
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -318,12 +310,10 @@
 		<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 			<!-- Block2 -->
 			<div class="block2">
-				<div class="block2-pic hov-img0">
+				 <div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102151915071_8809681705004_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -352,9 +342,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20200102151830163_8809681705011_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -383,9 +371,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191227143706951_8809681705059_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -414,9 +400,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191227143639445_8809681705066_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT">
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -445,9 +429,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191227143602206_8809681704915_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -476,9 +458,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191227143513928_8809681704922_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -507,9 +487,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191226141805232_8809681705226_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT">
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -538,9 +516,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191220153405153_8809681704946_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT">
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -569,9 +545,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191220153129430_8809681704939_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">
@@ -600,9 +574,7 @@
 				<div class="block2-pic hov-img0">
 					<img
 						src="../images/product/20191220152813902_8809681705042_AW_00.jpg"
-						alt="IMG-PRODUCT"> <a href="#"
-						class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-						장바구니 담기 </a>
+						alt="IMG-PRODUCT"> 
 				</div>
 
 				<div class="block2-txt flex-w flex-t p-t-14">

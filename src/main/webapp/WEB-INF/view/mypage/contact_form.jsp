@@ -14,37 +14,38 @@
 		function changecase() {
 			var content = $("select[name='case1']").val();
 			var write = null;
-			var lastClass = $("label[name='caselabel']").attr('class').split(
-					' ').pop();
+			var lastClass = $("label[name='caselabel']").attr('class').split(' ').pop();
 			console.log(lastClass)
 			$("label[name='caselabel']").removeClass(lastClass);
 			if (content == -1) {
 				write = "문의 유형 선택";
-
 				$("label[name='caselabel']").addClass('ckvayf')
 			} else if (content == 4) {
 				write = "배송";
-
 				$("label[name='caselabel']").addClass('cvxdGv')
 			} else if (content == 6) {
 				write = "교환/반품/환불"
-
 				$("label[name='caselabel']").addClass('gbuGih')
 			} else if (content == 7) {
 				write = "기타";
-
 				$("label[name='caselabel']").addClass('eUAHGi')
 			} else if (content == 2) {
-				write = "상품";
-
+				write = "상품"
 				$("label[name='caselabel']").addClass('kqEPId')
 			} else if (content == 3) {
 				write = "주문결제";
-
 				$("label[name='caselabel']").addClass('DlPRr')
 			}
-
 			$("label[name='caselabel']").attr('content', write);
+		}
+		function chkbox(chk) {
+			$("input[name=agreement]").prop("checked", chk.checked)
+			if($(chk).hasClass("check")=== true){
+				$(chk).removeClass("check")
+				return;
+			}
+			$(chk).addClass("check")
+			
 		}
 	</script>
 </head>
@@ -161,7 +162,7 @@
 											<div class="check-box__CheckBoxContainer-sc-1dmnxgb-6 kyicMO">
 												<input type="checkbox"
 													class="check-box__InputCheckBox-sc-1dmnxgb-5 bEvrkG"
-													id="agreement" required="" name="agreement"><label
+													id="agreement" required="" name="agreement" onchange="chkbox(this)"><label
 													for="agreement"></label>
 											</div>
 											<label class="check-box__Label-sc-1dmnxgb-3 jyoKnP"

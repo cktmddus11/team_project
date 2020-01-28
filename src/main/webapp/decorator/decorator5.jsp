@@ -314,8 +314,8 @@ hover {
 
               <!-- Icon header -->
                <div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-                  <form style="width: 50%;">
-                     <input type="text" name="search" placeholder="무엇을 찾으세요?">
+                  <form style="width: 50%;" action="../search.store">
+                     <input type="text" name="keyword" placeholder="무엇을 찾으세요?">
                   </form>
                   <ul class="main-menu" id="lightfont_black_de">
                      <li class="active-menu"><a href="../mypage/myindex.store"
@@ -880,7 +880,7 @@ hover {
    </div> -->
 
    <!-- Product -->
-   <section class="bg0 p-b-140" style="    padding-top: 6%; padding-bottom: 10%;">
+   <section class="bg0 p-b-140" style="    padding-top: 4%; padding-bottom: 10%;">
       <div class="container">
          <decorator:body />
          <div class="flex-w flex-sb-m p-b-25">
