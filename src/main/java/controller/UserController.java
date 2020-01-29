@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +18,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import exception.LoginException;
+import logic.ShopService;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
+	@Autowired
+	private ShopService service;
+	
 	@RequestMapping("*")
 	public String form(Model model) {
 		return null; // null : url로  보고 이동?
@@ -80,6 +85,24 @@ public class UserController {
 		// 세션에 토큰 저장
 		session.setAttribute("access_Token", accessToken);
 		mav.setViewName("redirect:../index.store"); // ../index
+		
+		
+		if(service.selectOne(kemail)) { 
+			// true면 이미 db에 저장되어있는거
+			System.out.println("있음");
+		}else { 
+			// false면 최초 로그인. db에 사용자 정보저장
+			System.out.println("없음");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		return mav;
 	}
 
