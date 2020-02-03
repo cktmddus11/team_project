@@ -98,7 +98,7 @@ public class MvcConfig implements WebMvcConfigurer {
 		Properties pr = new Properties();
 		pr.put("exception.CartEmptyException", "exception");
 		pr.put("exception.LoginException", "exception");
-		pr.put("exception.BoardException", "exception");
+		pr.put("exception.storeInfoException", "exception");
 		ser.setExceptionMappings(pr);
 		return ser;
 	}

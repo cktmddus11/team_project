@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문내역,주문 접수,배송 중,취소/반품/교환</title>
+<title>주문관련</title>
 <style type="text/css">
 #my_b_b {
 	font-family: 'Noto Sans KR', sans-serif;

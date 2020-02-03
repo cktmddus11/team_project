@@ -58,7 +58,10 @@
 </style>
 </head>
 <body>
+<form:form modelAttribute="storeinfo" action="store_delete.store" 
+ enctype="multipart/form-data">
 	<div class="store_write_header" id="my_b_b">[관리자] 매장 안내 삭제</div>
+	<form:hidden path="storeno"/>
 	<div class="store_write_body">
 		<div class="store_write_edit">
 			<div class="store_write_input">
@@ -86,8 +89,9 @@
 			<button class="btn_cancel" id="my_bb_b"
 				onclick="javascript:history.back()">취소</button>
 			<button class="btn_save" id="my_bb_w"
-				onclick="location.href='./store_list.store'">삭제</button>
+				onsubmit="location.href='./delete.store'">삭제</button>
 		</div>
 	</div>
+</form:form>
 </body>
 </html>

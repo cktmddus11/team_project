@@ -20,8 +20,8 @@ public class DBConfig {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
 		try {
 			ds.setDriverClass("org.mariadb.jdbc.Driver");
-			ds.setJdbcUrl("jdbc:mariadb://localhost:3306/classdb");
-			ds.setUser("scott");
+			ds.setJdbcUrl("jdbc:mariadb://localhost:3306/friendstore");
+			ds.setUser("goodee");
 			ds.setPassword("1234");
 			ds.setMaxPoolSize(20);
 			ds.setMinPoolSize(3);

@@ -3640,3 +3640,25 @@ span.choose {
     top: 43px;
     left: -1px;
 }
+.btn_cancel_1 {
+   flex: 1;
+   height: 16vw;
+   border-radius: 1.0666666667vw;
+   border: solid 1px #e3e5e8;
+   font-size: 4.2666666667vw;
+   font-weight: bold;
+   line-height: 1.88;
+   letter-spacing: -0.056vw;
+   margin: 0 0.9333333333vw;
+}
+
+@media ( min-width : 768px) {
+   .btn_cancel_1 {
+      max-width: 500px;
+      height: 60px;
+      border-radius: 4px;
+      font-size: 16px;
+      letter-spacing: -0.21px;
+      margin: 0 3.5px;
+   }
+}
