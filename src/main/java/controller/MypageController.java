@@ -10,14 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("mypage")
 public class MypageController {
-	@RequestMapping("*") // get으로 들어온 요청중 정해진게 없으면 이걸로 실행?
-	public String form(Model model) {
-		return null; // null : url로  보고 이동?
+	// 로그인 했는지 확인하는 절차 필요
+	@RequestMapping("myindex")
+	public ModelAndView checkindex(String id, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		return mav;
 	}
-/*	@RequestMapping("myindex")
-	public String myindex(HttpSession session) {
-		
-		
-	}*/
+	@RequestMapping("cart")
+	public ModelAndView cart(String id, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		return mav;
+	}
 
 }

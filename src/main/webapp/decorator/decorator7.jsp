@@ -198,7 +198,7 @@ hover {
 								<ul class="sub-menu deco7_hamburger_list" style="position: absolute;">
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../admin_item/product-list.store" id="lightfont_black_de">상품 목록 관리</a>
+											<a href="../admin_item/product_list.store" id="lightfont_black_de">상품 목록 관리</a>
 										</div>
 									</li>
 									<li>

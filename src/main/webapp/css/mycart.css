@@ -110,7 +110,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 @media ( min-width : 769px) {
 	.container {
-		max-width: 1200px;
+	/* 	max-width: 1200px; */
 	}
 }
 
@@ -3799,13 +3799,6 @@ span.msg, span.choose {
 	height: 220px;
     background: url('../images/product/img_category_header_all.jpg') right 0px / contain no-repeat;
 } */
-@media ( min-width : 769px) {
-	.category_header_div {
-		height: 220px;
-		background: url('../images/product/img_category_header_all.jpeg') right
-			0px/contain no-repeat;
-	}
-}
 
 .category_header_div {
 	position: relative;
@@ -3817,6 +3810,47 @@ span.msg, span.choose {
 	background: url('../images/product/img_category_header_all.jpeg') right
 		0px/contain no-repeat;
 }
+.hkMGHD {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 34.7vw;
+    min-height: 111px;
+    background: url(https://t1.daumcdn.net/friends/prod/category/190909_character_ryan_M.jpg) right 0px / contain no-repeat;
+}
+@media ( min-width : 769px) {
+	/* .category_header_div {
+		height: 220px;
+		background: url('../images/product/img_category_header_all.jpeg') right
+			0px/contain no-repeat;
+	} */
+	.jxMVNe {
+		height: 220px;
+		background: url('../images/product/img_category_header_all.jpeg') right
+			0px/contain no-repeat;
+	}
+	.iJySYV { /* 토이 */
+    height: 220px;
+    background: url(../images/product/category_toy_W.jpg) right 0px / contain no-repeat;
+	}
+	.dpgINz { /* 의류*/
+    height: 220px;
+    background: url(../images/product/category_Apparel_W1.jpg) right 0px / contain no-repeat;
+	}
+	.cztjdj { /* 생활테크*/
+    height: 220px; 
+    background: url(../images/product/1004_category_Electronic_W.jpg) right 0px / contain no-repeat;
+	}
+	/* 라이언*/
+	.hkMGHD {
+    height: 220px;
+    background: url(../images/product/190909_character_ryan_W.jpg) right 0px / contain no-repeat;
+	}	
+	.uISNn { /* 어피치 */
+    height: 220px;
+    background: url(../images/product/190909_character_apeach_W.jpg) right 0px / contain no-repeat;
+	}
 
 }
 @media ( min-width : 769px) {

@@ -65,7 +65,7 @@ textarea {
 <body>
 	<script>
 	$(function(){
-		var a = ${param.select eq 'notice'}
+		var a = ${help.boardcode ==1}
 		if(a){
 			$("#select2").hide()
 		}
@@ -73,8 +73,8 @@ textarea {
 </script>
 	<div class="product-register">
 		<span class="product_register_div1">[관리자]고객센터 <c:if
-				test="${param.select eq 'faq'}">FAQ </c:if> <c:if
-				test="${param.select eq 'notice'}">공지사항 </c:if>글 상세보기
+				test="${help.boardcode==2}">FAQ </c:if> <c:if
+				test="${help.boardcode==1}">공지사항 </c:if>글 상세보기
 		</span>
 	</div>
 	<%-- <form:form modelAttribute="item" action="item-write.store"
@@ -84,7 +84,7 @@ textarea {
 		<div class="input-name">
 			<div class="input-text-name">
 				<input class="i-t-name"
-					value="${param.select eq 'notice'?'공지사항':'FAQ'}" readonly error="0"
+					value="${help.boardcode==1?'공지사항':'FAQ'}" readonly error="0"
 					align="left" padding="15" name="itemname">
 			</div>
 		</div>
@@ -94,7 +94,7 @@ textarea {
 		<div class="input-name">
 			<div class="input-text-name">
 				<input class="i-t-name" error="0" align="left" padding="15"
-					name="itemname" value="기타" readonly>
+					name="itemname" value="<c:if test="${help.filter eq '0'}">전체</c:if><c:if test="${help.filter eq '1'}">배송</c:if><c:if test="${help.filter eq '2'}">교환/반품/환불</c:if><c:if test="${help.filter eq '3'}">기타</c:if><c:if test="${help.filter eq '4'}">상품</c:if><c:if test="${help.filter eq '5'}">주문결제</c:if>" readonly>
 			</div>
 		</div>
 	</div>
@@ -103,7 +103,7 @@ textarea {
 		<div class="input-name">
 			<div class="input-text-name">
 				<input class="i-t-name" error="0" align="left" padding="15"
-					name="itemname" readonly value="카카오톡에서 캐시 삭제는 어떻게 하나요?">
+					name="itemname" readonly value="${help.qnasubject}">
 			</div>
 		</div>
 	</div>
@@ -112,37 +112,38 @@ textarea {
 		<span class="p-name">내용</span>
 		<div class="input-name">
 			<div class="input-text-name">
-				<textarea class="detail-content" readonly>
-카카오톡 더보기에서 캐시 삭제가 필요한 경우, 아래와 같이
-실행해주세요.
-1. 카카오톡 더보기에서 오른쪽 상단의 '설정' 아이콘 클릭
-2. 설정 화면에서 '기타' 클릭 
-3. 저장공간 관리 - '저장된 캐시 데이터 삭제' 클릭 *캐시 삭제 시,
-카톡 대화 내용이 삭제되는 경우가 있으니 유의하시기 바랍니다.
-				</textarea>
+				<div class="detail-content" style="height : 100%;"> 
+					${help.qcontent}
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="product-name">
 		<span class="p-name">첨부파일</span>
 		<div class="input-name">
-			<a class="i-t-name" href="#" download>apple.jpg</a>
+			<c:if test="${!empty help.qnafileurl}">
+				<a class="i-t-name" href="../help/img/${help.qnafileurl}">${help.qnafileurl}</a>
+			</c:if>
+			<c:if test="${empty help.qnafileurl}">
+				<input class="i-t-name" error="0" align="left" padding="15"
+				 readonly value="첨부파일 없음">
+			</c:if>
 		</div>
 	</div>
 	<div class="product-button">
 		<button class="c-button b" type="button"
 			onclick="javascript:history.back(-1)">이전으로 돌아가기</button>
-		<c:if test="${param.select eq 'notice'}">
+		<c:if test="${help.boardcode==1}">
 			<button class="p-button b" type="button"
-				onclick="location.href='help_update.store?select=notice'">수정하기</button>
+				onclick="location.href='help_update.store?select=notice&no=${help.qnano}'">수정하기</button>
 			<button class="p-button b" type="button"
-				onclick="location.href='help_delete.store?select=notice'">삭제하기</button>
+				onclick="location.href='help_delete.store?select=notice&no=${help.qnano}'">삭제하기</button>
 		</c:if>
-		<c:if test="${param.select eq 'faq'}">
+		<c:if test="${help.boardcode==2}">
 			<button class="p-button b" type="button"
-				onclick="location.href='help_update.store?select=faq'">수정하기</button>
+				onclick="location.href='help_update.store?select=faq&no=${help.qnano}'">수정하기</button>
 			<button class="p-button b" type="button"
-				onclick="location.href='help_delete.store?select=faq'">삭제하기</button>
+				onclick="location.href='help_delete.store?select=faq&no=${help.qnano}'">삭제하기</button>
 		</c:if>
 
 	</div>

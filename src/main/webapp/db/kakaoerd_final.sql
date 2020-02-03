@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS pick_up;
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS whousing;
 DROP TABLE IF EXISTS item;
-DROP TABLE IF EXISTS order;
+DROP TABLE IF EXISTS orderlist;
 DROP TABLE IF EXISTS point;
 DROP TABLE IF EXISTS qnaboard;
 DROP TABLE IF EXISTS member;
@@ -53,7 +53,7 @@ CREATE TABLE item
 	itemcontent2 mediumtext NOT NULL,
 	category int NOT NULL,
 	subcategory int NOT NULL,
-	character int NOT NULL,
+	character_c int NOT NULL,
 	regdate datetime NOT NULL,
 	PRIMARY KEY (itemnum)
 );
@@ -67,12 +67,23 @@ CREATE TABLE member
 	phonenum varchar(15),
 	password varchar(150) NOT NULL,
 	member_code int,
-	check int,
+	access int,
 	PRIMARY KEY (userid)
 );
 
 
-CREATE TABLE order
+CREATE TABLE orderitem
+(
+	itemnum int NOT NULL,
+	orderno varchar(20) NOT NULL,
+	quantity int NOT NULL,
+	price int NOT NULL,
+	userid varchar(40) NOT NULL,
+	PRIMARY KEY (itemnum, orderno)
+);
+
+
+CREATE TABLE orderlist
 (
 	orderno varchar(20) NOT NULL,
 	userid varchar(40) NOT NULL,
@@ -87,17 +98,6 @@ CREATE TABLE order
 	usepoint int,
 	selectpay varchar(20) NOT NULL,
 	PRIMARY KEY (orderno)
-);
-
-
-CREATE TABLE orderitem
-(
-	itemnum int NOT NULL,
-	orderno varchar(20) NOT NULL,
-	quantity int NOT NULL,
-	price int NOT NULL,
-	userid varchar(40) NOT NULL,
-	PRIMARY KEY (itemnum, orderno)
 );
 
 
@@ -130,7 +130,7 @@ CREATE TABLE qnaboard
 	qcontent varchar(100) NOT NULL,
 	aconent varchar(100),
 	qnafile1 varchar(20),
-	check int,
+	checkin int,
 	PRIMARY KEY (qnano, userid)
 );
 
@@ -232,7 +232,7 @@ ALTER TABLE cart
 ;
 
 
-ALTER TABLE order
+ALTER TABLE orderlist
 	ADD FOREIGN KEY (userid)
 	REFERENCES member (userid)
 	ON UPDATE RESTRICT
@@ -266,7 +266,7 @@ ALTER TABLE qnaboard
 
 ALTER TABLE orderitem
 	ADD FOREIGN KEY (orderno)
-	REFERENCES order (orderno)
+	REFERENCES orderlist (orderno)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;

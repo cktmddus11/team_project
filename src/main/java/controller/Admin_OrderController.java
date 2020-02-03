@@ -1,15 +1,86 @@
 package controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import exception.AdminOrderException;
+import logic.AdminOrderList;
+import logic.ShopService;
 
 @Controller
 @RequestMapping("admin_order")
 public class Admin_OrderController {
-	@GetMapping("*") // getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½?
-	public String form(Model model) {
-		return null; // null : urlï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½?
-	}
+   @Autowired
+      private ShopService service;
+      
+   @RequestMapping("orderstate")
+      public ModelAndView store_list(Integer pageNum,String selectvalue, HttpServletRequest request) {
+         ModelAndView mav = new ModelAndView();
+         int limit = 10; //ÆäÀÌÁö´ç °Ô½Ã¹° °Ç ¼ö
+         Integer orderstate = null;
+         if(pageNum==null || pageNum==0) {
+             pageNum = 1;
+          }
+         if(selectvalue == null || selectvalue.toString().equals("ÀüÃ¼")) {
+               orderstate = null;
+         } else if(selectvalue.toString().equals("¹Ì°áÁ¦")) {
+            orderstate = 0;
+         } else if(selectvalue.toString().equals("°áÁ¦È®ÀÎ")) {
+            orderstate = 1;
+         } else if(selectvalue.toString().equals("¹è¼ÛÁØºñÁß")) {
+            orderstate = 2;
+         } else if(selectvalue.toString().equals("¹è¼ÛÁß")) {
+            orderstate = 3;
+         } else if(selectvalue.toString().equals("¹è¼Û¿Ï·á")) {
+            orderstate = 4;
+         } else if (selectvalue.toString().equals("ÁÖ¹®È®Á¤")) {
+            orderstate = 5;
+         }
+         System.out.println(selectvalue);
+         int admin_ordercount = service.admin_ordercount(orderstate); //ÀüÃ¼ µî·ÏµÈ °Ô½Ã¹° °Ç ¼ö
+         List<AdminOrderList> admin_orderlist = service.admin_orderlist(pageNum,orderstate,limit);
+         // ÃÖ´ë ÆäÀÌÁö
+         int maxpage = (int)((double)admin_ordercount/limit +0.95);
+         // º¸¿©Áö´Â Ã¹¹øÂ° ÆäÀÌÁö
+         int startpage = (int)((pageNum/10.0+0.9)-1)*10+1;
+         // º¸¿©Áö´Â ¸¶Áö¸· ÆäÀÌÁö
+         int endpage = startpage+9;
+         if(endpage>maxpage) endpage=maxpage;
+         // È­¸é¿¡ Ãâ·ÂµÇ´Â °Ô½Ã¹° ¹øÈ£
+         int boardno = admin_ordercount - (pageNum-1) *limit;
+         mav.addObject("pageNum", pageNum);
+         mav.addObject("maxpage", maxpage);
+         mav.addObject("startpage", startpage);
+         mav.addObject("endpage", endpage);
+         mav.addObject("admin_ordercount", admin_ordercount);
+         mav.addObject("admin_orderlist", admin_orderlist);
+         mav.addObject("boardno", boardno);
+         mav.addObject("selectvalue", selectvalue);
+         return mav;
+      }
+   
+   @RequestMapping("orderstateUpdate.store")
+   public ModelAndView orderstateUpdate(String orderno,int orderstate, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      try {
+         service.admin_orderstateUpdate(orderno,orderstate);
+         mav.setViewName("redirect:orderstate.store");
+      }catch (Exception e) {
+         e.printStackTrace();
+         throw new AdminOrderException("ÁÖ¹® »óÅÂ ¼³Á¤ÇÏ´Âµ¥ ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù.","orderstate.store");
+      }
+      return mav;
+   }
+   @GetMapping("orderlistpage")
+   public ModelAndView orderlistpage(HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      return mav;
+   }
 }

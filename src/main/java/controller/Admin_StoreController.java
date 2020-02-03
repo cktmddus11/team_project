@@ -1,15 +1,131 @@
 package controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import exception.StoreInfoException;
+import logic.StoreInfo;
+import logic.ShopService;
+
 
 @Controller
 @RequestMapping("admin_store")
 public class Admin_StoreController {
-	@GetMapping("*") // getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½?
-	public String form(Model model) {
-		return null; // null : urlï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½?
-	}
+   @Autowired
+   private ShopService service;
+   
+   @GetMapping("*")
+   public ModelAndView getStoreInfo(Integer storeno, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      StoreInfo storeinfo = null;
+      if(storeno == null) {
+         storeinfo = new StoreInfo();
+      }else {
+         storeinfo =service.StoreInfo(storeno,request);
+      }
+      mav.addObject("storeinfo", storeinfo);
+      return mav;
+   }
+   
+   @PostMapping("store_write")
+   public ModelAndView store_write
+      (@Valid StoreInfo storeInfo, BindingResult bresult,HttpServletRequest request) throws Exception {
+      ModelAndView mav = new ModelAndView();
+      if(bresult.hasErrors()) {
+         mav.getModel().putAll(bresult.getModel());
+         System.out.println(bresult);
+         return mav;
+      }
+      try {
+         service.infoWrite(storeInfo,request);
+         mav.setViewName("redirect:store_list.store");
+      }catch(Exception e) {
+         e.printStackTrace();
+         throw new StoreInfoException
+            ("¸ÅÀå µî·Ï¿¡ ½ÇÆÐÇß½À´Ï´Ù.","store_write.store");
+      }
+      return mav;
+   }
+   
+   
+   @RequestMapping("store_list")
+   public ModelAndView store_list() {
+      ModelAndView mav = new ModelAndView();
+      int limit = 10; //ÆäÀÌÁö´ç °Ô½Ã¹° °Ç ¼ö
+      int listcount = service.storecount(); //ÀüÃ¼ µî·ÏµÈ °Ô½Ã¹° °Ç ¼ö
+      List<StoreInfo> storelist = service.storelist();
+//      // ÃÖ´ë ÆäÀÌÁö
+//      int maxpage = (int)((double)listcount/limit +0.95);
+//      // º¸¿©Áö´Â Ã¹¹øÂ° ÆäÀÌÁö
+//      int startpage = (int)((pageNum/10.0+0.9)-1)*10+1;
+//      // º¸¿©Áö´Â ¸¶Áö¸· ÆäÀÌÁö
+//      int endpage = startpage+9;
+//      if(endpage>maxpage) endpage=maxpage;
+//      // È­¸é¿¡ Ãâ·ÂµÇ´Â °Ô½Ã¹° ¹øÈ£
+//      int boardno = listcount - (pageNum-1) *limit;
+//      mav.addObject("pageNum", pageNum);
+//      mav.addObject("maxpage", maxpage);
+//      mav.addObject("startpage", startpage);
+//      mav.addObject("endpage", endpage);
+      mav.addObject("listcount", listcount);
+      mav.addObject("storelist", storelist);
+//      mav.addObject("boardno", boardno);
+      return mav;
+   }
+   
+   @PostMapping("store_update")
+   public ModelAndView store_update
+   (@Valid StoreInfo storeInfo, BindingResult bresult, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      StoreInfo dbstoreinfo = service.getStoreInfo(storeInfo.getStoreno());
+      if(bresult.hasErrors()) {
+         mav.getModel().putAll(bresult.getModel());
+         return mav;
+      }
+//      if(!dbstoreinfo.getPass().equals(board.getPass())) {
+//         throw new BoardException
+//         ("ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ ÇÏÁö ¾Ê½À´Ï´Ù.","update.shop?num="+board.getNum());
+//      }
+      try {
+         service.StoreInfoUpdate(storeInfo, request);
+         mav.setViewName("redirect:store_list.store");
+      }catch(Exception e) {
+         e.printStackTrace();
+         throw new StoreInfoException
+         ("±Û ¼öÁ¤¿¡ ½ÇÆÐÇß½À´Ï´Ù.","store_update.store?storeno="+storeInfo.getStoreno());
+      }
+      return mav;
+   }
+   @PostMapping("store_delete")
+   public ModelAndView store_delete
+   (StoreInfo storeInfo, BindingResult bresult, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      StoreInfo dbstoreinfo = service.getStoreInfo(storeInfo.getStoreno());
+//      if(!dbboard.getPass().equals(board.getPass())) {
+//         bresult.reject("error.login.password");
+//         return mav;
+//      }
+      try {
+         service.StoreInfoDelete(storeInfo);
+         //service.boardDelete(board.getNum());
+         mav.setViewName("redirect:store_list.store");
+      }catch(Exception e) {
+         e.printStackTrace();
+         throw new StoreInfoException
+         ("±Û »èÁ¦ ½ÇÆÐÇß½À´Ï´Ù.","store_delete.shop?num="+storeInfo.getStoreno());
+      }
+      return mav;
+   }
+   
 }

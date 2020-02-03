@@ -329,9 +329,9 @@ input[type=text] {
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m" style="width: 35%;">
-						<form style="width: 50%;">
-							<input type="text" name="search" placeholder="무엇을 찾으세요?">
-						</form>
+						 <form style="width: 50%;" method="get" action="item/search.store">
+							<input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+					</form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="mypage/myindex.store"
 								id="lightfont_black_de"><span style="margin: 0.3vw;">
@@ -346,7 +346,7 @@ input[type=text] {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="" id="ll_b_de">로그아웃</a>
+											<a href="user/logout.store" id="ll_b_de">로그아웃</a>
 										</div>
 									</li>
 									<li>

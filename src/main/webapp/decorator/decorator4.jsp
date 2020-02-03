@@ -324,7 +324,7 @@ hover {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="" id="ll_b_de">로그아웃</a>
+											<a href="../user/logout.store" id="ll_b_de">로그아웃</a>
 										</div>
 									</li>
 									<li>

@@ -58,8 +58,17 @@
 </style>
 </head>
 <body>
-	<div class="store_write_header" id="my_b_b">[관리자]고객센터 관리 - <c:if test="${param.select eq 'faq'}">FAQ </c:if>
-	<c:if test="${param.select eq 'notice'}">공지사항 </c:if>삭제</div>
+	<div class="store_write_header" id="my_b_b">[관리자]고객센터 관리 - <c:if test="${help.boardcode ==2}">FAQ </c:if>
+	<c:if test="${help.boardcode ==1}">공지사항 </c:if>삭제</div>
+	<form:form modelAttribute="help" action="help_delete.store" method="post" name="f">
+		<form:hidden path="qnano" />
+		<spring:hasBindErrors name="board">
+			<font color="red">
+			<c:forEach items="${errors.globalErrors}" var="error">
+				<spring:message code="${error.code}"/>
+			</c:forEach></font>
+		</spring:hasBindErrors>
+		<input type="hidden" name="qnano" value="${help.qnano}">
 	<div class="store_write_body">
 		<div class="store_write_edit">
 			<div class="store_write_input">
@@ -86,15 +95,16 @@
 		<div class="btn_block">
 			<button class="btn_cancel" id="my_bb_b"
 				onclick="javascript:history.back()">취소</button>
-				<c:if test="${param.select eq 'notice'}">
+				<c:if test="${help.boardcode ==1}">
 			<button class="btn_save" id="my_bb_w"
 				onclick="location.href='./notice_list.store'">삭제</button>
 				</c:if>
-				 <c:if test="${param.select eq 'faq'}">
+				 <c:if test="${help.boardcode ==2}">
 				 <button class="btn_save" id="my_bb_w"
-				onclick="location.href='./faq_list.store'">삭제</button>
+				onclick="location.href='./faq_list.store?qna'">삭제</button>
 				</c:if>
 		</div>
 	</div>
+	</form:form>
 </body>
 </html>

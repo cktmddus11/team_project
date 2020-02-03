@@ -1,15 +1,79 @@
 package controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import exception.ChgException;
+import exception.StoreInfoException;
+import logic.Chg;
+import logic.ShopService;
 
 @Controller
 @RequestMapping("admin_change")
 public class Admin_ChangeController {
-	@GetMapping("*") // getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½?
-	public String form(Model model) {
-		return null; // null : urlï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½?
-	}
+   @Autowired
+   public ShopService service;
+   
+   @GetMapping("change_return_order_info")
+      public ModelAndView getChg(Integer chg_no, HttpServletRequest request) {
+         ModelAndView mav = new ModelAndView();
+         Chg chg = null;
+         if(chg_no == null) {
+            chg = new Chg();
+         }else {
+            chg =service.Chg(chg_no,request);
+         }
+         mav.addObject("chg", chg);
+         return mav;
+      }
+   @RequestMapping("change_return_order_list")
+      public ModelAndView change_return_order_list(Integer pageNum,HttpServletRequest request) {
+       ModelAndView mav = new ModelAndView();
+       if(pageNum==null || pageNum==0) {
+          pageNum = 1;
+       }
+         int limit = 10; //ÆäÀÌÁö´ç °Ô½Ã¹° °Ç ¼ö
+         int chgcount = service.chgcount(); //ÀüÃ¼ µî·ÏµÈ °Ô½Ã¹° °Ç ¼ö
+         List<Chg> chglist = service.chglist(pageNum,limit);
+         // ÃÖ´ë ÆäÀÌÁö
+         int maxpage = (int)((double)chgcount/limit +0.95);
+         // º¸¿©Áö´Â Ã¹¹øÂ° ÆäÀÌÁö
+         int startpage = (int)((pageNum/10.0+0.9)-1)*10+1;
+         // º¸¿©Áö´Â ¸¶Áö¸· ÆäÀÌÁö
+         int endpage = startpage+9;
+         if(endpage>maxpage) endpage=maxpage;
+         // È­¸é¿¡ Ãâ·ÂµÇ´Â °Ô½Ã¹° ¹øÈ£
+         int boardno = chgcount - (pageNum-1) *limit;
+         mav.addObject("pageNum", pageNum);
+         mav.addObject("maxpage", maxpage);
+         mav.addObject("startpage", startpage);
+         mav.addObject("endpage", endpage);
+         mav.addObject("chgcount", chgcount);
+         mav.addObject("chglist", chglist);
+         mav.addObject("boardno", boardno);
+         return mav;
+      }
+   @RequestMapping("chg_state_yn")
+   public ModelAndView chg_state_yn(Integer chg_no,Integer yn,HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      try {
+         service.chgstateupdate(chg_no,yn);
+         mav.setViewName("redirect:change_return_order_list.store");
+      }catch(Exception e) {
+         e.printStackTrace();
+            throw new ChgException
+            ("°ÅÀý ¹× ¼ö¶ô¿¡ ½ÇÆÐÇß½À´Ï´Ù.","change_return_order_list.store");
+      }
+      return mav;
+   }
 }

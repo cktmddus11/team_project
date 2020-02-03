@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/jspHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +91,7 @@
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<input type="text" class="storename my_ll_b" id="input_ch_re"
-					 	readonly="readonly" name="name" value="20200115-123456789">
+					 	readonly="readonly" name="name" value="${chg.chg_orderno }">
 				</div>
 			</div>
 			<div class="store_write_input">
@@ -98,7 +99,7 @@
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<input type="datetime" class="storename " id="my_ll_b"
-						readonly="readonly" name="date" value="2020-01-20 09:15">
+						readonly="readonly" name="date" value="<fmt:formatDate value="${chg.chg_orderdate }" pattern="yyyy-MM-dd"/>">
 				</div>
 			</div>
 			<div class="store_write_input">
@@ -106,7 +107,7 @@
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<input type="text" class="storename my_ll_b" id="input_ch_re"
-						readonly="readonly" name="tel" value="010-1234-1234">
+						readonly="readonly" name="tel" value="${chg.chg_tel }">
 				</div>
 			</div>
 			<div class="store_write_input">
@@ -114,30 +115,35 @@
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<input type="text" class="storename my_ll_b" id="input_ch_re"
-						readonly="readonly" name="item_name" value="페이스형안대_라이언">
+						readonly="readonly" name="item_name" value="${chg.chg_itemname }">
 				</div>
 			</div>
 			<div class="store_write_input">
 				<span class="input_label" id="my_ll_b">요청 사유</span>
+				
 				<div class="input_checkname"
 					style="border: 1px solid white; float: left;" >
-					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" name="reason" value="고객변심" disabled="disabled">
+					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" 
+					<c:if test="${chg.chg_reseon=='고객변심' }">checked</c:if> name="chg_reseon" value="고객변심" disabled="disabled">
 					<div id="my_ll_g" style="height: 100%; float: left; margin: 0.3vw;" >고객변심</div>
 				</div>
 				<div class="input_checkname"
 					style="border: 1px solid white; float: left;" >
-					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" name="reason" value="상품불량" disabled="disabled" 
-					checked="checked">
+					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" name="chg_reseon" 
+					<c:if test="${chg.chg_reseon=='상품불량' }">checked</c:if> value="상품불량" disabled="disabled" >
+					
 					<div id="my_ll_g" style="height: 100%; float: left; margin: 0.3vw;">상품불량</div>
 				</div>
 				<div class="input_checkname"
 					style="border: 1px solid white; float: left;" >
-					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" name="reason" value="오배송" disabled="disabled">
+					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" 
+					<c:if test="${chg.chg_reseon=='오배송' }">checked="checked"</c:if> name="chg_reseon" value="오배송" disabled="disabled">
 					<div id="my_ll_g" style="height: 100%; float: left; margin: 0.3vw;">오배송</div>
 				</div>
 				<div class="input_checkname"
 					style="border: 1px solid white; float: left;" >
-					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" name="reason" value="상품파손" disabled="disabled">
+					<input style="float: left; margin: 0.3vw;" type="radio" class="checkname" 
+					<c:if test="${chg.chg_reseon=='상품파손' }">checked="checked"</c:if> name="chg_reseon" value="상품파손" disabled="disabled">
 					<div id="my_ll_g" style="height: 100%; float: left; margin: 0.3vw;">상품파손</div>
 				</div>
 			</div>
@@ -146,16 +152,15 @@
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<textarea class="storename" id="my_ll_b" rows="15"
-						readonly="readonly" name="mapurl">내 머리가 큰 게 아닌데 안대가 너무 작잖아요. 다음부턴 모두가 넉넉한 사이즈로 하셔야지 이게 뭡니까!
-사죄하세요 진짜 어이가 없어서 반품 합니다!</textarea>
+						readonly="readonly" name="mapurl">${chg.chg_detail }</textarea>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="store_write_footer">
 	<div class="btn_block">
-	<button class="btn_cancel" id="my_bb_b" onclick="location.href='./change_return_order_list.store'">거절</button>
-	<button class="btn_save" id="my_bb_w" onclick="location.href='./change_return_order_list.store'">수락</button>
+	<button class="btn_cancel" id="my_bb_b" onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=1'">거절</button>
+	<button class="btn_save" id="my_bb_w" onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=2'">수락</button>
 	</div>
 	</div>
 </body>
