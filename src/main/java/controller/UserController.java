@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import exception.LoginException;
 import logic.ShopService;
+import logic.User;
 
 @Controller
 @RequestMapping("user")
@@ -86,36 +87,34 @@ public class UserController {
 		session.setAttribute("access_Token", accessToken);
 		mav.setViewName("redirect:../index.store"); // ../index
 		
-		
-		if(service.selectOne(kemail)) { 
-			// true면 이미 db에 저장되어있는거
-			System.out.println("있음");
-		}else { 
-			// false면 최초 로그인. db에 사용자 정보저장
-			System.out.println("없음");
+		User user = new User();
+		user.setUserid(kemail);
+		user.setUsername(kname);
+		user.setGender(kgender.equals("male")?1:2);
+		user.setMember_code(1); // 회원 1
+		session.setAttribute("loginUser", user);
+		if(!service.selectOne(kemail)) { 
+			// false면 최초 로그인으로 사용자 정보를 db에저장
+			service.memberInsert(user);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		return mav;
 	}
-
+	
+	
 	@RequestMapping("logout") // value="/logout
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		try {
+			
 			JsonNode node = KakaoController.kakaoLogout(session.getAttribute("access_Token").toString());
+			session.invalidate();
 			System.out.println("로그인 후 반환되는 아이디 : " + node.get("id"));
+			
 		} catch (Exception e) {
-			throw new LoginException("이미 로그아웃된 계정입니다", "loginForm.store");
+			e.printStackTrace();
+			throw new LoginException("이미 로그아웃된 계정입니다", "../index.store");
 		}
-		session.invalidate();
+		
 		mav.setViewName("redirect:../index.store");
 		return mav;
 	}

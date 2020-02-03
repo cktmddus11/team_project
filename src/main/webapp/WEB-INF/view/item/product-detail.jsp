@@ -32,7 +32,7 @@
 						<div class="carousel-item active"
 							style="margin: auto; background-color: #FFF;">
 							<div id="test" style="width: 100%; height: auto">
-								<img src="../images/product-detail/calendar2.jpg" class="pic"
+								<img src="../images/product-detail/calendar1.jpg" class="pic"
 									style="width: 100%;">
 							</div>
 						</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/jspHeader.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +14,6 @@
 </head>
 <body>
 <div id="mArticle">
-<script>
-
-	</script>
 	<div class="" style="height: 900px; display: block;">
 	<div class="friends_layer order_layer" style="display: block;">
   <div class="inner_layer">
@@ -23,7 +21,7 @@
       <strong class="tit_order">비회원 주문조회</strong>
     </div>
     <div class="layer_body">
-      <form id="nonmemberOrderFrm" method="post">
+    <form:form modelAttribute="orderlist" method="post" name="f" id="nonmemberOrderFrm">
         <input type="hidden" name="_csrf" value="4d0ee8fd-7a7e-4965-a362-e36b383ee552">
         <input type="hidden" name="_csrf_header" value="X-CSRF-TOKEN">
         <input type="hidden" id="nonMemberName" name="nonMemberName" value="">
@@ -32,23 +30,23 @@
           <div class="wrap_order">
             <dl class="list_order">
               <dt>
-                <label class="lab_order" for="orderNum">주문번호 :</label>
+                <label class="lab_order" for="orderno">주문번호 :</label>
               </dt>
               <dd>
-                <input type="text" id="orderNum" name="orderNum" class="inp_order" value="" onkeyup="this.value = this.value.toUpperCase();">
+                <input type="text" id="orderno" name="orderno" class="inp_order" value="" onkeyup="this.value = this.value.toUpperCase();">
               </dd>
               <dt>
-                <label class="lab_order" for="orderName">이름<!-- 디자인상 국문은 필드명 '주문자명'이 되어야 함 --> :</label>
+                <label class="lab_order" for="payname">이름<!-- 디자인상 국문은 필드명 '주문자명'이 되어야 함 --> :</label>
               </dt>
               <dd>
-                <input type="text" id="orderName" name="orderName" class="inp_order" value="">
+                <input type="text" id="payname" name="payname" class="inp_order" value="">
               </dd>
               <!-- 이메일 입력필드 추가 -->
               <dt>
-                <label class="lab_order" for="orderMail">이메일 :</label>
+                <label class="lab_order" for="userid">이메일 :</label>
               </dt>
               <dd>
-                <input type="text" id="orderMail" name="orderMail" class="inp_order" value="">
+                <input type="text" id="userid" name="userid" class="inp_order" value="">
               </dd>
               <!-- // 이메일 입력필드 추가 -->
             </dl>
@@ -57,7 +55,7 @@
           <button type="button" class="btn_check btn_confirm">주문확인</button>
      <!--      <button type="button" class="btn_check btn_cancel">취소</button> -->
         </fieldset>
-      </form>
+     </form:form>
     </div>
   </div>
 </div>
@@ -65,7 +63,7 @@
   $(function() {
 
 	  
-    $(".order_layer").show();
+/*     $(".order_layer").show();
     //popupCenter();
     $("#kakaoIndex, #kakaoWrap").attr("aria-hidden","true");
     $("#kakaoIndex a, #kakaoWrap a, #kakaoIndex button, #kakaoWrap button").attr("tabindex","-1");
@@ -85,12 +83,12 @@
       document.body.style.WebkitOverflowScrolling = '';
       document.body.style.width = '';
       window.scrollTo(0, parseInt(top || '0') * -1);
-    });
+    }); */
     $(".order_layer .btn_confirm").on("click",function(){
 	
-      var od_num = $.trim($("#orderNum").val());
-      var od_name = $.trim($("#orderName").val());
-      var od_mail = $.trim($("#orderMail").val());
+      var od_num = $.trim($("#orderno").val());
+      var od_name = $.trim($("#payname").val());
+      var od_mail = $.trim($("#userid").val());
       var pattern = /[\s]/g;
       if(od_num.length == 0) {
         $(".desc_error").html("&ldquo; 주문번호를 입력해 주세요  &rdquo;");
@@ -112,38 +110,43 @@
         $(".desc_error").css("display", "block");
         return false;
       }
-      if (!fn_orderCheck()) {
+      if (!fn_orderCheck()) { // true를 리턴받으면 false되서 아래 실행안됨
+    	  // 
         $(".desc_error").html("&ldquo; 해당 주문내역이 없습니다 &rdquo;");
         $(".desc_error").css("display", "block");
         return false;
       }
-     /*  var url = "/"+"kr"+"/order/shippingNonmember";
+      // 주문내역이 있으면 값 전송해서 주문 내역 보여주는걸로 
+      var url = "nonmember.store";
       $("#nonmemberOrderFrm").attr("action", url);
       $("#nonMemberName").val(encodeURIComponent(od_name));
-      $("#orderNum").val(od_num);
-        $("#orderMail").val(od_mail);
-      $("#nonmemberOrderFrm").submit(); */
+      $("#orderno").val(od_num);
+      $("#userid").val(od_mail);
+      $("#nonmemberOrderFrm").submit(); 
     });
   }); 
    function fn_orderCheck(){
-   /*  var orderChk = false;
-    var url = "/"+"kr"+"/order/shippingNnonmember/orderCheck";
+    var orderChk = false;
+    var url = "orderCheck.store";
     $.ajax({
-      headers: {'X-CSRF-TOKEN': '4d0ee8fd-7a7e-4965-a362-e36b383ee552'},
+      //headers: {'X-CSRF-TOKEN': '4d0ee8fd-7a7e-4965-a362-e36b383ee552'},
       url: url,
       type: "POST",
       dataType: "json",
-      data: {orderNum:$.trim($("#nonmemberOrderFrm #orderNum").val()), orderName:$.trim($("#nonmemberOrderFrm #orderName").val()), orderMail:$.trim($("#nonmemberOrderFrm #orderMail").val())},
+      data: {orderno:$.trim($("#nonmemberOrderFrm #orderno").val()), payname:$.trim($("#nonmemberOrderFrm #payname").val()), userid:$.trim($("#nonmemberOrderFrm #userid").val())},
+    
       async:false,
-      error: function () {
+      error: function (e) {
+    	console.log(e)
         alert('처리중 에러가 발생하였습니다.');
+    	 console.log($.trim($("#nonmemberOrderFrm #orderno").val()));
         return false;
       },
       success: function (data) {
-        orderChk = data;
+        orderChk = data; // 주문 내역이 있으면 true를 리턴
       }
     });
- */
+ 
     return orderChk;
   } 
 </script></div>

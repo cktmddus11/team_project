@@ -91,7 +91,7 @@
    transition-timing-function: ease;
 }
 
-input[type=text] {
+input[name=keyword] {
    width: 100%;
    box-sizing: border-box;
    border: 1px solid #ccc;
@@ -197,10 +197,10 @@ hover {
                <!-- Menu desktop -->
                <div class="menu-desktop" style="width: 30%;">
 						<ul class="main-menu" id="lightfont_black_de">
-							<li class="active-menu"><a href="item/list.store"
+							<li class="active-menu"><a href="item/list.store" 
 								id="my_ll_b" style="font-size: 17px;">카테고리 <img
 									src="images/index_deco/ico-header-triangle.png" width="7"
-									height="4">
+									height="4"><!--  전체 아이템물품 -->
 							</a>
 								<ul class="sub-menu" style="position: absolute;">
 									<li><div class="cate_list">
@@ -210,11 +210,11 @@ hover {
 														<li class="cate_main_notclick" id="all"><a
 															style="font-size: 17px;" href="../item/list.store">전체</a></li>
 														<li class="cate_main_notclick" id="toy"><a
-															style="font-size: 17px;" href="../item/list.store">토이</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=1">토이</a></li>
 														<li class="cate_main_notclick" id="cloth"><a
-															style="font-size: 17px;" href="../item/list.store">의류</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=2">의류</a></li>
 														<li class="cate_main_notclick" id="tech"><a
-															style="font-size: 17px;" href="../item/list.store">생활 테크</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=3">생활 테크</a></li>
 													</ul>
 
 												</div>
@@ -228,39 +228,39 @@ hover {
 												</ul>
 												<ul id="toy_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">미니 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1&subcategory=1">미니 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">중형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1&subcategory=2">중형 인형</a></li>
+													<!-- <li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=1">대형 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">대형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">키체인 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">키체인 인형</a></li>
-													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">피규어/브릭</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">피규어/브릭</a></li> -->
 												</ul>
 												<ul id="cloth_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">여성</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=2&subcategory=1">여성</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">남성</a></li>
-													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=2&subcategory=2">남성</a></li>
+													<!-- <li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">키즈</a></li>
 													<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">속옷</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">양말</a></li>
+														style="font-size: 17px;" href="../item/list.store">양말</a></li> -->
 												</ul>
 												<ul id="tech_ul" style="display: none;">
-													<li class="cate_sub_notclick"><a
+												<!-- 	<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">노트북
 															액세서리</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li>
+														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li> -->
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">에어팟
+														style="font-size: 17px;" href="../item/list.store?category=3&subcategory=1">에어팟
 															케이스</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">에어팟
+														style="font-size: 17px;" href="../item/list.store?category=3&subcategory=2">에어팟
 															액세서리</a></li>
 												</ul>
 
@@ -271,7 +271,7 @@ hover {
 														<li>
 															<div class="friend_one" id="rion">
 																<div>
-																	<span class="friend_pic"> <img
+																	<span class="friend_pic" onclick="location.href='../item/list.store?character=1'"> <img
 																		class="friend_img" id="friend_img_rion"
 																		src="../images/index_deco/character/category_rion_off.png"
 																		alt="라이언">
@@ -284,7 +284,7 @@ hover {
 														<li>
 															<div class="friend_one" id="apeach">
 																<div>
-																	<span class="friend_pic"> <img
+																	<span class="friend_pic" onclick="location.href='../item/list.store?character=2'"> <img
 																		class="friend_img" id="friend_img_apeach"
 																		src="../images/index_deco/character/category_apeach_off.png"
 																		alt="어피치">
@@ -316,9 +316,9 @@ hover {
 
               <!-- Icon header -->
                <div class="wrap-icon-header flex-w flex-r-m" style="width: 30%;">
-                  <form style="width: 50%;">
-                     <input type="text" name="search" placeholder="무엇을 찾으세요?">
-                  </form>
+                  <form style="width: 50%;" method="get" action="../item/search.store">
+							<input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+					</form>
                   <ul class="main-menu" id="lightfont_black_de">
                      <li class="active-menu"><a href="../mypage/myindex.store"
                         id="lightfont_black_de"><span style="margin: 0.3vw;">
@@ -333,7 +333,7 @@ hover {
                            </li>
                            <li>
                               <div style="width: 90%;" id="h">
-                                 <a href="" id="ll_b_de">로그아웃</a>
+                                 <a href="../user/logout.store" id="ll_b_de">로그아웃</a>
                               </div>
                            </li>
                            <li>
@@ -543,8 +543,8 @@ hover {
                         style="border: 1px solid transparent; font-size: 18px;"
                         id="lightfont_black_de"> <img width="60"
                         src="../images/index_deco/character/category_rion_off.png"
-                        onmouseout="this.src='../images/index_deco/character/category_rion_off.png'"
-                        onmouseover="this.src='../images/index_deco/character/category_rion_on.png'">
+                        onmouseout="this.src='../images/product/category_rion_off.png'"
+                        onmouseover="this.src='../images/product/category_rion_on.png'">
                         <br> 라이언
                      </a>
                   </div>
@@ -882,7 +882,7 @@ hover {
    </div> -->
 
    <!-- Product -->
-   <section class="bg0 p-b-140" style="    padding-top: 6%; padding-bottom: 10%;">
+   <section class="bg0 p-b-140" style="    padding-top: 4.5%; padding-bottom: 10%;">
       <div class="container">
          <decorator:body />
          <div class="flex-w flex-sb-m p-b-25">
@@ -1400,7 +1400,7 @@ hover {
                var nameProduct = $(this).parent().parent().find(
                      '.js-name-b2').html();
                $(this).on('click', function() {
-                  swal(nameProduct, "is added to wishlist !", "success");
+                  swal(nameProduct, "상품을 찜하였습니다!", "success");
 
                   $(this).addClass('js-addedwish-b2');
                   $(this).off('click');
@@ -1573,13 +1573,13 @@ $('.js-hide-modal1').on('click',function(){
 						function() {
 							$("#friend_img_rion")
 									.attr("src",
-											"images/index_deco/character/category_rion_on.png")
+											"../images/index_deco/character/category_rion_on.png")
 							$(".friend_name_rion").css('font-weight', '700')
 						},
 						function() {
 							$("#friend_img_rion")
 									.attr("src",
-											'images/index_deco/character/category_rion_off.png')
+											'../images/index_deco/character/category_rion_off.png')
 							$(".friend_name_rion").css('font-weight', '200')
 						});
 		$("#apeach")
@@ -1587,13 +1587,13 @@ $('.js-hide-modal1').on('click',function(){
 						function() {
 							$("#friend_img_apeach")
 									.attr("src",
-											'images/index_deco/character/category_apeach_on.png')
+											'../images/index_deco/character/category_apeach_on.png')
 							$(".friend_name_apeach").css('font-weight', '700')
 						},
 						function() {
 							$("#friend_img_apeach")
 									.attr("src",
-											'images/index_deco/character/category_apeach_off.png')
+											'../images/index_deco/character/category_apeach_off.png')
 							$(".friend_name_apeach").css('font-weight', '200')
 						});
 	</script>
