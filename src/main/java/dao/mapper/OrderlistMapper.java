@@ -54,7 +54,7 @@ public interface OrderlistMapper {
 	@Insert("insert into orderlist values "
 			+ "(#{orderno}, #{userid}, null, #{payname},#{address}, "
 			+ "#{restaddress}, #{phonenum}, #{username}, now(), #{orderstate}, "
-			+ "#{usepoint}, #{selectpay}, #{status})")
+			+ "#{usepoint}, #{selectpay}, 'receive')")
 	void checkend(Map<String, Object> param);
 
 	

@@ -88,7 +88,7 @@ public class OrderController {
 			String num = format.format(currentTime);
 			double rand = Math.random();
 			rand = (int) (rand * 10000000) + 1;
-			orderform.setOrderno(num + "" + rand);
+			orderform.setOrderno(num + "" + (int)rand);
 
 			service.checkend(orderform); // orderlist 데이터 넣
 			// service.insertorderitem();
@@ -96,11 +96,11 @@ public class OrderController {
 			mav.addObject("orderlist", orderform);
 			System.out.println("!!!!!!!"+orderform);
 			if (user != null) {
-				System.out.println("!@@@@@@@@@@@@@호출"+orderform.getOrderitem().get(0).getItemnum());
+				System.out.println("!@@@@@@@@@@@@@호출");
 				for (ItemSet s : orderform.getOrderitem()) {
-					System.out.println(s);
-					service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
+					service.insertorderitem(s.getItem().getItemnum(), num + "" + (int)rand, s.getQuantity(), s.getPrice(),
 							orderform.getUserid());
+					service.addPoint(orderform.getUserid(),s.getPrice(),s.getQuantity(),orderform.getUsepoint());
 				}
 				service.deletecart(user.getUserid());
 
@@ -112,6 +112,7 @@ public class OrderController {
 					for (ItemSet s : orderform.getOrderitem()) {
 						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
 								orderform.getUserid());
+						
 					}
 					service.deletecart(orderform.getUserid());
 				} else { // 로그인 X - 카트 구매 애만되네

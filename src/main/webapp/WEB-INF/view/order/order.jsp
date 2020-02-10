@@ -187,7 +187,7 @@
 		<form:form action="order.store" method="post"
 			modelAttribute="orderform" name="f">
 			<!-- 비회원 -->
-			<c:if test='${!empty sessionScope.CART}'>
+			<c:if test='${!empty sessionScope.CART && !empty sessionScope.LoginUser}'>
 
 				<!-- 주문 상품 -->
 				<h3 class="select_item_chk" id="my_b_b">
@@ -365,7 +365,6 @@
 
 
 			</c:if>
-			${!empty orderitem ||empty sessionScope.CART}
 			<c:if test='${!empty orderitem ||empty sessionScope.CART}'>
 				<!--  회원 -->
 				<!-- 주문 상품 -->

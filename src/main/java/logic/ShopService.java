@@ -604,4 +604,9 @@ public class ShopService {
 		  qnaboardDao.qnainsert(qnaboard);
 		}
 	/*//////////////// */
+
+	public void addPoint(String userid, int price, int quantity, int usepoint) {
+		int pointnum = pointDao.pointmax(userid);
+		pointDao.addPoint(userid,pointnum,price,quantity,usepoint);
+	}
 }
