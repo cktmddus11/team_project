@@ -122,7 +122,146 @@ input.sel_delete {
     padding: 0px;
 }
 }
+#my_b_b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 900;
+	color: black;
+	font-size: 36px;
+}
 
+#my_l_b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 200;
+	color: black;
+	font-size: 16px;
+}
+
+#my_bb_b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 900;
+	color: black;
+	font-size: 25px;
+}
+
+#my_bb_20b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 900;
+	color: black;
+	font-size: 20px;
+}
+
+#my_ll_b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 200;
+	color: black;
+	font-size: 20px;
+}
+
+#my_ll_w {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 200;
+	color: white;
+	font-size: 20px;
+}
+
+.my_ll_b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 200;
+	color: black;
+	font-size: 20px;
+}
+
+.page_block {
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+}
+
+.arrow_box_new {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: rgb(60, 64, 75);
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+    margin: 0px 10px;
+}
+
+.arrow_pre_new {
+	width: 10px;
+    height: 17px;
+    background-image:  url('../images/icons/icon-prev.png');
+    background-size: 10px;
+    margin: 0px 0px 0px -3px;
+}
+
+.arrow_pre_new:after {
+	content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -2px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: white;
+    border-image: initial;
+}
+
+.page_nums {
+	display: flex;
+	flex-direction: column;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	width: 37px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.arrow_next_new {
+	width: 10px;
+    height: 17px;
+    background-size: 10px;
+    background-image: url('../images/icons/icon-next.png');
+    margin: 0px 0px 0px 3px;
+}
+
+.arrow_next_new:after {
+	content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: -2px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: white;
+    border-image: initial;
+}
+
+.page_nums .clicka {
+    letter-spacing: -0.23px;
+    color: rgb(0, 0, 0);
+    height: 19px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    border-bottom: 1px solid black;
+}
+.page_nums a {
+    letter-spacing: -0.23px;
+    color: rgb(212, 215, 225);
+    height: 19px;
+    margin-bottom: 3px;
+}
 
 </style>
 <script type="text/javascript">
@@ -133,7 +272,7 @@ input.sel_delete {
 </head>
 <body>
 <div id="kakaoWrap">
-		<div class="cart_log">장바구니</div>
+		<div class="cart_log" id="my_b_b" style="font-size: 48px;">장바구니</div>
 	
 	<c:if test="${(!empty cart && (fn:length(cart.itemSetList)!=0)) || !empty cartdb}">
 	<c:if test="${empty cartdb && fn:length(cart.itemSetList) > 0}">
@@ -141,18 +280,16 @@ input.sel_delete {
 			<div class="checks"> 
 				<input type="checkbox" id="ex_chk" name="allchk" onchange="allchkbox(this)"
 				checked> 
-				<label for="ex_chk" style="margin-bottom: 20px;">전체</label> 
+				<label for="ex_chk" style="margin-bottom: 20px; color: black;">전체</label> 
 			</div>
 			<div class="checks_delete">
-				<span class="selects">1개 선택&nbsp;</span>
-				<button type="button" class="delete_btn"></button>
 			</div>
 		</div>
 		<div>
 			<div class="admin_list_no">
 				<ul class="admin_list_no_ul">
 					<li class="order_num" id="my_bb_b" style="font-size: 15px;">상품명</li>
-					<li class="item_num" id="my_bb_b" style="font-size: 15px;">옵션</li>
+					<!-- <li class="item_num" id="my_bb_b" style="font-size: 15px;">옵션</li> -->
 					<li class="order_date" id="my_bb_b" style="font-size: 15px;">수량</li>
 					<li class="order_state" id="my_bb_b" style="font-size: 15px;">상품금액</li>
 				</ul>
@@ -190,7 +327,7 @@ input.sel_delete {
 					<hr class="moblie_line">
 					<div class="order_list4_1"
 						style="text-align: center; padding-right: 50px; padding-left: 40px;">
-						<div>
+						<div  id="my_ll_b">
 							<input type="number" value="${cart.quantity}" style="border-bottom: 1px #000 solid;width: 115px; text-align: -webkit-center;">
 						</div>
 					</div>
@@ -224,7 +361,7 @@ input.sel_delete {
 							style="padding-left: 500px; padding-top: 18px;">총 결제 금액</span> 
 							<span class="all_count_price"
 							style="padding-top: 12px; padding-right: 15px;">
-							<fmt:formatNumber value="${tot}" type="currency" currencySymbol="" />원
+							<fmt:formatNumber value="${tot}" pattern="#,###원" />
 							</span>
 							
 					</div>
@@ -235,29 +372,27 @@ input.sel_delete {
 		<c:if test="${empty cart}"> <!--  회원 장바구니 -->
 		<div class="check_all">
 			<div class="checks"> 
-				<input type="checkbox" id="ex_chk" name="allchk" onchange="allchkbox(this)"> 
-				<label for="ex_chk" style="margin-bottom: 20px;">전체</label> 
-			</div>
-			<div class="checks_delete">
-				<span class="selects">1개 선택&nbsp;</span>
-				<button type="button" class="delete_btn"></button>
+				<!-- <input type="checkbox" id="ex_chk" name="allchk" onchange="allchkbox(this)" >
+				<label for="ex_chk" style="margin-bottom: 20px;" >전체
+				</label>  -->
 			</div>
 		</div>
 		<div>
 			<div class="admin_list_no">
 				<ul class="admin_list_no_ul">
-					<li class="order_num" id="my_bb_b" style="font-size: 15px;">상품명</li>
-					<li class="item_num" id="my_bb_b" style="font-size: 15px;">옵션</li>
-					<li class="order_date" id="my_bb_b" style="font-size: 15px;">수량</li>
-					<li class="order_state" id="my_bb_b" style="font-size: 15px;">상품금액</li>
+					<li class="order_num" id="my_bb_20b" style="width: 40vw;">상품명</li>
+					<!-- <li class="item_num" id="my_bb_b" style="font-size: 15px;">옵션</li> -->
+					<li class="order_date" id="my_bb_20b" >수량</li>
+					<li class="order_state" id="my_bb_20b" >상품금액</li>
 				</ul>
 				<c:forEach var="cart" items="${cartdb}" varStatus="stat">
 				<div class="order_list1">
 					<div class="order_list3">
 						<div class="order_list3_item">
 							<div class="checks"> 
-								<input type="checkbox" id="ex_chk1" name="itemchks">
-								<label for="ex_chk1"></label>
+								<input type="checkbox" id="ex_chk${cart.item.itemnum }" name="itemchks" 
+								checked="checked" disabled="disabled">
+								<label for="ex_chk${cart.item.itemnum }"></label>
 							</div>
 							<a class="order_list3_img"> 
 								<span onclick="location.href='../item/product_detail.store?no=${cart.item.itemnum}'"><img
@@ -285,12 +420,12 @@ input.sel_delete {
 					<hr class="moblie_line">
 					<div class="order_list4_1"
 						style="text-align: center; padding-right: 50px; padding-left: 40px;">
-						<div>
-							<input type="number" value="${cart.quantity}" style="border-bottom: 1px #000 solid;width: 115px; text-align: -webkit-center;">
+						<div  id="my_ll_b">
+						${cart.quantity}
 						</div>
 					</div>
 					<div class="order_list4_2">
-						<div class="item_price">
+						<div class="item_price" id="my_bb_b" style="font-size: 20px;">
 						<!--  style="padding-right: 30px;" -->
 							<span><fmt:formatNumber value="${cart.price}" type="currency" currencySymbol="" /></span><span>원</span>
 							<%-- <span><input type="button" class="sel_delete" id="sel_delete${stat.index}"></span> --%>
@@ -303,24 +438,25 @@ input.sel_delete {
 				
 				<div class="count" style="color : #000;">
 					<div class="count_block">
-						<span class="all_order_price"
+						<span class="all_order_price"  id="my_bb_20b"
 							style="padding-left: 500px; padding-top: 18px;">총 주문 금액</span> <span
+							id="my_bb_20b"
 							class="price" style="padding-top: 12px; padding-right: 15px;">
-							<fmt:formatNumber value="${tot}" type="currency" currencySymbol="" />
-							원</span>
+							<fmt:formatNumber value="${tot}" pattern="#,###원"  />
+							</span>
 					</div>
-					<div class="count_block">
+					<!-- <div class="count_block">
 						<span class="all_order_price_plus"
 							style="padding-left: 500px; padding-top: 18px;">배송비</span> <span
 							class="shipping_fee"
 							style="padding-top: 12px; padding-right: 15px;">무료</span>
-					</div>
+					</div> -->
 					<div class="count_block">
-						<span class="all_payment_price"
+						<span class="all_payment_price" id="my_b_b"
 							style="padding-left: 500px; padding-top: 18px;">총 결제 금액</span> 
-							<span class="all_count_price"
+							<span class="all_count_price" id="my_b_b"
 							style="padding-top: 12px; padding-right: 15px;">
-							<fmt:formatNumber value="${tot}" type="currency" currencySymbol="" />원
+							<fmt:formatNumber value="${tot}" pattern="#,###원" />
 							</span>
 							
 					</div>
@@ -328,8 +464,8 @@ input.sel_delete {
 			</div>
 		</div>
 		</c:if>
-		<div class="laCToX" style="margin: auto;">
-			<input type="button" value="주문하기" id="order" style="margin: auto;" onclick="location.href='../order/order.store'">
+		<div class="laCToX" style="margin: auto;     text-align: center;">
+			<input type="button" value="주문하기" id="order" style="margin: auto;text-align: center;" onclick="location.href='../order/order.store'">
 		</div>
 		
 		</c:if>
