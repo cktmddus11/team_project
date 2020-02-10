@@ -39,21 +39,21 @@ public class Admin_ContactController {
 	@RequestMapping("contact_list")
 	public ModelAndView list(Integer pageNum, String content,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		int limit = 10; //ÆäÀÌÁö´ç º¸¿©Áö´Â °Ô½Ã¹° °Ç¼ö
+		int limit = 10; //í˜ì´ì§€ë‹¹ ë³´ì—¬ì§€ëŠ” ê²Œì‹œë¬¼ ê±´ìˆ˜
 		System.out.println(content);
-		int listcount = service.qnacount(content); //ÀüÃ¼ µî·ÏµÈ °Ô½Ã¹° °Ç¼ö
+		int listcount = service.qnacount(content); //ì „ì²´ ë“±ë¡ëœ ê²Œì‹œë¬¼ ê±´ìˆ˜
 		pageNum=1;
 		List<Qnaboard> qnaboardlist = service.qnalist(pageNum,limit,content);
 
-		// ÃÖ´ë ÆäÀÌÁö
+		// ìµœëŒ€ í˜ì´ì§€
 		int maxpage = (int)((double)listcount/limit + 0.95);
-		// º¸¿©Áö´Â Ã¹¹øÂ° ÆäÀÌÁö
+		// ë³´ì—¬ì§€ëŠ” ì²«ë²ˆì§¸ í˜ì´ì§€
 		int startpage = (int)((pageNum/10.0 + 0.9) - 1) * 10 + 1;
-		// º¸¿©Áö´Â ¸¶Áö¸· ÆäÀÌÁö
+		// ë³´ì—¬ì§€ëŠ” ë§ˆì§€ë§‰ í˜ì´ì§€
 		int endpage = startpage + 9;
 		if(endpage > maxpage) endpage = maxpage;
 		
-		//È­¸é¿¡ Ãâ·ÂµÇ´Â °Ô½Ã¹° ¹øÈ£. ¼ø¼­
+		//í™”ë©´ì— ì¶œë ¥ë˜ëŠ” ê²Œì‹œë¬¼ ë²ˆí˜¸. ìˆœì„œ
 		int boardno = listcount - (pageNum - 1) * limit;
 		mav.addObject("pageNum", pageNum);
 		mav.addObject("maxpage", maxpage);
@@ -78,7 +78,7 @@ public class Admin_ContactController {
 			mav.setViewName("redirect:contact_list.shop");
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new QnaBoardException ("°Ô½Ã¹° µî·Ï¿¡ ½ÇÆĞÇß½À´Ï´Ù.","contact_write.shop");
+			throw new QnaBoardException ("ê²Œì‹œë¬¼ ë“±ë¡ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.","contact_write.shop");
 		}
 		return mav;
 	}

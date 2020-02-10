@@ -34,27 +34,27 @@ public class Admin_ItemController {
       if(pageNum == null || pageNum.toString().equals("")) {
          pageNum = 1;
       }
-      if(selectvalue == null || selectvalue.toString().equals("��ü")) {
+      if(selectvalue == null || selectvalue.toString().equals("전체")) {
          selectvalue = "0";
-      } else if(selectvalue.toString().equals("����")) {
+      } else if(selectvalue.toString().equals("토이")) {
          selectvalue = "1";
-      } else if(selectvalue.toString().equals("�Ƿ�")) {
+      } else if(selectvalue.toString().equals("의류")) {
          selectvalue = "2";
-      } else if(selectvalue.toString().equals("��Ȱ��ũ")) {
+      } else if(selectvalue.toString().equals("생활테크")) {
          selectvalue = "3";
-      } else if(selectvalue.toString().equals("���̾�")) {
+      } else if(selectvalue.toString().equals("라이언")) {
          selectvalue = "4";
-      } else if(selectvalue.toString().equals("����ġ")) {
+      } else if(selectvalue.toString().equals("어피치")) {
          selectvalue = "5";
       }
       System.out.println(selectvalue); 
-      int limit = 10; //�������� �������� �Խù� �Ǽ�
-      int itemcount = service.itemcount(selectvalue); //��ü ��ϵ� �Խù� �Ǽ�
+      int limit = 10; //페이지당 보여지는 게시물 건수
+      int itemcount = service.itemcount(selectvalue); //전체 등록된 게시물 건수
       List<Item> itemlist = service.getItemList(pageNum,limit,selectvalue);
       int maxpage = (int)((double)itemcount/limit + 0.95); 
-      //�������� ù��° ������
+      //보여지는 첫번째 페이지
       int startpage = (int)((pageNum/10.0 + 0.9) -1) * 10 + 1; 
-      //�������� ������ ������
+      //보여지는 마지막 페이지
       int endpage = startpage + 9;
       if(endpage > maxpage) endpage = maxpage;
       int boardno = itemcount - (pageNum - 1) * limit;
@@ -74,11 +74,11 @@ public class Admin_ItemController {
       String path = request.getServletContext().getRealPath("/") + "admin_item/imagesfile/";
       File f = new File(path);
       if(!f.exists()) f.mkdirs();
-      if(!upload.isEmpty()) { //������ ���ε�� ������ �ִٸ�
-         //���ε�� ������ ������ File ��ü
+      if(!upload.isEmpty()) { //선택한 업로드된 파일이 있다면
+         //업로드될 파일을 저장할 File 객체
          File file = new File(path, upload.getOriginalFilename());
          try {
-            upload.transferTo(file); //���ε� ���� ����
+            upload.transferTo(file); //업로드 파일 생성
          } catch(Exception e) {
             e.printStackTrace();
          }
@@ -117,7 +117,7 @@ public class Admin_ItemController {
          mav.setViewName("redirect:product_list.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new ItemException("�Խù� ��Ͽ� �����߽��ϴ�.","item_write.store");
+         throw new ItemException("게시물 등록에 실패했습니다.","item_write.store");
       }
       return mav;
    }
@@ -126,20 +126,20 @@ public class Admin_ItemController {
    public ModelAndView item_update(@Valid Item item, BindingResult bresult, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
       /* Admin_item dbAdmin_item = service.getAdmin_item(admin_item.getItemnum()); */
-      if(bresult.hasErrors()) { //��ȿ�� ����
+      if(bresult.hasErrors()) { //유효성 검증
          mav.getModel().putAll(bresult.getModel());
          return mav;
       }
       /*
        * if(!board.getPass().equals(dbBoard.getPass())) { throw new
-       * BoardException("��й�ȣ�� Ʋ���ϴ�.","update.shop?num="+board.getNum()); }
+       * BoardException("비밀번호가 틀립니다.","update.shop?num="+board.getNum()); }
        */
       try {
-         service.itemUpdate(item, request); //update�� ��ġ�� �˾ƾ��ϹǷ� request��ü�� �־����.
+         service.itemUpdate(item, request); //update의 위치를 알아야하므로 request객체가 있어야함.
          mav.setViewName("redirect:product_list.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new ItemException("������Ʈ ������ �����߽��ϴ�.","item_update.store?itemnum="+item.getItemnum());
+         throw new ItemException("업데이트 수정에 실패했습니다.","item_update.store?itemnum="+item.getItemnum());
       }
       return mav;
    }
@@ -152,7 +152,7 @@ public class Admin_ItemController {
          mav.setViewName("redirect:product_list.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new BoardException("�Խñ� ������ �����߽��ϴ�.","item_delete.store?itemnum="+item.getItemnum());
+         throw new BoardException("게시글 삭제를 실패했습니다.","item_delete.store?itemnum="+item.getItemnum());
       }
       return mav;
    }

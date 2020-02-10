@@ -31,21 +31,21 @@ public class OrderController {
 	private ShopService service;
 
 	/*
-	 * @GetMapping("*") // getÀ¸·Î µé¾î¿Â ¿äÃ»Áß Á¤ÇØÁø°Ô ¾øÀ¸¸é ÀÌ°É·Î ½ÇÇà? public String form(Model
-	 * model) { return null; // null : url·Î º¸°í ÀÌµ¿? }
+	 * @GetMapping("*") // getìœ¼ë¡œ ë“¤ì–´ì˜¨ ìš”ì²­ì¤‘ ì •í•´ì§„ê²Œ ì—†ìœ¼ë©´ ì´ê±¸ë¡œ ì‹¤í–‰? public String form(Model
+	 * model) { return null; // null : urlë¡œ ë³´ê³  ì´ë™? }
 	 */
 	@ResponseBody
 	@RequestMapping("order")
-	public ModelAndView order(HttpSession session, Integer oitemnum, Integer oquantity, Integer oprice) { // ÇÙ½É·ÎÁ÷
+	public ModelAndView order(HttpSession session, Integer oitemnum, Integer oquantity, Integer oprice) { // í•µì‹¬ë¡œì§
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("orderlist", new Orderlist());
 
 		User user = (User) session.getAttribute("loginUser");
 
-		if (oitemnum == null) { // Ä«Æ®¿¡¼­ ±¸¸Å
-			System.out.println("&&&&&È£Ãâ 1");
-			if (user != null) { // ·Î±×ÀÎ ÈÄ 
-				System.out.println("&&&&&È£Ãâ 2"); 
+		if (oitemnum == null) { // ì¹´íŠ¸ì—ì„œ êµ¬ë§¤
+			System.out.println("&&&&&í˜¸ì¶œ 1");
+			if (user != null) { // ë¡œê·¸ì¸ í›„ 
+				System.out.println("&&&&&í˜¸ì¶œ 2"); 
 				List<ItemSet> cartlist = service.cartview(user.getUserid());
 				for (ItemSet i : cartlist) {
 					i.setItem(service.itemdetail(i.getItemnum()));
@@ -53,8 +53,8 @@ public class OrderController {
 				
 				mav.addObject("orderitem", cartlist);
 			}
-		} else { // ¹Ù·Î ±¸¸Å
-			System.out.println("&&&&&È£Ãâ 3");
+		} else { // ë°”ë¡œ êµ¬ë§¤
+			System.out.println("&&&&&í˜¸ì¶œ 3");
 			ItemSet i = new ItemSet();
 			i.setItemnum(oitemnum);
 			i.setItem(service.itemdetail(oitemnum));
@@ -64,7 +64,7 @@ public class OrderController {
 			directlist.add(i);
 			mav.addObject("orderitem", directlist);
 		}
-		System.out.println("&&&&&È£Ãâ 4");
+		System.out.println("&&&&&í˜¸ì¶œ 4");
 		return mav;
 	}
 
@@ -86,13 +86,13 @@ public class OrderController {
 			rand = (int) (rand * 10000000) + 1;
 			orderlist.setOrderno(num + "" + rand);
 
-			service.checkend(orderlist); // orderlist µ¥ÀÌÅÍ ³Ö
+			service.checkend(orderlist); // orderlist ë°ì´í„° ë„£
 			// service.insertorderitem();
 
 			mav.addObject("orderlist", orderlist);
 			System.out.println("!!!!!!!"+orderlist);
 			if (user != null) {
-				System.out.println("!@@@@@@@@@@@@@È£Ãâ");
+				System.out.println("!@@@@@@@@@@@@@í˜¸ì¶œ");
 				for (ItemSet s : orderlist.getOrderitem()) {
 					service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
 							orderlist.getUserid());
@@ -100,23 +100,23 @@ public class OrderController {
 				service.deletecart(user.getUserid());
 
 			} else {
-				System.out.println("!@@@@@@@@@@@@@È£Ãâ2");
+				System.out.println("!@@@@@@@@@@@@@í˜¸ì¶œ2");
 				Cart cart = (Cart) session.getAttribute("CART");
 				if (cart == null) {
-					System.out.println("!@@@@@@@@@@@@@È£Ãâ3");
+					System.out.println("!@@@@@@@@@@@@@í˜¸ì¶œ3");
 					for (ItemSet s : orderlist.getOrderitem()) {
 						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
 								orderlist.getUserid());
 					}
 					service.deletecart(orderlist.getUserid());
-				} else { // ·Î±×ÀÎ X - Ä«Æ® ±¸¸Å ¾Ö¸¸µÇ³×
-					System.out.println("!@@@@@@@@@@@@@È£Ãâ4");
+				} else { // ë¡œê·¸ì¸ X - ì¹´íŠ¸ êµ¬ë§¤ ì• ë§Œë˜ë„¤
+					System.out.println("!@@@@@@@@@@@@@í˜¸ì¶œ4");
 					for (ItemSet s : cart.getItemSetList()) {
 						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(),
 								s.getPrice(), orderlist.getUserid());
 					}
-					long total = cart.getTotal(); // ÁÖ¹®»óÇ°ÀÇ ÃÑ ±İ¾× ¸®ÅÏ
-					session.removeAttribute("CART"); // Àå¹Ù±¸´Ï ³»¿ë Á¦°Å
+					long total = cart.getTotal(); // ì£¼ë¬¸ìƒí’ˆì˜ ì´ ê¸ˆì•¡ ë¦¬í„´
+					session.removeAttribute("CART"); // ì¥ë°”êµ¬ë‹ˆ ë‚´ìš© ì œê±°
 					mav.addObject("total", total);
 				}
 			

@@ -19,9 +19,9 @@ public class NoticeController {
 	@Autowired
 	private ShopService service;
 	
-	@RequestMapping("*") // getÀ¸·Î µé¾î¿Â ¿äÃ»Áß Á¤ÇØÁø°Ô ¾øÀ¸¸é ÀÌ°É·Î ½ÇÇà?
+	@RequestMapping("*") // getìœ¼ë¡œ ë“¤ì–´ì˜¨ ìš”ì²­ì¤‘ ì •í•´ì§„ê²Œ ì—†ìœ¼ë©´ ì´ê±¸ë¡œ ì‹¤í–‰?
 	public String form(Model model) {
-		return null; // null : url·Î  º¸°í ÀÌµ¿?
+		return null; // null : urlë¡œ  ë³´ê³  ì´ë™?
 	}
 	@RequestMapping("notice")
 	public ModelAndView selectboard(String selectvalue, Integer pageNum) {
@@ -29,7 +29,7 @@ public class NoticeController {
 		if (pageNum == null || pageNum.toString().equals("")) {
 			pageNum = 1;
 		}
-		int limit = 10; // ÆäÀÌÁö´ç °Ô½Ã¹° °Ç¼ö
+		int limit = 10; // í˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ ê±´ìˆ˜
 		int filter = 0;
 		int noticelistcount = service.boardcount(1, 0);
 		List<Help> noticelist = service.selectboard(1, 0, pageNum, limit);
@@ -41,15 +41,15 @@ public class NoticeController {
 		}
 		
 		if(selectvalue != null) {
-			if(selectvalue.equals("¹è¼Û")) {
+			if(selectvalue.equals("ë°°ì†¡")) {
 				filter = 1;
-			}else if(selectvalue.equals("±³È¯/¹İÇ°/È¯ºÒ")) {
+			}else if(selectvalue.equals("êµí™˜/ë°˜í’ˆ/í™˜ë¶ˆ")) {
 				filter = 2;
-			}else if(selectvalue.equals("±âÅ¸")) {
+			}else if(selectvalue.equals("ê¸°íƒ€")) {
 				filter = 3;
-			}else if(selectvalue.equals("»óÇ°")) {
+			}else if(selectvalue.equals("ìƒí’ˆ")) {
 				filter = 4;
-			}else if(selectvalue.equals("ÁÖ¹®°áÁ¦")) {
+			}else if(selectvalue.equals("ì£¼ë¬¸ê²°ì œ")) {
 				filter = 5;
 			}
 		}

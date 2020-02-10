@@ -52,7 +52,7 @@ public class Admin_StoreController {
      }catch(Exception e) {
          e.printStackTrace();
          throw new StoreInfoException
-            ("���� ��Ͽ� �����߽��ϴ�.","store_write.store");
+            ("매장 등록에 실패했습니다.","store_write.store");
       }
     return mav;
    }
@@ -61,17 +61,17 @@ public class Admin_StoreController {
    @RequestMapping("store_list")
    public ModelAndView store_list() {
       ModelAndView mav = new ModelAndView();
-      int limit = 10; //�������� �Խù� �� ��
-      int listcount = service.storecount(); //��ü ��ϵ� �Խù� �� ��
+      int limit = 10; //페이지당 게시물 건 수
+      int listcount = service.storecount(); //전체 등록된 게시물 건 수
       List<StoreInfo> storelist = service.storelist();
-//      // �ִ� ������
+//      // 최대 페이지
 //      int maxpage = (int)((double)listcount/limit +0.95);
-//      // �������� ù��° ������
+//      // 보여지는 첫번째 페이지
 //      int startpage = (int)((pageNum/10.0+0.9)-1)*10+1;
-//      // �������� ������ ������
+//      // 보여지는 마지막 페이지
 //      int endpage = startpage+9;
 //      if(endpage>maxpage) endpage=maxpage;
-//      // ȭ�鿡 ��µǴ� �Խù� ��ȣ
+//      // 화면에 출력되는 게시물 번호
 //      int boardno = listcount - (pageNum-1) *limit;
 //      mav.addObject("pageNum", pageNum);
 //      mav.addObject("maxpage", maxpage);
@@ -94,7 +94,7 @@ public class Admin_StoreController {
       }
 //      if(!dbstoreinfo.getPass().equals(board.getPass())) {
 //         throw new BoardException
-//         ("��й�ȣ�� ��ġ ���� �ʽ��ϴ�.","update.shop?num="+board.getNum());
+//         ("비밀번호가 일치 하지 않습니다.","update.shop?num="+board.getNum());
 //      }
       try {
          service.StoreInfoUpdate(storeInfo, request);
@@ -102,7 +102,7 @@ public class Admin_StoreController {
       }catch(Exception e) {
          e.printStackTrace();
          throw new StoreInfoException
-         ("�� ������ �����߽��ϴ�.","store_update.store?storeno="+storeInfo.getStoreno());
+         ("글 수정에 실패했습니다.","store_update.store?storeno="+storeInfo.getStoreno());
       }
       return mav;
    }
@@ -122,7 +122,7 @@ public class Admin_StoreController {
       }catch(Exception e) {
          e.printStackTrace();
          throw new StoreInfoException
-         ("�� ���� �����߽��ϴ�.","store_delete.shop?num="+storeInfo.getStoreno());
+         ("글 삭제 실패했습니다.","store_delete.shop?num="+storeInfo.getStoreno());
       }
       return mav;
    }

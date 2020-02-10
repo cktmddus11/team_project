@@ -43,17 +43,17 @@ public class Admin_ChangeController {
        if(pageNum==null || pageNum==0) {
           pageNum = 1;
        }
-         int limit = 10; //�������� �Խù� �� ��
-         int chgcount = service.chgcount(); //��ü ��ϵ� �Խù� �� ��
+         int limit = 10; //페이지당 게시물 건 수
+         int chgcount = service.chgcount(); //전체 등록된 게시물 건 수
          List<Chg> chglist = service.chglist(pageNum,limit);
-         // �ִ� ������
+         // 최대 페이지
          int maxpage = (int)((double)chgcount/limit +0.95);
-         // �������� ù��° ������
+         // 보여지는 첫번째 페이지
          int startpage = (int)((pageNum/10.0+0.9)-1)*10+1;
-         // �������� ������ ������
+         // 보여지는 마지막 페이지
          int endpage = startpage+9;
          if(endpage>maxpage) endpage=maxpage;
-         // ȭ�鿡 ��µǴ� �Խù� ��ȣ
+         // 화면에 출력되는 게시물 번호
          int boardno = chgcount - (pageNum-1) *limit;
          mav.addObject("pageNum", pageNum);
          mav.addObject("maxpage", maxpage);
@@ -77,7 +77,7 @@ public class Admin_ChangeController {
       }catch(Exception e) {
          e.printStackTrace();
             throw new ChgException
-            ("���� �� ������ �����߽��ϴ�.","change_return_order_list.store");
+            ("거절 및 수락에 실패했습니다.","change_return_order_list.store");
       }
       return mav;
    }

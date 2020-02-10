@@ -43,11 +43,11 @@ public class Admin_OutController {
 //      System.out.println(whousing.getItemnum());
 //      whousing.setWhousingquant(dbwhosing.getWhousingquant()-whousing.getWhousingquant());
       try {
-         service.whousing_outWrite(whousing,request); //°Ô½Ã¹°µî·Ï
+         service.whousing_outWrite(whousing,request); //ê²Œì‹œë¬¼ë“±ë¡
          mav.setViewName("redirect:order_item_out.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new WhousingException("ÀÔ°í µî·Ï¿¡ ½ÇÆĞÇß½À´Ï´Ù.","order_item_out_write.store");
+         throw new WhousingException("ì…ê³  ë“±ë¡ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.","order_item_out_write.store");
       }
       return mav;
    }

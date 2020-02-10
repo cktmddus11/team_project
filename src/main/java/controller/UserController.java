@@ -30,17 +30,17 @@ public class UserController {
 	
 	@RequestMapping("*")
 	public String form(Model model) {
-		return null; // null : url��  ���� �̵�?
+		return null; // null : url로  보고 이동?
 	}
 
 	@RequestMapping("signin")
 	public ModelAndView loginForm(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		/* �׾Ʒ� ���� URL�� �����ϱ� ���Ͽ� getAuthorizationUrl�� ȣ�� */
-		// īī�� �α��� ȭ���̷� �̵��ϴ� �ּҰ� �����ϴ� �Լ� ȣ��
+		/* 네아로 인증 URL을 생성하기 위하여 getAuthorizationUrl을 호출 */
+		// 카카오 로그인 화면이로 이동하는 주소값 리턴하는 함수 호출
 		String kakaoUrl = KakaoController.getAuthorizationUrl(session);
 
-		/* ������ ���� URL�� View�� ���� */
+		/* 생성한 인증 URL을 View로 전달 */
 		mav.setViewName("user/signin");
 		mav.addObject("kakao_url", kakaoUrl);
 
@@ -51,11 +51,11 @@ public class UserController {
 	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		// ������� node�� �����
+		// 결과값을 node에 담아줌
 		JsonNode node = KakaoController.getAccessToken(code);
-		// accessToken�� ������� �α����� ��� ������ �������
+		// accessToken에 사용자의 로그인한 모든 정보가 들어있음
 		JsonNode accessToken = node.get("access_token");
-		// ������� ����
+		// 사용자의 정보
 		JsonNode userInfo = KakaoController.getKakaoUserInfo(accessToken);
 		System.out.println(userInfo);
 		String kemail = null;
@@ -65,7 +65,7 @@ public class UserController {
 		String kage = null;
 		String kimage1 = null;
 		String kimage2 = null;
-		// �������� īī������ �������� Get properties
+		// 유저정보 카카오에서 가져오기 Get properties
 		JsonNode properties = userInfo.path("properties");
 		JsonNode kakao_account = userInfo.path("kakao_account");
 		JsonNode jsonprofile = kakao_account.path("profile");
@@ -84,7 +84,7 @@ public class UserController {
 		session.setAttribute("kgender", kgender);
 		session.setAttribute("kbirthday", kbirthday);
 		session.setAttribute("kage", kage);
-		// ���ǿ� ��ū ����
+		// 세션에 토큰 저장
 		session.setAttribute("access_Token", accessToken);
 		mav.setViewName("redirect:../index.store"); // ../index
 		
@@ -92,10 +92,10 @@ public class UserController {
 		user.setUserid(kemail);
 		user.setUsername(kname);
 		user.setGender(kgender.equals("male")?1:2);
-		user.setMember_code(1); // ȸ�� 1
+		user.setMember_code(1); // 회원 1
 		session.setAttribute("loginUser", user);
 		if(!service.selectOne(kemail)) { 
-			// false�� ���� �α������� ����� ������ db������
+			// false면 최초 로그인으로 사용자 정보를 db에저장
 			service.memberInsert(user);
 			Point p = new Point();
 			p.setUserid(user.getUserid());
@@ -114,18 +114,18 @@ public class UserController {
 			
 			JsonNode node = KakaoController.kakaoLogout(session.getAttribute("access_Token").toString());
 			session.invalidate();
-			System.out.println("�α��� �� ��ȯ�Ǵ� ���̵� : " + node.get("id"));
+			System.out.println("로그인 후 반환되는 아이디 : " + node.get("id"));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new LoginException("�̹� �α׾ƿ��� �����Դϴ�", "../index.store");
+			throw new LoginException("이미 로그아웃된 계정입니다", "../index.store");
 		}
 		
 		mav.setViewName("redirect:../index.store");
 		return mav;
 	}
 
-	@RequestMapping("updateForm") // ���� �����ϱ�
+	@RequestMapping("updateForm") // 여기 수정하기
 	public String kakaoupdateform(HttpSession session) {
 
 		// KakaoController.kakaoupdate(accessToken);
@@ -136,7 +136,7 @@ public class UserController {
 	public String kakaoupdate(String nickname, String gender, HttpSession session) throws UnsupportedEncodingException {
 		JsonNode accessToken = (JsonNode) session.getAttribute("access_Token");
 		JsonNode userid = KakaoController.kakaoupdate(nickname, gender, accessToken);
-		System.out.println("������ ����� ���̵� : " + userid.get("id"));
+		System.out.println("수정된 사람의 아이디 : " + userid.get("id"));
 		return "redirect:../index.store";
 	}
 

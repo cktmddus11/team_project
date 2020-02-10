@@ -18,14 +18,14 @@ public class NonmembrController {
 	@Autowired
 	private ShopService service;
 	
-	@GetMapping("*") // get���� ���� ��û�� �������� ������ �̰ɷ� ����?
+	@GetMapping("*") // get으로 들어온 요청중 정해진게 없으면 이걸로 실행?
 	public ModelAndView form() {
 		ModelAndView mav = new ModelAndView();
 		Orderlist orderlist = new Orderlist();
 		mav.addObject("orderlist", orderlist);
 		return mav;
 	}
-	// �ֹ� ���� �ִ� ���� Ȯ�� �� boolean Ÿ������ ����
+	// 주문 내역 있는 지만 확인 후 boolean 타입으로 리턴
 	
 	@PostMapping("orderCheck")
 	@ResponseBody
@@ -36,7 +36,7 @@ public class NonmembrController {
 		}
 		return false;
 	}
-	// �ֹ������� ���� �� �ֹ� ���������ִ°�
+	// 주문내역이 있을 떄 주문 내역보여주는거
 	@PostMapping("orderlist")
 	public ModelAndView orderlist(Orderlist orderlist) {
 		ModelAndView mav = new ModelAndView();

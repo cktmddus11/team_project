@@ -36,13 +36,13 @@ public class MypageController {
 	@Autowired
 	private ShopService service;
 
-	@RequestMapping("*") // get���� ���� ��û�� �������� ������ �̰ɷ� ����?
+	@RequestMapping("*") // get으로 들어온 요청중 정해진게 없으면 이걸로 실행?
 	public String form() {
 
 		return null;
 	}
 
-	// �α��� �ߴ��� Ȯ���ϴ� ���� �ʿ�
+	// 로그인 했는지 확인하는 절차 필요
 	@RequestMapping("myindex")
 	public ModelAndView checkindex(String id, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -72,10 +72,10 @@ public class MypageController {
 			Cart cart = (Cart) session.getAttribute("CART");
 			/*
 			 * if (cart == null || cart.getItemSetList().size() == 0) { throw new
-			 * CartEmptyException("��ٱ��Ͽ� ��ǰ�� �����ϴ�.", "../item/list.shop"); }
+			 * CartEmptyException("장바구니에 상품이 없습니다.", "../item/list.shop"); }
 			 */
 			mav.addObject("cart", cart);
-			//System.out.println("��ٱ���!!!"+cart.getItemSetList());
+			//System.out.println("장바구니!!!"+cart.getItemSetList());
 		} else {
 			List<ItemSet> cartlist = service.cartview(user.getUserid());
 			for (ItemSet i : cartlist) {
@@ -99,16 +99,16 @@ public class MypageController {
 				Cart cart = (Cart) session.getAttribute("CART");
 				ItemSet itemSet = cart.getItemSetList().remove(index);
 				System.out.println(itemSet);
-				return item.getItemname() + "�� ��ٱ��Ͽ��� �����Ͽ����ϴ�";
+				return item.getItemname() + "를 장바구니에서 제거하였습니다";
 
 			} else {
 				ItemSet itemSet = new ItemSet(item, user.getUserid(), 0, 0);
 				service.cartdelete(itemSet);
-				return item.getItemname() + "�� ��ٱ��Ͽ��� �����Ͽ����ϴ�";
+				return item.getItemname() + "를 장바구니에서 제거하였습니다";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "��ٱ��Ͽ� ���� ��ǰ ������ �����Ͽ����ϴ�";
+			return "장바구니에 담은 상품 삭제에 실패하였습니다";
 		}
 	}
 
@@ -116,22 +116,22 @@ public class MypageController {
 	public ModelAndView wishlist(Integer pageNum, HttpServletRequest request, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String kemail = (String) session.getAttribute("kemail");
-		int limit = 10; // �������� �Խù� �� ��
+		int limit = 10; // 페이지당 게시물 건 수
 		if (pageNum == null || pageNum == 0) {
 			pageNum = 1;
 		}
 
-		int wishlistcount = service.wishlistcount(kemail); // ��ü ��ϵ� �Խù� �� ��
+		int wishlistcount = service.wishlistcount(kemail); // 전체 등록된 게시물 건 수
 		List<WishList> wishlist = service.wishlist(kemail, pageNum, limit);
-		// �ִ� ������
+		// 최대 페이지
 		int maxpage = (int) ((double) wishlistcount / limit + 0.95);
-		// �������� ù��° ������
+		// 보여지는 첫번째 페이지
 		int startpage = (int) ((pageNum / 10.0 + 0.9) - 1) * 10 + 1;
-		// �������� ������ ������
+		// 보여지는 마지막 페이지
 		int endpage = startpage + 9;
 		if (endpage > maxpage)
 			endpage = maxpage;
-		// ȭ�鿡 ��µǴ� �Խù� ��ȣ
+		// 화면에 출력되는 게시물 번호
 		int boardno = wishlistcount - (pageNum - 1) * limit;
 		mav.addObject("pageNum", pageNum);
 		mav.addObject("maxpage", maxpage);
@@ -156,22 +156,22 @@ public class MypageController {
 	public ModelAndView checkpointlist(Integer pageNum, HttpServletRequest request, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String kemail = (String) session.getAttribute("kemail");
-		int limit = 10; // �������� �Խù� �� ��
+		int limit = 10; // 페이지당 게시물 건 수
 		if (pageNum == null || pageNum == 0) {
 			pageNum = 1;
 		}
-		int pointlistcount = service.pointlistcount(kemail); // ��ü ��ϵ� �Խù� �� ��
-		int totalpoint = service.totalpoint(kemail); // ��ü ��ϵ� �Խù� �� ��
+		int pointlistcount = service.pointlistcount(kemail); // 전체 등록된 게시물 건 수
+		int totalpoint = service.totalpoint(kemail); // 전체 등록된 게시물 건 수
 		List<Point> pointlist = service.pointlist(kemail, pageNum, limit);
-		// �ִ� ������
+		// 최대 페이지
 		int maxpage = (int) ((double) pointlistcount / limit + 0.95);
-		// �������� ù��° ������
+		// 보여지는 첫번째 페이지
 		int startpage = (int) ((pageNum / 10.0 + 0.9) - 1) * 10 + 1;
-		// �������� ������ ������
+		// 보여지는 마지막 페이지
 		int endpage = startpage + 9;
 		if (endpage > maxpage)
 			endpage = maxpage;
-		// ȭ�鿡 ��µǴ� �Խù� ��ȣ
+		// 화면에 출력되는 게시물 번호
 		int boardno = pointlistcount - (pageNum - 1) * limit;
 		mav.addObject("pageNum", pageNum);
 		mav.addObject("maxpage", maxpage);
@@ -207,7 +207,7 @@ public class MypageController {
 			service.AddressUpdate(kemail, addr.getAddress(), addr.getRestaddress());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new AddressException("�ּҵ�� �����߽��ϴ�.", "orderupdate.store");
+			throw new AddressException("주소등록 실패했습니다.", "orderupdate.store");
 		}
 		mav.setViewName("redirect:myindex.store");
 		return mav;
@@ -216,41 +216,41 @@ public class MypageController {
 	@RequestMapping("orderlistpage")
 	public ModelAndView checkorderlistpage(Integer pageNum, String status, String selectvalue, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		int limit = 10; // �������� �Խù� �� ��
+		int limit = 10; // 페이지당 게시물 건 수
 		Integer orderstate = null;
 		if (pageNum == null || pageNum == 0) {
 			pageNum = 1;
 		}
-		if (selectvalue == null || selectvalue.toString().equals("��ü")) {
+		if (selectvalue == null || selectvalue.toString().equals("전체")) {
 			orderstate = null;
-		} else if (selectvalue.toString().equals("�̰���")) {
+		} else if (selectvalue.toString().equals("미결제")) {
 			orderstate = 0;
-		} else if (selectvalue.toString().equals("����Ȯ��")) {
+		} else if (selectvalue.toString().equals("결제확인")) {
 			orderstate = 1;
-		} else if (selectvalue.toString().equals("����غ���")) {
+		} else if (selectvalue.toString().equals("배송준비중")) {
 			orderstate = 2;
-		} else if (selectvalue.toString().equals("�����")) {
+		} else if (selectvalue.toString().equals("배송중")) {
 			orderstate = 3;
-		} else if (selectvalue.toString().equals("��ۿϷ�")) {
+		} else if (selectvalue.toString().equals("배송완료")) {
 			orderstate = 4;
-		} else if (selectvalue.toString().equals("�ֹ�Ȯ��")) {
+		} else if (selectvalue.toString().equals("주문확정")) {
 			orderstate = 5;
-		} else if (selectvalue.toString().equals("��ǰ/��ȯ")) {
+		} else if (selectvalue.toString().equals("반품/교환")) {
 			orderstate = 6;
-		} else if (selectvalue.toString().equals("���")) {
+		} else if (selectvalue.toString().equals("취소")) {
 			orderstate = 7;
 		}
 		String kemail = (String) session.getAttribute("kemail");
 		int orderlist_my_count = service.orderlist_my_count(kemail, status, orderstate);
 		List<Orderlist> orderlist_my = service.orderlist_my(kemail, status, orderstate, pageNum, limit);
 		int maxpage = (int) ((double) orderlist_my_count / limit + 0.95);
-		// �������� ù��° ������
+		// 보여지는 첫번째 페이지
 		int startpage = (int) ((pageNum / 10.0 + 0.9) - 1) * 10 + 1;
-		// �������� ������ ������
+		// 보여지는 마지막 페이지
 		int endpage = startpage + 9;
 		if (endpage > maxpage)
 			endpage = maxpage;
-		// ȭ�鿡 ��µǴ� �Խù� ��ȣ
+		// 화면에 출력되는 게시물 번호
 		int boardno = orderlist_my_count - (pageNum - 1) * limit;
 		mav.addObject("pageNum", pageNum);
 		mav.addObject("maxpage", maxpage);

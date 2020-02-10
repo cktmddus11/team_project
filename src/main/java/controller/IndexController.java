@@ -24,7 +24,7 @@ public class IndexController {
 	private ShopService service;
 	
 	
-	@GetMapping("*") // getÀ¸·Î µé¾î¿Â ¿äÃ»Áß Á¤ÇØÁø°Ô ¾øÀ¸¸é ÀÌ°É·Î ½ÇÇà?
+	@GetMapping("*") // getìœ¼ë¡œ ë“¤ì–´ì˜¨ ìš”ì²­ì¤‘ ì •í•´ì§„ê²Œ ì—†ìœ¼ë©´ ì´ê±¸ë¡œ ì‹¤í–‰?
 	public ModelAndView indexlist(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		List<Item> newitemlist = null;
@@ -32,7 +32,7 @@ public class IndexController {
 		List<Item> allitemlist = null;
 		User user = (User)session.getAttribute("loginUser");
 		if (user != null) {
-			newitemlist = service.indexitemlist(user.getUserid(), 1); // »ç¿ëÀÚÀÇ Âò¸®½ºÆ® 
+			newitemlist = service.indexitemlist(user.getUserid(), 1); // ì‚¬ìš©ìì˜ ì°œë¦¬ìŠ¤íŠ¸ 
 			pitemlist = service.indexitemlist(user.getUserid(), 2);
 			allitemlist = service.indexitemlist(user.getUserid(), 3);
 			System.out.println(pitemlist);

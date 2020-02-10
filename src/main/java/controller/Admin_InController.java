@@ -27,12 +27,12 @@ public class Admin_InController {
       if(pageNum == null || pageNum.toString().equals("")) {
             pageNum = 1;
          }
-      int limit = 10; //ÆäÀÌÁö´ç º¸¿©Áö´Â °Ô½Ã¹° °Ç¼ö
-      int admin_incount = service.admin_incount(); //ÀüÃ¼ µî·ÏµÈ °Ô½Ã¹° °Ç¼ö
+      int limit = 10; //í˜ì´ì§€ë‹¹ ë³´ì—¬ì§€ëŠ” ê²Œì‹œë¬¼ ê±´ìˆ˜
+      int admin_incount = service.admin_incount(); //ì „ì²´ ë“±ë¡ëœ ê²Œì‹œë¬¼ ê±´ìˆ˜
       int maxpage = (int)((double)admin_incount/limit + 0.95); 
-       //º¸¿©Áö´Â Ã¹¹øÂ° ÆäÀÌÁö
+       //ë³´ì—¬ì§€ëŠ” ì²«ë²ˆì§¸ í˜ì´ì§€
        int startpage = (int)((pageNum/10.0 + 0.9) -1) * 10 + 1; 
-       //º¸¿©Áö´Â ¸¶Áö¸· ÆäÀÌÁö
+       //ë³´ì—¬ì§€ëŠ” ë§ˆì§€ë§‰ í˜ì´ì§€
        int endpage = startpage + 9;
        if(endpage > maxpage) endpage = maxpage;
        int boardno = admin_incount - (pageNum - 1) * limit;
@@ -61,11 +61,11 @@ public class Admin_InController {
    public ModelAndView order_item_in_write(Whousing whousing, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
       try {
-         service.whousing_inWrite(whousing, request); //°Ô½Ã¹°µî·Ï
+         service.whousing_inWrite(whousing, request); //ê²Œì‹œë¬¼ë“±ë¡
          mav.setViewName("redirect:order_item_in.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new WhousingException("ÀÔ°í µî·Ï¿¡ ½ÇÆĞÇß½À´Ï´Ù.","order_item_in_write.store");
+         throw new WhousingException("ì…ê³  ë“±ë¡ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.","order_item_in_write.store");
       }
       return mav;
    }

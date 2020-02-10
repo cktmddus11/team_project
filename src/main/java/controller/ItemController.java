@@ -22,7 +22,6 @@ import exception.LoginException;
 import logic.Cart;
 import logic.Item;
 import logic.ItemSet;
-import logic.Orderitem;
 import logic.Pick;
 import logic.Review;
 import logic.ShopService;
@@ -141,11 +140,6 @@ public class ItemController {
 				item.setWishcheck(1);
 				item.setCartcheck(1);
 			}
-			
-			//List<Orderitem>   = service.orderitemselect(user.getUserid(), item.getItemnum());
-			
-			
-			
 		}else { // user이 null이면 비회원 장바구니
 			Cart cart = (Cart) session.getAttribute("CART");
 			
@@ -160,13 +154,6 @@ public class ItemController {
 			}
 			
 		}
-		
-		
-		
-		
-		
-		
-		
 		//System.out.println("reviewlist" + reviewlist);
 		int reviewcount = service.reviewcount(no);
 

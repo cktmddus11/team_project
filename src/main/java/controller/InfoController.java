@@ -31,8 +31,8 @@ public class InfoController {
    @RequestMapping("storeInfo")
    public ModelAndView storeInfo() {
     ModelAndView mav = new ModelAndView();
-       int limit = 10; //�������� �Խù� �� ��
-       int listcount = service.storecount(); //��ü ��ϵ� �Խù� �� ��
+       int limit = 10; //페이지당 게시물 건 수
+       int listcount = service.storecount(); //전체 등록된 게시물 건 수
        List<StoreInfo> storelist = service.storelist();
        mav.addObject("listcount", listcount);
        mav.addObject("storelist", storelist);

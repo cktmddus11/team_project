@@ -35,15 +35,15 @@ public class AdminController {
 	}
 	@RequestMapping("imgupload")
 	public String imgupload(MultipartFile upload, HttpServletRequest request, Model model) {
-		//upload : ¾÷·ÎµåµÈ ÀÌ¹ÌÁö Á¤º¸ ÀúÀå. ÀÌ¹ÌÁö ÆÄÀÏ.
+		//upload : ì—…ë¡œë“œëœ ì´ë¯¸ì§€ ì •ë³´ ì €ì¥. ì´ë¯¸ì§€ íŒŒì¼.
 		String path=request.getServletContext().getRealPath("/")+ "admin/imgfile/";
 		File f = new File(path);
 		if(!f.exists()) f.mkdirs();
 		if(!upload.isEmpty()) {
-			//¾÷·ÎµåµÉ ÆÄÀÏÀ» ÀúÀåÇÒ File °´Ã¼ ÁöÁ¤
+			//ì—…ë¡œë“œë  íŒŒì¼ì„ ì €ì¥í•  File ê°ì²´ ì§€ì •
 			File file = new File(path, upload.getOriginalFilename());
 			try {
-				upload.transferTo(file); //¾÷·Îµå ÆÄÀÏ »ı¼º
+				upload.transferTo(file); //ì—…ë¡œë“œ íŒŒì¼ ìƒì„±
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -52,12 +52,12 @@ public class AdminController {
 		model.addAttribute("fileName", fileName);
 		return "fileName";  
 	}
-	//°ü¸®ÀÚ È¸¿ø°¡ÀÔ
+	//ê´€ë¦¬ì íšŒì›ê°€ì…
 	@PostMapping("manager_Entry")
 	public ModelAndView userEntry(@Valid User user, BindingResult bresult, HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		if(bresult.hasErrors()) {
-			bresult.reject("error.input.user"); //ÀÔ·ÂÁ¤º¸¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù.
+			bresult.reject("error.input.user"); //ì…ë ¥ì •ë³´ì— ë¬¸ì œê°€ ìˆìŠµë‹ˆë‹¤.
 			mav.getModel().putAll(bresult.getModel());
 			return mav;
 		}
@@ -65,13 +65,13 @@ public class AdminController {
 			String id = CipherUtil.makehash(user.getUserid()).substring(0,16); //key
 			String passwd = CipherUtil.encrypt(user.getPassword(), id);
 			user.setPassword(passwd);
-			service.adminInsert(user,request); //insert ½ÇÇà
-			mav.addObject("msg","°ü¸®ÀÚÀÇ ½ÂÀÎÀÌ ÇÊ¿äÇÑ °Å·¡ÀÔ´Ï´Ù.");
+			service.adminInsert(user,request); //insert ì‹¤í–‰
+			mav.addObject("msg","ê´€ë¦¬ìì˜ ìŠ¹ì¸ì´ í•„ìš”í•œ ê±°ë˜ì…ë‹ˆë‹¤.");
 			mav.addObject("url","manager_index.store");
 			mav.setViewName("alert");
 		   }catch(DataIntegrityViolationException e) {
 				e.printStackTrace();
-				bresult.reject("error.duplicate.user"); //Áßº¹µÈ ¾ÆÀÌµğÀÔ´Ï´Ù.
+				bresult.reject("error.duplicate.user"); //ì¤‘ë³µëœ ì•„ì´ë””ì…ë‹ˆë‹¤.
 			}catch (Exception e) {
 				e.printStackTrace();
 			} 
@@ -88,22 +88,22 @@ public class AdminController {
 		}
 		try {
 			User dbUser = service.getUser(user.getUserid());
-			if(dbUser == null) { //¾ÆÀÌµğ°¡ ¾øÀ»¶§
-				throw new LoginException("ÇØ´ç ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù. ·Î±×ÀÎ ÈÄ ÀÌ¿ëÇÏ¼¼¿ä","manager_login.store");
+			if(dbUser == null) { //ì•„ì´ë””ê°€ ì—†ì„ë•Œ
+				throw new LoginException("í•´ë‹¹ ì•„ì´ë””ê°€ ì—†ìŠµë‹ˆë‹¤. ë¡œê·¸ì¸ í›„ ì´ìš©í•˜ì„¸ìš”","manager_login.store");
 			}
 			if(	dbUser.getAccess() == 0) {
-				mav.addObject("msg","°ü¸®ÀÚ°¡ ¾Æ´Õ´Ï´Ù. È¸¿ø°¡ÀÔ ÈÄ ÀÌ¿ëÇØÁÖ¼¼¿ä.");
+				mav.addObject("msg","ê´€ë¦¬ìê°€ ì•„ë‹™ë‹ˆë‹¤. íšŒì›ê°€ì… í›„ ì´ìš©í•´ì£¼ì„¸ìš”.");
 				mav.addObject("url","manager_login.store");
 				mav.setViewName("alert");
 			}else{ 
 				String id = CipherUtil.makehash(dbUser.getUserid());
-				String passwd= CipherUtil.decrypt(dbUser.getPassword(),id.substring(0,16)); //·Î±×ÀÎ ½Ãµµ ¾ÏÈ£È­ µÈ ºñ¹Ğ¹øÈ£¸¦ º¹È£È­½ÃÅ²´Ù.
+				String passwd= CipherUtil.decrypt(dbUser.getPassword(),id.substring(0,16)); //ë¡œê·¸ì¸ ì‹œë„ ì•”í˜¸í™” ëœ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³µí˜¸í™”ì‹œí‚¨ë‹¤.
 				System.out.println(passwd);
-				if(!user.getPassword().equals(passwd)) { //ºñ¹Ğ¹øÈ£¸¦ Æ²·ÈÀ» ¶§
+				if(!user.getPassword().equals(passwd)) { //ë¹„ë°€ë²ˆí˜¸ë¥¼ í‹€ë ¸ì„ ë•Œ
 					bresult.reject("error.login.password");
 					return mav; 
-				}else { //ºñ¹Ğ¹øÈ£ ¸ÂÀ½
-					session.setAttribute("loginUser", dbUser); //session°ª¿¡ dbUserÀÇ Á¤º¸¸¦ loginUser·Î ÀúÀåÇÑ´Ù.
+				}else { //ë¹„ë°€ë²ˆí˜¸ ë§ìŒ
+					session.setAttribute("loginUser", dbUser); //sessionê°’ì— dbUserì˜ ì •ë³´ë¥¼ loginUserë¡œ ì €ì¥í•œë‹¤.
 					mav.setViewName("redirect:manager_index.store");
 				}
 			}
@@ -121,21 +121,21 @@ public class AdminController {
 		return "redirect:manager_index.store";
 	}
 	
-	@RequestMapping("manager") //»óÀ§°ü¸®ÀÚÀÇ °ü¸®ÀÚ ½ÂÀÎ ÆäÀÌÁö
+	@RequestMapping("manager") //ìƒìœ„ê´€ë¦¬ìì˜ ê´€ë¦¬ì ìŠ¹ì¸ í˜ì´ì§€
 	public ModelAndView manager(Integer access, String userid, HttpSession session) {
 		// HttpServletRequest request
 		ModelAndView mav = new ModelAndView();
 		List<User> entrylist = service.userList(1); 
 		mav.addObject("entrylist", entrylist);	
 			try {
-				if(access == 1) { //ÆÄ¶ó¹ÌÅÍ°ªÀÌ 1ÀÌ¸é => ½ÂÀÎ
+				if(access == 1) { //íŒŒë¼ë¯¸í„°ê°’ì´ 1ì´ë©´ => ìŠ¹ì¸
 					service.membercodeUpdate(access, userid);
-					mav.addObject("msg","½ÂÀÎ Ã³¸®°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+					mav.addObject("msg","ìŠ¹ì¸ ì²˜ë¦¬ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					mav.addObject("url","manager.store");
 					mav.setViewName("alert");
-				}else if(access == 2){ //ÆÄ¶ó¹ÌÅÍ°ªÀÌ 2ÀÌ¸é => °ÅºÎ
+				}else if(access == 2){ //íŒŒë¼ë¯¸í„°ê°’ì´ 2ì´ë©´ => ê±°ë¶€
 					service.userDelete(userid);
-					mav.addObject("msg","°ÅºÎ Ã³¸®°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+					mav.addObject("msg","ê±°ë¶€ ì²˜ë¦¬ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					mav.addObject("url","manager.store");
 					mav.setViewName("alert");
 				}	
@@ -146,7 +146,7 @@ public class AdminController {
 			}	
 		return mav;	
 	}
-	@RequestMapping("manager_list") //»óÀ§°ü¸®ÀÚÀÇ °ü¸®ÀÚ ½ÂÀÎ ÆäÀÌÁö
+	@RequestMapping("manager_list") //ìƒìœ„ê´€ë¦¬ìì˜ ê´€ë¦¬ì ìŠ¹ì¸ í˜ì´ì§€
 	public ModelAndView manager_list(Integer access, String userid, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		List<User> adminlist = service.userList(2);
@@ -176,9 +176,9 @@ public class AdminController {
 		return mav;
 	}
 	
-	// ºñ¹Ğ¹øÈ£ °ËÁõ : ÀÔ·ÂµÈ ºñ¹Ğ¹øÈ£¿Í db¿¡ ÀúÀåµÈ ºñ¹Ğ¹øÈ£¸¦ ºñ±³
-	// ÀÏÄ¡ : update
-	// error.login.password=ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä.
+	// ë¹„ë°€ë²ˆí˜¸ ê²€ì¦ : ì…ë ¥ëœ ë¹„ë°€ë²ˆí˜¸ì™€ dbì— ì €ì¥ëœ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë¹„êµ
+	// ì¼ì¹˜ : update
+	// error.login.password=ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”.
 	@PostMapping("manager_update")
 	public ModelAndView manager_update(@Valid User user, 
 			BindingResult bresult, HttpSession session) {
