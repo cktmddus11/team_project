@@ -22,11 +22,11 @@ public class AdminLoginAspect {
 		User loginUser = (User)session.getAttribute("loginUser");	
 		if(loginUser == null) {
 			throw new LoginException
-			("·Î±×ÀÎ ÈÄ ÀÌ¿ëÇÏ¼¼¿ä","manager_login.store");
+			("ë¡œê·¸ì¸ í›„ ì´ìš©í•˜ì„¸ìš”","manager_login.store");
 		}		
 		if(!loginUser.getUserid().equals(userid)) {
 			throw new LoginException
-			("ÀÚ½ÅÀÇ Á¤º¸¸¸ Á¶È¸ °¡´ÉÇÕ´Ï´Ù.","manager_index.store");
+			("ìì‹ ì˜ ì •ë³´ë§Œ ì¡°íšŒ ê°€ëŠ¥í•©ë‹ˆë‹¤.","manager_index.store");
 		}
 		Object ret = joinPoint.proceed();
 		return ret;
@@ -37,11 +37,11 @@ public class AdminLoginAspect {
        User loginUser = (User)session.getAttribute("loginUser");
        if(loginUser == null) {
           throw new LoginException
-                 ("·Î±×ÀÎ ÈÄ ÀÌ¿ëÇÏ¼¼¿ä","manager_login.store");
+                 ("ë¡œê·¸ì¸ í›„ ì´ìš©í•˜ì„¸ìš”","manager_login.store");
        }
        if(!loginUser.getUserid().equals("admin")) {
           throw new LoginException
-              ("»óÀ§ °ü¸®ÀÚ¸¸ Á¢±ÙÇÒ ¼ö ÀÖ´Â ÆäÀÌÁö ÀÔ´Ï´Ù.","manager_index.store");
+              ("ìƒìœ„ ê´€ë¦¬ìë§Œ ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” í˜ì´ì§€ ì…ë‹ˆë‹¤.","manager_index.store");
        }
        Object ret = joinPoint.proceed();
        return ret;

@@ -20,9 +20,9 @@ public class UserLoginAspect {
 		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
-			throw new LoginException("·Î±×ÀÎ ÈÄ °Å·¡ÇÏ¼¼¿ä", "../user/signin.store");
-			// ·Î±×¾Æ¿ô »óÅÂÀÏ¶§ mainÀ» Á¢±ÙÇÏ¸é °­Á¦·Î ¿¡·¯¸¦ ¹ß»ı½ÃÅ´ 
-			//joinPointºÎºĞÀ¸·Î °¥¼ö ¾øÀ½ 
+			throw new LoginException("ë¡œê·¸ì¸ í›„ ê±°ë˜í•˜ì„¸ìš”", "../user/signin.store");
+			// ë¡œê·¸ì•„ì›ƒ ìƒíƒœì¼ë•Œ mainì„ ì ‘ê·¼í•˜ë©´ ê°•ì œë¡œ ì—ëŸ¬ë¥¼ ë°œìƒì‹œí‚´ 
+			//joinPointë¶€ë¶„ìœ¼ë¡œ ê°ˆìˆ˜ ì—†ìŒ 
 		}
 		Object ret = joinPoint.proceed(); 
 		return ret;
