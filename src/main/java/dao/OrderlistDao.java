@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import dao.mapper.OrderlistMapper;
+import logic.OrderForm;
 import logic.Orderlist;
 
 @Repository
@@ -71,17 +72,17 @@ public class OrderlistDao {
 	/* /////////////////////////////csy//////////////////// */
 
 
-	public void checkend(Orderlist orderlist) {
-		param.put("orderno", orderlist.getOrderno());
-		param.put("userid", orderlist.getUserid());
-		param.put("payname", orderlist.getPayname());
-		param.put("address",  orderlist.getAddress());
-		param.put("restaddress", orderlist.getRestaddress());
-		param.put("phonenum", orderlist.getPhonenum());
-		param.put("username",  orderlist.getUserid());
-		param.put("selectpay", orderlist.getSelectpay());
-		param.put("usepoint", orderlist.getUsepoint());
-		param.put("orderstate", orderlist.getOrderstate());
+	public void checkend(OrderForm order) {
+		param.put("orderno", order.getOrderno());
+		param.put("userid", order.getUserid());
+		param.put("payname", order.getPayname());
+		param.put("address",  order.getAddress());
+		param.put("restaddress", order.getRestaddress());
+		param.put("phonenum", order.getPhonenum());
+		param.put("username",  order.getUserid());
+		param.put("selectpay", order.getSelectpay());
+		param.put("usepoint", order.getUsepoint());
+		param.put("orderstate", order.getOrderstate());
 		 sqlSession.getMapper(OrderlistMapper.class).checkend(param);
 		
 		

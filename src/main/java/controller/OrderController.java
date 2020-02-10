@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import logic.Cart;
 import logic.ItemSet;
+import logic.OrderForm;
 import logic.Orderlist;
 import logic.ShopService;
 import logic.User;
@@ -35,10 +37,10 @@ public class OrderController {
 	 * model) { return null; // null : url로 보고 이동? }
 	 */
 	@ResponseBody
-	@RequestMapping("order")
-	public ModelAndView order(HttpSession session, Integer oitemnum, Integer oquantity, Integer oprice) { // 핵심로직
+	@GetMapping("order")
+	public ModelAndView order_get(HttpSession session, Integer oitemnum, Integer oquantity, Integer oprice) { // 핵심로직
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("orderlist", new Orderlist());
+		mav.addObject("orderform", new OrderForm());
 
 		User user = (User) session.getAttribute("loginUser");
 
@@ -69,14 +71,16 @@ public class OrderController {
 	}
 
 	@PostMapping("order")
-	public ModelAndView order(@Valid Orderlist orderlist, BindingResult bresult, HttpSession session) {
+	public ModelAndView order_post(@ModelAttribute("orderform") @Valid OrderForm orderform, BindingResult bresult, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		if (bresult.hasErrors()) {
 			mav.getModel().putAll(bresult.getModel());
+			System.out.println(bresult.getModel());
 			return mav;
 		}
 		try {	
 			User user = (User) session.getAttribute("loginUser");
+			System.out.println(user);
 
 			SimpleDateFormat format = new SimpleDateFormat("yyMMdd");
 			Date currentTime = new Date();
@@ -84,18 +88,19 @@ public class OrderController {
 			String num = format.format(currentTime);
 			double rand = Math.random();
 			rand = (int) (rand * 10000000) + 1;
-			orderlist.setOrderno(num + "" + rand);
+			orderform.setOrderno(num + "" + rand);
 
-			service.checkend(orderlist); // orderlist 데이터 넣
+			service.checkend(orderform); // orderlist 데이터 넣
 			// service.insertorderitem();
 
-			mav.addObject("orderlist", orderlist);
-			System.out.println("!!!!!!!"+orderlist);
+			mav.addObject("orderlist", orderform);
+			System.out.println("!!!!!!!"+orderform);
 			if (user != null) {
-				System.out.println("!@@@@@@@@@@@@@호출");
-				for (ItemSet s : orderlist.getOrderitem()) {
+				System.out.println("!@@@@@@@@@@@@@호출"+orderform.getOrderitem().get(0).getItemnum());
+				for (ItemSet s : orderform.getOrderitem()) {
+					System.out.println(s);
 					service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
-							orderlist.getUserid());
+							orderform.getUserid());
 				}
 				service.deletecart(user.getUserid());
 
@@ -104,16 +109,16 @@ public class OrderController {
 				Cart cart = (Cart) session.getAttribute("CART");
 				if (cart == null) {
 					System.out.println("!@@@@@@@@@@@@@호출3");
-					for (ItemSet s : orderlist.getOrderitem()) {
+					for (ItemSet s : orderform.getOrderitem()) {
 						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
-								orderlist.getUserid());
+								orderform.getUserid());
 					}
-					service.deletecart(orderlist.getUserid());
+					service.deletecart(orderform.getUserid());
 				} else { // 로그인 X - 카트 구매 애만되네
 					System.out.println("!@@@@@@@@@@@@@호출4");
 					for (ItemSet s : cart.getItemSetList()) {
 						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(),
-								s.getPrice(), orderlist.getUserid());
+								s.getPrice(), orderform.getUserid());
 					}
 					long total = cart.getTotal(); // 주문상품의 총 금액 리턴
 					session.removeAttribute("CART"); // 장바구니 내용 제거
@@ -126,9 +131,15 @@ public class OrderController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mav.setViewName("order/orderchk");
+		mav.setViewName("redirect:orderchk.store");
 		return mav;
 		
 	
+	}
+	@GetMapping("orderchk")
+	public ModelAndView orderchk_get() { // 핵심로직
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("orderform", new OrderForm());
+		return mav;
 	}
 }

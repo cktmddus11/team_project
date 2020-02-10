@@ -27,7 +27,7 @@ import dao.UserDao;
 import dao.WhousingDao;
 import dao.WishListDao;
 
-@Service // @Component + service ±â´É
+@Service // @Component + service ï¿½ï¿½ï¿½
 public class ShopService {
 	@Autowired
 	private HelpDao helpDao;
@@ -39,20 +39,20 @@ public class ShopService {
 	private ItemDao itemDao;
 	@Autowired
 	private Admin_ItemDao admin_itemDao;
-	@Autowired // database¿Í ¿¬°áµÇ¾îÀÖ´Â ³»¿ë¹°
+	@Autowired // databaseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ë¹°
 	private ChgDao chgDao;
 	@Autowired
 	private AdminOrderListDao adminOrderListDao;
-	@Autowired // database¿Í ¿¬°áµÇ¾îÀÖ´Â ³»¿ë¹°
+	@Autowired // databaseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ë¹°
 	private StoreInfoDao storeInfoDao;
 	@Autowired
 	private MypageDao mypageDao;
 
-	@Autowired // database¿Í ¿¬°áµÇ¾îÀÖ´Â ³»¿ë¹°
+	@Autowired // databaseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ë¹°
 	private WishListDao wishListDao;
-	@Autowired // database¿Í ¿¬°áµÇ¾îÀÖ´Â ³»¿ë¹°
+	@Autowired // databaseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ë¹°
 	private PointDao pointDao;
-	@Autowired // database¿Í ¿¬°áµÇ¾îÀÖ´Â ³»¿ë¹°
+	@Autowired // databaseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ë¹°
 	private AddrDao addrDao;
 	@Autowired
 	private WhousingDao whousingDao;
@@ -82,16 +82,16 @@ public class ShopService {
 	}
 
 	private void uploadFileCreate(MultipartFile picture, HttpServletRequest request, String path) {
-		// picture : ¾÷·ÎµåµÈ ÆÄÀÏÀÇ ³»¿ë
+		// picture : ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		String orgFile = picture.getOriginalFilename();
 		String uploadPath = request.getServletContext().getRealPath("/") + path;
 		File fpath = new File(uploadPath);
 		if (!fpath.exists()) {
-			fpath.mkdirs(); // mkdirs ¿©·¯°³ÀÇ Ç§´õ »ý¼º
-			// ÇÑ°³ Æú´õ -> mkdir
+			fpath.mkdirs(); // mkdirs ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç§ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ -> mkdir
 		}
 		try {
-			// picture ¾÷·ÎµåµÈ ÆÄÀÏÀÇ ³»¿ëÀ» ÆÄÀÏ·Î »ý¼º
+			// picture ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			picture.transferTo(new File(uploadPath + orgFile));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,11 +101,11 @@ public class ShopService {
 
 	public void boardUpdate(Help help, HttpServletRequest request) {
 		if (help.getQnafile1() != null && !help.getQnafile1().isEmpty()) {
-			System.out.println("È£Ãâ");
-			// ÆÄÀÏ ¾÷·Îµå : ¾÷·ÎµåµÈ ÆÄÀÏÀÇ ³»¿ëÀ» ÆÄÀÏ¿¡ ÀúÀå
+			System.out.println("È£ï¿½ï¿½");
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ : ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 			uploadFileCreate(help.getQnafile1(), request, "help/img/");
 			help.setQnafileurl(help.getQnafile1().getOriginalFilename());
-			// »çÁø urlÁß ¼ø¼ö »çÁø ÀÌ¸§¸¸ °¡Á®¿Í¼­ item¿¡ ÀúÀå
+			// ï¿½ï¿½ï¿½ï¿½ urlï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 		helpDao.boardupdate(help);
 		System.out.println(help);
@@ -113,13 +113,13 @@ public class ShopService {
 	}
 
 	public void boardWrite(Help help, HttpServletRequest request) {
-		// Ã·ºÎÆÄÀÏÀÌ Á¸ÀçÇÏ´Â °æ¿ì
+		// Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 		if (help.getQnafile1() != null && !help.getQnafile1().isEmpty()) {
 			uploadFileCreate(help.getQnafile1(), request, "help/img/");
-			// ¾÷·ÎµåµÈ ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			help.setQnafileurl(help.getQnafile1().getOriginalFilename());
 		}
-		// ÇöÀç µî·ÏµÈ °Ô½Ã¹° ¹øÈ£ ÃÖ´ë°ª
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È£ ï¿½Ö´ë°ª
 		int max = helpDao.maxnum();
 		help.setQnano(++max);
 		helpDao.insert(help);
@@ -154,20 +154,20 @@ public class ShopService {
 	}
 
 	public void itemCreate(Item admin_item, HttpServletRequest request) {
-		// ¾÷·ÎµåµÈ ÀÌ¹ÌÁöÆÄÀÏÀÌ Á¸Àç
+		// ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (admin_item.getItemfile1() != null && !admin_item.getItemfile1().isEmpty()) {
 			uploadFileCreate(admin_item.getItemfile1(), request, "images/product/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			admin_item.setItemfile1url(admin_item.getItemfile1().getOriginalFilename());
 		}
 		if (admin_item.getItemfile1() != null && !admin_item.getItemfile2().isEmpty()) {
 			uploadFileCreate(admin_item.getItemfile2(), request, "images/product/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			admin_item.setItemfile2url(admin_item.getItemfile2().getOriginalFilename());
 		}
 		if (admin_item.getItemfile1() != null && !admin_item.getItemfile3().isEmpty()) {
 			uploadFileCreate(admin_item.getItemfile3(), request, "images/product/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			admin_item.setItemfile3url(admin_item.getItemfile3().getOriginalFilename());
 		}
 		int max = admin_itemDao.maxitemnum();
@@ -186,17 +186,17 @@ public class ShopService {
 	public void itemUpdate(Item admin_item, HttpServletRequest request) {
 		if (admin_item.getItemfile1() != null && !admin_item.getItemfile1().isEmpty()) {
 			uploadFileCreate(admin_item.getItemfile1(), request, "images/product/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			admin_item.setItemfile1url(admin_item.getItemfile1().getOriginalFilename());
 		}
 		if (admin_item.getItemfile1() != null && !admin_item.getItemfile2().isEmpty()) {
 			uploadFileCreate(admin_item.getItemfile2(), request, "images/product/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			admin_item.setItemfile2url(admin_item.getItemfile2().getOriginalFilename());
 		}
 		if (admin_item.getItemfile1() != null && !admin_item.getItemfile3().isEmpty()) {
 			uploadFileCreate(admin_item.getItemfile3(), request, "images/product/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			admin_item.setItemfile3url(admin_item.getItemfile3().getOriginalFilename());
 		}
 		admin_itemDao.update(admin_item);
@@ -216,9 +216,9 @@ public class ShopService {
 	}
 
 	//////////////// cyj
-	// ====================== write Ãß°¡ ½ÃÀÛ
+	// ====================== write ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void infoWrite(StoreInfo storeInfo, HttpServletRequest request) {
-		// Ã·ºÎÆÄÀÏÀÌ Á¸ÀçÇÏ´Â °æ¿ì
+		// Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 		if (storeInfo.getPicfile() != null && !storeInfo.getPicfile().isEmpty()) {
 			uploadFileCreate(storeInfo.getPicfile(), request, "images/storeinfo_store/");
 			storeInfo.setStorepic(storeInfo.getPicfile().getOriginalFilename());
@@ -232,7 +232,7 @@ public class ShopService {
 		return storeInfoDao.selectOne(storeno);
 	}
 
-	// ====================== list Ãß°¡ ½ÃÀÛ
+	// ====================== list ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int storecount() {
 		return storeInfoDao.count();
 	}
@@ -240,7 +240,7 @@ public class ShopService {
 	public List<StoreInfo> storelist() {
 		return storeInfoDao.list();
 	}
-	// ======================= update Ãß°¡ ½ÃÀÛ
+	// ======================= update ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	public StoreInfo getStoreInfo(int storeno) {
 		return storeInfoDao.selectOne(storeno);
@@ -255,12 +255,12 @@ public class ShopService {
 		storeInfoDao.update(storeInfo);
 	}
 
-	// ======================= delete Ãß°¡ ½ÃÀÛ
+	// ======================= delete ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void StoreInfoDelete(StoreInfo storeInfo) {
 		storeInfoDao.delete(storeInfo);
 	}
 
-	// ============================================ chg write Ãß°¡
+	// ============================================ chg write ï¿½ß°ï¿½
 	public void ChgCreate(Chg chg, HttpServletRequest request) {
 		int max = chgDao.maxnum();
 		chg.setChg_no(++max);
@@ -271,7 +271,7 @@ public class ShopService {
 		return chgDao.selectOne(chg_no);
 	}
 
-	// ===========================================chg list Ãß°¡
+	// ===========================================chg list ï¿½ß°ï¿½
 	public int chgcount() {
 		return chgDao.count();
 	}
@@ -284,7 +284,7 @@ public class ShopService {
 		chgDao.stateupdate(chg_no, yn);
 	}
 
-	// ======================================== orderlist list Ãß°¡
+	// ======================================== orderlist list ï¿½ß°ï¿½
 	public int admin_ordercount(Integer orderstate) {
 		return adminOrderListDao.admin_ordercount(orderstate);
 	}
@@ -298,10 +298,10 @@ public class ShopService {
 	}
 
 	///////////////// PHY
-	public void memberInsert2(User user, HttpServletRequest request) { // °ü¸®ÀÚ È¸¿ø°¡ÀÔ
+	public void memberInsert2(User user, HttpServletRequest request) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (user.getProfile() != null && !user.getProfile().isEmpty()) {
 			uploadFileCreate(user.getProfile(), request, "admin/imgfile/");
-			// ¾÷·Îµå ÆÄÀÏ ÀÌ¸§ ¼³Á¤
+			// ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			user.setProfileUrl(user.getProfile().getOriginalFilename());
 		}
 		int numcnt = userDao.numcntadd();
@@ -310,14 +310,14 @@ public class ShopService {
 		userDao.memberInsert2(user);
 	}
 
-	public User getUser(String userid) { // ¾ÆÁ÷ ¾È¾¸ °ü¸®ÀÚ È¸¿ø Á¤º¸ Á¶È¸
+	public User getUser(String userid) { // ï¿½ï¿½ï¿½ï¿½ ï¿½È¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 		return userDao.selectOne2(userid);
 	}
 
-	public List<User> userList() { // »óÀ§°ü¸®ÀÚ°¡ °ü¸®ÀÚ ½ÂÀÎÇÒ¶§
+	public List<User> userList() { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
 		return userDao.list();
 	}
-	//////////////////////////////////// Ã³À½ ÇÕÄ§
+	//////////////////////////////////// Ã³ï¿½ï¿½ ï¿½ï¿½Ä§
 // csy 0204
 
 	public List<Item> itemsale(Integer category, Integer subcategory, Integer character_c) {
@@ -440,7 +440,7 @@ public class ShopService {
 		addrDao.AddressUpdate(kemail, address, restaddress);
 	}
 
-	// ======================================================== choiyoonjeong chg¼öÁ¤
+	// ======================================================== choiyoonjeong chgï¿½ï¿½ï¿½ï¿½
 	public void orderstateupdate(String chg_orderno, String userid) {
 		chgDao.orderstateupdate(chg_orderno, userid);
 	}
@@ -489,18 +489,18 @@ public class ShopService {
 
 	}
 
-	public void checkend(Orderlist orderlist) {
-		// ÁÖ¹®ÀÚ Á¤º¸¸¦ saleÅ×ÀÌºí¿¡ ÀúÀå
-		// sale Å×ÀÌºíÀÇ saleid°ª + 1
+	public void checkend(OrderForm order) {
+		// ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ saleï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
+		// sale ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ saleidï¿½ï¿½ + 1
 
-		// ÁÖ¹® »óÇ° Á¤º¸¸¦ cart ¿¡¼­ Á¶È¸
+		// ï¿½Ö¹ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ cart ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 		/*
 		 * List<ItemSet> itemList = cart.getItemSetList(); int i = 0; for(ItemSet is :
 		 * itemList) { SaleItem saleItem = new SaleItem(sale.getSaleid(), saleItemId,
 		 * is); sale.getItemList().add(saleItem); saleItemDao.insert(saleItem); }
 		 */
 
-		orderlistDao.checkend(orderlist);
+		orderlistDao.checkend(order);
 
 	}
 
@@ -524,7 +524,7 @@ public class ShopService {
 	}
 
 	/* ///////kje/////// */
-//////////////////////////»óÇ° ÀÔ°í
+//////////////////////////ï¿½ï¿½Ç° ï¿½Ô°ï¿½
 	public void whousing_inWrite(Whousing whousing, HttpServletRequest request) {
 		int inmax = whousingDao.maxwhousingnum();
 		whousing.setWhousingnum(++inmax);
@@ -569,7 +569,7 @@ public class ShopService {
 		return whousingDao.count();
 	}
 	/* //////phy/////// */
-	public void adminInsert(User user, HttpServletRequest request) { //°ü¸®ÀÚ È¸¿ø°¡ÀÔ
+	public void adminInsert(User user, HttpServletRequest request) { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(user.getProfile() != null && !user.getProfile().isEmpty()) {
 	         uploadFileCreate(user.getProfile(), request, "admin/imgfile/");
 	         user.setProfileUrl(user.getProfile().getOriginalFilename());
@@ -578,7 +578,7 @@ public class ShopService {
 		user.setUserno(++numcnt);
 		userDao.adminInsert(user);
 	}
-	public List<User> userList(int access) { //È¸¿ø°¡ÀÔ ¸®½ºÆ®
+	public List<User> userList(int access) { //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		return userDao.list(access);
 	}
 	public void membercodeUpdate(Integer access, String userid) {

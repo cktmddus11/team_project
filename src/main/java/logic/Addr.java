@@ -5,9 +5,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Addr{
    private int address_code;
    private String userid;
-   @NotEmpty(message = "ÁÖ¼Ò ÀÔ·ÂÀº ÇÊ¼ö ÀÔ´Ï´Ù.")
+   @NotEmpty(message = "ë„ë¡œëª… ì£¼ì†ŒëŠ” í•„ìˆ˜ ì…ë ¥ì…ë‹ˆë‹¤.")
    private String address;
-   @NotEmpty(message = "³ª¸ÓÁöÁÖ¼Ò ÀÔ·ÂÀº ÇÊ¼ö ÀÔ´Ï´Ù.")
+   @NotEmpty(message = "ë‚˜ë¨¸ì§€ ì£¼ì†Œë„ ì…ë ¥ í•´ì£¼ì„¸ìš”.")
    private String restaddress;
    public int getAddress_code() {
       return address_code;

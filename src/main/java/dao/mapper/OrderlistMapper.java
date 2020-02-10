@@ -58,7 +58,9 @@ public interface OrderlistMapper {
 	void checkend(Map<String, Object> param);
 
 	
-	@Insert("insert into orderitem values(#{itemnum}, #{orderno}, #{quantity}, #{price}, #{userid})")
+	@Insert("insert into orderitem "
+			+ "(itemnum, orderno, quantity, price, userid)"
+			+ "values(#{itemnum}, #{orderno}, #{quantity}, #{price}, #{userid})")
 	void insertorderitem(Map<String, Object> param);
 
 }
