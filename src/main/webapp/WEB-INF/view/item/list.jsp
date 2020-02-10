@@ -9,6 +9,63 @@
 </head>
 <body>
 <script>
+
+	function checkclick(pickno, itemnum, id){
+		//alert(pickno+","+itemnum)
+	/* 	if(${empty sessionScope.loginUser}){
+			alert("로그인한 사람만 찜 할 수 있습니다")
+			return;
+		} */
+		
+		if ($("#"+id).prop('checked')) {
+			$.ajax({// itemnum, userid, quantity, price
+				url : "heartup.store",
+				type : "POST",
+				dataType: 'text',
+				data : {
+					itemnum : itemnum,
+				},success : function(data){
+					if(data=="로그인을 한 사람만 찜버튼을 누를 수 있습니다"){
+						$("#"+id).prop('checked', false)
+						alert(data)
+					}else{
+						$(this).parent().removeClass("wish_btn")
+						$(this).parent().addClass("wish_btn").addClass("on")
+						alert(data)
+					}
+					
+				}, error : function(e){
+					console.log(e)
+				}
+				
+			})
+			return false;
+			
+		} else {
+			//var listnum = $(this).val();
+			$.ajax({// itemnum, userid, quantity, price
+				url : "heartdown.store",
+				type : "POST",
+				dataType: 'text',
+				data : {
+					pickno: pickno
+				},success : function(data){
+					alert(data)
+				}, error : function(e){
+					console.log(e)
+				}
+				
+			})
+			return false;
+			$(this).parent().removeClass("wish_btn").removeClass("on")
+			$(this).parent().addClass("wish_btn")
+		}
+
+	}
+
+
+</script>
+<script>
 $(function(){
 	if(${param.category == 1}){
 		$(".category_header_div").addClass("iJySYV")
@@ -19,21 +76,27 @@ $(function(){
 	}else if(${param.category == 3}){
 		$(".category_header_div").addClass("cztjdj")
 		$(".cztjdj").css("background-color","rgb(215, 215, 215)");
-	}else if(${param.character==1}){
+	}else if(${character==1}){
 		$(".category_header_div").addClass("hkMGHD ")
 		$(".hkMGHD ").css("background-color","rgb(170, 212, 226)");
-	}else if(${param.character == 2}){
+	}else if(${character == 2}){
 		$(".category_header_div").addClass("uISNn")
 		$(".uISNn").css("background-color","rgb(251, 147, 172)");
-	}else if(${empty param.category && empty param.character}){	
+	}else if(${empty param.category && empty character}){	
 		$(".category_header_div").addClass("jxMVNe")
 		$(".jxMVNe").css("background-color","#ffd401");
 	}
 	
  	$(".dropdown-menu li").click(function(){
-			$("input[name=selectvalue1]").val($("#select1").text()); // 캐릭터 
-			$("input[name=selectvalue2]").val($("#select2").text()); // 상품 순서
-			selectform.submit();
+ 		 	if($(this).index()==0){
+ 		 		if($(this).parents("ul").hasClass('one')){
+ 		 			$("input[name=character_c]").val("")
+ 		 		}
+ 		 	}
+				$("input[name=selectvalue1]").val($("#select1").text()); // 캐릭터 
+				$("input[name=selectvalue2]").val($("#select2").text()); // 상품 순서
+				selectform.submit();
+ 		 	
  	})  
 	
 })
@@ -44,9 +107,9 @@ $(function(){
 		<c:if test='${param.category == 1}'>토이</c:if>
 		<c:if test='${param.category == 2}'>의류</c:if>
 		<c:if test='${param.category == 3}'>생활테크</c:if>
-		<c:if test='${param.character==1}'>라이언</c:if>
-		<c:if test='${param.character==2}'>어피치</c:if>
-		<c:if test='${empty param.category && empty param.character}'>전체</c:if>
+		<c:if test='${character==1 && empty param.category}'>라이언</c:if>
+		<c:if test='${character==2 && empty param.category}'>어피치</c:if>
+		<c:if test='${empty param.category && empty character}'>전체</c:if>
 		
 		</span>
 	</div>
@@ -149,18 +212,19 @@ $(function(){
 		style="display: inline-block; padding-top: 30px; float: center left;">
 		<span>총 ${itemlistcount}개</span>
 	</div>
-<form:form modelAttribute="item" name="selectform" action="list.store" method="post">
+<form name="selectform" action="list.store" method="post" style="float: right;padding-bottom: 15px;">
 		<input type="hidden" name="category" value="${param.category}">
 		<input type="hidden" name="subcategory" value="${param.subcategory}">
-		<input type="hidden" name="character_c" value="${param.character}">
+		<input type="hidden" name="character_c" value="${character}">
 		<input type="hidden" name="selectvalue2" value="">
 	<div
 		style="display: inline-block; position: relative; padding-top: 20px; float: right;">
 		<div class="dropdown" style="width: 200px; height: 50px;">
 			<div class="select" id="select2">
-				<span>신상품순</span> <i class="fa fa-chevron-up" style="margin-right: 0px; margin-top: 0px;"></i>
+				<span><c:if test='${empty select_2}'>신상품순</c:if>
+				<c:if test='${!empty select_2}'>${select_2}</c:if></span> <i class="fa fa-chevron-up" style="margin-right: 0px; margin-top: 0px;"></i>
 			</div>
-			<input type="hidden" name="order">
+		<!-- 	<input type="hidden" name="order"> -->
 			<ul class="dropdown-menu two" >
 				<li id="신상품순">신상품순</li>
 				<li id="판매량순">판매량순</li>
@@ -170,28 +234,30 @@ $(function(){
 		</div>
 	</div>              
 	
-	<c:if test='${empty param.character}'>
+	<%-- <c:if test='${!empty param.category && !empty param.character}'> --%>
 	<input type="hidden" name="selectvalue1" value="">
 	<div style="display: inline-block; position: relative; padding-top: 20px; float: right;">
 		<div class="dropdown" style="width: 200px; height: 50px;">
 			<div class="select" id="select1">
-				<span>전체</span> <i class="fa fa-chevron-up" style="margin-right: 0px; margin-top: 0px;"></i>
+				<span><c:if test='${empty select_1}'>전체</c:if>
+				<c:if test='${!empty select_1}'>${select_1}</c:if>
+				</span> <i class="fa fa-chevron-up" style="margin-right: 0px; margin-top: 0px;"></i>
 			</div>
-			<input type="hidden" name="character">
+			<!-- <input type="hidden" name="character"> -->
 			<ul class="dropdown-menu one" id="select1">
-				<li id="전체"><img src="../images/product/category_group_off.png"
+				<li id="전체">&nbsp;&nbsp;<img src="../images/product/category_group_off.png"
 					onmouseover="this.src='../images/product/category_group_on.png';"
 					onmouseout="this.src='../images/product/category_group_off.png';"
-					style="width: 25%; height: 25%;">&nbsp;&nbsp;전체</li>
-				<li id="라이언"><img src="../images/product/category_rion_off.png"
+					style="width: 25%; height: 25%;">전체</li>
+				<li id="라이언">&nbsp;&nbsp;<img src="../images/product/category_rion_off.png"
 					onmouseover="this.src='../images/product/category_rion_on.png';"
 					onmouseout="this.src='../images/product/category_rion_off.png';"
-					style="width: 25%; height: 25%;">&nbsp;&nbsp;라이언</li>
-				<li id="어피치"><img
+					style="width: 25%; height: 25%;">라이언</li>
+				<li id="어피치">&nbsp;&nbsp;<img
 					src="../images/product/category_apeach_off.png"
 					onmouseover="this.src='../images/product/category_apeach_on.png';"
 					onmouseout="this.src='../images/product/category_apeach_off.png';"
-					style="width: 25%; height: 25%;">&nbsp;&nbsp;어피치</li>
+					style="width: 25%; height: 25%;">어피치</li>
 			<!-- <!-- 	<li id="무지"><img src="../images/product/category_muzi_off.png"
 					onmouseover="this.src='../images/product/category_muzi_on.png';"
 					onmouseout="this.src='../images/product/category_muzi_off.png';"
@@ -221,8 +287,8 @@ $(function(){
 		</div>
 	</div>
 	
-	</c:if>
-</form:form>
+<%-- 	</c:if> --%>
+</form>
 
 
 
@@ -243,22 +309,19 @@ $(function(){
 
 				<div class="block2-txt flex-w flex-t p-t-14">
 					<div class="block2-txt-child1 flex-col-l " style="width: 70%;">
-						<a href="product-detail.store"
+						<a href="product_detail.store?no=${itemlist.itemnum}"
 							class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 							${itemlist.itemname}</a> <span class="stext-105 cl3">
-							 <fmt:formatNumber value="${itemlist.price}" type="currency" currencySymbol="원" /></span>
+							 <fmt:formatNumber value="${itemlist.price}" type="currency" currencySymbol="" />원</span>
 					</div>
 
 
-					<div class="block2-txt-child2 flex-r p-t-3" style="width: 12%;">
-						<a href="#"
-							class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-							<img class="icon-heart1 dis-block trans-04"
-							src="../images/icons/icon-heart-01.png" alt="ICON"> <img
-							class="icon-heart2 dis-block trans-04 ab-t-l"
-							src="../images/icons/icon-heart-02.png" alt="ICON">
-						</a>
-					</div>
+					<div class="wish_check" itemtype="new">
+												<input id="item${stat.index}" type="checkbox" data-toggle="tooltip" onclick="checkclick(${itemlist.pickno}, ${itemlist.itemnum},  'item${stat.index}')"
+													data-placement="top" title="찜하기" <c:if test="${itemlist.pickno!=0}">checked="checked"</c:if>>
+												<label for="item${stat.index}"></label>
+												<input type="hidden" name="pickno" value="${itemlist.pickno}">
+											</div>
 				</div>
 			</div>
 		</div>

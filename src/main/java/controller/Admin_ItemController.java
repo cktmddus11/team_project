@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import exception.BoardException;
 import exception.ItemException;
 import logic.Item;
 import logic.ShopService;
@@ -112,6 +113,7 @@ public class Admin_ItemController {
       }
       try {
          service.itemCreate(admin_item,request);
+         service.itemwhousinginsert(admin_item.getItemnum());
          mav.setViewName("redirect:product_list.store");
       } catch (Exception e) {
          e.printStackTrace();
@@ -142,4 +144,16 @@ public class Admin_ItemController {
       return mav;
    }
    
+   @PostMapping("item_delete")
+   public ModelAndView item_delete(Item item) {
+      ModelAndView mav = new ModelAndView();
+      try {
+         service.itemDelete(item);
+         mav.setViewName("redirect:product_list.store");
+      } catch (Exception e) {
+         e.printStackTrace();
+         throw new BoardException("게시글 삭제를 실패했습니다.","item_delete.store?itemnum="+item.getItemnum());
+      }
+      return mav;
+   }
 }

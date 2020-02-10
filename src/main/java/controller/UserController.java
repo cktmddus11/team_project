@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import exception.LoginException;
+import logic.Point;
 import logic.ShopService;
 import logic.User;
 
@@ -96,6 +97,11 @@ public class UserController {
 		if(!service.selectOne(kemail)) { 
 			// false면 최초 로그인으로 사용자 정보를 db에저장
 			service.memberInsert(user);
+			Point p = new Point();
+			p.setUserid(user.getUserid());
+			p.setPoint(1000); // welcome point
+			p.setPointtext("Welcome Point!");
+			service.pointinsert(p);
 		}
 		return mav;
 	}

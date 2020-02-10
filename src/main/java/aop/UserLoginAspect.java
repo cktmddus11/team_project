@@ -20,7 +20,7 @@ public class UserLoginAspect {
 		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
-			throw new LoginException("로그인 후 거래하세요", "../index.store");
+			throw new LoginException("로그인 후 거래하세요", "../user/signin.store");
 			// 로그아웃 상태일때 main을 접근하면 강제로 에러를 발생시킴 
 			//joinPoint부분으로 갈수 없음 
 		}

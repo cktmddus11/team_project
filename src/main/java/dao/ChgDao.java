@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import dao.mapper.ChgMapper;
+import dao.mapper.OrderlistMapper;
 import logic.Chg;
 
 @Repository
@@ -47,6 +48,14 @@ public class ChgDao {
       param.put("chg_no", chg_no);
       param.put("yn", yn);
       sqlSession.getMapper(ChgMapper.class).update(param);
+      
+   }
+
+   public void orderstateupdate(String chg_orderno, String userid) {
+      param.clear();
+      param.put("chg_orderno", chg_orderno);
+      param.put("userid", userid);
+      sqlSession.getMapper(OrderlistMapper.class).update(param);
    }
 
 }

@@ -103,7 +103,7 @@ textarea {
 		<div class="input-name">
 			<div class="input-text-name">
 				<input class="i-t-name" error="0" align="left" padding="15"
-					name="itemname" readonly value="${help.qnasubject}">
+					name="itemname" readonly value="${help.q_subject}">
 			</div>
 		</div>
 	</div>
@@ -113,7 +113,7 @@ textarea {
 		<div class="input-name">
 			<div class="input-text-name">
 				<div class="detail-content" style="height : 100%;"> 
-					${help.qcontent}
+					${help.q_content}
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,8 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -50,8 +52,63 @@ public class Item {
 		this.selectvalue2 = selectvalue2;
 	}
 
-	/* ///////////// */
+	/* //////리뷰 리스트/////// */
+	List<Review> reviewlist = new ArrayList<Review>();
+	
+	public List<Review> getReviewlist() {
+		return reviewlist;
+	}
 
+	public void setReviewlist(List<Review> reviewlist) {
+		this.reviewlist = reviewlist;
+	}
+	
+	
+	/*//////*/
+	/* //////찜 리스트/////// */
+	private int pickno;
+
+	public int getPickno() {
+		return pickno;
+	}
+
+	public void setPickno(int pickno) {
+		this.pickno = pickno;
+	}
+
+	private List<Pick> wishlist = new ArrayList<Pick>();
+	public List<Pick> getWishlist() {
+		return wishlist;
+	}
+	
+	public void setWishlist(List<Pick> wishlist) {
+		this.wishlist = wishlist;
+	}
+
+	/* //////찜 확인/////// */
+	
+	private int wishcheck;
+	public int getWishcheck() {
+		return wishcheck;
+	}
+
+	public void setWishcheck(int wishcheck) {
+		this.wishcheck = wishcheck;
+	}
+	/*////////카트 담긴지 유무///////*/
+	private int cartcheck;
+	
+	
+	public int getCartcheck() {
+		return cartcheck;
+	}
+
+	public void setCartcheck(int cartcheck) {
+		this.cartcheck = cartcheck;
+	}
+	/*//////////////*/
+
+	
 	public int getItemnum() {
 		return itemnum;
 	}
@@ -174,12 +231,17 @@ public class Item {
 
 	@Override
 	public String toString() {
+		final int maxLen = 10;
 		return "Item [itemnum=" + itemnum + ", itemname=" + itemname + ", price=" + price + ", itemfile1=" + itemfile1
 				+ ", itemfile2=" + itemfile2 + ", itemfile3=" + itemfile3 + ", itemfile1url=" + itemfile1url
 				+ ", itemfile2url=" + itemfile2url + ", itemfile3url=" + itemfile3url + ", itemcontent=" + itemcontent
 				+ ", itemcontent2=" + itemcontent2 + ", category=" + category + ", subcategory=" + subcategory
 				+ ", character_c=" + character_c + ", regdate=" + regdate + ", selectvalue1=" + selectvalue1
-				+ ", selectvalue2=" + selectvalue2 + "]";
+				+ ", selectvalue2=" + selectvalue2 + ", reviewlist="
+				+ (reviewlist != null ? reviewlist.subList(0, Math.min(reviewlist.size(), maxLen)) : null) + ", pickno="
+				+ pickno + ", wishlist="
+				+ (wishlist != null ? wishlist.subList(0, Math.min(wishlist.size(), maxLen)) : null) + ", wishcheck="
+				+ wishcheck + ", cartcheck=" + cartcheck + "]";
 	}
 
 }

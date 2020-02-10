@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/view/jspHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,43 +93,54 @@ textarea {
 	<div class="product-register">
 		<span id="my_b_b">[관리자] 로그인</span>
 	</div>
-	<div class="store_write_body">
-		<div class="store_write_edit">
-			<div class="store_write_input">
-				<div class="input_img" style="text-align: center;">
-					<div>
-						<img src="../images/de949ff9b7fa2bbe3201629de359c597.gif"
-							width="300" height="300">
+	<form:form modelAttribute="user" method="post"
+		action="manager_login.store">
+		<input type="hidden" name="username" value="" />
+		<spring:hasBindErrors name="user">
+			<font color="red"> 
+				<c:forEach items="${errors.globalErrors}" var="error">
+					<spring:message code="${error.code}" />
+				</c:forEach>
+			</font>
+		</spring:hasBindErrors>
+		<div class="store_write_body">
+			<div class="store_write_edit">
+				<div class="store_write_input">
+					<div class="input_img" style="text-align: center;">
+						<div>
+							<img src="../images/de949ff9b7fa2bbe3201629de359c597.gif"
+								width="300" height="300">
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="product-name">
-				<span class="p-name" id="my_ll_b">아이디</span>
-				<div class="input-name">
-					<div class="input-text-name">
-						<input class="i-t-name" id="my_ll_b" placeholder="아이디 입력"
-							error="0" align="left" padding="15" name="m_name" value="">
+				<div class="product-name">
+					<span class="p-name" id="my_ll_b">아이디</span>
+					<div class="input-name">
+						<div class="input-text-name">
+							<form:input class="i-t-name" id="my_ll_b" placeholder="아이디 입력"
+								path="userid" />
+							<font color="red"><form:errors path="userid" /></font>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="product-name">
-				<span class="p-name" id="my_ll_b">비밀번호</span>
-				<div class="input-name">
-					<div class="input-text-name">
-						<input type="password" class="i-t-name" id="my_ll_b"
-							placeholder="비밀번호 입력" error="0" align="left" padding="15"
-							name="pass" value="">
+				<div class="product-name">
+					<span class="p-name" id="my_ll_b">비밀번호</span>
+					<div class="input-name">
+						<div class="input-text-name">
+							<form:password class="i-t-name" id="my_ll_b"
+								placeholder="비밀번호 입력" path="password" />
+							<font color="red"><form:errors path="password" /></font>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="product-button">
-		<button id="my_bb_b" class="c-button b" type="button"
-			onclick="location.href='../admin/manager_write.store'">회원가입</button>
-		<button id="my_bb_w" class="p-button b" type="button"
-			onclick="location.href='../admin/product-list.store'">로그인하기</button>
-	</div>
+		<div class="product-button">
+			<input type="submit" id="my_bb_w" class="p-button b" value="로그인">&nbsp;&nbsp;
+			<input type="button" id="my_bb_b" class="c-button b" value="회원가입"
+				onclick="location.href='manager_Entry.store'">
+		</div>
+	</form:form>
 </body>
 </html>

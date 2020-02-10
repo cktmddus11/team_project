@@ -143,7 +143,7 @@ $(function(){
 						<div class="order_list2_date" id="my_ll_b"
 							style="display: inline-block; width: 40vw; text-align: left;">
 							<a href="help_detail.store?select=faq&no=${faqlist.qnano}">
-							${faqlist.qnasubject}</a></div>
+							${faqlist.q_subject}</a></div>
 					</div>
 					<div class="store_list"
 						style="text-align: center; width: 14vw; margin-left: auto;">
@@ -165,7 +165,7 @@ $(function(){
 								onclick="location.href='./help_update.store?select=faq&no=${faqlist.qnano}'">수정</button>
 
 							<button class="admin_store_update" id="my_ll_w"
-								onclick="location.href='./help_delete.store?select=faq$no=${faqlist.qnano}'">삭제</button>
+								onclick="location.href='./help_delete.store?select=faq&no=${faqlist.qnano}'">삭제</button>
 						</div>
 					</div>
 				</div>

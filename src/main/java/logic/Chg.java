@@ -31,6 +31,8 @@ public class Chg {
    
    private Date chg_chkdate;
    
+   private String userid;
+   
    public int getChg_no() {
       return chg_no;
    }
@@ -85,12 +87,20 @@ public class Chg {
    public void setChg_chkdate(Date chg_chkdate) {
       this.chg_chkdate = chg_chkdate;
    }
-   @Override
-   public String toString() {
-      return "Chg [chg_no=" + chg_no + ", chg_orderno=" + chg_orderno + ", chg_orderdate=" + chg_orderdate
-            + ", chg_tel=" + chg_tel + ", chg_itemname=" + chg_itemname + ", chg_reseon=" + chg_reseon
-            + ", chg_detail=" + chg_detail + ", chg_state=" + chg_state + ", chg_chkdate=" + chg_chkdate + "]";
-   }
+public String getUserid() {
+   return userid;
+}
+public void setUserid(String userid) {
+   this.userid = userid;
+}
+@Override
+public String toString() {
+   return "Chg [chg_no=" + chg_no + ", chg_orderno=" + chg_orderno + ", chg_orderdate=" + chg_orderdate + ", chg_tel="
+         + chg_tel + ", chg_itemname=" + chg_itemname + ", chg_reseon=" + chg_reseon + ", chg_detail=" + chg_detail
+         + ", chg_state=" + chg_state + ", chg_chkdate=" + chg_chkdate + ", userid=" + userid + "]";
+}
+  
+
    
    
    

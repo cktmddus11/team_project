@@ -1,15 +1,86 @@
 package controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import exception.WhousingException;
+import logic.ShopService;
+import logic.Whousing;
 
 @Controller
 @RequestMapping("admin_in")
 public class Admin_InController {
-	@GetMapping("*") // getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½?
-	public String form(Model model) {
-		return null; // null : urlï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½?
-	}
+   @Autowired
+   private ShopService service;
+   
+   @RequestMapping("order_item_in")
+   public ModelAndView order_item_in(Integer pageNum) {
+      ModelAndView mav = new ModelAndView();
+      if(pageNum == null || pageNum.toString().equals("")) {
+            pageNum = 1;
+         }
+      int limit = 10; //ÆäÀÌÁö´ç º¸¿©Áö´Â °Ô½Ã¹° °Ç¼ö
+      int admin_incount = service.admin_incount(); //ÀüÃ¼ µî·ÏµÈ °Ô½Ã¹° °Ç¼ö
+      int maxpage = (int)((double)admin_incount/limit + 0.95); 
+       //º¸¿©Áö´Â Ã¹¹øÂ° ÆäÀÌÁö
+       int startpage = (int)((pageNum/10.0 + 0.9) -1) * 10 + 1; 
+       //º¸¿©Áö´Â ¸¶Áö¸· ÆäÀÌÁö
+       int endpage = startpage + 9;
+       if(endpage > maxpage) endpage = maxpage;
+       int boardno = admin_incount - (pageNum - 1) * limit;
+      List<Whousing> whousinginlist = service.whousinginlist(pageNum,limit);
+      mav.addObject("pageNum", pageNum);
+       mav.addObject("maxpage", maxpage);
+       mav.addObject("startpage", startpage);
+       mav.addObject("endpage", endpage);
+       mav.addObject("admin_incount", admin_incount);
+       mav.addObject("boardno", boardno);
+      mav.addObject("whousinginlist", whousinginlist);
+      return mav;
+   }
+   
+   @RequestMapping("order_item_in_write")
+   public ModelAndView order_item_in_write(Whousing whousing, Integer whousingquant) {
+      ModelAndView mav = new ModelAndView();
+      List<Whousing> whousinglist = service.whousinglist();
+//      whousing.push(new Whousing());
+      mav.addObject("whousinglist", whousinglist);
+//      mav.addObject("whousing", whousing);
+      return mav;
+   }
+   
+   @PostMapping("order_item_in_write")
+   public ModelAndView order_item_in_write(Whousing whousing, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      try {
+         service.whousing_inWrite(whousing, request); //°Ô½Ã¹°µî·Ï
+         mav.setViewName("redirect:order_item_in.store");
+      } catch (Exception e) {
+         e.printStackTrace();
+         throw new WhousingException("ÀÔ°í µî·Ï¿¡ ½ÇÆÐÇß½À´Ï´Ù.","order_item_in_write.store");
+      }
+      return mav;
+   }
+   
+   @GetMapping("*")
+   public ModelAndView getWousing(Integer whousingnum, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+      Whousing whousing = null;
+      if (whousingnum == null) {
+         whousing = new Whousing();
+      } else {
+         whousing = service.getWhousing(whousingnum,request);
+      }
+      mav.addObject("whousing",whousing);
+      return mav;
+   }
+   
 }

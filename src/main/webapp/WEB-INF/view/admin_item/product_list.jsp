@@ -112,6 +112,12 @@
 					</div>
 				</div>
 			</div>
+			<c:if test="${itemcount == 0}">
+				<div class="admin_list">
+					<!-- count == 0 -->
+					<div id="my_ll_b">아직 등록된 상품이 없습니다.</div>
+				</div>
+			</c:if>
 			<c:if test="${itemcount > 0}">
 				<%-- 등록된 게시물이 있음. --%>
 				<div class="admin_list_no">
@@ -140,13 +146,15 @@
 							</li>
 							<li class="item_name_2"
 								style="text-align: center; margin-top: 1.5vw; width: 30vw;">
-								<a href="../item/product-detail.store"> <span id="my_ll_b">
+								<a href="../item/product_detail.store?no=${item.itemnum}"> <span id="my_ll_b">
 										${item.itemname} </span>
 							</a>
 							</li>
 							<li class="out_num_2"
 								style="text-align: center; margin-top: 1.5vw; width: 15vw;">
-								<span id="my_ll_b"> ${item.regdate} </span>
+								<span id="my_ll_b"> 
+									<fmt:formatDate value="${item.regdate}" pattern="yyyy-MM-dd"/>
+								</span>
 							</li>
 							<li class="out_num_2"
 								style="text-align: center; margin-top: 1.5vw; width: 10vw;">
@@ -157,7 +165,7 @@
 								<button class="admin_item_update" id="my_ll_w"
 									onclick="location.href='../admin_item/item_update.store?itemnum=${item.itemnum}'">수정</button>
 								<button class="admin_item_update" id="my_ll_w"
-									onclick="location.href='../admin_item/item_delete.store'">삭제</button>
+									onclick="location.href='../admin_item/item_delete.store?itemnum=${item.itemnum}'">삭제</button>
 							</li>
 						</ul>
 					</c:forEach>

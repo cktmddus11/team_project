@@ -117,8 +117,8 @@ $(function(){
 		<span class="p-name">제목</span>
 		<div class="input-name">
 			<div class="input-text-name">
-				<form:input path="qnasubject" class="i-t-name" />
-				<font color="red"><form:errors path="qnasubject" /></font>	
+				<form:input path="q_subject" class="i-t-name" />
+				<font color="red"><form:errors path="q_subject" /></font>	
 			</div>
 		</div>
 	</div>
@@ -150,14 +150,14 @@ $(function(){
 		<span class="p-name">내용</span>
 		<div class="input-name">
 			<div class="input-text-name">
-				<form:textarea path="qcontent" rows="15" cols="80"/>		
+				<form:textarea path="q_content" rows="15" cols="80"/>		
 				
 				<script>
-					CKEDITOR.replace("qcontent", {
+					CKEDITOR.replace("q_content", {
 						filebrowserImageUploadUrl : "imgupload.store"
 					});
 				</script>
-				<font color="red"><form:errors path="qcontent" /></font>	
+				<font color="red"><form:errors path="q_content" /></font>	
 			</div>
 		</div>
 	</div>

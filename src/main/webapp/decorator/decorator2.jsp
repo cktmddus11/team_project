@@ -180,15 +180,15 @@ hover {
 									<li><div class="cate_list">
 											<div class="cate_main_sub">
 												<div class="cate_main">
-													<ul>
+												<ul>
 														<li class="cate_main_notclick" id="all"><a
 															style="font-size: 17px;" href="../item/list.store">전체</a></li>
 														<li class="cate_main_notclick" id="toy"><a
-															style="font-size: 17px;" href="../item/list.store">토이</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=1">토이</a></li>
 														<li class="cate_main_notclick" id="cloth"><a
-															style="font-size: 17px;" href="../item/list.store">의류</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=2">의류</a></li>
 														<li class="cate_main_notclick" id="tech"><a
-															style="font-size: 17px;" href="../item/list.store">생활 테크</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=3">생활 테크</a></li>
 													</ul>
 
 												</div>
@@ -200,41 +200,41 @@ hover {
 													<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">신상품 순</a></li>
 												</ul>
-												<ul id="toy_ul" style="display: none;">
+													<ul id="toy_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">미니 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1&subcategory=1">미니 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">중형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1&subcategory=2">중형 인형</a></li>
+													<!-- <li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=1">대형 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">대형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">키체인 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">키체인 인형</a></li>
-													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">피규어/브릭</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">피규어/브릭</a></li> -->
 												</ul>
-												<ul id="cloth_ul" style="display: none;">
+													<ul id="cloth_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">여성</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=2&subcategory=1">여성</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">남성</a></li>
-													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=2&subcategory=2">남성</a></li>
+													<!-- <li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">키즈</a></li>
 													<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">속옷</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">양말</a></li>
+														style="font-size: 17px;" href="../item/list.store">양말</a></li> -->
 												</ul>
 												<ul id="tech_ul" style="display: none;">
-													<li class="cate_sub_notclick"><a
+												<!-- 	<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">노트북
 															액세서리</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li>
+														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li> -->
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">에어팟
+														style="font-size: 17px;" href="../item/list.store?category=3&subcategory=1">에어팟
 															케이스</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">에어팟
+														style="font-size: 17px;" href="../item/list.store?category=3&subcategory=2">에어팟
 															액세서리</a></li>
 												</ul>
 
@@ -245,7 +245,7 @@ hover {
 														<li>
 															<div class="friend_one" id="rion">
 																<div>
-																	<span class="friend_pic"> <img
+																	<span class="friend_pic" onclick="location.href='../item/list.store?character=1'"> <img
 																		class="friend_img" id="friend_img_rion"
 																		src="../images/index_deco/character/category_rion_off.png"
 																		alt="라이언">
@@ -258,7 +258,7 @@ hover {
 														<li>
 															<div class="friend_one" id="apeach">
 																<div>
-																	<span class="friend_pic"> <img
+																	<span class="friend_pic" onclick="location.href='../item/list.store?character=2'"> <img
 																		class="friend_img" id="friend_img_apeach"
 																		src="../images/index_deco/character/category_apeach_off.png"
 																		alt="어피치">
@@ -329,7 +329,7 @@ hover {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="../help/notice.store" id="ll_b_de">1:1문의</a>
+											<a href="../mypage/contactpage.store" id="ll_b_de">1:1문의</a>
 										</div>
 									</li>
 									<li>

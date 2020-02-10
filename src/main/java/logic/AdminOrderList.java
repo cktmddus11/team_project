@@ -18,7 +18,7 @@ public class AdminOrderList {
       
       //itme table
       private String itemname;
-      private String itemfile1;
+      private String itemfile1url;
       
       //orderitem table
       private String price;
@@ -115,18 +115,18 @@ public class AdminOrderList {
    public void setQuantity(int quantity) {
       this.quantity = quantity;
    }
-   public String getItemfile1() {
-      return itemfile1;
+   public String getItemfile1url() {
+      return itemfile1url;
    }
-   public void setItemfile1(String itemfile1) {
-      this.itemfile1 = itemfile1;
+   public void setItemfile1url(String itemfile1url) {
+      this.itemfile1url = itemfile1url;
    }
    @Override
    public String toString() {
       return "AdminOrderList [orderno=" + orderno + ", userid=" + userid + ", datepay=" + datepay + ", payname="
             + payname + ", address=" + address + ", restaddress=" + restaddress + ", phonenum=" + phonenum
             + ", username=" + username + ", orderdate=" + orderdate + ", orderstate=" + orderstate + ", userpoint="
-            + userpoint + ", selectpay=" + selectpay + ", itemname=" + itemname + ", itemfile1=" + itemfile1
+            + userpoint + ", selectpay=" + selectpay + ", itemname=" + itemname + ", itemfile1url=" + itemfile1url
             + ", price=" + price + ", quantity=" + quantity + "]";
    }
     

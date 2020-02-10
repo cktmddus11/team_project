@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/jspHeader.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +56,8 @@
 </style>
 </head>
 <body>
+<form:form modelAttribute="item" action="item_delete.store" method="post" name="f">
+<input type="hidden" name="itemnum" value="${item.itemnum}">
 <div class="product-register">
 	<span id="my_b_b">[관리자]상품 삭제</span>
 </div>
@@ -70,14 +73,14 @@
 				</div>
 				</div>
 			</div>
-			<div class="store_write_input">
+			<!-- <div class="store_write_input">
 				<span class="input_label" id="my_ll_b">비밀번호</span>
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<input type="password" class="storename" id="my_ll_b"
 						placeholder="비밀번호를 입력해주세요" name="pass" value="">
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div class="store_write_footer">
@@ -85,8 +88,9 @@
 			<button class="btn_cancel" id="my_bb_b"
 				onclick="javascript:history.back()">취소</button>
 			<button class="btn_save" id="my_bb_w"
-				onclick="location.href='../admin/product-list.store'">삭제</button>
+				onclick="location.href='../admin_item/product_list.store'">삭제</button>
 		</div>
 	</div>
+</form:form>
 </body>
 </html>

@@ -13,8 +13,8 @@ import logic.Help;
 public interface HelpMapper {
 
 	String boardcol = "select qnano, "
-			+ "userid, filter, qnasubject, boardcode, boarddate, qcontent, qnafile1 as qnafileurl,"
-			+ "acontent, checkin from qnaboard";
+			+ "userid, filter, q_subject, boardcode, boarddate, q_content, qnafile1 as qnafileurl,"
+			+ "a_content, checkin from qnaboard";
 	@Select("<script>"+boardcol
 			+ "<if test='boardcode!=null'>where boardcode=#{boardcode}</if>"
 			+ "<if test='filter != 0'> and filter=${filter}</if>"
@@ -38,8 +38,8 @@ public interface HelpMapper {
 	
 	@Update("<script>"
 			+"update qnaboard set "
-			+ "userid=#{userid}, filter=#{filter}, qnasubject=#{qnasubject},"
-			+ " qcontent=#{qcontent}, qnafile1 = #{qnafileurl}, "
+			+ "userid=#{userid}, filter=#{filter}, q_subject=#{q_subject},"
+			+ " q_content=#{q_content}, qnafile1 = #{qnafileurl}, "
 			+ "checkin= #{checkin} where qnano = #{qnano}"
 			+ "</script>")
 	void boardupdate(Help help);
@@ -47,9 +47,9 @@ public interface HelpMapper {
 	@Select("select ifnull(max(qnano), 0) from qnaboard")
 	int maxnum();
 
-	@Insert("insert into qnaboard (qnano, userid, filter, qnasubject, " + 
-			"qcontent, qnafile1, boarddate, boardcode)" +
-			" values (#{qnano}, #{userid}, #{filter}, #{qnasubject}, #{qcontent}, "
+	@Insert("insert into qnaboard (qnano, userid, filter, q_subject, " + 
+			"q_content, qnafile1, boarddate, boardcode)" +
+			" values (#{qnano}, #{userid}, #{filter}, #{q_subject}, #{q_content}, "
 			+ "#{qnafileurl}, now(), #{boardcode})")
 	void insert(Help help);
 	

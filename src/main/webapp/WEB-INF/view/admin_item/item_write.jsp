@@ -8,7 +8,7 @@
 	$(document).ready(function() {
 		var mainCategoryArray = new Array();
 		var mainCategoryObject = new Object();
-		
+	
 		mainCategoryObject = new Object();
 		mainCategoryObject.main_category_id = "1";
 		mainCategoryObject.main_category_name = "토이";
@@ -89,8 +89,39 @@
 					}
 				}
 			});
+			
 		});
+		 
+		
+		/* $("select").each(function(){
+		    if($(this).val()=="${category}"){
+		      $(this).attr("selected","selected"); // attr적용안될경우 prop으로 
+		    }
+		  }); 
+		$("select").each(function(){
+		    if($(this).val()=="${subcategory}"){
+			      $(this).attr("selected","selected"); // attr적용안될경우 prop으로 
+			    }
+		  });  */
+		/* var select = document.getElementById("select_id");
+		var option_value = select.options[select.selectedIndex].value;
+		var option_text   = select.options[select.selectedIndex].text; */
+
+		/* $(document).ready(function(){
+		    $("select option[value='${param.category}']").attr("selected", true);
+		});
+		$(document).ready(function(){
+		    $("select option[value='${param.subcategory}']").attr("selected", true);
+		}); */
+		 /* var opt = document.querySelectorAll("#select option");
+			for (var i = 0; i < c_opt.length; i++) {
+				if (opt[i].value == '${param.category}') {
+					$("#select option:eq("+i+")").attr("selected","selected");	
+					break;
+				}
+			} */
 });
+
 </script>
 <meta charset="UTF-8">
 <title>[관리자]상품 등록</title>
@@ -199,11 +230,11 @@ textarea {
 				<span class="p-name" id="my_ll_b">상품유형</span>
 				<div class="input-name">
 					<form:select class="select-box" style="padding-left: 0.8vw;" path="category" id="my_ll_b">
-						<option value="" id="my_ll_b">상위 카테고리 선택</option>
+						<option id="my_ll_b" value="${param.category}">상위 카테고리 선택</option>
 					</form:select>
 					<div class="input-name">
 					<form:select class="select-box" style="padding-left: 0.8vw;" path="subcategory" id="my_ll_b">
-						<option value="" id="my_ll_b">하위 카테고리 선택</option>
+						<option id="my_ll_b" value="${param.subcategory}">하위 카테고리 선택</option>
 					</form:select>
 					</div>
 				</div>	
@@ -211,18 +242,16 @@ textarea {
 			<div class="product-name">
 				<span class="p-name"  id="my_ll_b">캐릭터 유형</span>
 				<div class="input-name">
-					<div class="input-text-name" style="    margin-top: 14px;">
-						<div style="display: inline-block;     margin-right: 10px;">
+					<div class="input-text-name" style="margin-top: 14px;">
+						<div style="display: inline-block; margin-right: 10px;">
 					<input type="radio" name="character_c" value="1"
-						style="display: inline-block; width: 1.5vw; height: 1.5vw;"
-						> <span id="my_ll_b"
-						style="padding-left: 1vw;">라이언</span>
+						style="display: inline-block; width: 1.5vw; height: 1.5vw;"> 
+						<span id="my_ll_b" style="padding-left: 1vw;">라이언</span>
 				</div>
-				<div style="display: inline-block;     margin-right: 10px;">
+				<div style="display: inline-block; margin-right: 10px;">
 					<input type="radio" name="character_c" value="2"
-						style="display: inline-block; width: 1.5vw; height: 1.5vw;"
-						> <span id="my_ll_b"
-						style="padding-left: 1vw;">어피치</span>
+						style="display: inline-block; width: 1.5vw; height: 1.5vw;"> 
+						<span id="my_ll_b" style="padding-left: 1vw;">어피치</span>
 				</div>
 					</div>
 				</div>
@@ -236,15 +265,15 @@ textarea {
 					</div>
 				</div>
 			</div>
-			<%-- <div class="product-name">
+			<div class="product-name">
 				<span class="p-name"  id="my_ll_b">비밀번호</span>
 				<div class="input-name">
 					<div class="input-text-name">
-						<form:input type="password" class="i-t-name"  id="my_ll_b"
-						placeholder="비밀번호" error="0" align="left" padding="15" path="pass" value="" />
+						<input type="password" class="i-t-name"  id="my_ll_b"
+						placeholder="비밀번호" error="0" align="left" padding="15" name="pass">
 					</div>
 				</div>
-			</div> --%>
+			</div> 
 			<div class="product-name">
 				<span class="p-name"  id="my_ll_b">상품가격</span>
 				<div class="input-name">

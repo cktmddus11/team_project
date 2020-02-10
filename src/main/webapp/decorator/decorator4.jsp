@@ -201,11 +201,11 @@ hover {
 														<li class="cate_main_notclick" id="all"><a
 															style="font-size: 17px;" href="../item/list.store">전체</a></li>
 														<li class="cate_main_notclick" id="toy"><a
-															style="font-size: 17px;" href="../item/list.store">토이</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=1">토이</a></li>
 														<li class="cate_main_notclick" id="cloth"><a
-															style="font-size: 17px;" href="../item/list.store">의류</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=2">의류</a></li>
 														<li class="cate_main_notclick" id="tech"><a
-															style="font-size: 17px;" href="../item/list.store">생활 테크</a></li>
+															style="font-size: 17px;" href="../item/list.store?category=3">생활 테크</a></li>
 													</ul>
 
 												</div>
@@ -219,39 +219,39 @@ hover {
 												</ul>
 												<ul id="toy_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">미니 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1&subcategory=1">미니 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">중형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1&subcategory=2">중형 인형</a></li>
+													<!-- <li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=1">대형 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">대형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">키체인 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">키체인 인형</a></li>
-													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">피규어/브릭</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">피규어/브릭</a></li> -->
 												</ul>
 												<ul id="cloth_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">여성</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=2&subcategory=1">여성</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">남성</a></li>
-													<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=2&subcategory=2">남성</a></li>
+													<!-- <li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">키즈</a></li>
 													<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">속옷</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">양말</a></li>
+														style="font-size: 17px;" href="../item/list.store">양말</a></li> -->
 												</ul>
 												<ul id="tech_ul" style="display: none;">
-													<li class="cate_sub_notclick"><a
+												<!-- 	<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="../item/list.store">노트북
 															액세서리</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li>
+														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li> -->
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">에어팟
+														style="font-size: 17px;" href="../item/list.store?category=3&subcategory=1">에어팟
 															케이스</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="../item/list.store">에어팟
+														style="font-size: 17px;" href="../item/list.store?category=3&subcategory=2">에어팟
 															액세서리</a></li>
 												</ul>
 

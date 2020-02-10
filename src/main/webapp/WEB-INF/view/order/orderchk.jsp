@@ -12,21 +12,18 @@
 	color: white;
 	font-size: 28px;
 }
-
 #my_l_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
 	color: black;
 	font-size: 16px;
 }
-
 #my_bb_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 900;
 	color: black;
 	font-size: 25px;
 }
-
 #my_ll_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
@@ -37,17 +34,14 @@
 	width: 25px;
 	height: 25px;
 }
-
 #ex_chk2 {
 	width: 25px;
 	height: 25px;
 }
-
 #ex_chk3 {
 	width: 25px;
 	height: 25px;
 }
-
 .check_payment {
 	position: relative;
 	width: 100%;
@@ -56,7 +50,6 @@
 	height: 25px;
 	margin-bottom: auto;
 }
-
 .check_payment input[name=paymentchk] {
 	position: absolute;
 	padding: 0;
@@ -64,7 +57,6 @@
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
 }
-
 .check_payment input[name=paymentchk]+label {
 	display: inline-block;
 	position: relative;
@@ -73,21 +65,18 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
-
 .check_payment input[name=paymentchk]:checked+label {
 	background: url(../images/icons/check_icon_on.png);
 	width: 25px;
 	height: 25px;
 	background-size: 25px 25px;
 }
-
 .check_payment input[name=paymentchk]+label {
 	background: url(../images/icons/check_icon_off.png);
 	width: 25px;
 	height: 25px;
 	background-size: 25px 25px;
 }
-
 .order_continue_or_break {
 	position: fixed;
 	bottom: 0px;
@@ -104,7 +93,6 @@
 	z-index: 999999;
 	transition: bottom 300ms ease 0s;
 }
-
 @media ( min-width : 769px) {
 	.order_continue_or_break {
 		padding-top: 120px;

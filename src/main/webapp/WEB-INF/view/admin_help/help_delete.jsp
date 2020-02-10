@@ -101,7 +101,7 @@
 				</c:if>
 				 <c:if test="${help.boardcode ==2}">
 				 <button class="btn_save" id="my_bb_w"
-				onclick="location.href='./faq_list.store?qna'">삭제</button>
+				onclick="location.href='./faq_list.store'">삭제</button>
 				</c:if>
 		</div>
 	</div>
