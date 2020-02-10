@@ -1,14 +1,48 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import logic.Orderlist;
+import logic.ShopService;
 @Controller
 @RequestMapping("nonmember")
 public class NonmembrController {
-	@GetMapping("*") // getÀ¸·Î µé¾î¿Â ¿äÃ»Áß Á¤ÇØÁø°Ô ¾øÀ¸¸é ÀÌ°É·Î ½ÇÇà?
-	public String form(Model model) {
-		return null; // null : url·Î  º¸°í ÀÌµ¿?
+	
+	@Autowired
+	private ShopService service;
+	
+	@GetMapping("*") // getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½?
+	public ModelAndView form() {
+		ModelAndView mav = new ModelAndView();
+		Orderlist orderlist = new Orderlist();
+		mav.addObject("orderlist", orderlist);
+		return mav;
+	}
+	// ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ boolean Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	
+	@PostMapping("orderCheck")
+	@ResponseBody
+	public boolean orderCheck(Orderlist orderlist) {
+		System.out.println(orderlist);
+		if(service.orderCheck(orderlist)) {
+			return true;
+		}
+		return false;
+	}
+	// ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½
+	@PostMapping("orderlist")
+	public ModelAndView orderlist(Orderlist orderlist) {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		
+		return mav;
 	}
 }

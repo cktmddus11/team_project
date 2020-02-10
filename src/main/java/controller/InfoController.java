@@ -12,31 +12,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import logic.ShopService_cyj;
+import logic.ShopService;
 import logic.StoreInfo;
 
 
 @Controller
 @RequestMapping("info")
 public class InfoController {
-	@Autowired
-	   private ShopService_cyj service;
-	
-	@GetMapping("*")
-	   public ModelAndView getCharacterInfo() {
-			ModelAndView mav = new ModelAndView();
-			return mav;
-	   }
-	
-	@RequestMapping("storeInfo")
-	public ModelAndView storeInfo() {
+   @Autowired
+      private ShopService service;
+   
+   @GetMapping("*")
+      public ModelAndView getCharacterInfo() {
+         ModelAndView mav = new ModelAndView();
+         return mav;
+      }
+   
+   @RequestMapping("storeInfo")
+   public ModelAndView storeInfo() {
     ModelAndView mav = new ModelAndView();
-	    int limit = 10; //페이지당 게시물 건 수
-	    int listcount = service.storecount(); //전체 등록된 게시물 건 수
-	    List<StoreInfo> storelist = service.storelist();
-	    mav.addObject("listcount", listcount);
-	    mav.addObject("storelist", storelist);
-	    return mav;
-	}
-	
+       int limit = 10; //�������� �Խù� �� ��
+       int listcount = service.storecount(); //��ü ��ϵ� �Խù� �� ��
+       List<StoreInfo> storelist = service.storelist();
+       mav.addObject("listcount", listcount);
+       mav.addObject("storelist", storelist);
+       return mav;
+   }
+   
 }

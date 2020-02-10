@@ -220,15 +220,15 @@ input[type=text] {
 									<li><div class="cate_list">
 											<div class="cate_main_sub">
 												<div class="cate_main">
-													<ul>
+														<ul>
 														<li class="cate_main_notclick" id="all"><a
 															style="font-size: 17px;" href="item/list.store">전체</a></li>
 														<li class="cate_main_notclick" id="toy"><a
-															style="font-size: 17px;" href="item/list.store">토이</a></li>
+															style="font-size: 17px;" href="item/list.store?category=1">토이</a></li>
 														<li class="cate_main_notclick" id="cloth"><a
-															style="font-size: 17px;" href="item/list.store">의류</a></li>
+															style="font-size: 17px;" href="item/list.store?category=2">의류</a></li>
 														<li class="cate_main_notclick" id="tech"><a
-															style="font-size: 17px;" href="item/list.store">생활 테크</a></li>
+															style="font-size: 17px;" href="item/list.store?category=3">생활 테크</a></li>
 													</ul>
 
 												</div>
@@ -240,41 +240,41 @@ input[type=text] {
 													<li class="cate_sub_notclick"><a
 														style="font-size: 17px;" href="item/list.store">신상품 순</a></li>
 												</ul>
-												<ul id="toy_ul" style="display: none;">
+													<ul id="toy_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">미니 인형</a></li>
+														style="font-size: 17px;" href="item/list.store?category=1&subcategory=1">미니 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">중형 인형</a></li>
+														style="font-size: 17px;" href="item/list.store?category=1&subcategory=2">중형 인형</a></li>
+													<!-- <li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store?category=1">대형 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">대형 인형</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">키체인 인형</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">키체인 인형</a></li>
-													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">피규어/브릭</a></li>
+														style="font-size: 17px;" href="../item/list.store?category=1">피규어/브릭</a></li> -->
 												</ul>
 												<ul id="cloth_ul" style="display: none;">
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">여성</a></li>
+														style="font-size: 17px;" href="item/list.store?category=2&subcategory=1">여성</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">남성</a></li>
+														style="font-size: 17px;" href="item/list.store?category=2&subcategory=2">남성</a></li>
+													<!-- <li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">키즈</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">키즈</a></li>
+														style="font-size: 17px;" href="../item/list.store">속옷</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">속옷</a></li>
-													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">양말</a></li>
+														style="font-size: 17px;" href="../item/list.store">양말</a></li> -->
 												</ul>
 												<ul id="tech_ul" style="display: none;">
-													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">노트북
+												<!-- 	<li class="cate_sub_notclick"><a
+														style="font-size: 17px;" href="../item/list.store">노트북
 															액세서리</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">소형 전자</a></li>
+														style="font-size: 17px;" href="../item/list.store">소형 전자</a></li> -->
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">에어팟
+														style="font-size: 17px;" href="item/list.store?category=3&subcategory=1">에어팟
 															케이스</a></li>
 													<li class="cate_sub_notclick"><a
-														style="font-size: 17px;" href="item/list.store">에어팟
+														style="font-size: 17px;" href="item/list.store?category=3&subcategory=2">에어팟
 															액세서리</a></li>
 												</ul>
 
@@ -285,7 +285,7 @@ input[type=text] {
 														<li>
 															<div class="friend_one" id="rion">
 																<div>
-																	<span class="friend_pic"> <img
+																	<span class="friend_pic" onclick="location.href='item/list.store?character=1'"> <img
 																		class="friend_img" id="friend_img_rion"
 																		src="images/index_deco/character/category_rion_off.png"
 																		alt="라이언">
@@ -298,7 +298,8 @@ input[type=text] {
 														<li>
 															<div class="friend_one" id="apeach">
 																<div>
-																	<span class="friend_pic"> <img
+																	<span class="friend_pic" onclick="location.href='item/list.store?character=2'"> <img
+>>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 																		class="friend_img" id="friend_img_apeach"
 																		src="images/index_deco/character/category_apeach_off.png"
 																		alt="어피치">
@@ -323,15 +324,15 @@ input[type=text] {
 					</div>
 					<!-- Logo desktop -->
 					<div class="menu-desktop" style="width: 22vw;">
-						<a href="../index.store" class="logo" id="boldfont_black_de"
+						<a href="index.store" class="logo" id="boldfont_black_de"
 							style="padding-left: 100px;">FRIEND STORE</a>
 					</div>
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m" style="width: 35%;">
-						<form style="width: 50%;">
-							<input type="text" name="search" placeholder="무엇을 찾으세요?">
-						</form>
+						 <form style="width: 50%;" method="get" action="item/search.store">
+							<input type="text" name="keyword" placeholder="무엇을 찾으세요?">
+					</form>
 						<ul class="main-menu" id="lightfont_black_de">
 							<li class="active-menu"><a href="mypage/myindex.store"
 								id="lightfont_black_de"><span style="margin: 0.3vw;">
@@ -346,7 +347,7 @@ input[type=text] {
 									</li>
 									<li>
 										<div style="width: 90%;" id="h">
-											<a href="" id="ll_b_de">로그아웃</a>
+											<a href="user/logout.store" id="ll_b_de">로그아웃</a>
 										</div>
 									</li>
 									<li>

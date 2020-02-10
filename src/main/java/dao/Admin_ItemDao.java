@@ -11,11 +11,11 @@ import org.springframework.stereotype.Repository;
 import dao.mapper.Admin_ItemMapper;
 import logic.Item;
 
-@Repository //@Component + dao 기능
+@Repository 
 public class Admin_ItemDao {
-   @Autowired //spring-db에 있는 sqlSessionTemplate을 주입.
+   @Autowired
    private SqlSessionTemplate sqlSession;
-   private Map<String,Object> param = new HashMap<>();
+   private Map<String,Object> param = new HashMap<String, Object>();
    
    public void insert(Item item) {
       sqlSession.getMapper(Admin_ItemMapper.class).insert(item);
@@ -48,4 +48,11 @@ public class Admin_ItemDao {
       param.put("selectvalue", selectvalue);
       return sqlSession.getMapper(Admin_ItemMapper.class).count(param);
    }
+
+   public void delete(Integer itemnum) {
+     param.clear();
+     param.put("itemnum", itemnum);
+     sqlSession.getMapper(Admin_ItemMapper.class).delete(param);
+   }
+
 }

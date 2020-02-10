@@ -1,3 +1,4 @@
+
 package dao;
 
 import java.util.HashMap;
@@ -15,7 +16,6 @@ import logic.StoreInfo;
 public class StoreInfoDao {
    @Autowired
    private SqlSessionTemplate sqlSession;
-   @Autowired
    private Map<String, Object> param = new HashMap<String, Object>();
    
    public int maxnum() {

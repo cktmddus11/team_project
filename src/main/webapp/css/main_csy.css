@@ -3445,4 +3445,21 @@ input[type="checkbox"] + label{
 		height: 24px;
 		    margin-right: 16px;
 	}
+<<<<<<< HEAD
+=======
+}
+.kdmaDe {
+    display: inline-block;
+    color: rgb(154, 154, 158);
+    font-size: 3.73333vw;
+    margin-left: 2.13333vw;
+    line-height: normal;
+}
+@media (min-width: 769px){
+	.kdmaDe {
+    font-size: 13px;
+    height: 13px;
+    margin-left: 8px;
+	}
+>>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 }

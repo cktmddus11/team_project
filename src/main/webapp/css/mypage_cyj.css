@@ -4915,7 +4915,10 @@ moblie_line {
 		display: flex;
 	}
 }
+<<<<<<< HEAD
 /* [愿�由ъ옄] 留ㅼ옣 紐⑸줉 愿�由�  */
+=======
+>>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 .admin_store_write {
 	float: right;
 	height: 100%;
@@ -5036,7 +5039,11 @@ moblie_line {
 	border-radius: 10px;
 }
 
+<<<<<<< HEAD
 /* [愿�由ъ옄] 留ㅼ옣 �벑濡� 愿�由�  */
+=======
+
+>>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 .store_write_header {
 	padding: 8vw 4.2666666667vw 3.3333333333vw;
 	font-size: 6.4vw;
@@ -5262,6 +5269,7 @@ moblie_line {
 	outline: none;
 	padding: 6.5px 32px;
 }
+<<<<<<< HEAD
 .btn_cancel_1 {
    flex: 1;
    height: 16vw;
@@ -5284,3 +5292,29 @@ moblie_line {
       margin: 0 3.5px;
    }
 }
+=======
+
+.btn_cancel_1 {
+   flex: 1;
+   height: 16vw;
+   border-radius: 1.0666666667vw;
+   border: solid 1px #e3e5e8;
+   font-size: 4.2666666667vw;
+   font-weight: bold;
+   line-height: 1.88;
+   letter-spacing: -0.056vw;
+   margin: 0 0.9333333333vw;
+}
+
+@media ( min-width : 768px) {
+   .btn_cancel_1 {
+      max-width: 500px;
+      height: 60px;
+      border-radius: 4px;
+      font-size: 16px;
+      letter-spacing: -0.21px;
+      margin: 0 3.5px;
+   }
+}
+
+>>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git

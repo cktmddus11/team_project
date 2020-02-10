@@ -18,7 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import exception.LoginException;
+import logic.Point;
 import logic.ShopService;
+import logic.User;
 
 @Controller
 @RequestMapping("user")
@@ -28,17 +30,17 @@ public class UserController {
 	
 	@RequestMapping("*")
 	public String form(Model model) {
-		return null; // null : url·Î  º¸°í ÀÌµ¿?
+		return null; // null : urlï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½?
 	}
 
 	@RequestMapping("signin")
 	public ModelAndView loginForm(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		/* ³×¾Æ·Î ÀÎÁõ URLÀ» »ý¼ºÇÏ±â À§ÇÏ¿© getAuthorizationUrlÀ» È£Ãâ */
-		// Ä«Ä«¿À ·Î±×ÀÎ È­¸éÀÌ·Î ÀÌµ¿ÇÏ´Â ÁÖ¼Ò°ª ¸®ÅÏÇÏ´Â ÇÔ¼ö È£Ãâ
+		/* ï¿½×¾Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ URLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ getAuthorizationUrlï¿½ï¿½ È£ï¿½ï¿½ */
+		// Ä«Ä«ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ È£ï¿½ï¿½
 		String kakaoUrl = KakaoController.getAuthorizationUrl(session);
 
-		/* »ý¼ºÇÑ ÀÎÁõ URLÀ» View·Î Àü´Þ */
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ URLï¿½ï¿½ Viewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 		mav.setViewName("user/signin");
 		mav.addObject("kakao_url", kakaoUrl);
 
@@ -49,11 +51,11 @@ public class UserController {
 	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		// °á°ú°ªÀ» node¿¡ ´ã¾ÆÁÜ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nodeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 		JsonNode node = KakaoController.getAccessToken(code);
-		// accessToken¿¡ »ç¿ëÀÚÀÇ ·Î±×ÀÎÇÑ ¸ðµç Á¤º¸°¡ µé¾îÀÖÀ½
+		// accessTokenï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		JsonNode accessToken = node.get("access_token");
-		// »ç¿ëÀÚÀÇ Á¤º¸
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		JsonNode userInfo = KakaoController.getKakaoUserInfo(accessToken);
 		System.out.println(userInfo);
 		String kemail = null;
@@ -63,7 +65,7 @@ public class UserController {
 		String kage = null;
 		String kimage1 = null;
 		String kimage2 = null;
-		// À¯ÀúÁ¤º¸ Ä«Ä«¿À¿¡¼­ °¡Á®¿À±â Get properties
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Get properties
 		JsonNode properties = userInfo.path("properties");
 		JsonNode kakao_account = userInfo.path("kakao_account");
 		JsonNode jsonprofile = kakao_account.path("profile");
@@ -82,45 +84,48 @@ public class UserController {
 		session.setAttribute("kgender", kgender);
 		session.setAttribute("kbirthday", kbirthday);
 		session.setAttribute("kage", kage);
-		// ¼¼¼Ç¿¡ ÅäÅ« ÀúÀå
+		// ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½Å« ï¿½ï¿½ï¿½ï¿½
 		session.setAttribute("access_Token", accessToken);
 		mav.setViewName("redirect:../index.store"); // ../index
 		
-		
-		if(service.selectOne(kemail)) { 
-			// true¸é ÀÌ¹Ì db¿¡ ÀúÀåµÇ¾îÀÖ´Â°Å
-			System.out.println("ÀÖÀ½");
-		}else { 
-			// false¸é ÃÖÃÊ ·Î±×ÀÎ. db¿¡ »ç¿ëÀÚ Á¤º¸ÀúÀå
-			System.out.println("¾øÀ½");
+		User user = new User();
+		user.setUserid(kemail);
+		user.setUsername(kname);
+		user.setGender(kgender.equals("male")?1:2);
+		user.setMember_code(1); // È¸ï¿½ï¿½ 1
+		session.setAttribute("loginUser", user);
+		if(!service.selectOne(kemail)) { 
+			// falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dbï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			service.memberInsert(user);
+			Point p = new Point();
+			p.setUserid(user.getUserid());
+			p.setPoint(1000); // welcome point
+			p.setPointtext("Welcome Point!");
+			service.pointinsert(p);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		return mav;
 	}
-
+	
+	
 	@RequestMapping("logout") // value="/logout
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		try {
+			
 			JsonNode node = KakaoController.kakaoLogout(session.getAttribute("access_Token").toString());
-			System.out.println("·Î±×ÀÎ ÈÄ ¹ÝÈ¯µÇ´Â ¾ÆÀÌµð : " + node.get("id"));
+			session.invalidate();
+			System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ : " + node.get("id"));
+			
 		} catch (Exception e) {
-			throw new LoginException("ÀÌ¹Ì ·Î±×¾Æ¿ôµÈ °èÁ¤ÀÔ´Ï´Ù", "loginForm.store");
+			e.printStackTrace();
+			throw new LoginException("ï¿½Ì¹ï¿½ ï¿½Î±×¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½", "../index.store");
 		}
-		session.invalidate();
+		
 		mav.setViewName("redirect:../index.store");
 		return mav;
 	}
 
-	@RequestMapping("updateForm") // ¿©±â ¼öÁ¤ÇÏ±â
+	@RequestMapping("updateForm") // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	public String kakaoupdateform(HttpSession session) {
 
 		// KakaoController.kakaoupdate(accessToken);
@@ -131,7 +136,7 @@ public class UserController {
 	public String kakaoupdate(String nickname, String gender, HttpSession session) throws UnsupportedEncodingException {
 		JsonNode accessToken = (JsonNode) session.getAttribute("access_Token");
 		JsonNode userid = KakaoController.kakaoupdate(nickname, gender, accessToken);
-		System.out.println("¼öÁ¤µÈ »ç¶÷ÀÇ ¾ÆÀÌµð : " + userid.get("id"));
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ : " + userid.get("id"));
 		return "redirect:../index.store";
 	}
 

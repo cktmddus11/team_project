@@ -1,3 +1,4 @@
+
 package config;
 
 import java.beans.PropertyVetoException;
@@ -20,7 +21,7 @@ public class DBConfig {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
 		try {
 			ds.setDriverClass("org.mariadb.jdbc.Driver");
-			ds.setJdbcUrl("jdbc:mariadb://localhost:3306/friendstore");
+			ds.setJdbcUrl("jdbc:mariadb://localhost:3307/friendstore");
 			ds.setUser("goodee");
 			ds.setPassword("1234");
 			ds.setMaxPoolSize(20);

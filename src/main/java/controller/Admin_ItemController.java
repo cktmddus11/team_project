@@ -16,15 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import exception.BoardException;
 import exception.ItemException;
 import logic.Item;
-import logic.KJEShopService;
+import logic.ShopService;
 
 @Controller
 @RequestMapping("admin_item")
 public class Admin_ItemController {
    @Autowired
-   private KJEShopService service;
+   private ShopService service;
    
    @RequestMapping("product_list")
    public ModelAndView list(Integer pageNum, String selectvalue, HttpServletRequest request) {
@@ -33,27 +34,27 @@ public class Admin_ItemController {
       if(pageNum == null || pageNum.toString().equals("")) {
          pageNum = 1;
       }
-      if(selectvalue == null || selectvalue.toString().equals("전체")) {
+      if(selectvalue == null || selectvalue.toString().equals("��ü")) {
          selectvalue = "0";
-      } else if(selectvalue.toString().equals("토이")) {
+      } else if(selectvalue.toString().equals("����")) {
          selectvalue = "1";
-      } else if(selectvalue.toString().equals("의류")) {
+      } else if(selectvalue.toString().equals("�Ƿ�")) {
          selectvalue = "2";
-      } else if(selectvalue.toString().equals("생활테크")) {
+      } else if(selectvalue.toString().equals("��Ȱ��ũ")) {
          selectvalue = "3";
-      } else if(selectvalue.toString().equals("라이언")) {
+      } else if(selectvalue.toString().equals("���̾�")) {
          selectvalue = "4";
-      } else if(selectvalue.toString().equals("어피치")) {
+      } else if(selectvalue.toString().equals("����ġ")) {
          selectvalue = "5";
       }
       System.out.println(selectvalue); 
-      int limit = 10; //페이지당 보여지는 게시물 건수
-      int itemcount = service.itemcount(selectvalue); //전체 등록된 게시물 건수
+      int limit = 10; //�������� �������� �Խù� �Ǽ�
+      int itemcount = service.itemcount(selectvalue); //��ü ��ϵ� �Խù� �Ǽ�
       List<Item> itemlist = service.getItemList(pageNum,limit,selectvalue);
       int maxpage = (int)((double)itemcount/limit + 0.95); 
-      //보여지는 첫번째 페이지
+      //�������� ù��° ������
       int startpage = (int)((pageNum/10.0 + 0.9) -1) * 10 + 1; 
-      //보여지는 마지막 페이지
+      //�������� ������ ������
       int endpage = startpage + 9;
       if(endpage > maxpage) endpage = maxpage;
       int boardno = itemcount - (pageNum - 1) * limit;
@@ -73,11 +74,11 @@ public class Admin_ItemController {
       String path = request.getServletContext().getRealPath("/") + "admin_item/imagesfile/";
       File f = new File(path);
       if(!f.exists()) f.mkdirs();
-      if(!upload.isEmpty()) { //선택한 업로드된 파일이 있다면
-         //업로드될 파일을 저장할 File 객체
+      if(!upload.isEmpty()) { //������ ���ε�� ������ �ִٸ�
+         //���ε�� ������ ������ File ��ü
          File file = new File(path, upload.getOriginalFilename());
          try {
-            upload.transferTo(file); //업로드 파일 생성
+            upload.transferTo(file); //���ε� ���� ����
          } catch(Exception e) {
             e.printStackTrace();
          }
@@ -91,13 +92,13 @@ public class Admin_ItemController {
    @GetMapping("*")
    public ModelAndView getAdmin_item(Integer itemnum, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
-      Item admin_item = null;
+      Item item = null;
       if (itemnum == null) {
-         admin_item = new Item();
+         item = new Item();
       } else {
-         admin_item = service.getAdmin_item(itemnum,request);
+         item = service.getAdmin_item(itemnum,request);
       }
-      mav.addObject("admin_item", admin_item);
+      mav.addObject("item", item);
       return mav; 
    }
    
@@ -112,10 +113,11 @@ public class Admin_ItemController {
       }
       try {
          service.itemCreate(admin_item,request);
+         service.itemwhousinginsert(admin_item.getItemnum());
          mav.setViewName("redirect:product_list.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new ItemException("게시물 등록에 실패했습니다.","item_write.store");
+         throw new ItemException("�Խù� ��Ͽ� �����߽��ϴ�.","item_write.store");
       }
       return mav;
    }
@@ -124,22 +126,34 @@ public class Admin_ItemController {
    public ModelAndView item_update(@Valid Item item, BindingResult bresult, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
       /* Admin_item dbAdmin_item = service.getAdmin_item(admin_item.getItemnum()); */
-      if(bresult.hasErrors()) { //유효성 검증
+      if(bresult.hasErrors()) { //��ȿ�� ����
          mav.getModel().putAll(bresult.getModel());
          return mav;
       }
       /*
        * if(!board.getPass().equals(dbBoard.getPass())) { throw new
-       * BoardException("비밀번호가 틀립니다.","update.shop?num="+board.getNum()); }
+       * BoardException("��й�ȣ�� Ʋ���ϴ�.","update.shop?num="+board.getNum()); }
        */
       try {
-         service.itemUpdate(item, request); //update의 위치를 알아야하므로 request객체가 있어야함.
+         service.itemUpdate(item, request); //update�� ��ġ�� �˾ƾ��ϹǷ� request��ü�� �־����.
          mav.setViewName("redirect:product_list.store");
       } catch (Exception e) {
          e.printStackTrace();
-         throw new ItemException("업데이트 수정에 실패했습니다.","item_update.store?itemnum="+item.getItemnum());
+         throw new ItemException("������Ʈ ������ �����߽��ϴ�.","item_update.store?itemnum="+item.getItemnum());
       }
       return mav;
    }
    
+   @PostMapping("item_delete")
+   public ModelAndView item_delete(Item item) {
+      ModelAndView mav = new ModelAndView();
+      try {
+         service.itemDelete(item);
+         mav.setViewName("redirect:product_list.store");
+      } catch (Exception e) {
+         e.printStackTrace();
+         throw new BoardException("�Խñ� ������ �����߽��ϴ�.","item_delete.store?itemnum="+item.getItemnum());
+      }
+      return mav;
+   }
 }
