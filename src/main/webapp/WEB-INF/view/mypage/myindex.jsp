@@ -62,9 +62,6 @@
 				<span class="list_3" id="my_ll_b">취소/반품/교환</span> <span
 					class="next_img"></span>
 			</div>
-<<<<<<< HEAD
-		</a> <a href="../mypage/pointlist.store" class="list_4"> <span class="list_2" id="my_bb_b">1,000&nbsp;P</span>
-=======
 		</a> <a href="../mypage/pointlist.store" class="list_4"> <span class="list_2" id="my_bb_b">
 		<c:if test="${count_point>0 }">
 		<fmt:formatNumber value="${count_point }" pattern="#,###P"/>
@@ -73,7 +70,6 @@
 		<fmt:formatNumber value="0" pattern="#,###P"/>
 		</c:if> 
 		</span>
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 			<div>
 				<span class="list_3" id="my_ll_b">사용가능한 포인트</span> <span
 					class="next_img" ></span>

@@ -211,9 +211,9 @@ textarea {
 
 	<div class="product-button">
 		<button id="my_bb_b" class="c-button b" type="button"
-			onclick="location.href='../admin/product-list.store'">취소</button>
+			onclick="location.href='../admin/manage.store'">취소</button>
 		<button id="my_bb_w" class="p-button b" type="button"
-			onclick="location.href='../admin/product-list.store'">회원가입</button>
+			onclick="location.href='../admin/manage.store'">회원가입</button>
 	</div>
 </body>
 </html>

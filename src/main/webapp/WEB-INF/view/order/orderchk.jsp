@@ -12,101 +12,6 @@
 	color: white;
 	font-size: 28px;
 }
-<<<<<<< HEAD
-
-#my_l_b {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 200;
-	color: black;
-	font-size: 16px;
-}
-
-#my_bb_b {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 900;
-	color: black;
-	font-size: 25px;
-}
-
-#my_ll_b {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 200;
-	color: black;
-	font-size: 20px;
-}
-#ex_chk1 {
-	width: 25px;
-	height: 25px;
-}
-
-#ex_chk2 {
-	width: 25px;
-	height: 25px;
-}
-
-#ex_chk3 {
-	width: 25px;
-	height: 25px;
-}
-
-.check_payment {
-	position: relative;
-	width: 100%;
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	margin-bottom: auto;
-}
-
-.check_payment input[name=paymentchk] {
-	position: absolute;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-}
-
-.check_payment input[name=paymentchk]+label {
-	display: inline-block;
-	position: relative;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-}
-
-.check_payment input[name=paymentchk]:checked+label {
-	background: url(../images/icons/check_icon_on.png);
-	width: 25px;
-	height: 25px;
-	background-size: 25px 25px;
-}
-
-.check_payment input[name=paymentchk]+label {
-	background: url(../images/icons/check_icon_off.png);
-	width: 25px;
-	height: 25px;
-	background-size: 25px 25px;
-}
-
-.order_continue_or_break {
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	height: 17.3333vw;
-	background-color: rgba(60, 64, 75, 0.95);
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-	-webkit-box-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	align-items: center;
-	z-index: 999999;
-	transition: bottom 300ms ease 0s;
-}
-
-=======
 #my_l_b {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
@@ -188,7 +93,6 @@
 	z-index: 999999;
 	transition: bottom 300ms ease 0s;
 }
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 @media ( min-width : 769px) {
 	.order_continue_or_break {
 		padding-top: 120px;

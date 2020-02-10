@@ -12,9 +12,6 @@
    href="../fonts/iconic/css/material-design-iconic-font.min.css">
    <link rel="stylesheet" type="text/css"
    href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-</head>
-=======
    <style>
 .avmum {
     display: flex;
@@ -29,7 +26,6 @@
     background-image: url(../images/product-detail/banner_faq.png);
 }
 }
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 
 </style>
 </head>
@@ -156,9 +152,6 @@
 		
 		
 	</script>
-<<<<<<< HEAD
-	<div class="category_header_div">
-=======
 	<script>
 	function listdo(page){
 		//document.searchform.pageNum.value = page;
@@ -166,7 +159,6 @@
 	}
 </script>
 	<div class="avmum" style="height: 13.7vw; background-color: #fdd33a;" >
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 		<span class="category_header_span" id="boldfont_white_he" style="font-weight : bold;">고객센터</span>
 	</div>
 	<div class="title jCUDnA">
@@ -209,48 +201,21 @@
 	</div>
 	<!-- 공지사항 내역 나중에 foreach문으로 반복해서 replynum 을 index로 주기 mypage참고 -->
 	<div id="notice" class="notice">
-<<<<<<< HEAD
-=======
 	<c:forEach var="noticelist" items="${noticelist}" varStatus="stat">
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 		<div class="list__Item fkzQYP">
 			<div class="list__TitleBlock igiwIN">
-<<<<<<< HEAD
-				<div class="list__Info-sc fuoFjD">2019-12-24</div>
-				<div class="list__Title-sc glsXdQ"
-					onclick="replyshow(1, 'replynum0', this)">재고실사로 인한 배송일정 안내</div>
-=======
 				<div class="list__Info-sc fuoFjD">
 				<fmt:formatDate value="${noticelist.boarddate}" pattern="yyyy-MM-dd"/></div>
 				<div class="list__Title-sc glsXdQ"
 					onclick="replyshow(1, 'replynum${stat.index}', this)">${noticelist.q_subject}</div>
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 			</div>
 			<!-- 버튼 누르면 cdlUDa이부분으로 적용되게  -->
 		</div>
-<<<<<<< HEAD
-		<div class="reply-template__ReplyBlock iyrEsZ" id="replynum0">
-=======
 		<div class="reply-template__ReplyBlock iyrEsZ" id="replynum${stat.index}">
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 			<div class="reply-template__ReplyContents kYyZhV">
 				<p>${noticelist.q_content}</p>
 			</div>
 		</div>
-<<<<<<< HEAD
-		<!-- <!-- 공지사항 내역2 -->
-		<div class="list__Item fkzQYP">
-			<div class="list__TitleBlock igiwIN">
-				<div class="list__Info-sc fuoFjD">2019-12-24</div>
-				<div class="list__Title-sc glsXdQ"
-					onclick="replyshow(1, 'replynum1', this)">재고실사로 인한 배송일정 안내</div>
-			</div>
-			<!-- 버튼 누르면 cdlUDa이부분으로 적용되게 -->
-		</div>
-		<div class="reply-template__ReplyBlock iyrEsZ" id="replynum1">
-			<div class="reply-template__ReplyContents kYyZhV">
-				<p>답변 입력~~~~</p>
-=======
 	</c:forEach>
 		
 	<div style="text-align: center;padding-top: 135px;"><c:if test="${pageNum > 1}">
@@ -288,37 +253,9 @@
 				<c:if test="${qnalist.filter eq '5'}">주문결제</c:if>
 				</div>
 				<div class="faq_title glsXdQ" onclick="replyshow(2, 'faqreplynum${stat.index}', this)">${qnalist.q_subject}</div>
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 			</div>
 		</div>
-<<<<<<< HEAD
-
-	</div>
-	<!-- FAQ  -->
-	<div id="FAQ" class="FAQ">
-		<div class="list__ItemWrapper-sc-15wis6g-0 fkzQYP">
-			<div class="list__TitleBlock-sc-15wis6g-3 gxwoaN">
-				<div class="faq_info fuoFjD">기타</div>
-				<div class="faq_title glsXdQ" onclick="replyshow(2, 'faqreplynum0', this)">카카오톡에서
-					캐시 삭제는 어떻게 하나요?</div>
-			</div>
-		</div>
-		<div class="faq_replyBlock iyrEsZ" id="faqreplynum0">
-			<div class="reply-template__ReplyContents-kvnc78-1 kYyZhV">
-				<p>잘하세요 ~</p>
-			</div>
-		</div>
-		<div class="list__ItemWrapper-sc-15wis6g-0 fkzQYP">
-			<div class="list__TitleBlock-sc-15wis6g-3 gxwoaN">
-				<div class="faq_info fuoFjD">기타</div>
-				<div class="faq_title glsXdQ" onclick="replyshow(2, 'faqreplynum1', this)">카카오톡에서
-					캐시 삭제는 어떻게 하나요?</div>
-			</div>
-		</div>
-		<div class="faq_replyBlock iyrEsZ" id="faqreplynum1">
-=======
 		<div class="faq_replyBlock iyrEsZ" id="faqreplynum${stat.index}">
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 			<div class="reply-template__ReplyContents-kvnc78-1 kYyZhV">
 				<p>${qnalist.q_content}</p>
 			</div>

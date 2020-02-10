@@ -4821,42 +4821,46 @@ moblie_line {
 }
 
 .arrow_box {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    box-sizing: border-box;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    background-color: rgb(60, 64, 75);
-    border-radius: 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(237, 237, 237);
-    border-image: initial;
-    margin: 0px 10px;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background-color: rgb(255, 255, 255);
+	visibility: hidden;
+	border-radius: 15px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(237, 237, 237);
+	border-image: initial;
+	margin: 0px 10px;
 }
 
 .arrow_pre {
-	width: 10px;
-    height: 17px;
-    background-image:  url('../images/icons/icon-prev.png');
-    background-size: 10px;
-    margin: 0px 0px 0px -3px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(154, 154, 158);
+	border-image: initial;
+	margin: 0px 0px 0px 3px;
 }
 
 .arrow_pre:after {
 	content: "";
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    top: -2px;
-    border-width: 4px;
-    border-style: solid;
-    border-color: white;
-    border-image: initial;
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	top: -2px;
+	border-width: 4px;
+	border-style: solid;
+	border-color: white;
+	border-image: initial;
 }
 
 .page_nums {
@@ -4872,38 +4876,36 @@ moblie_line {
 }
 
 .arrow_next {
-	width: 10px;
-    height: 17px;
-    background-size: 10px;
-    background-image: url('../images/icons/icon-next.png');
-    margin: 0px 0px 0px 3px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(154, 154, 158);
+	border-image: initial;
+	margin: 0px 3px 0px 0px;
 }
 
 .arrow_next:after {
 	content: "";
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    left: -2px;
-    border-width: 4px;
-    border-style: solid;
-    border-color: white;
-    border-image: initial;
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	left: -2px;
+	border-width: 4px;
+	border-style: solid;
+	border-color: white;
+	border-image: initial;
 }
 
-.page_nums .clicka {
-    letter-spacing: -0.23px;
-    color: rgb(0, 0, 0);
-    height: 19px;
-    font-weight: bold;
-    margin-bottom: 0px;
-    border-bottom: 1px solid black;
-}
-.page_nums a {
-    letter-spacing: -0.23px;
-    color: rgb(212, 215, 225);
-    height: 19px;
-    margin-bottom: 3px;
+.page_nums div {
+	font-size: 15px;
+	letter-spacing: -0.23px;
+	color: rgb(0, 0, 0);
+	height: 19px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	border-bottom: 1px solid black;
 }
 
 .desktop_br {
@@ -4915,10 +4917,6 @@ moblie_line {
 		display: flex;
 	}
 }
-<<<<<<< HEAD
-/* [愿�由ъ옄] 留ㅼ옣 紐⑸줉 愿�由�  */
-=======
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 .admin_store_write {
 	float: right;
 	height: 100%;
@@ -5039,11 +5037,7 @@ moblie_line {
 	border-radius: 10px;
 }
 
-<<<<<<< HEAD
-/* [愿�由ъ옄] 留ㅼ옣 �벑濡� 愿�由�  */
-=======
 
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 .store_write_header {
 	padding: 8vw 4.2666666667vw 3.3333333333vw;
 	font-size: 6.4vw;
@@ -5269,30 +5263,6 @@ moblie_line {
 	outline: none;
 	padding: 6.5px 32px;
 }
-<<<<<<< HEAD
-.btn_cancel_1 {
-   flex: 1;
-   height: 16vw;
-   border-radius: 1.0666666667vw;
-   border: solid 1px #e3e5e8;
-   font-size: 4.2666666667vw;
-   font-weight: bold;
-   line-height: 1.88;
-   letter-spacing: -0.056vw;
-   margin: 0 0.9333333333vw;
-}
-
-@media ( min-width : 768px) {
-   .btn_cancel_1 {
-      max-width: 500px;
-      height: 60px;
-      border-radius: 4px;
-      font-size: 16px;
-      letter-spacing: -0.21px;
-      margin: 0 3.5px;
-   }
-}
-=======
 
 .btn_cancel_1 {
    flex: 1;
@@ -5317,4 +5287,3 @@ moblie_line {
    }
 }
 
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
