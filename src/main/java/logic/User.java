@@ -1,4 +1,3 @@
-
 package logic;
 
 import java.sql.Date;
@@ -9,19 +8,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class User {
    private int userno;
-   @Size(min=3, max=15, message="ï¿½ï¿½ï¿½Ìµï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì»ï¿½ 15ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @Size(min=3, max=15, message="¾ÆÀÌµð´Â 3ÀÚ ÀÌ»ó 15ÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇÏ¼¼¿ä")
    private String userid;
-   @Size(min=3, max=100, message="ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ì»ï¿½ 100ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @Size(min=3, max=100, message="ºñ¹Ð¹øÈ£´Â 3ÀÚ ÀÌ»ó 100ÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇÏ¼¼¿ä")
    private String password;
    private String username;
    private String phonenum;
    private MultipartFile profile;
    private String profileUrl;
    private Date joindate;
-   private String account; //ï¿½ï¿½ï¿½ï¿½
-   private int gender; //ï¿½ï¿½ï¿½ï¿½
-   private int member_code; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 1, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0
-   private int access; // ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½
+   private String account; //°èÁÂ
+   private int gender; //¼ºº°
+   private int member_code; // ¸â¹ö ±¸ºÐ »ç¿ëÀÚ 1, °ü¸®ÀÚ 0
+   private int access; // ½ÂÀÎ¿©ºÎ
 
    public int getUserno() {
       return userno;

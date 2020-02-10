@@ -1,4 +1,3 @@
-
 package logic;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -8,22 +7,22 @@ public class StoreInfo {
 	private int storeno;
 
 
-	@NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "¸ÅÀå ÀÌ¸§Àº ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String storename;
-	@NotEmpty(message = "ï¿½ï¿½È­ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "ÀüÈ­ ¹øÈ£´Â ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String storetel;
-	@NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "¿µ¾÷½Ã°£Àº ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String storetime;
-	@NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼Ò´ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "¸ÅÀåÁÖ¼Ò´Â ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String storeadd;
 	private MultipartFile picfile;
 	private String storepic;
-	@NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "±¸±ÛÁöµµ´Â ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String mapurl;
-	@NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ iframeï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "±¸±Û Áöµµ iframeÀº ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String mapiframe;
 
-	@NotEmpty(message = "ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½Ô´Ï´ï¿½.")
+	@NotEmpty(message = "ºñ¹Ð¹øÈ£´Â ÇÊ¼ö ÀÔ·Â ÀÔ´Ï´Ù.")
 	private String pw_chk;
 
 	

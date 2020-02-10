@@ -1,4 +1,3 @@
-
 package logic;
 
 import java.util.ArrayList;
@@ -11,17 +10,17 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Orderlist {
 	private String orderno;
-	@NotEmpty(message = "ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½")
+	@NotEmpty(message = "ÀÌ¸ÞÀÏÀº ÇÊ¼ö Á¤º¸ ÀÔ´Ï´Ù")
 	private String userid;
 	private Date datepay;
 	private String payname;
-	@NotEmpty(message = "ï¿½Ö¼Ò´ï¿½ ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½")
+	@NotEmpty(message = "ÁÖ¼Ò´Â ÇÊ¼ö Á¤º¸ ÀÔ´Ï´Ù")
 	private String address;
-	@NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò´ï¿½ ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½")
+	@NotEmpty(message = "³ª¸ÓÁö ÁÖ¼Ò´Â ÇÊ¼ö Á¤º¸ ÀÔ´Ï´Ù")
 	private String restaddress;
-	@NotEmpty(message = "ï¿½ï¿½È­ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½")
+	@NotEmpty(message = "ÀüÈ­¹øÈ£´Â ÇÊ¼ö Á¤º¸ ÀÔ´Ï´Ù")
 	private String phonenum;
-	@NotEmpty(message = "ï¿½Ö¹ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½")
+	@NotEmpty(message = "ÁÖ¹®ÀÚ¸íÀº ÇÊ¼ö Á¤º¸ ÀÔ´Ï´Ù")
 	private String username;
 
 	private Date orderdate;

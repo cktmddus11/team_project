@@ -9,10 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import dao.mapper.UserMapper;
-import logic.User;
-
 import exception.LoginException;
 import logic.Point;
+import logic.User;
 
 @Repository
 public class UserDao {
@@ -35,13 +34,13 @@ public class UserDao {
 		sqlSession.getMapper(UserMapper.class).memberInsert(user);
 	}
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ : ï¿½ï¿½ï¿½ï¿½ ï¿½È¾ï¿½
+	// °ü¸®ÀÚ È¸¿ø Á¤º¸ Á¶È¸ : ¾ÆÁ÷ ¾È¾¸
 	public User selectOne2(String userid) {
 		param.clear();
 		param.put("userid", userid);
 		List<User> list = sqlSession.getMapper(UserMapper.class).SelectOne2(param);
 		if (list == null || list.isEmpty()) {
-			throw new LoginException("ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½", "");
+			throw new LoginException("ÇØ´ç ¾ÆÀÌµð ¾øÀ½", "");
 		} else
 			return list.get(0);
 	}

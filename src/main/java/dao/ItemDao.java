@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import dao.mapper.ItemMapper;
 import logic.Item;
 import logic.ItemSet;
-import logic.Orderitem;
 import logic.Pick;
 import logic.Review;
 import logic.Up;
@@ -80,7 +79,7 @@ public class ItemDao {
 		return sqlSession.getMapper(ItemMapper.class).maxnum();
 	}
 
-	// ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½Æ®
+	// ÃßÃµ ¸®½ºÆ®
 	public List<Up> uplist(int reviewno) {
 		param.clear();
 		param.put("reviewno",reviewno);
@@ -197,13 +196,6 @@ public class ItemDao {
 		param.put("userid", userid);
 		sqlSession.getMapper(ItemMapper.class).deletecart(param);
 		
-	}
-
-	public List<Orderitem> orderitemselect(String userid, int itemnum) {
-		param.clear();
-		param.put("userid", userid);
-		param.put("itemnum",  itemnum);
-		return sqlSession.getMapper(ItemMapper.class).orderitemselect(param);
 	}
 
 

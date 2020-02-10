@@ -11,7 +11,6 @@ import org.apache.ibatis.annotations.Update;
 import logic.Cart;
 import logic.Item;
 import logic.ItemSet;
-import logic.Orderitem;
 import logic.Pick;
 import logic.Review;
 import logic.Up;
@@ -56,7 +55,7 @@ public interface ItemMapper {
 			" ORDER BY quantity desc</script>")
 	List<Item> itemsale(Map<String, Object> param);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼³ï¿½ï¿½ï¿½ 
+	// ¾ÆÀÌÅÛ »ó¼¼³»¿ª 
 	@Select("<script>"+itemcol+" where itemnum = ${itemnum}</script>")
 	Item itemdetail(Map<String, Object> param);
 
@@ -74,7 +73,7 @@ public interface ItemMapper {
 	@Select("select count(*) from review where itemnum = #{itemnum}")
 	int reviewcount(int no);
 
-	// ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
+	// ¸®ºä ÀÛ¼º
 	@Insert("insert into review (userid, reviewno, reviewcontent, itemavg, "
 			+ "reviewdate, itemnum) values (#{review.userid}, #{review.reviewno}, "
 			+ "#{review.reviewcontent}, #{review.itemavg}, now(), "
@@ -162,9 +161,5 @@ public interface ItemMapper {
 
 	@Delete("delete from cart where userid = #{userid}")
 	void deletecart(Map<String, Object> param);
-
-	@Select("select *from orderitem where userid = #{userid} and"
-			+  "")
-	List<Orderitem> orderitemselect(Map<String, Object> param);
 
 }

@@ -1,4 +1,3 @@
-
 package logic;
 
 import java.util.ArrayList;
@@ -13,10 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Item {
 	private int itemnum;
-	@NotEmpty(message = "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+	@NotEmpty(message = "»óÇ°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
 	private String itemname;
-	@Min(value = 10, message = "10ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.")
-	@Max(value = 100000, message = "10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.")
+	@Min(value = 10, message = "10¿ø ÀÌ»ó °¡´ÉÇÕ´Ï´Ù.")
+	@Max(value = 100000, message = "10¸¸¿ø ÀÌÇÏ¸¸ °¡´ÉÇÕ´Ï´Ù.")
 	private int price;
 	private MultipartFile itemfile1;
 	private MultipartFile itemfile2;
@@ -24,18 +23,18 @@ public class Item {
 	private String itemfile1url;
 	private String itemfile2url;
 	private String itemfile3url;
-	@NotEmpty(message = "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+	@NotEmpty(message = "»óÇ°¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
 	private String itemcontent;
-	@NotEmpty(message = "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+	@NotEmpty(message = "»óÇ°¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
 	private String itemcontent2;
 	private int category;
 	private int subcategory;
 	private int character_c;
 	private Date regdate;
 
-	/* list ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	private String selectvalue1; // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
-	private String selectvalue2; // Ä³ï¿½ï¿½ï¿½ï¿½
+	/* list ºä´Ü ¼±ÅÃÀÚ */
+	private String selectvalue1; // »óÇ°¼ø¼­
+	private String selectvalue2; // Ä³¸¯ÅÍ
 
 	public String getSelectvalue1() {
 		return selectvalue1;
@@ -53,7 +52,7 @@ public class Item {
 		this.selectvalue2 = selectvalue2;
 	}
 
-	/* //////ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®/////// */
+	/* //////¸®ºä ¸®½ºÆ®/////// */
 	List<Review> reviewlist = new ArrayList<Review>();
 	
 	public List<Review> getReviewlist() {
@@ -66,7 +65,7 @@ public class Item {
 	
 	
 	/*//////*/
-	/* //////ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®/////// */
+	/* //////Âò ¸®½ºÆ®/////// */
 	private int pickno;
 
 	public int getPickno() {
@@ -86,7 +85,7 @@ public class Item {
 		this.wishlist = wishlist;
 	}
 
-	/* //////ï¿½ï¿½ È®ï¿½ï¿½/////// */
+	/* //////Âò È®ÀÎ/////// */
 	
 	private int wishcheck;
 	public int getWishcheck() {
@@ -96,7 +95,7 @@ public class Item {
 	public void setWishcheck(int wishcheck) {
 		this.wishcheck = wishcheck;
 	}
-	/*////////Ä«Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½///////*/
+	/*////////Ä«Æ® ´ã±äÁö À¯¹«///////*/
 	private int cartcheck;
 	
 	

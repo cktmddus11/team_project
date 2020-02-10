@@ -1,4 +1,3 @@
-
 package dao.mapper;
 
 import java.util.List;
@@ -37,16 +36,16 @@ public interface UserMapper {
 			+ " where userid=#{userid}" + "</if>" + "</script>" })
 	List<User> SelectOne2(Map<String, Object> param);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// °ü¸®ÀÚ È¸¿ø°¡ÀÔ
 	@Insert("insert into member(userno, userid, username, password, phonenum, profileUrl, gender, joindate, member_code, access)"
 			+ " values(#{userno}, #{userid}, #{username}, #{password}, #{phonenum}, #{profileUrl}, #{gender}, now(), 2 ,#{access})")
 	void adminInsert(User user);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ Ç¥ï¿½ï¿½
+	// °ü¸®ÀÚ °¡ÀÔ ¸â¹ö ¼ö Ç¥±â
 	@Select("select ifnull(max(userno),0) from member")
 	int numcntadd();
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½
+	// °ü¸®ÀÚ ±ÇÇÑ ºÎ¿©
 	@Update("update member set access=1 where userid=#{userid}")
 	void codeUpdate(Map<String, Object> param);
 

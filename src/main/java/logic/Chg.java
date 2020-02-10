@@ -1,4 +1,3 @@
-
 package logic;
 
 import java.util.Date;
@@ -12,21 +11,21 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class Chg {
    private int chg_no;
-   @NotEmpty(message = "ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @NotEmpty(message = "ÁÖ¹®¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
    private String chg_orderno;
    
-   @Past(message="ï¿½Ö¹ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.")
-   @NotNull(message = "ï¿½Ö¹ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @Past(message="ÁÖ¹®³¯Â¥´Â °ú°Å ³¯Â¥¸¸ °¡´ÉÇÕ´Ï´Ù.")
+   @NotNull(message = "ÁÖ¹®³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
    @DateTimeFormat(pattern = "yyyy-MM-dd",iso = ISO.DATE)
    private Date chg_orderdate;
 
-   @NotEmpty(message = "ï¿½ï¿½È­ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @NotEmpty(message = "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
    private String chg_tel;
-   @NotEmpty(message = "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @NotEmpty(message = "»óÇ°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
    private String chg_itemname;
    private String chg_reseon;
    
-   @NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
+   @NotEmpty(message = "»ó¼¼ÀÌÀ¯¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
    private String chg_detail;
    private int chg_state;
    
