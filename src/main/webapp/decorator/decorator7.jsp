@@ -170,12 +170,6 @@ hover {
     width: 40px;
     height: 10px;
 }
-.hamburger-box {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 10px;
-}
 </style>
 <!-- ... -->
 </head>
@@ -232,32 +226,8 @@ hover {
                         id="lightfont_black_de">매장 관리</a></li>
                      <li><a href="../admin_change/change_return_order_list.store?pageNum=1"
                         id="lightfont_black_de">환불/교환/반품 관리</a></li>
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 
 
-<<<<<<< HEAD
-		<!-- Header Mobile -->
-		<div class="wrap-header-mobile" style="width: 100%;">
-			<!-- Button show menu -->
-
-			<div style="width: 4%;"
-				class="icon-header-item cl2 hov-cl1 trans-04 js-show-modal-search">
-				<i class="zmdi zmdi-search"></i>
-			</div>
-			<!-- Logo moblie -->
-			<div style="width: 84%; text-align: center;">
-				<div style="width: 210px; display: inline-block;">
-					<a href="../index.store" class="logo" id="boldfont_black_de">
-						KAKAO FRIENDS </a>
-				</div>
-			</div>
-			<div style="width: 4%;"
-				class="icon-header-item cl2 hov-cl1 trans-04 icon-header-noti js-show-cart">
-				<i class="zmdi zmdi-shopping-cart"></i>
-			</div>
-		</div>
-		<hr style="margin-top: 0.01%; margin-bottom: 0.01%;">
-=======
                      <!--class="label1"  data-label1="hot"-->
                   </ul>
                </div>
@@ -348,7 +318,6 @@ hover {
             <!-- Header Mobile -->
          </div>
       </div>
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 
 
       <!-- Header Mobile -->
@@ -629,6 +598,7 @@ hover {
                class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
                <img src="../images/icons/icon-close2.png" alt="CLOSE">
             </button>
+
             <form class="wrap-search-header"
                style="border: 0px; background-color: transparent; width: 100%;">
                <div class="flex-c-m trans-04">
@@ -1079,7 +1049,6 @@ hover {
    </script>
    <script src="../js/main_idx.js"></script>
    <!--===============================================================================================-->
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 
 </body>
 </html>

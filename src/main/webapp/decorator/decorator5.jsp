@@ -91,11 +91,7 @@
    transition-timing-function: ease;
 }
 
-<<<<<<< HEAD
-input[type=text] {
-=======
 input[name=keyword] {
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
    width: 100%;
    box-sizing: border-box;
    border: 1px solid #ccc;
@@ -886,11 +882,7 @@ hover {
    </div> -->
 
    <!-- Product -->
-<<<<<<< HEAD
-   <section class="bg0 p-b-140" style="    padding-top: 6%; padding-bottom: 10%;">
-=======
    <section class="bg0 p-b-140" style="    padding-top: 4.5%; padding-bottom: 10%;">
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
       <div class="container">
          <decorator:body />
          <div class="flex-w flex-sb-m p-b-25">
@@ -1408,11 +1400,7 @@ hover {
                var nameProduct = $(this).parent().parent().find(
                      '.js-name-b2').html();
                $(this).on('click', function() {
-<<<<<<< HEAD
-                  swal(nameProduct, "is added to wishlist !", "success");
-=======
                   swal(nameProduct, "상품을 찜하였습니다!", "success");
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 
                   $(this).addClass('js-addedwish-b2');
                   $(this).off('click');
@@ -1585,29 +1573,6 @@ $('.js-hide-modal1').on('click',function(){
 						function() {
 							$("#friend_img_rion")
 									.attr("src",
-<<<<<<< HEAD
-											"images/index_deco/character/category_rion_on.png")
-							$(".friend_name_rion").css('font-weight', '700')
-						},
-						function() {
-							$("#friend_img_rion")
-									.attr("src",
-											'images/index_deco/character/category_rion_off.png')
-							$(".friend_name_rion").css('font-weight', '200')
-						});
-		$("#apeach")
-				.hover(
-						function() {
-							$("#friend_img_apeach")
-									.attr("src",
-											'images/index_deco/character/category_apeach_on.png')
-							$(".friend_name_apeach").css('font-weight', '700')
-						},
-						function() {
-							$("#friend_img_apeach")
-									.attr("src",
-											'images/index_deco/character/category_apeach_off.png')
-=======
 											"../images/index_deco/character/category_rion_on.png")
 							$(".friend_name_rion").css('font-weight', '700')
 						},
@@ -1629,7 +1594,6 @@ $('.js-hide-modal1').on('click',function(){
 							$("#friend_img_apeach")
 									.attr("src",
 											'../images/index_deco/character/category_apeach_off.png')
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 							$(".friend_name_apeach").css('font-weight', '200')
 						});
 	</script>

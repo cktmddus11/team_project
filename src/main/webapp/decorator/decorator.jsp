@@ -299,7 +299,6 @@ input[type=text] {
 															<div class="friend_one" id="apeach">
 																<div>
 																	<span class="friend_pic" onclick="location.href='item/list.store?character=2'"> <img
->>>>>>> branch 'master' of https://github.com/cktmddus11/team_project.git
 																		class="friend_img" id="friend_img_apeach"
 																		src="images/index_deco/character/category_apeach_off.png"
 																		alt="어피치">
