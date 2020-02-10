@@ -53,7 +53,7 @@ public class OrderController {
 					i.setItem(service.itemdetail(i.getItemnum()));
 				}
 				
-				mav.addObject("orderitem", cartlist);
+				mav.addObject("orderitems", cartlist);
 			}
 		} else { // 바로 구매
 			System.out.println("&&&&&호출 3");
@@ -64,7 +64,7 @@ public class OrderController {
 			i.setPrice(oprice);
 			List<ItemSet> directlist = new ArrayList<ItemSet>();
 			directlist.add(i);
-			mav.addObject("orderitem", directlist);
+			mav.addObject("orderitems", directlist);
 		}
 		System.out.println("&&&&&호출 4");
 		return mav;
@@ -97,7 +97,8 @@ public class OrderController {
 			System.out.println("!!!!!!!"+orderform);
 			if (user != null) {
 				System.out.println("!@@@@@@@@@@@@@호출");
-				for (ItemSet s : orderform.getOrderitem()) {
+				System.out.println(orderform.getOrderitems());
+				for (ItemSet s : orderform.getOrderitems()) {
 					service.insertorderitem(s.getItem().getItemnum(), num + "" + (int)rand, s.getQuantity(), s.getPrice(),
 							orderform.getUserid());
 					service.addPoint(orderform.getUserid(),s.getPrice(),s.getQuantity(),orderform.getUsepoint());
@@ -109,7 +110,7 @@ public class OrderController {
 				Cart cart = (Cart) session.getAttribute("CART");
 				if (cart == null) {
 					System.out.println("!@@@@@@@@@@@@@호출3");
-					for (ItemSet s : orderform.getOrderitem()) {
+					for (ItemSet s : orderform.getOrderitems()) {
 						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
 								orderform.getUserid());
 						

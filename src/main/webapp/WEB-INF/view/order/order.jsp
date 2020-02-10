@@ -373,9 +373,9 @@
 				</h3>
 				<div class="select_item_list" style="height: 243;">
 					<div style="margin-bottom: 40px;">
+						<form:hidden path="orderitems" value="${orderitems}"/>
 						<ul>
-						<%-- <form:hidden path="orderitem" value="${orderitem}"/> --%>
-							<c:forEach var="orderitem" items="${orderitem}" varStatus="stat">
+							<c:forEach var="orderitem" items="${orderitems}" varStatus="stat">
 							<input type="hidden" name="itemnum" value="${orderitem.item.itemnum}">
 								<li class="select_item_list1">
 									<div class="select_item_list1_img">

@@ -8,7 +8,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class OrderForm {
 	private String orderno;
-	private List<ItemSet> orderitem = new ArrayList<ItemSet>();
+	
+	private List<ItemSet> orderitems = new ArrayList<ItemSet>();
 	private int itemnum;
 	@NotEmpty(message = "사용자의 이메일 아이디를 입력 해주세요.")
 	private String userid;
@@ -41,11 +42,11 @@ public class OrderForm {
 	public void setOrderno(String orderno) {
 		this.orderno = orderno;
 	}
-	public List<ItemSet> getOrderitem() {
-		return orderitem;
+	public List<ItemSet> getOrderitems() {
+		return orderitems;
 	}
-	public void setOrderitem(List<ItemSet> orderitem) {
-		this.orderitem = orderitem;
+	public void setOrderitems(List<ItemSet> orderitems) {
+		this.orderitems = orderitems;
 	}
 	public int getItemnum() {
 		return itemnum;
