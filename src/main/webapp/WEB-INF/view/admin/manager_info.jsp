@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/view/jspHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 회원가입</title>
+<title>관리자 정보조회</title>
 <style type="text/css">
 input[type=text1] {
 	width: 100%;
@@ -54,9 +55,9 @@ textarea {
 
 #my_bb_b {
 	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 900;
+	font-weight: 700;
 	color: black;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 #my_ll_b {
@@ -66,25 +67,11 @@ textarea {
 	font-size: 20px;
 }
 
-#my_ll_w {
+#my_l_b1 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
 	color: white;
-	font-size: 20px;
-}
-
-#my_bb_w {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 900;
-	color: white;
-	font-size: 25px;
-}
-
-.my_ll_b {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 200;
-	color: black;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .checks {
@@ -149,71 +136,113 @@ textarea {
 	border-radius: 100%;
 	box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
+
+.profile {
+	flex: 1 1 0%;
+	padding-top: 3vw;
+}
+.update_btn {
+	font-size: 4.8vw;
+	text-align: center;
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+}
+
+@media ( min-width : 769px) {
+	.update_btn {
+		font-size: 15px;
+		font-weight: bolder;
+		width: 270px;
+		height: 60px;
+		color: black;
+		background-color: #fff;
+		border-radius: 4px;
+		border: 1px solid lightgrey;
+	}
+}
+.cancle_btn {
+	font-size: 4.8vw;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+@media ( min-width : 769px) {
+	.cancle_btn {
+		font-size: 15px;
+		font-weight: bolder;
+		width: 270px;
+		height: 60px;
+		background-color: rgba(60, 64, 75, 0.95);
+		border-radius: 4px;
+	}
+}
+#my_l_b_1 { 
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 700;
+	font-size: 18.5px;
+	color: black;
+}
+#my_l_b_2 { 
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 700;
+	font-size: 18.5px;
+	color: white;
+}
+.profile_update {
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	background-color: rgb(255, 255, 255);
+}
+
+@media ( min-width : 769px) {
+	.profile_update {
+		margin-top: 25px;
+		padding: 50px 15px 150px;
+	}
+}
 </style>
 </head>
 <body>
 	<div class="product-register">
-		<span id="my_b_b">[관리자] 회원가입</span>
+		<span id="my_b_b">[관리자] 정보조회</span>
 	</div>
 	<div class="product-name">
-		<span class="p-name" id="my_ll_b">아이디</span>
-		<div class="input-name">
-			<div class="input-text-name">
-				<input class="i-t-name" id="my_ll_b" placeholder="아이디 입력" error="0"
-					align="left" padding="15" name="m_id" value="">
+		<span class="p-name" id="my_bb_b">아이디</span>
+		<div class=" p-name" id="my_ll_b">${admin.userid}</div>
+	</div>
+	<div class="product-name">
+		<span class="p-name" id="my_bb_b">이름</span>
+		<div class="p-name" id="my_ll_b">${admin.username}</div>
+	</div>
+	<div class="product-name">
+		<span class="p-name" id="my_bb_b">연락처</span>
+		<div class="p-name" id="my_ll_b">${admin.phonenum}</div>
+	</div>
+	<div class="product-name">
+		<span class="p-name" id="my_bb_b">성별</span>
+		<!-- <div class="input-name"> -->
+			<div id="my_ll_b" class="p-name">
+				<c:if test="${admin.gender == 1}">남자</c:if>
+				<c:if test="${admin.gender == 2}">여자</c:if>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 	<div class="product-name">
-		<span class="p-name" id="my_ll_b">이름</span>
-		<div class="input-name">
-			<div class="input-text-name">
-				<input class="i-t-name" id="my_ll_b" placeholder="이름 입력" error="0"
-					align="left" padding="15" name="m_name" value="">
-			</div>
+		<span class="p-name" id="my_bb_b">프로필</span>
+		<div class="profile">
+			<img style="height: 20vw; margin: auto;"
+				src="./imgfile/${admin.profileUrl}">
 		</div>
 	</div>
-	<div class="product-name">
-		<span class="p-name" id="my_ll_b">비밀번호</span>
-		<div class="input-name">
-			<div class="input-text-name">
-				<input type="password" class="i-t-name" id="my_ll_b"
-					placeholder="비밀번호 입력" error="0" align="left" padding="15" name="pass"
-					value="">
-			</div>
-		</div>
-	</div>
-	<div class="product-name">
-		<span class="p-name" id="my_ll_b">프로필사진</span>
-		<div class="input-name">
-			<input type="file" class="i-t-name" id="my_ll_b"
-				placeholder="사진을 첨부하세요" name="file1" value="">
-		</div>
-	</div>
-	<div class="product-name">
-		<span class="p-name" id="my_ll_b">성별</span>
-		<div class="input-name">
-			<div class="input-text-name" style="margin-top: 1vw;">
-				<div style="display: inline-block;">
-					<input type="radio" name="chk_info" value="남"
-						style="display: inline-block; width: 1.5vw; height: 1.5vw;"
-						checked="checked"> <span id="my_ll_b"
-						style="padding-left: 1vw;">남</span>
-				</div>
-				<div style="display: inline-block; padding-left: 10vw;">
-					<input type="radio" name="chk_info" value="여" id="my_ll_b"
-						style="display: inline-block; width: 1.5vw; height: 1.5vw;">
-					<span id="my_ll_b" style="padding-left: 1vw;">여</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="product-button">
-		<button id="my_bb_b" class="c-button b" type="button"
-			onclick="location.href='../admin/product-list.store'">취소</button>
-		<button id="my_bb_w" class="p-button b" type="button"
-			onclick="location.href='../admin/product-list.store'">회원가입</button>
+	<div class="profile_update">
+		<input type="button" value="수정" id="my_l_b_1" class="update_btn"
+			onclick="location.href='manager_update.store?userid=${admin.userid}'">
+		&nbsp;&nbsp;
+		<input type="button" value="취소" id="my_l_b_2" class="cancle_btn"
+			onclick="location.href='manager_index.store'">
 	</div>
 </body>
 </html>

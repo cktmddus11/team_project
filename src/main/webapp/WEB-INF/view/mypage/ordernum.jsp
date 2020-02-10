@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    	<%@ include file="/WEB-INF/view/jspHeader.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,8 +84,7 @@
     font-size: 13px;
 }
 .e {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-size: 13px;
+	font-size: 20px;
 	display: inline-block;
 }
 @media (min-width: 769px) {
@@ -452,15 +452,27 @@
 <body>
 <div class="a">
 	<h2 class="b">주문정보</h2>
-	<p class="c">주문번호 K1801041657419689</p>
-	<ul class="d">
-		<li class="e">주문접수
+	<p class="c" id="my_bb_b">주문번호 ${orderlist.orderno }</p>
+	<ul class="d" id="my_ll_b">
+	<c:if test="${orderlist.orderstate<=5 }">
+		<li class="e" <c:if test="${orderlist.orderstate==0 }">id="my_bb_b"</c:if>>미결제
 		<img src="../images/ico_step.png" style="width : 20px; height : 20px"></li>
-		<li class="e">배송준비중
+		<li class="e" <c:if test="${orderlist.orderstate==1 }">id="my_bb_b"</c:if>>결제확인
 		<img src="../images/ico_step.png" style="width : 20px; height : 20px"></li>
-		<li class="e">배송중
+		<li class="e" <c:if test="${orderlist.orderstate==2 }">id="my_bb_b"</c:if>>배송준비중
 		<img src="../images/ico_step.png" style="width : 20px; height : 20px"></li>
-		<li class="e">배송완료</li>
+		<li class="e" <c:if test="${orderlist.orderstate==3 }">id="my_bb_b"</c:if>>배송중
+		<img src="../images/ico_step.png" style="width : 20px; height : 20px"></li>
+		<li class="e" <c:if test="${orderlist.orderstate==4 }">id="my_bb_b"</c:if>>배송완료
+		<img src="../images/ico_step.png" style="width : 20px; height : 20px"></li>
+		<li class="e" <c:if test="${orderlist.orderstate==5 }">id="my_bb_b"</c:if>>주문확정</li>
+	</c:if>
+	<c:if test="${orderlist.orderstate==6 }">
+		<li class="e" <c:if test="${orderlist.orderstate==6 }">id="my_bb_b"</c:if>>반품/교환</li>
+	</c:if>
+	<c:if test="${orderlist.orderstate==7 }">
+		<li class="e" <c:if test="${orderlist.orderstate==7 }">id="my_bb_b"</c:if>>취소</li>
+	</c:if>
 	</ul>
 </div>
 <div class="f" style="padding-bottom: 5px;">
@@ -473,22 +485,32 @@
 				<li class="i">
 					<div class="j">
 						<span class="k">
-							<img class="l" src="../images/product/FRPBRYSSD0003_AW_00_.jpg" alt="상품사진">
+							<img class="l" src="../images/product/${orderlist.itemfile1url }" alt="상품사진">
 						</span>
 						<div class="m">
 							<span class="n" id="my_ll_b">
-								페이스형안대_라이언
+								${orderlist.itemname }
 							</span>
 							<div class="o">
-								<span id="my_ll_b">14000</span>
-								<span id="my_ll_b">원</span>
+								<span id="my_ll_b"><fmt:formatNumber value="${orderlist.price }" pattern="#,###원"/></span>
 							</div>
 						</div>
 						<p class="p" id="my_ll_b">
-							1개
+							${orderlist.quantity }개
 						</p>
 						<p class="q" id="my_ll_b">
-							<strong>구매확정 </strong>
+							<strong id="my_bb_b_1">
+							<c:choose>
+								<c:when test="${orderlist.orderstate==0}">미결제</c:when>
+								<c:when test="${orderlist.orderstate==1}">결제확인</c:when>
+								<c:when test="${orderlist.orderstate==2}">배송준비중</c:when>
+								<c:when test="${orderlist.orderstate==3}">배송중</c:when>
+								<c:when test="${orderlist.orderstate==4}">배송완료</c:when>
+								<c:when test="${orderlist.orderstate==5}">주문확정</c:when>
+								<c:when test="${orderlist.orderstate==6}">반품/교환</c:when>
+								<c:when test="${orderlist.orderstate==7}">취소</c:when>
+							</c:choose>
+							</strong>
 							<span>상태입니다</span>
 						</p>
 					</div>
@@ -508,38 +530,49 @@
 				<div class="u">
 					<ul class="v">
 						<li class="w">
-							<strong class="x1 x2" id="my_ll_b">결제수단</strong>
-							<div class="y1 y2" id="my_ll_b">신용카드</div>
+							<strong class="x1 x2" id="my_bb_b_1">결제수단</strong>
+							<div class="y1 y2" id="my_ll_b">
+							<c:if test="${orderlist.selectpay==1 }">신용카드</c:if>
+							<c:if test="${orderlist.selectpay==2 }">무통장입금</c:if>
+							</div>
 						</li>
 						<li class="w">
-							<strong class="x1 x2" id="my_ll_b">결제일시</strong>
-							<div class="y3 y4 y5">2020-01-23 11-57-28</div>
+							<strong class="x1 x2" id="my_bb_b_1">결제일시</strong>
+							<div class="y3 y4 y5" id="my_ll_b">
+							<fmt:formatDate value="${orderlist.datepay }" pattern="yyyy-MM-dd HH:mm:ss"/>
+							</div>
 						</li>
 					</ul>
 					<ul class="z">
 						<li class="w">
-							<strong class="x1 x2" id="my_ll_b">상품가</strong>
-							<span id="my_ll_b">14000</span>
-							<span id="my_ll_b">원</span>
+							<strong class="x1 x2" id="my_bb_b_1">상품가</strong>
+							<span id="my_ll_b">
+							<c:set var="total" value="${orderlist.price *orderlist.quantity }" />
+							<fmt:formatNumber value="${total }" pattern="#,###원"/>
+							</span>
 						</li>
-						<li class="w">
+						<!-- <li class="w">
 							<strong class="x1 x2" id="my_ll_b">배송비</strong>
 							<span id="my_ll_b">무료</span>
-						</li>
+						</li> -->
 						<li class="w">
-							<strong class="x1 x2" id="my_ll_b">포인트</strong>
-							<span id="my_ll_b">0</span>
-							<span id="my_ll_b">원</span>
+							<strong class="x1 x2" id="my_bb_b_1">포인트</strong>
+							<span id="my_ll_b">
+							<fmt:formatNumber pattern="#,###P" value="${orderlist.usepoint}"/>
+							</span>
 						</li>	
-						<li class="w">
+						<!-- <li class="w">
 							<strong class="x1 x2" id="my_ll_b">기프트카드</strong>
 							<span id="my_ll_b">0</span>
 							<span id="my_ll_b">원</span>
-						</li>
-						<li class="w0 w" id="my_bb_b_1">
-							<strong class="aa1 aa2 aa3" id="my_bb_b_1">최종 결제금액</strong>
-							<span id="my_bb_b_2">14,000</span>
-							<span id="my_bb_b_2">원</span>
+						</li> -->
+						<li class="w0 w" id="my_bb_b_2">
+							<strong class="x1 x2" id="my_bb_b_2">최종 결제금액</strong>
+							&nbsp;&nbsp;
+							<span id="my_bb_b_2">
+							<c:set var="total" value="${orderlist.price*orderlist.quantity-orderlist.usepoint }" />
+							<fmt:formatNumber value="${total }" pattern="#,###원"/>
+							</span>
 						</li>														
 					</ul>
 				</div>
@@ -554,34 +587,34 @@
 		<div class="cc" style="height : 400px;">
 			<div>
 				<div class="dd-1">
-					<strong class="ee" id="my_ll_b">
+					<strong class="ee" id="my_bb_b_1">
 						주문고객
 					</strong>
 					<dl class="ff">
-						<dt class="gg">이름</dt>
-						<dd class="hh" style="display: inline-block;" id="my_ll_b">김정은</dd>
-						<dt class="gg">전화번호 (-없이 입력)</dt>
-						<dd style="display: inline-block;" id="my_ll_b">01045852267</dd>
+						<dt class="gg" >이름</dt>
+						<dd class="hh" style="display: inline-block;" id="my_ll_b">${orderlist.username }</dd>
+						<dt class="gg">전화번호</dt>
+						<dd style="display: inline-block;" id="my_ll_b">${orderlist.phonenum }</dd>
 						<dt class="gg">이메일</dt>
-						<dd id="my_ll_b">kje970712@naver.com</dd>
+						<dd id="my_ll_b">${orderlist.userid }</dd>
 					</dl>
-					<strong class="ii jj" id="my_ll_b">받는분</strong>
+					<strong class="ii jj"id="my_bb_b_1">받는분</strong>
 					<dl class="kk mm">
 						<dt class="gg">이름</dt>
-						<dd class="hh" style="display: inline-block;" id="my_ll_b">김정은</dd>
-						<dt class="gg">전화번호 (-없이 입력)</dt>
-						<dd style="display: inline-block;" id="my_ll_b">01045852267</dd>
+						<dd class="hh" style="display: inline-block;" id="my_ll_b">${orderlist.username }</dd>
+						<dt class="gg">전화번호</dt>
+						<dd style="display: inline-block;" id="my_ll_b">${orderlist.phonenum }</dd>
 						<dt class="gg">주소</dt>
-						<dd id="my_ll_b">[04706] 서울 성동구 홍익동 16-8</dd>
+						<dd id="my_ll_b">${orderlist.address }</dd>
 						<dt class="gg">나머지 주소</dt>
-						<dd id="my_ll_b">2층</dd>
+						<dd id="my_ll_b">${orderlist.restaddress }</dd>
 					</dl>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="nn">
+<!-- <div class="nn">
 	<div class="oo pp">
 		<strong class="qq" id="my_bb_b_3">포인트 및 쿠폰 관련 유의사항</strong>
 		<ul>
@@ -591,6 +624,6 @@
 			<li class="rr ss">- 포인트/쿠폰 악용 사례를 주기적으로 조사하고 있으며, 리셀러의 경우 회원 박탈 및 피해보상 청구 등 법적 조치가 진행될 수 있습니다.</li>
 		</ul>
 	</div>
-</div>
+</div> -->
 </body>
 </html>

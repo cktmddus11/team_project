@@ -158,7 +158,7 @@
 		//document.searchform.submit(); //페이지 눌러도 검색창 파라미터 유지
 	}
 </script>
-	<div class="avmum" style="height: 13.7vw;">
+	<div class="avmum" style="height: 13.7vw; background-color: #fdd33a;" >
 		<span class="category_header_span" id="boldfont_white_he" style="font-weight : bold;">고객센터</span>
 	</div>
 	<div class="title jCUDnA">
@@ -207,13 +207,13 @@
 				<div class="list__Info-sc fuoFjD">
 				<fmt:formatDate value="${noticelist.boarddate}" pattern="yyyy-MM-dd"/></div>
 				<div class="list__Title-sc glsXdQ"
-					onclick="replyshow(1, 'replynum${stat.index}', this)">${noticelist.qnasubject}</div>
+					onclick="replyshow(1, 'replynum${stat.index}', this)">${noticelist.q_subject}</div>
 			</div>
 			<!-- 버튼 누르면 cdlUDa이부분으로 적용되게  -->
 		</div>
 		<div class="reply-template__ReplyBlock iyrEsZ" id="replynum${stat.index}">
 			<div class="reply-template__ReplyContents kYyZhV">
-				<p>${noticelist.qcontent}</p>
+				<p>${noticelist.q_content}</p>
 			</div>
 		</div>
 	</c:forEach>
@@ -252,12 +252,12 @@
 				<c:if test="${qnalist.filter eq '4'}">상품</c:if>
 				<c:if test="${qnalist.filter eq '5'}">주문결제</c:if>
 				</div>
-				<div class="faq_title glsXdQ" onclick="replyshow(2, 'faqreplynum${stat.index}', this)">${qnalist.qnasubject}</div>
+				<div class="faq_title glsXdQ" onclick="replyshow(2, 'faqreplynum${stat.index}', this)">${qnalist.q_subject}</div>
 			</div>
 		</div>
 		<div class="faq_replyBlock iyrEsZ" id="faqreplynum${stat.index}">
 			<div class="reply-template__ReplyContents-kvnc78-1 kYyZhV">
-				<p>${qnalist.qcontent}</p>
+				<p>${qnalist.q_content}</p>
 			</div>
 		</div>
 		</c:forEach>

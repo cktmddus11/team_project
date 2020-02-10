@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/jspHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +51,8 @@
 </style>
 </head>
 <body>
+<form action="order_item_list.store" method="post">
+</form>
 	<div class="admin_order_list">
 		<div class="admin_order_header">
 			<div class="admin_order_title">
@@ -92,38 +95,50 @@
 					<li class="item_amount" id="my_bb_b" style="font-size: 20px;">수량</li>
 					<li class="out_price" id="my_bb_b" style="font-size: 20px;">재고상태</li>
 				</ul>
+				<c:forEach var="whousing" items="${wkeeplist}">
 				<ul class="order_list1">
-					<li class="out_num_1" style="text-align: center; width: 10vw;">
-						<span id="my_ll_b">1</span>
+					<li class="out_num_1" id="my_ll_b" style="text-align: center; width: 10vw;">
+						${whousing.whousingnum}
 					</li>
 					<li class="out_num_1" id="my_ll_b"
-						style="text-align: center; width: 10vw;"><span id="my_ll_b">1</span>
+						style="text-align: center; width: 10vw;">
+						${whousing.itemnum}
 					</li>
 					<li class="item_name_1" id="my_ll_b"
-						style="text-align: center; width: 20vw;">롱바디필로우_후드라이언(핑크)</li>
-					<li class="out_num_1" id="my_ll_b"
-						style="text-align: center; width: 10vw;"><span id="my_ll_b">1</span>
-					</li>
-					<li class="out_num_1" style="text-align: center; width: 15vw;">
-						<span id="my_ll_b">불량</span>
-					</li>
-				</ul>
-				<ul class="order_list1">
-					<li class="out_num_1" style="text-align: center; width: 10vw;">
-						<span id="my_ll_b">1</span>
+						style="text-align: center; width: 20vw;">
+						${whousing.itemname}
 					</li>
 					<li class="out_num_1" id="my_ll_b"
-						style="text-align: center; width: 10vw;"><span id="my_ll_b">1</span>
-					</li>
-					<li class="item_name_1" id="my_ll_b"
-						style="text-align: center; width: 20vw;">롱바디필로우_후드라이언(핑크)</li>
-					<li class="out_num_1" id="my_ll_b"
-						style="text-align: center; width: 10vw;"><span id="my_ll_b">1</span>
+						style="text-align: center; width: 10vw;">
+						${whousing.whousingquant}
 					</li>
 					<li class="out_num_1" style="text-align: center; width: 15vw;">
 						<span id="my_ll_b">정품</span>
 					</li>
 				</ul>
+				</c:forEach>
+				<c:forEach var="whousing" items="${wkeeplist}">
+				<ul class="order_list1">
+					<li class="out_num_1" id="my_ll_b" style="text-align: center; width: 10vw;">
+						${whousing.whousingnum}
+					</li>
+					<li class="out_num_1" id="my_ll_b"
+						style="text-align: center; width: 10vw;">
+						${whousing.itemnum}
+					</li>
+					<li class="item_name_1" id="my_ll_b"
+						style="text-align: center; width: 20vw;">
+						${whousing.itemname}
+					</li>
+					<li class="out_num_1" id="my_ll_b"
+						style="text-align: center; width: 10vw;">
+						${whousing.whousingquant}
+					</li>
+					<li class="out_num_1" style="text-align: center; width: 15vw;">
+						<span id="my_ll_b">불량</span>
+					</li>
+				</ul>
+				</c:forEach>
 				<div class="list_footer">
 					<div class="page_block">
 						<div class="arrow_box">

@@ -96,16 +96,25 @@ textarea {
 		</div>
 	</div>
 	<div class="product-name" id="select2">
-		<span class="p-name">항목선택</span>
+		<span class="p-name">
+				<c:choose>
+                     <c:when test="${help.filter==0 }">전체</c:when>
+                     <c:when test="${help.filter==1 }">배송</c:when>
+                     <c:when test="${help.filter==2 }">교환/반품/환불</c:when>
+                     <c:when test="${help.filter==3 }">기타</c:when>
+                     <c:when test="${help.filter==4 }">상품</c:when>
+                     <c:when test="${help.filter==5 }">주문결제</c:when>
+                  </c:choose>
+		</span>
 		<div class="input-name">
 				<select class="select-box" style='color: #555;padding-left: 10px;' name="selectvalue"
-					onchange="selectvalue()">
-					<option value="0">전체</option>
-					<option value="1">배송</option>
-					<option value="2">교환/반품/환불</option>
-					<option value="3">기타</option>
-					<option value="4">상품</option>
-					<option value="5">주문결제</option>
+					onchange="selectvalue()" >
+					<option value="0"${help.filter==0?"selected":""}>전체</option>
+					<option value="1" ${help.filter==1?"selected":""}>배송</option>
+					<option value="2" ${help.filter==2?"selected":""}>교환/반품/환불</option>
+					<option value="3" ${help.filter==3?"selected":""}>기타</option>
+					<option value="4" ${help.filter==4?"selected":""}>상품</option>
+					<option value="5"${help.filter==5?"selected":""}>주문결제</option>
 				</select>
 		</div>
 	</div>
@@ -122,8 +131,8 @@ textarea {
 		<span class="p-name">제목</span>
 		<div class="input-name">
 			<div class="input-text-name">
-				<form:input path="qnasubject" class="i-t-name" />
-				<font color="red"><form:errors path="qnasubject" /></font>	
+				<form:input path="q_subject" class="i-t-name" />
+				<font color="red"><form:errors path="q_subject" /></font>	
 			</div>
 		</div>
 	</div>
@@ -163,14 +172,14 @@ textarea {
 		<span class="p-name">내용</span>
 		<div class="input-name">
 			<div class="input-text-name">
-				<form:textarea path="qcontent" rows="15" cols="80"/>		
+				<form:textarea path="q_content" rows="15" cols="80"/>		
 				
 				<script>
-					CKEDITOR.replace("qcontent", {
+					CKEDITOR.replace("q_content", {
 						filebrowserImageUploadUrl : "imgupload.store"
 					});
 				</script>
-				<font color="red"><form:errors path="qcontent" /></font>	
+				<font color="red"><form:errors path="q_content" /></font>	
 			</div>
 		</div>
 	</div>

@@ -5,7 +5,8 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS orderitem;
 DROP TABLE IF EXISTS cart;
-DROP TABLE IF EXISTS pick_up;
+DROP TABLE IF EXISTS pick;
+DROP TABLE IF EXISTS up;
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS whousing;
 DROP TABLE IF EXISTS item;
@@ -33,8 +34,8 @@ CREATE TABLE address
 CREATE TABLE cart
 (
 	itemnum int NOT NULL,
-	userid varchar(40) NOT NULL,
 	quantity int NOT NULL,
+	userid varchar(40) NOT NULL,
 	price int NOT NULL,
 	PRIMARY KEY (itemnum, userid)
 );
@@ -46,9 +47,9 @@ CREATE TABLE item
 	boardnum int NOT NULL,
 	itemname varchar(20) NOT NULL,
 	price int NOT NULL,
-	itemfile1 varchar(20) NOT NULL,
-	itemfile2 varchar(20) NOT NULL,
-	itemfile3 varchar(20) DEFAULT '' NOT NULL,
+	itemfile1url varchar(100) NOT NULL,
+	itemfile2url varchar(100) NOT NULL,
+	itemfile3url varchar(100) DEFAULT '' NOT NULL,
 	itemcontent mediumtext NOT NULL,
 	itemcontent2 mediumtext NOT NULL,
 	category int NOT NULL,
@@ -65,7 +66,7 @@ CREATE TABLE member
 	userid varchar(40) NOT NULL,
 	username varchar(20) NOT NULL,
 	phonenum varchar(15),
-	password varchar(150) NOT NULL,
+	password varchar(150),
 	member_code int,
 	access int,
 	PRIMARY KEY (userid)
@@ -94,19 +95,17 @@ CREATE TABLE orderlist
 	phonenum varchar(15) NOT NULL,
 	username varchar(20) NOT NULL,
 	orderdate datetime NOT NULL,
-	orderstate varchar(10) NOT NULL,
+	orderstate int NOT NULL,
 	usepoint int,
 	selectpay varchar(20) NOT NULL,
 	PRIMARY KEY (orderno)
 );
 
 
-CREATE TABLE pick_up
+CREATE TABLE pick
 (
 	itemnum int NOT NULL,
 	userid varchar(40) NOT NULL,
-	upcnt int,
-	putype int,
 	PRIMARY KEY (itemnum, userid)
 );
 
@@ -126,11 +125,13 @@ CREATE TABLE qnaboard
 	qnano int NOT NULL AUTO_INCREMENT,
 	userid varchar(40) NOT NULL,
 	filter int,
-	qnasubject varbinary(50) NOT NULL,
+	qnasubject varchar(50) NOT NULL,
 	qcontent varchar(100) NOT NULL,
-	aconent varchar(100),
+	acontent varchar(100),
 	qnafile1 varchar(20),
 	checkin int,
+	boardcode int NOT NULL,
+	boarddate datetime NOT NULL,
 	PRIMARY KEY (qnano, userid)
 );
 
@@ -143,7 +144,7 @@ CREATE TABLE review
 	reviewcontent mediumtext NOT NULL,
 	itemavg double NOT NULL,
 	reviewdate datetime NOT NULL,
-	PRIMARY KEY (userid, itemnum)
+	PRIMARY KEY (reviewno)
 );
 
 
@@ -158,6 +159,15 @@ CREATE TABLE storeinfo
 	mapurl varchar(1000),
 	mapiframe varchar(1000),
 	PRIMARY KEY (storeno )
+);
+
+
+CREATE TABLE up
+(
+	upno int NOT NULL AUTO_INCREMENT,
+	reviewno int NOT NULL,
+	upcnt int,
+	PRIMARY KEY (upno)
 );
 
 
@@ -192,7 +202,7 @@ ALTER TABLE cart
 ;
 
 
-ALTER TABLE pick_up
+ALTER TABLE pick
 	ADD FOREIGN KEY (itemnum)
 	REFERENCES item (itemnum)
 	ON UPDATE RESTRICT
@@ -240,7 +250,7 @@ ALTER TABLE orderlist
 ;
 
 
-ALTER TABLE pick_up
+ALTER TABLE pick
 	ADD FOREIGN KEY (userid)
 	REFERENCES member (userid)
 	ON UPDATE RESTRICT
@@ -267,6 +277,14 @@ ALTER TABLE qnaboard
 ALTER TABLE orderitem
 	ADD FOREIGN KEY (orderno)
 	REFERENCES orderlist (orderno)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE up
+	ADD FOREIGN KEY (reviewno)
+	REFERENCES review (reviewno)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;

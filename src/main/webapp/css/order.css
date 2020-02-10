@@ -816,7 +816,7 @@ input[type=text] #payer{
 }
 
 .recipient_info_chk {
-	max-height: 300px;
+	max-height: 100%;
 	transform-origin: center top;
 	overflow: hidden;
 	transition: max-height 0.3s ease-in-out 0s;
@@ -859,3 +859,161 @@ input[type=text] #payer{
     background: none;
     border-radius: 4px !important;
 } */
+
+
+.gnUPDE {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    border-top: 1px solid rgb(245, 246, 246);
+}
+
+.eXCEHT {
+    height: 38px;
+    padding-top: 20px;
+}
+.hEmcBO {
+    height: 35px;
+    padding-top: 11px;
+    font-size: 16px;
+}
+
+.bTGpxc {
+    height: 114px;
+    margin-bottom: 15px;
+    display: flex;
+}
+.eQJwuJ {
+    color: rgb(154, 154, 158);
+    background: rgb(247, 247, 247);
+}
+
+
+.gpTPcQ {
+    position: relative;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.gnuFcY {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.fjMMAF {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    background: rgb(212, 215, 225);
+}
+.cOvGPB {
+    opacity: 1e-10;
+    position: absolute;
+    top: 7px;
+    left: 0px;
+    right: 0px;
+    display: none;
+    z-index: 1000;
+}
+
+.fGXiOr {
+    display: block;
+    width: calc(50% - 3px);
+    height: 116px;
+    padding-top: 35px;
+    text-align: center;
+    color: rgb(212, 215, 225);
+    font-weight: bold;
+    font-size: 13px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(227, 229, 232);
+    border-image: initial;
+}
+.hGROIq::before {
+    height: 28px;
+    background: url(https://t1.kakaocdn.net/friends/new_store/payment_kakaopay_selected.png) center center / auto 21px no-repeat;
+}
+.fGXiOr::before {
+    content: "";
+    display: block;
+    margin-bottom: 18px;
+}
+.bTGpxc input {
+    display: none;
+}
+.dvFqbk {
+    z-index: 1;
+    order: 1;
+    border-right: 0px;
+}
+.dvFqbk::before {
+    height: 28px;
+    background: url(https://t1.kakaocdn.net/friends/new_store/payment_kakaopay_default.png) center center / auto 21px no-repeat;
+}
+.cDurlB {
+    color: rgb(0, 0, 0);
+    z-index: 1;
+    order: 2;
+    border-color: rgb(0, 0, 0);
+}
+.cDurlB::before {
+    height: 28px;
+    background: url(https://t1.kakaocdn.net/friends/new_store/payment_creditcard_selected.png) center center / auto 28px no-repeat;
+}
+.gmaalp::before {
+    height: 28px;
+    background: url(https://t1.kakaocdn.net/friends/new_store/payment_creditcard_default.png) center center / auto 28px no-repeat;
+}
+.gmaalp {
+    z-index: 1;
+    order: 2;
+    border-left: 0px;
+}
+.hGROIq {
+    color: rgb(0, 0, 0);
+    z-index: 1;
+    order: 1;
+    border-color: rgb(0, 0, 0);
+}
+.jxRlNC {
+    background: rgb(255, 234, 1);
+}
+.zEfhD {
+    position: relative;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 18px;
+}
+.zEfhD::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+.jxRlNC::after {
+    left: calc(25vw - 12px);
+    border-bottom: 10px solid rgb(255, 234, 1);
+}
+.eQJwuJ::after {
+    right: calc(25vw - 12px);
+    border-bottom: 10px solid rgb(247, 247, 247);
+}
+
+@media (min-width: 769px){
+	.eQJwuJ::after {
+    right: 160px;
+}
+	.jxRlNC::after {
+    left: 160px;
+}
+.gnuFcY {
+    margin-bottom: 140px;
+}

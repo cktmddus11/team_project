@@ -3446,3 +3446,17 @@ input[type="checkbox"] + label{
 		    margin-right: 16px;
 	}
 }
+.kdmaDe {
+    display: inline-block;
+    color: rgb(154, 154, 158);
+    font-size: 3.73333vw;
+    margin-left: 2.13333vw;
+    line-height: normal;
+}
+@media (min-width: 769px){
+	.kdmaDe {
+    font-size: 13px;
+    height: 13px;
+    margin-left: 8px;
+	}
+}

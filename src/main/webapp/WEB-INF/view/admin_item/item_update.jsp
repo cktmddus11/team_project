@@ -95,15 +95,15 @@ $(document).ready(function() {
 
 
 	function file_delete() {
-		document.f.itemfile1url.value = ""
+		document.f.itemfile1.value = ""
 		file_desc.style.display = "none";
 	}
 	function file_delete1() {
-		document.f.itemfile2url.value = ""
+		document.f.itemfile2.value = ""
 		file_desc.style.display = "none";
 	}
 	function file_delete2() {
-		document.f.itemfile3url.value = ""
+		document.f.itemfile3.value = ""
 		file_desc.style.display = "none";
 	}
 </script>
@@ -220,11 +220,38 @@ textarea {
 		<span class="p-name" id="my_ll_b">상품유형</span>
 		<div class="input-name">
 			<form:select class="select-box" style="padding-left: 0.8vw;" path="category" id="my_ll_b">
-						<option value="" id="my_ll_b">상위 카테고리 선택</option>
+						<option value="" id="my_ll_b">
+						  <c:choose>
+                     <c:when test="${item.category==1 }">토이</c:when>
+                     <c:when test="${item.category==2 }">의류</c:when>
+                     <c:when test="${item.category==3 }">생활테크</c:when>
+                  </c:choose>
+						</option>
 					</form:select>
 					<div class="input-name">
 					<form:select class="select-box" style="padding-left: 0.8vw;" path="subcategory" id="my_ll_b">
-						<option value="" id="my_ll_b">하위 카테고리 선택</option>
+						<option value="" id="my_ll_b">
+						                  <c:choose>
+                     <c:when test="${item.category==1 }">
+                        <c:choose>
+                           <c:when  test="${item.subcategory==1 }">미니인형</c:when>
+                           <c:when  test="${item.subcategory==2 }">중형인형</c:when>
+                        </c:choose>
+                     </c:when>
+                     <c:when test="${item.category==2 }">
+                        <c:choose>
+                           <c:when  test="${item.subcategory==1 }">여자</c:when>
+                           <c:when  test="${item.subcategory==2 }">남자</c:when>
+                        </c:choose>
+                     </c:when>
+                     <c:when test="${item.category==3 }">
+                        <c:choose>
+                           <c:when test="${item.subcategory==1 }">에어팟 케이스</c:when>
+                           <c:when test="${item.subcategory==2 }">에어팟 악세서리</c:when>
+                        </c:choose>
+                     </c:when>
+                  </c:choose>
+						</option>
 					</form:select>
 				</div>
 		</div>
@@ -235,12 +262,14 @@ textarea {
 					<div class="input-text-name" style="    margin-top: 14px;">
 						<div style="display: inline-block;     margin-right: 10px;">
 					<input type="radio" name="character_c" value="1"
+					<c:if test="${item.character_c==1 }" >checked="checked"</c:if>
 						style="display: inline-block; width: 1.5vw; height: 1.5vw;"
 						> <span id="my_ll_b"
 						style="padding-left: 1vw;">라이언</span>
 				</div>
 				<div style="display: inline-block;     margin-right: 10px;">
 					<input type="radio" name="character_c" value="2"
+					<c:if test="${item.character_c==2 }" >checked="checked"</c:if>
 						style="display: inline-block; width: 1.5vw; height: 1.5vw;"
 						> <span id="my_ll_b"
 						style="padding-left: 1vw;">어피치</span>
@@ -258,15 +287,15 @@ textarea {
 				</div>
 			</div>
 		</div>
-		<%-- <div class="product-name">
+		<div class="product-name">
 				<span class="p-name" id="my_ll_b">비밀번호</span>
 				<div class="input-name">
 					<div class="input-text-name">
-						<form:input type="password" class="i-t-name"  id="my_ll_b"
-						placeholder="비밀번호" error="0" align="left" padding="15" path="pass" value="" />
+						<input type="password" class="i-t-name"  id="my_ll_b"
+						placeholder="비밀번호" error="0" align="left" padding="15" name="pass" />
 					</div>
 				</div>
-			</div> --%>
+		</div> 
 		<div class="product-name">
 			<span class="p-name" id="my_ll_b">상품가격</span>
 			<div class="input-name">
@@ -287,7 +316,7 @@ textarea {
 						<button class="btn_cancel" id="my_ll_b" style="height: 40px;" onclick="javascript:file_delete()">첨부파일삭제</button>
 					</div>
 				</c:if>
-				<form:hidden path="itemfile1"/>
+				<form:hidden path="itemfile1url"/>
                <input type="file" class="storename" id="my_ll_b"
                   placeholder="사진을 첨부하세요" name="itemfile1" value="${item.itemfile1}">
 			</div>

@@ -1,15 +1,54 @@
 package controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import exception.WhousingException;
+import logic.ShopService;
+import logic.Whousing;
 
 @Controller
 @RequestMapping("admin_out")
 public class Admin_OutController {
-	@GetMapping("*") // getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½?
-	public String form(Model model) {
-		return null; // null : urlï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½?
-	}
+   @Autowired
+   private ShopService service;
+   
+   @RequestMapping("order_item_out")
+   public ModelAndView order_item_in() {
+      ModelAndView mav = new ModelAndView();
+      List<Whousing> whousingoutwhousing = service.whousingoutwhousing();
+      mav.addObject("whousingoutwhousing", whousingoutwhousing);
+      return mav;
+   }
+   
+   @RequestMapping("order_item_out_write")
+   public ModelAndView order_item_in_write() {
+      ModelAndView mav = new ModelAndView();
+      List<Whousing> outwhousing = service.outwhousing();
+      mav.addObject("outwhousing", outwhousing);
+      return mav;
+   }
+   
+   @PostMapping("order_item_out_write")
+   public ModelAndView order_item_in_write(Whousing whousing, HttpServletRequest request) {
+      ModelAndView mav = new ModelAndView();
+//      Whousing dbwhosing = service.getdbWhousing(whousing.getItemnum(), whousing.getWhousing_code());
+//      System.out.println(whousing.getItemnum());
+//      whousing.setWhousingquant(dbwhosing.getWhousingquant()-whousing.getWhousingquant());
+      try {
+         service.whousing_outWrite(whousing,request); //°Ô½Ã¹°µî·Ï
+         mav.setViewName("redirect:order_item_out.store");
+      } catch (Exception e) {
+         e.printStackTrace();
+         throw new WhousingException("ÀÔ°í µî·Ï¿¡ ½ÇÆÐÇß½À´Ï´Ù.","order_item_out_write.store");
+      }
+      return mav;
+   }
 }

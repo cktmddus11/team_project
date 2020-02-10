@@ -9,9 +9,9 @@ public class Help {
 	private int qnano;
 	private User user; // userid만 db에 넣
 	@NotEmpty(message="제목을 입력해주세요")
-	private String qnasubject;
+	private String q_subject;
 	@NotEmpty(message="내용을 입력하세요")
-	private String qcontent; // notice
+	private String q_content; // notice
 	/*@NotEmpty(message="내용을 입력하세요")
 	private String fcontent; // faq 
 */	
@@ -70,19 +70,23 @@ public class Help {
 	public String getUserid() {
 		return userid;
 	}
-	public String getQnasubject() {
-		return qnasubject;
-	}
-	public void setQnasubject(String qnasubject) {
-		this.qnasubject = qnasubject;
-	}
-	public String getQcontent() {
-		return qcontent;
-	}
-	public void setQcontent(String qcontent) {
-		this.qcontent = qcontent;
-	}
+	
 
+	public String getQ_subject() {
+		return q_subject;
+	}
+	public void setQ_subject(String q_subject) {
+		this.q_subject = q_subject;
+	}
+	public String getQ_content() {
+		return q_content;
+	}
+	public void setQ_content(String q_content) {
+		this.q_content = q_content;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	public int getFilter() {
 		return filter;
 	}
@@ -110,10 +114,9 @@ public class Help {
 	}
 	@Override
 	public String toString() {
-		return "Help [qnano=" + qnano + ", userid=" + userid+", user=" + user + ", qnasubject=" + qnasubject + ", qcontent=" + qcontent
-				+ ", qnafile1=" + qnafile1 + ", qnafileurl=" + qnafileurl + ", boardcode="
-				+ boardcode + ", boarddate=" + boarddate + ", filter=" + filter 
-				+ ", checkin=" + checkin + "]";
+		return "Help [qnano=" + qnano + ", user=" + user + ", q_subject=" + q_subject + ", q_content=" + q_content
+				+ ", userid=" + userid + ", qnafile1=" + qnafile1 + ", qnafileurl=" + qnafileurl + ", boardcode="
+				+ boardcode + ", boarddate=" + boarddate + ", filter=" + filter + ", checkin=" + checkin + "]";
 	}
 	
 	

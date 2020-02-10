@@ -3,6 +3,7 @@ package dao.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -50,6 +51,9 @@ public interface Admin_ItemMapper {
          + "itemcontent=#{itemcontent}, itemcontent2=#{itemcontent2}, category=#{category}, subcategory=#{subcategory}, character_c=#{character_c} "
          + "where itemnum=#{itemnum}")
    void update(Item admin_item);
+
+   @Delete("delete from item where itemnum=#{itemnum}")
+   void delete(Map<String, Object> param);
 
 
 }

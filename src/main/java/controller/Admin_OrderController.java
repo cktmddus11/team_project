@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import exception.AdminOrderException;
 import logic.AdminOrderList;
+import logic.Orderlist;
 import logic.ShopService;
 
 @Controller
@@ -42,8 +43,11 @@ public class Admin_OrderController {
             orderstate = 4;
          } else if (selectvalue.toString().equals("주문확정")) {
             orderstate = 5;
-         }
-         System.out.println(selectvalue);
+         } else if (selectvalue.toString().equals("반품/교환")) {
+             orderstate = 6;
+          } else if (selectvalue.toString().equals("취소")) {
+              orderstate = 7;
+          }
          int admin_ordercount = service.admin_ordercount(orderstate); //전체 등록된 게시물 건 수
          List<AdminOrderList> admin_orderlist = service.admin_orderlist(pageNum,orderstate,limit);
          // 최대 페이지
@@ -79,8 +83,34 @@ public class Admin_OrderController {
       return mav;
    }
    @GetMapping("orderlistpage")
-   public ModelAndView orderlistpage(HttpServletRequest request) {
+   public ModelAndView orderlistpage(String orderno, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
+      int orderno_count = service.orderno_count(orderno);
+      if(orderno_count==1) {
+         Orderlist orderlist_one = service.orderlist_one(orderno);
+         mav.addObject("orderlist", orderlist_one);
+         mav.addObject("orderno", orderlist_one.getOrderno());
+         mav.addObject("orderstate", orderlist_one.getOrderstate());
+         mav.addObject("selectpay", orderlist_one.getSelectpay());
+        mav.addObject("datepay", orderlist_one.getDatepay());
+        mav.addObject("usepoint", orderlist_one.getUsepoint());
+      } else {
+         List<Orderlist> orderlist = service.orderlist(orderno);
+         for (Orderlist i : orderlist) {
+            mav.addObject("orderno", i.getOrderno());
+            mav.addObject("orderstate", i.getOrderstate());
+            mav.addObject("selectpay", i.getSelectpay());
+            mav.addObject("datepay", i.getDatepay());
+            mav.addObject("usepoint", i.getUsepoint());
+            mav.addObject("username", i.getUsername());
+            mav.addObject("phonenum", i.getPhonenum());
+            mav.addObject("userid", i.getUserid());
+            mav.addObject("address", i.getAddress());
+            mav.addObject("restaddress", i.getRestaddress());
+      }
+         mav.addObject("orderlist", orderlist);
+      }
+      mav.addObject("orderno_count", orderno_count);
       return mav;
    }
 }

@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,10 +65,14 @@ public class Admin_ChangeController {
          return mav;
       }
    @RequestMapping("chg_state_yn")
-   public ModelAndView chg_state_yn(Integer chg_no,Integer yn,HttpServletRequest request) {
+   public ModelAndView chg_state_yn(Integer chg_no,Integer yn,String chg_orderno,HttpServletRequest request,HttpSession session) {
       ModelAndView mav = new ModelAndView();
+      Chg chg = service.Chg(chg_no,request);
       try {
          service.chgstateupdate(chg_no,yn);
+         if(yn==2) {
+            service.orderstateupdate(chg.getChg_orderno(),chg.getUserid());
+         }
          mav.setViewName("redirect:change_return_order_list.store");
       }catch(Exception e) {
          e.printStackTrace();

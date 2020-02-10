@@ -37,25 +37,24 @@ public class Admin_StoreController {
       mav.addObject("storeinfo", storeinfo);
       return mav;
    }
-   
+
    @PostMapping("store_write")
-   public ModelAndView store_write
-      (@Valid StoreInfo storeInfo, BindingResult bresult,HttpServletRequest request) throws Exception {
+   public ModelAndView store_write ( @ModelAttribute("storeinfo") @Valid StoreInfo storeinfo, BindingResult bresult, HttpServletRequest request){
       ModelAndView mav = new ModelAndView();
       if(bresult.hasErrors()) {
          mav.getModel().putAll(bresult.getModel());
          System.out.println(bresult);
          return mav;
       }
-      try {
-         service.infoWrite(storeInfo,request);
+    try { 
+         service.infoWrite(storeinfo,request);
          mav.setViewName("redirect:store_list.store");
-      }catch(Exception e) {
+     }catch(Exception e) {
          e.printStackTrace();
          throw new StoreInfoException
             ("매장 등록에 실패했습니다.","store_write.store");
       }
-      return mav;
+    return mav;
    }
    
    
@@ -86,7 +85,7 @@ public class Admin_StoreController {
    
    @PostMapping("store_update")
    public ModelAndView store_update
-   (@Valid StoreInfo storeInfo, BindingResult bresult, HttpServletRequest request) {
+   (@ModelAttribute("storeinfo") @Valid StoreInfo storeInfo, BindingResult bresult, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
       StoreInfo dbstoreinfo = service.getStoreInfo(storeInfo.getStoreno());
       if(bresult.hasErrors()) {

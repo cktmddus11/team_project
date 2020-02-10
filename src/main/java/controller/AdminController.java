@@ -65,18 +65,16 @@ public class AdminController {
 			String id = CipherUtil.makehash(user.getUserid()).substring(0,16); //key
 			String passwd = CipherUtil.encrypt(user.getPassword(), id);
 			user.setPassword(passwd);
-			service.memberInsert2(user,request); //insert 실행
-			mav.addObject("msg","관리자의 승인이 필요합니다.");
+			service.adminInsert(user,request); //insert 실행
+			mav.addObject("msg","관리자의 승인이 필요한 거래입니다.");
 			mav.addObject("url","manager_index.store");
 			mav.setViewName("alert");
-			/*mav.setViewName("redirect:manager_index.store");*/
 		   }catch(DataIntegrityViolationException e) {
 				e.printStackTrace();
 				bresult.reject("error.duplicate.user"); //중복된 아이디입니다.
 			}catch (Exception e) {
 				e.printStackTrace();
 			} 
-		
 		return mav;
 	}
 	
@@ -91,30 +89,28 @@ public class AdminController {
 		try {
 			User dbUser = service.getUser(user.getUserid());
 			if(dbUser == null) { //아이디가 없을때
-				throw new LoginException("해당 아이디가 없습니다.","");
+				throw new LoginException("해당 아이디가 없습니다. 로그인 후 이용하세요","manager_login.store");
 			}
-			if(!dbUser.getUserid().equals("admin")) { //아이디 체크
-				mav.addObject("msg","관리자가 아닙니다.");
+			if(	dbUser.getAccess() == 0) {
+				mav.addObject("msg","관리자가 아닙니다. 회원가입 후 이용해주세요.");
 				mav.addObject("url","manager_login.store");
 				mav.setViewName("alert");
-			}else{ //id가 admin이야!
+			}else{ 
 				String id = CipherUtil.makehash(dbUser.getUserid());
 				String passwd= CipherUtil.decrypt(dbUser.getPassword(),id.substring(0,16)); //로그인 시도 암호화 된 비밀번호를 복호화시킨다.
 				System.out.println(passwd);
-				if(!user.getPassword().equals(passwd)) { //근데 비밀번호를 틀림
+				if(!user.getPassword().equals(passwd)) { //비밀번호를 틀렸을 때
 					bresult.reject("error.login.password");
 					return mav; 
 				}else { //비밀번호 맞음
-					session.setAttribute("loginUser", dbUser); //session값에 dbUser의 정보를 loginUser라는 이름으로 저장한다.
-					mav.setViewName("redirect:manager_index.store"); //메인페이지로 이동하면서 리스타트시킨다.
+					session.setAttribute("loginUser", dbUser); //session값에 dbUser의 정보를 loginUser로 저장한다.
+					mav.setViewName("redirect:manager_index.store");
 				}
 			}
-		}catch(LoginException e) {
+		}catch (LoginException e) {
 			e.printStackTrace();
-			mav.addObject("msg","해당 아이디가 없습니다. 회원가입 후 이용하세요");
-			mav.addObject("url","manager_Entry.store");
-			mav.setViewName("alert");
-			/* bresult.reject("error.login.id"); */
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		return mav;
 	}
@@ -124,15 +120,86 @@ public class AdminController {
 		session.invalidate();
 		return "redirect:manager_index.store";
 	}
-	/*
-	 * @PostMapping("manager") public String manager(User user) { ModelAndView mav =
-	 * new ModelAndView(); return mav; }
-	 */
+	
 	@RequestMapping("manager") //상위관리자의 관리자 승인 페이지
-	public ModelAndView manager(HttpSession session) {
+	public ModelAndView manager(Integer access, String userid, HttpSession session) {
+		// HttpServletRequest request
 		ModelAndView mav = new ModelAndView();
-		List<User> entrylist = service.userList();
-		mav.addObject("entrylist", entrylist);
+		List<User> entrylist = service.userList(1); 
+		mav.addObject("entrylist", entrylist);	
+			try {
+				if(access == 1) { //파라미터값이 1이면 => 승인
+					service.membercodeUpdate(access, userid);
+					mav.addObject("msg","승인 처리가 완료되었습니다.");
+					mav.addObject("url","manager.store");
+					mav.setViewName("alert");
+				}else if(access == 2){ //파라미터값이 2이면 => 거부
+					service.userDelete(userid);
+					mav.addObject("msg","거부 처리가 완료되었습니다.");
+					mav.addObject("url","manager.store");
+					mav.setViewName("alert");
+				}	
+			}catch(NumberFormatException e) {
+				e.printStackTrace();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	
+		return mav;	
+	}
+	@RequestMapping("manager_list") //상위관리자의 관리자 승인 페이지
+	public ModelAndView manager_list(Integer access, String userid, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		List<User> adminlist = service.userList(2);
+		mav.addObject("adminlist", adminlist);
+		return mav;
+	}
+	@RequestMapping("manager_info")
+	public ModelAndView manager_info(String userid, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User admin = service.getUser(userid);
+		mav.addObject("admin",admin);
+		return mav;
+	}
+	
+	@GetMapping("manager_update")
+	public ModelAndView manager_update(String userid, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User user = service.getUser(userid);
+		try {
+			String id = CipherUtil.makehash(user.getUserid());
+		    String password = CipherUtil.decrypt(user.getPassword(), id.substring(0,16));
+		    user.setPassword(password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		mav.addObject("user",user);
+		return mav;
+	}
+	
+	// 비밀번호 검증 : 입력된 비밀번호와 db에 저장된 비밀번호를 비교
+	// 일치 : update
+	// error.login.password=비밀번호를 확인하세요.
+	@PostMapping("manager_update")
+	public ModelAndView manager_update(@Valid User user, 
+			BindingResult bresult, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		if(bresult.hasErrors()) {
+			bresult.reject("error.input.user");
+			return mav;
+		}
+		User loginUser = (User)session.getAttribute("loginUser");
+		String hashpass;
+		try {
+			hashpass = CipherUtil.makehash(user.getPassword());
+			user.setPassword(hashpass);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(!user.getPassword().equals(loginUser.getPassword())) {
+			bresult.reject("error.login.password");
+			return mav;
+		}
+		service.adminUpdate(user); 
 		return mav;
 	}
 }

@@ -262,9 +262,11 @@ li {
 					<!-- 관리자 가입 승인 -->
 					<div class="confirm1" style="text-align: center;">
 						<div class="confirm2">
-							<input type="button" class="yes_or_no_btn" id="my_l_b1"
-								value="승인"> <input type="button" class="yes_or_no_btn"
-								id="my_l_b1" value="거부">
+							<input type="button" class="yes_or_no_btn" id="my_l_b1" value="승인"
+							onclick="location.href='./manager.store?userid=${user.userid}&access=1'">
+							<!-- &yn : 파라미터 값 --> 
+							<input type="button" class="yes_or_no_btn" id="my_l_b1" value="거부"
+							onclick="location.href='./manager.store?userid=${user.userid}&access=2'">
 						</div>
 					</div>
 				</div>
