@@ -26,7 +26,7 @@ public class OrderForm {
 
 	private Date orderdate;
 	private int orderstate;
-	private int usepoint;
+	private String usepoint;
 	private int selectpay;
 	private String status;
 
@@ -35,6 +35,8 @@ public class OrderForm {
 
 	private int price;
 	private int quantity;
+	
+	private String totprice;
 	
 	public String getOrderno() {
 		return orderno;
@@ -90,10 +92,10 @@ public class OrderForm {
 	public void setOrderstate(int orderstate) {
 		this.orderstate = orderstate;
 	}
-	public int getUsepoint() {
+	public String getUsepoint() {
 		return usepoint;
 	}
-	public void setUsepoint(int usepoint) {
+	public void setUsepoint(String usepoint) {
 		this.usepoint = usepoint;
 	}
 	public int getSelectpay() {
@@ -149,6 +151,12 @@ public class OrderForm {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	public String getTotprice() {
+		return totprice;
+	}
+	public void setTotprice(String totprice) {
+		this.totprice = totprice;
 	}
 
 

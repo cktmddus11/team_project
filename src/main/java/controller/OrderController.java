@@ -83,8 +83,14 @@ public class OrderController {
 		}
 		try {	
 			User user = (User) session.getAttribute("loginUser");
-			System.out.println(user);
 
+			String totprice = "";
+			String[] arr2 = orderform.getTotprice().split(",");
+			for (int i = 0; i < arr2.length; i++) {
+				totprice+=arr2[i];
+			}
+			orderform.setTotprice(totprice);
+			
 			SimpleDateFormat format = new SimpleDateFormat("yyMMdd");
 			Date currentTime = new Date();
 			System.out.println(currentTime);
@@ -93,10 +99,21 @@ public class OrderController {
 			rand = (int) (rand * 10000000) + 1;
 			orderform.setOrderno(num + "-" + (int)rand);
 
+			if(user!=null) {
+				String usepoint = "";
+				String[] arr1 = orderform.getUsepoint().split(",");
+				for (int i = 0; i < arr1.length; i++) {
+					usepoint+=arr1[i];
+				}
+				orderform.setUsepoint(usepoint);
+			}else {
+				orderform.setUsepoint("0");
+			}
 			if(orderform.getSelectpay()==1) {
 				orderform.setOrderstate(1);
 				orderform.setDatepay(currentTime);
 			}
+			service.subPoint(orderform.getUserid(),orderform.getUsepoint());
 			service.checkend(orderform); // orderlist 데이터 넣
 			// service.insertorderitem();
 
@@ -109,19 +126,22 @@ public class OrderController {
 					service.insertorderitem(s.getItem().getItemnum(), num + "-" + (int)rand, s.getQuantity(), s.getPrice(),
 							orderform.getUserid());
 					if(orderform.getSelectpay()==1) {
-						
-						service.addPoint(orderform.getUserid(),s.getPrice(),s.getQuantity(),orderform.getUsepoint());
+						service.addPoint(orderform.getUserid(),orderform.getTotprice());
 					}
 				}
 				service.deletecart(user.getUserid());
 
-			} else {
+			} else { // 비회원
 				System.out.println("!@@@@@@@@@@@@@호출2");
 				Cart cart = (Cart) session.getAttribute("CART");
 				if (cart == null) {
 					System.out.println("!@@@@@@@@@@@@@호출3");
-					for (ItemSet s : orderform.getOrderitems()) {
-						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(), s.getPrice(),
+					List<ItemSet> list =(List<ItemSet>) session.getAttribute("orderitems");
+					for (ItemSet s : list) {
+						service.insertorderitem(s.getItem().getItemnum(),
+								num + "-" + (int)rand,
+								s.getQuantity(),
+								s.getPrice(),
 								orderform.getUserid());
 						
 					}
@@ -129,7 +149,7 @@ public class OrderController {
 				} else { // 로그인 X - 카트 구매 애만되네
 					System.out.println("!@@@@@@@@@@@@@호출4");
 					for (ItemSet s : cart.getItemSetList()) {
-						service.insertorderitem(s.getItem().getItemnum(), num + "" + rand, s.getQuantity(),
+						service.insertorderitem(s.getItem().getItemnum(), num + "-" + (int)rand, s.getQuantity(),
 								s.getPrice(), orderform.getUserid());
 					}
 					long total = cart.getTotal(); // 주문상품의 총 금액 리턴

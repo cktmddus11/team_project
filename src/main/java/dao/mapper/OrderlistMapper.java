@@ -54,13 +54,13 @@ public interface OrderlistMapper {
 	@Insert("insert into orderlist values "
 			+ "(#{orderno}, #{userid}, #{datepay}, #{payname},#{address}, "
 			+ "#{restaddress}, #{phonenum}, #{username}, now(), #{orderstate}, "
-			+ "#{usepoint}, #{selectpay}, 'receive')")
+			+ "#{usepoint}, #{selectpay}, 'receive',#{totprice})")
 	void checkend(Map<String, Object> param);
 
 	
 	@Insert("insert into orderitem "
-			+ "(itemnum, orderno, quantity, price, userid)"
-			+ "values(#{itemnum}, #{orderno}, #{quantity}, #{price}, #{userid})")
+			+ " (itemnum, orderno, quantity, price, userid)"
+			+ " values (#{itemnum}, #{orderno}, #{quantity}, #{price}, #{userid})")
 	void insertorderitem(Map<String, Object> param);
 
 }

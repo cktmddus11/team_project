@@ -38,12 +38,12 @@ public class PointDao {
       return sqlSession.getMapper(PointMapper.class).totalpoint(param);
    }
 
-	public void addPoint(String userid,int pointnum, int price, int quantity, int usepoint) {
+	public void addPoint(String userid,int pointnum,int totpoint) {
 		  param.clear();
 		  param.put("userid", userid);
 		  param.put("pointtext", "상품 구매에 의한 포인트");
 		  param.put("pointnum", pointnum);
-		  param.put("point", ((price*quantity)-usepoint)*0.002);
+		  param.put("point", (totpoint*0.002));
 		sqlSession.getMapper(PointMapper.class).addPoint(param);
 	}
 
@@ -52,5 +52,16 @@ public class PointDao {
 		param.put("userid", userid);
 		return sqlSession.getMapper(PointMapper.class).max(param);
 	}
+
+	public void subPoint(String userid, int pointnum, int subpoint) {
+		  param.clear();
+		  param.put("userid", userid);
+		  param.put("pointtext", "구매 포인트 사용");
+		  param.put("pointnum", pointnum);
+		  param.put("point", subpoint);
+		sqlSession.getMapper(PointMapper.class).subPoint(param);
+		
+	}
+
 
 }

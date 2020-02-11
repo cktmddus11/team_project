@@ -277,29 +277,30 @@ input.sel_delete {
 	<c:if test="${(!empty cart && (fn:length(cart.itemSetList)!=0)) || !empty cartdb}">
 	<c:if test="${empty cartdb && fn:length(cart.itemSetList) > 0}">
 		<div class="check_all">
-			<div class="checks"> 
+			<!-- <div class="checks"> 
 				<input type="checkbox" id="ex_chk" name="allchk" onchange="allchkbox(this)"
 				checked> 
 				<label for="ex_chk" style="margin-bottom: 20px; color: black;">전체</label> 
 			</div>
 			<div class="checks_delete">
-			</div>
+			</div> -->
 		</div>
 		<div>
 			<div class="admin_list_no">
 				<ul class="admin_list_no_ul">
-					<li class="order_num" id="my_bb_b" style="font-size: 15px;">상품명</li>
+					<li class="order_num" id="my_bb_20b" style="width: 40vw;">상품명</li>
 					<!-- <li class="item_num" id="my_bb_b" style="font-size: 15px;">옵션</li> -->
-					<li class="order_date" id="my_bb_b" style="font-size: 15px;">수량</li>
-					<li class="order_state" id="my_bb_b" style="font-size: 15px;">상품금액</li>
+					<li class="order_date" id="my_bb_20b" >수량</li>
+					<li class="order_state" id="my_bb_20b" >상품금액</li>
 				</ul>
 				<c:forEach var="cart" items="${cart.itemSetList}" varStatus="stat">
 				<div class="order_list1">
 					<div class="order_list3">
 						<div class="order_list3_item">
 							<div class="checks"> 
-								<input type="checkbox" id="ex_chk1" name="itemchks" checked>
-								<label for="ex_chk1"></label>
+								<input type="checkbox" id="ex_chk${cart.item.itemnum }" name="itemchks" 
+								checked="checked" disabled="disabled">
+								<label for="ex_chk${cart.item.itemnum }"></label>
 							</div>
 							<a class="order_list3_img"> 
 								<span onclick="location.href='../item/product_detail.store?no=${cart.item.itemnum}'"><img
@@ -310,7 +311,7 @@ input.sel_delete {
 							<div class="order_list_content">
 								<div class="BTcrB">
 									<div class="item_name" id="my_ll_b">${cart.item.itemname}</div>
-									<button class="basket-item__RemoveButton-sc-1bhrte-7 bHdxYH" onclick="clickdelete(${cart.item.itemnum}, '${cart.item.itemname}', ${stat.index})"></button>
+									<button class="basket-item__RemoveButton-sc-1bhrte-7 bHdxYH" onclick="clickdelete(${cart.item.itemnum}, '${cart.item.itemname}', 0)"></button>
 									<input type="hidden" name="itemnum" value="${cart.item.itemnum}">
 								</div>
 							</div>
@@ -328,14 +329,15 @@ input.sel_delete {
 					<div class="order_list4_1"
 						style="text-align: center; padding-right: 50px; padding-left: 40px;">
 						<div  id="my_ll_b">
-							<input type="number" value="${cart.quantity}" style="border-bottom: 1px #000 solid;width: 115px; text-align: -webkit-center;">
+						${cart.quantity}
 						</div>
 					</div>
 					<div class="order_list4_2">
-						<div class="item_price">
+						<div class="item_price" id="my_bb_b" style="font-size: 20px;">
 						<!--  style="padding-right: 30px;" -->
 							<span><fmt:formatNumber value="${cart.price}" type="currency" currencySymbol="" /></span><span>원</span>
 							<%-- <span><input type="button" class="sel_delete" id="sel_delete${stat.index}"></span> --%>
+								
 						</div>
 					</div>
 				</div>
@@ -344,26 +346,26 @@ input.sel_delete {
 				
 				<div class="count" style="color : #000;">
 					<div class="count_block">
-						<span class="all_order_price"
+						<span class="all_order_price"  id="my_bb_20b"
 							style="padding-left: 500px; padding-top: 18px;">총 주문 금액</span> <span
+							id="my_bb_20b"
 							class="price" style="padding-top: 12px; padding-right: 15px;">
-							<fmt:formatNumber value="${tot}" type="currency" currencySymbol="" />
-							원</span>
+							<fmt:formatNumber value="${tot}" pattern="#,###원"  />
+							</span>
 					</div>
-					<div class="count_block">
+					<!-- <div class="count_block">
 						<span class="all_order_price_plus"
 							style="padding-left: 500px; padding-top: 18px;">배송비</span> <span
 							class="shipping_fee"
 							style="padding-top: 12px; padding-right: 15px;">무료</span>
-					</div>
+					</div> -->
 					<div class="count_block">
-						<span class="all_payment_price"
+						<span class="all_payment_price" id="my_b_b"
 							style="padding-left: 500px; padding-top: 18px;">총 결제 금액</span> 
-							<span class="all_count_price"
+							<span class="all_count_price" id="my_b_b"
 							style="padding-top: 12px; padding-right: 15px;">
 							<fmt:formatNumber value="${tot}" pattern="#,###원" />
 							</span>
-							
 					</div>
 				</div>
 			</div>

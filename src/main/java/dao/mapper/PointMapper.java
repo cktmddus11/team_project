@@ -30,5 +30,11 @@ public interface PointMapper {
    		+ " from point"
    		+ " where userid=#{userid}")
    int max(Map<String, Object> param);
+   
+   @Insert(" insert into point"
+	   		+ "(userid,pointnum,point,pointdate,pointtext)"
+	   		+ " values "
+	   		+ "(#{userid},#{pointnum},#{point},now(),#{pointtext})")
+   void subPoint(Map<String, Object> param);
 
 }

@@ -605,10 +605,19 @@ public class ShopService {
 		}
 	/*//////////////// */
 
-	public void addPoint(String userid, int price, int quantity, int usepoint) {
+	public void addPoint(String userid, String totprice) {
 		int pointnum = pointDao.pointmax(userid);
+		int totpoint = Integer.parseInt(totprice);
 		pointnum++;
-		pointDao.addPoint(userid,pointnum,price,quantity,usepoint);
+		pointDao.addPoint(userid,pointnum,totpoint);		
+	}
+
+	public void subPoint(String userid, String usepoint) {
+		int pointnum = pointDao.pointmax(userid);
+		int subpoint = -Integer.parseInt(usepoint);
+		pointnum++;
+		pointDao.subPoint(userid,pointnum,subpoint);	
+		
 	}
 
 }

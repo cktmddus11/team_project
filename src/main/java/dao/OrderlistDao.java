@@ -84,6 +84,7 @@ public class OrderlistDao {
 		param.put("selectpay", order.getSelectpay());
 		param.put("usepoint", order.getUsepoint());
 		param.put("orderstate", order.getOrderstate());
+		param.put("totprice", order.getTotprice());
 		 sqlSession.getMapper(OrderlistMapper.class).checkend(param);
 		
 		

@@ -193,17 +193,17 @@
 		<form:form action="order.store" method="post"
 			modelAttribute="orderform" name="f">
 			<!-- 비회원 -->
-			<c:if test='${!empty sessionScope.CART && !empty sessionScope.LoginUser}'>
+			<c:if test='${(!empty orderitems ||!empty sessionScope.CART )&& empty sessionScope.LoginUser}'>
 
 				<!-- 주문 상품 -->
 				<h3 class="select_item_chk" id="my_b_b">
-					&nbsp;&nbsp;<span>01 주문 상품</span>
+					&nbsp;&nbsp;<span id="my_b_b">01 주문 상품</span>
 				</h3>
 				<div class="select_item_list" style="height: 243;">
 					<div style="margin-bottom: 40px;">
 						<ul>
 						<%-- <form:hidden path="orderitem" value="${sessionScope.CART.itemSetList}"/> --%>
-							<c:forEach var="cart" items="${sessionScope.CART.itemSetList}"
+							<c:forEach var="cart" items="${orderitems}"
 								varStatus="stat">
 								<input type="hidden" name="itemnum" value="${cart.item.itemnum}">
 								<li class="select_item_list1">
@@ -213,37 +213,35 @@
 											alt="${cart.item.itemname}" style="width: 100px;"></span>
 										<div class="item_option">
 											<strong class="item_name">${cart.item.itemname}</strong>
-											<p class="space_p"></p>
-											<div class="item_option2" id="my_l_b">
-												<span><fmt:formatNumber
-														value="${cart.price * cart.quantity}" type="currency"
-														currencySymbol="" /></span><span>원</span>
-											</div>
+											<!-- <p class="space_p"></p> -->
+											<span class="item_option2" id="my_l_b">
+												<span><fmt:formatNumber pattern="#,###원"
+														value="${cart.price * cart.quantity}"/></span>
+											</span>
+									<span class="quantity_chk" id="my_l_b">
+										<span>/${cart.quantity}개</span>
+									</span> 
 										</div>
 									</div>
-									<div class="quantity_chk" id="my_l_b">
-										<span>수량: </span> <span>${cart.quantity}개</span>
-									</div> <c:set var="tot" value="${tot+(cart.quantity * cart.price)}" />
+									<c:set var="tot" value="${tot+(cart.quantity * cart.price)}" />
 								</li>
 							</c:forEach>
 						</ul>
 						<ul class="listinfo_total_price">
 							<li class="total_info"><strong class="total_price"
-								id="my_l_b">상품가</strong>
-								<p class="total_price_1" id="my_l_b">
-									<span><fmt:formatNumber value="${tot}" type="currency"
-											currencySymbol="" />원</span>
+								id="my_ll_b">상품가</strong>
+								<p class="total_price_1" id="my_ll_b">
+									<span id="my_ll_b"><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
 								</p></li>
-							<li class="total_info"><strong class="total_price"
+							<!-- <li class="total_info"><strong class="total_price"
 								id="my_l_b">배송비</strong>
 								<p class="total_price_1" id="my_l_b">
 									<span>무료</span>
-								</p></li>
+								</p></li> -->
 							<li class="total_info"><strong class="total_price"
-								id="my_l_b">총합</strong>
-								<p class="total_price_1" id="my_l_b">
-									<span><fmt:formatNumber value="${tot}"
-												type="currency" currencySymbol="" />원</span>
+								id="my_bb_b" style="font-size: 22px;">총합</strong>
+								<p class="total_price_1" id="my_bb_b" style="font-size: 22px;">
+									<span id="my_bb_b"><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
 								</p></li>
 						</ul>
 					</div>
@@ -253,16 +251,16 @@
 
 				<!-- 배송지정보 -->
 				<h3 class="select_item_chk" id="my_b_b">
-					&nbsp;&nbsp;<span>02 배송지 정보</span>
+					&nbsp;&nbsp;<span id="my_b_b">02 배송지 정보</span>
 				</h3>
 				<div class="recipient_info_chk">
 					<div>
 						<div class="question-form__InputBlock-sc-14728i7-13 dgNTux">
-							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">
+							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt"  id="my_ll_b">
 								이름</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
-									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
+									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt" id="my_ll_b"
 										placeholder="이름 입력" error="0" align="left" padding="15"
 										path="username" value="" style="width: 100%;"/>
 									<form:errors path="username" cssClass="my_ll_r"
@@ -271,11 +269,11 @@
 							</div>
 						</div>
 						<div class="question-form__InputBlock-sc-14728i7-13 dgNTux">
-							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">전화번호</span>
+							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt"  id="my_ll_b">전화번호</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
-									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
-										placeholder="번호 입력" error="0" align="left" padding="15"
+									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt" id="my_ll_b"
+										placeholder="번호 입력" error="0" align="left" padding="15" 
 										path="phonenum" value="" style="width: 100%;" />
 									<form:errors path="phonenum" cssClass="my_ll_r"
 										element="div" />
@@ -283,11 +281,11 @@
 							</div>
 						</div>
 						<div class="question-form__InputBlock-sc-14728i7-13 dgNTux">
-							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">이메일
+							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt"  id="my_ll_b">이메일
 							</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
-									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
+									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt my_ll_b"
 										placeholder="이메일" error="0" align="left" padding="15"
 										path="userid" value="" style="width: 100%;"/>
 									<form:errors path="userid" cssClass="my_ll_r"
@@ -297,12 +295,12 @@
 						</div>
 
 						<div class="question-form__InputBlock-sc-14728i7-13 dgNTux">
-							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">주소찾기
+							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt"  id="my_ll_b">주소찾기
 							</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
 									<form:input
-										class="input-text__CustomText-sc-14n8vry-1 search llGwgt"
+										class="input-text__CustomText-sc-14n8vry-1 search llGwgt my_ll_b" 
 										placeholder="도로명 주소" error="0" align="left" padding="15"
 										path="address" value="" style="width: 100%;"
 										onclick="openDaumZipAddress()" />
@@ -312,11 +310,11 @@
 							</div>
 						</div>
 						<div class="question-form__InputBlock-sc-14728i7-13 dgNTux">
-							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt">나머지
+							<span class="question-form__InputLabel-sc-14728i7-14 jcHywt"  id="my_ll_b">나머지
 								주소</span>
 							<div class="question-form__InputWrapper-sc-14728i7-16 cCjyDE">
 								<div class="input-text__InputTextWrap-sc-14n8vry-0 eJxDUH">
-									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt"
+									<form:input class="input-text__CustomText-sc-14n8vry-1 llGwgt" id="my_ll_b"
 										placeholder="나머지 주소" error="0" align="left" padding="15"
 										path="restaddress" value="" style="width: 100%;" />
 									<form:errors path="restaddress" cssClass="my_ll_r"
@@ -331,39 +329,41 @@
 				<div class="paychk">
 					<div class="purchase_chk"></div>
 					<h3 class="select_item_chk" id="my_b_b">
-						&nbsp;&nbsp;<span>03 결제 정보</span>
+						&nbsp;&nbsp;<span  id="my_b_b">03 결제 정보</span>
 					</h3>
 					<div>
 						<div>
 							<div class="topay_1">
 								<ul class="topay_space">
 									<li class="pay_list_space pay_list_space_all"><strong
-										class="pay_info_list" id="my_l_b">상품가</strong>
-										<div class="order_item_price_all order_item_price" id="my_l_b">
-											<span><fmt:formatNumber value="${tot}" type="currency"
+										class="pay_info_list" id="my_ll_b">상품가</strong>
+										<div class="order_item_price_all order_item_price" id="my_ll_b">
+											<span id="my_ll_b"><fmt:formatNumber value="${tot}" type="currency"
 													currencySymbol="" />원</span>
 										</div></li>
-									<!-- <li class="pay_list_space pay_list_space_all"><strong
+								<!-- <li class="pay_list_space pay_list_space_all"><strong
 										class="pay_info_list" id="my_l_b">배송비</strong>
 										<div class="order_item_price_all" id="my_l_b">
 											<span>무료</span>
-										</div></li> -->
+										</div></li>
 									<li class="pay_list_space pay_list_space_all"><strong
 										class="point pay_info_list" id="my_l_b">포인트 <span
 											class="point_op" id="my_l_b">(OP)</span>
 									</strong>
 										<div class="point_bank" id="my_l_b">
 											<span><form:input path="usepoint" value="0"/></span>
-										</div></li>
+										</div></li>  -->
 									<li class="pay_list_space"><strong
-										class="final_order_price pay_info_list" id="my_l_b">최종
+										class="final_order_price pay_info_list" id="my_bb_b">최종
 											결제 금액</strong>
 										<div class="final_order_price1 order_item_price_all"
-											id="my_bb_b">
-											<span><fmt:formatNumber value="${tot}" type="currency"
+											>
+											<span id="my_bb_b"><fmt:formatNumber value="${tot}" type="currency"
 													currencySymbol="" />원</span>
 										</div></li>
 								</ul>
+								<input type="hidden" name="totprice" value="${tot }"  />
+								<form:hidden path="usepoint"/>
 							</div>
 						</div>
 					</div>
@@ -371,7 +371,7 @@
 
 
 			</c:if>
-			<c:if test='${!empty orderitem ||empty sessionScope.CART}'>
+			<c:if test='${(!empty orderitems ||empty sessionScope.CART) && !empty sessionScope.LoginUser}'>
 				<!--  회원 -->
 				<!-- 주문 상품 -->
 				<h3 class="select_item_chk" >
@@ -412,7 +412,7 @@
 							<li class="total_info"><strong class="total_price"
 								id="my_ll_b">상품가</strong>
 								<p class="total_price_1" id="my_ll_b">
-									<span><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
+									<span id="my_ll_b"><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
 								</p></li>
 							<!-- <li class="total_info"><strong class="total_price"
 								id="my_l_b">배송비</strong>
@@ -422,7 +422,7 @@
 							<li class="total_info"><strong class="total_price"
 								id="my_bb_b" style="font-size: 22px;">총합</strong>
 								<p class="total_price_1" id="my_bb_b" style="font-size: 22px;">
-									<span><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
+									<span id="my_bb_b"><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
 								</p></li>
 						</ul>
 					</div>
@@ -534,7 +534,6 @@
 											(<fmt:formatNumber value="${totalpoint }" pattern="#,###P"/>)
 											</span>
 									</strong>
-								<form:hidden path="usepoint" />
 										<div class="point_bank" >
 											<span id="my_ll_b" style="font-size: 22px;">
 											<input name="usepoint" type="text"   class="my_ll_b"
@@ -551,10 +550,12 @@
 											<input type="text" style="text-align: right;"
 											 id="fn_total" 
 											 value="<fmt:formatNumber value="${tot}" pattern="#,###"/>" 
-											 name="tot" class="my_bb_b"
+											 name="totprice" class="my_bb_b"
 											 readonly="readonly" name="usepoint" />원
 											 
 											</span>
+											<form:hidden path="totprice" />
+											<form:hidden path="usepoint"/>
 										</div></li>
 								</ul>
 							</div>
