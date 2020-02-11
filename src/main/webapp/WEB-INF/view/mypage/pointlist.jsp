@@ -218,7 +218,7 @@
 							<div class="arrow_pre_new"></div>
 						</div>
 					</c:if>
-					<span class="page_nums">
+					<span class="page_nums" style="    width: 22vw;">
 						<form action="pointlist.store" method="post"
 							name="f">
 							<input type="hidden" name="pageNum" value="1" />

@@ -193,7 +193,7 @@
 		<form:form action="order.store" method="post"
 			modelAttribute="orderform" name="f">
 			<!-- 비회원 -->
-			<c:if test='${(!empty orderitems ||!empty sessionScope.CART )&& empty sessionScope.LoginUser}'>
+			<c:if test='${empty sessionScope.loginUser}'>
 
 				<!-- 주문 상품 -->
 				<h3 class="select_item_chk" id="my_b_b">
@@ -202,7 +202,32 @@
 				<div class="select_item_list" style="height: 243;">
 					<div style="margin-bottom: 40px;">
 						<ul>
-						<%-- <form:hidden path="orderitem" value="${sessionScope.CART.itemSetList}"/> --%>
+						<c:if test="${sessionScope.CART.itemSetList!=null }">
+							<c:forEach var="cart" items="${sessionScope.CART.itemSetList}"
+								varStatus="stat">
+								<input type="hidden" name="itemnum" value="${cart.item.itemnum}">
+								<li class="select_item_list1">
+									<div class="select_item_list1_img">
+										<span class="img_span"> <img
+											src="../images/product/${cart.item.itemfile1url}"
+											alt="${cart.item.itemname}" style="width: 100px;"></span>
+										<div class="item_option">
+											<strong class="item_name">${cart.item.itemname}</strong>
+											<!-- <p class="space_p"></p> -->
+											<span class="item_option2" id="my_l_b">
+												<span><fmt:formatNumber pattern="#,###원"
+														value="${cart.price * cart.quantity}"/></span>
+											</span>
+									<span class="quantity_chk" id="my_l_b">
+										<span>/${cart.quantity}개</span>
+									</span> 
+										</div>
+									</div>
+									<c:set var="tot" value="${tot+(cart.quantity * cart.price)}" />
+								</li>
+							</c:forEach>
+							</c:if>
+						<c:if test="${sessionScope.CART.itemSetList==null }">
 							<c:forEach var="cart" items="${orderitems}"
 								varStatus="stat">
 								<input type="hidden" name="itemnum" value="${cart.item.itemnum}">
@@ -226,6 +251,7 @@
 									<c:set var="tot" value="${tot+(cart.quantity * cart.price)}" />
 								</li>
 							</c:forEach>
+							</c:if>
 						</ul>
 						<ul class="listinfo_total_price">
 							<li class="total_info"><strong class="total_price"
@@ -371,7 +397,7 @@
 
 
 			</c:if>
-			<c:if test='${(!empty orderitems ||empty sessionScope.CART) && !empty sessionScope.LoginUser}'>
+			<c:if test='${!empty sessionScope.loginUser}'>
 				<!--  회원 -->
 				<!-- 주문 상품 -->
 				<h3 class="select_item_chk" >

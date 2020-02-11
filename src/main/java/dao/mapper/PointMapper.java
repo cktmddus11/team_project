@@ -14,7 +14,8 @@ public interface PointMapper {
    @Select(" select count(*) from point where userid=#{kemail}")
    int count(Map<String, Object> param);
 
-   @Select(" select * from point where userid=#{kemail}")
+   @Select(" select * from point where userid=#{kemail}"
+   		+ "order by pointnum desc , pointnum limit #{startrow},#{limit}")
    List<Point> select(Map<String, Object> param);
 
    @Select(" select sum(point) from point where userid=#{kemail}")

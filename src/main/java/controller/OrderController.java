@@ -43,6 +43,8 @@ public class OrderController {
 		mav.addObject("orderform", new OrderForm());
 
 		User user = (User) session.getAttribute("loginUser");
+		int totalpoint =service.totalpoint(user.getUserid());
+		session.setAttribute("totalpoint", totalpoint);
 		if (oitemnum == null) { // 카트에서 구매
 			System.out.println("&&&&&호출 1");
 			if (user != null) { // 로그인 후 
@@ -54,8 +56,7 @@ public class OrderController {
 				
 				//mav.addObject("orderitems", cartlist);
 				session.setAttribute("orderitems", cartlist);
-				int totalpoint =service.totalpoint(user.getUserid());
-				session.setAttribute("totalpoint", totalpoint);
+				
 			}
 		} else { // 바로 구매
 			System.out.println("&&&&&호출 3");
@@ -113,7 +114,9 @@ public class OrderController {
 				orderform.setOrderstate(1);
 				orderform.setDatepay(currentTime);
 			}
-			service.subPoint(orderform.getUserid(),orderform.getUsepoint());
+			if(user!=null && !orderform.getUsepoint().trim().equals("0")) {
+				service.subPoint(orderform.getUserid(),orderform.getUsepoint());
+			}
 			service.checkend(orderform); // orderlist 데이터 넣
 			// service.insertorderitem();
 
@@ -125,10 +128,11 @@ public class OrderController {
 				for (ItemSet s : list) {
 					service.insertorderitem(s.getItem().getItemnum(), num + "-" + (int)rand, s.getQuantity(), s.getPrice(),
 							orderform.getUserid());
-					if(orderform.getSelectpay()==1) {
-						service.addPoint(orderform.getUserid(),orderform.getTotprice());
-					}
 				}
+				if(orderform.getSelectpay()==1) {
+					service.addPoint(orderform.getUserid(),orderform.getTotprice());
+				}
+
 				service.deletecart(user.getUserid());
 
 			} else { // 비회원
