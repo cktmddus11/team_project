@@ -65,6 +65,12 @@
 	color: black;
 	font-size: 20px;
 }
+.my_bb_b {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 900;
+	color: black;
+	font-size: 25px;
+}
 .my_ll_r {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 200;
@@ -511,7 +517,10 @@
 									<li class="pay_list_space pay_list_space_all"><strong
 										class="pay_info_list" id="my_ll_b">상품가</strong>
 										<div class="order_item_price_all order_item_price" >
-											<span  id="my_ll_b"><fmt:formatNumber value="${tot}" pattern="#,###원"/></span>
+											<span  id="my_ll_b">
+											<fmt:formatNumber value="${tot}" pattern="#,###원"/>
+											<input type="hidden" value="${tot }" id="fn_type1_price">
+											</span>
 										</div></li>
 										<%-- <form:hidden path="tot" value="${tot}" id="fn_type1_price" /> --%>
 									<!-- <li class="pay_list_space pay_list_space_all"><strong
@@ -521,11 +530,11 @@
 										</div></li> -->
 									<li class="pay_list_space pay_list_space_all"><strong
 										class="point pay_info_list"id="my_ll_b">포인트 <span
-											class="point_op" id="my_ll_b" >
-											(<fmt:formatNumber value="${usepoint }" pattern="#,###P"/>)
+											class="point_op" id="my_ll_b"  >
+											(<fmt:formatNumber value="${totalpoint }" pattern="#,###P"/>)
 											</span>
 									</strong>
-								<%-- 	 <form:hidden path="usepoint" /> --%>
+								<form:hidden path="usepoint" />
 										<div class="point_bank" >
 											<span id="my_ll_b" style="font-size: 22px;">
 											<input name="usepoint" type="text"   class="my_ll_b"
@@ -538,11 +547,14 @@
 											결제 금액</strong>
 										<div class="final_order_price1 order_item_price_all"
 											id="my_bb_b">
-											<span>
- 											<input type="text" id="fn_total" value="${tot }" name="tot"
-											 readonly="readonly" pattern="#,###원" min="1000"/>원
-											 <c:set var="tot_sub" value="${tot }" /> 
-											<fmt:formatNumber value="${tot}" pattern="#,###원" /></span>
+											<span id="my_bb_b" >
+											<input type="text" style="text-align: right;"
+											 id="fn_total" 
+											 value="<fmt:formatNumber value="${tot}" pattern="#,###"/>" 
+											 name="tot" class="my_bb_b"
+											 readonly="readonly" name="usepoint" />원
+											 
+											</span>
 										</div></li>
 								</ul>
 							</div>
@@ -639,7 +651,16 @@
 					var sum1 = parseInt($("#fn_type1_price").val() || 0 ); 
 					var sum2 = parseInt($("#fn_type2_price").val() || 0 ); 
 					var sub = sum1-sum2;
-					$("#fn_total").val(sub);
+					var totp = ${totalpoint};
+					if (sum2>totp){
+						$("#fn_type2_price").val(totp);
+						sub = sum1-totp;
+					}else{
+						$("#fn_type2_price").val(sum2);
+					}
+					sub = sub+"";
+				    $("#fn_total").val(addCommas(sub.replace(/[^0-9]/g,"")));
+					//$("#fn_total").val(sub);
 					
 				}
 			</script>

@@ -74,6 +74,7 @@ public class OrderlistDao {
 
 	public void checkend(OrderForm order) {
 		param.put("orderno", order.getOrderno());
+		param.put("datepay", order.getDatepay());
 		param.put("userid", order.getUserid());
 		param.put("payname", order.getPayname());
 		param.put("address",  order.getAddress());

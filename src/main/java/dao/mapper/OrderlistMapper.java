@@ -52,7 +52,7 @@ public interface OrderlistMapper {
 	void orderlist_stateUpdate(Map<String, Object> param);
 
 	@Insert("insert into orderlist values "
-			+ "(#{orderno}, #{userid}, null, #{payname},#{address}, "
+			+ "(#{orderno}, #{userid}, #{datepay}, #{payname},#{address}, "
 			+ "#{restaddress}, #{phonenum}, #{username}, now(), #{orderstate}, "
 			+ "#{usepoint}, #{selectpay}, 'receive')")
 	void checkend(Map<String, Object> param);

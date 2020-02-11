@@ -54,6 +54,8 @@ public class OrderController {
 				
 				//mav.addObject("orderitems", cartlist);
 				session.setAttribute("orderitems", cartlist);
+				int totalpoint =service.totalpoint(user.getUserid());
+				session.setAttribute("totalpoint", totalpoint);
 			}
 		} else { // 바로 구매
 			System.out.println("&&&&&호출 3");
@@ -93,6 +95,7 @@ public class OrderController {
 
 			if(orderform.getSelectpay()==1) {
 				orderform.setOrderstate(1);
+				orderform.setDatepay(currentTime);
 			}
 			service.checkend(orderform); // orderlist 데이터 넣
 			// service.insertorderitem();

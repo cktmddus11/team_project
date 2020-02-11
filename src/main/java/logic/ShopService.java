@@ -610,4 +610,5 @@ public class ShopService {
 		pointnum++;
 		pointDao.addPoint(userid,pointnum,price,quantity,usepoint);
 	}
+
 }

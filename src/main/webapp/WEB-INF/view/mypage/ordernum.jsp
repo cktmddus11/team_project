@@ -532,7 +532,7 @@
 						<li class="w">
 							<strong class="x1 x2" id="my_bb_b_1">결제수단</strong>
 							<div class="y1 y2" id="my_ll_b">
-							<c:if test="${orderlist.selectpay==1 }">신용카드</c:if>
+							<c:if test="${orderlist.selectpay==1 }">카카오페이</c:if>
 							<c:if test="${orderlist.selectpay==2 }">무통장입금</c:if>
 							</div>
 						</li>
