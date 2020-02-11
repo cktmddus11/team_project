@@ -540,8 +540,12 @@ public class ShopService {
 		return whousingDao.list();
 	}
 
-	public List<Whousing> wkeeplist() {
-		return whousingDao.keep();
+	public List<Whousing> wkeeplist(Integer pageNum, int limit, String selectvalue) {
+		int state = 0;
+		if(selectvalue!=null) {
+			state = Integer.parseInt(selectvalue);
+		}
+		return whousingDao.keep(pageNum,limit,state);
 	}
 
 	public List<Whousing> outwhousing() {
@@ -566,8 +570,15 @@ public class ShopService {
 		return whousingDao.whousingoutwhousing();
 	}
 
-	public int admin_incount() {
+	public int admin_incount_new() {
 		return whousingDao.count();
+	}
+	public int admin_incount(String selectvalue) {
+		int state = 0;
+		if(selectvalue!=null) {
+			state = Integer.parseInt(selectvalue);
+		}
+		return whousingDao.count(state);
 	}
 	/* //////phy/////// */
 	public void adminInsert(User user, HttpServletRequest request) { //������ ȸ������

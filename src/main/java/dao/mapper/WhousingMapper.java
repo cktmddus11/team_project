@@ -34,7 +34,11 @@ public interface WhousingMapper {
                   + "ON i.itemnum = w.itemnum "
                   + "where w.whousing_code = 0";
    
-   @Select(keepwhousing)
+   @Select("<script>"
+		   + keepwhousing
+		   + " <if test='state!=null'> and state=#{state} </if>"
+		   + " order by w.whousingnum desc, w.whousingnum limit #{startrow},#{limit}"
+		   + "</script>")
    List<Whousing> keepselect(Map<String, Object> param);
    
    String inwhousing = " SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant, w.whousingprice " 
@@ -99,7 +103,8 @@ public interface WhousingMapper {
 
    @Select({"<script>"
          ,"select count(*) from whousing "
-         ,"<if test='whousingnum != null'> where whousingnum=#{whousingnum}</if>"
+		,"<if test='whousingnum != null'> where whousingnum=#{whousingnum}</if>"
+         ,"<if test='state != null'> where state=#{state}</if>"
          ,"</script>"})
    int count(Map<String, Object> param);
 

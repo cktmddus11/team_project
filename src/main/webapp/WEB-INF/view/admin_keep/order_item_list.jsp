@@ -142,37 +142,63 @@
     margin-bottom: 3px;
 }
 </style>
+<script type="text/javascript">
+$(function(){
+	   $(".dropdown-menu li").click(function(){
+	      console.log($(this).children('a').text())
+	      $("input[name=selectvalue]").val($(this).children('a').text())
+	      console.log($(this).children('a').text())
+	      $("input[name=select_2_value]").val($(this).children('a').text())
+	      selectform.submit();
+	   })
+	})
+
+
+</script>
 </head>
 <body>
-<form action="order_item_list.store" method="post">
+<form action="order_item_list.store" method="post" name="selectform">
+<input type="hidden" name="selectvalue" value="${param.selectvalue}">
+<input type="hidden" name="select_2_value" value="${param.select_2_value}">
+
 </form>
 	<div class="admin_order_list">
 		<div class="admin_order_header">
 			<div class="admin_order_title">
 				<span id="my_b_b">[관리자]상품 재고 관리</span>
-			<div style="float: right; height: 100%; width: 13vw;">
-				<div class="dropdown" style="width: 220px; height: 40px;">
+			<%-- <div style="float: right; height: 100%; width: 13vw;">
+				<div class="dropdown" style="width: 200px; height: 40px;">
 					<div class="select" style="padding: 0;padding-left: 10px;">
-						<span id="my_ll_b">정렬 순</span> <i class="fa fa-chevron-up"></i>
+						<span id="my_ll_b">
+						<c:if test="${empty param.select_2_value}">정렬 순</c:if>
+								<c:if test="${!empty param.select_2_value}">
+								${param.select_2_value}
+								</c:if>
+						</span> <i class="fa fa-chevron-up"></i>
 					</div>
 					<input type="hidden" name="order">
 					<ul class="dropdown-menu">
-						<li id="수량 순" class="my_ll_b">수량 순</li>
-						<li id="상품 번호 순" class="my_ll_b">상품 번호 순</li>
-						<li id="가나다 순" class="my_ll_b">가나다 순</li>
+					<li><a class="my_ll_b" id="수량순">수량순</a></li>
+					<li><a class="my_ll_b" id="상품번호순">상품번호순</a></li>
+					<li><a class="my_ll_b" id="가나다순">가나다순</a></li>
 					</ul>
 				</div>
-				</div>
+				</div> --%>
 	
 			<div style="float: right; height: 100%; width: 13vw;">
-				<div class="dropdown" style="width: 220px; height: 40px;">
+				<div class="dropdown" style="width: 200px; height: 40px;">
 					<div class="select" style="padding: 0;padding-left: 10px;">
-						<span id="my_ll_b">재고 상태</span> <i class="fa fa-chevron-up"></i>
+						<span id="my_ll_b">
+						<c:if test="${empty param.selectvalue}">재고 상태</c:if>
+								<c:if test="${!empty param.selectvalue}">
+								${param.selectvalue}
+								</c:if>
+						</span> <i class="fa fa-chevron-up"></i>
 					</div>
 					<input type="hidden" name="order">
 					<ul class="dropdown-menu">
-						<li id="불량품" class="my_ll_b">불량품</li>
-						<li id="정품" class="my_ll_b">정품</li>
+					<li><a class="my_ll_b" id="불량품">불량품</a></li>
+					<li><a class="my_ll_b" id="정품">정품</a></li>
 					</ul>
 				</div>
 				</div>
@@ -188,7 +214,7 @@
 					<li class="item_amount" id="my_bb_b" style="font-size: 20px;">수량</li>
 					<li class="out_price" id="my_bb_b" style="font-size: 20px;">재고상태</li>
 				</ul>
-				<c:forEach var="w" items="${wkeeplist}">
+				<c:forEach var="w" items="${keeplist}">
 				<ul class="order_list1">
 					<%-- <li class="out_num_1" id="my_ll_b" style="text-align: center; width: 10vw;">
 						${w.whousingnum}

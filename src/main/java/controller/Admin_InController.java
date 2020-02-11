@@ -29,7 +29,7 @@ public class Admin_InController {
             pageNum = 1;
          }
       int limit = 10; //페이지당 보여지는 게시물 건수
-      int admin_incount = service.admin_incount(); //전체 등록된 게시물 건수
+      int admin_incount = service.admin_incount_new(); //전체 등록된 게시물 건수
       int maxpage = (int)((double)admin_incount/limit + 0.95); 
        //보여지는 첫번째 페이지
        int startpage = (int)((pageNum/10.0 + 0.9) -1) * 10 + 1; 
