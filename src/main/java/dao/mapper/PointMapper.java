@@ -21,8 +21,9 @@ public interface PointMapper {
    int totalpoint(Map<String, Object> param);
    
    @Insert(" insert into point"
-   		+ " values (#{userid},#{pointnum},#{point},now(),#{pointtext})"
-   		+ " where userid=#{userid}")
+   		+ "(userid,pointnum,point,pointdate,pointtext)"
+   		+ " values "
+   		+ "(#{userid},#{pointnum},#{point},now(),#{pointtext})")
 	void addPoint(Map<String, Object> param);
 
    @Select(" select ifnull(max(pointnum),0)"

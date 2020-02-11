@@ -373,7 +373,7 @@
 				</h3>
 				<div class="select_item_list" style="height: 243;">
 					<div style="margin-bottom: 40px;">
-						<form:hidden path="orderitems" value="${orderitems}"/>
+						<%-- <form:hidden path="orderitems" value="${sessionScope.orderitems}"/> --%>
 						<ul>
 							<c:forEach var="orderitem" items="${orderitems}" varStatus="stat">
 							<input type="hidden" name="itemnum" value="${orderitem.item.itemnum}">

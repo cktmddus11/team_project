@@ -12,10 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Item {
 	private int itemnum;
-	@NotEmpty(message = "»óÇ°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message = "ìƒí’ˆëª…ì„ ì…ë ¥í•˜ì„¸ìš”")
 	private String itemname;
-	@Min(value = 10, message = "10¿ø ÀÌ»ó °¡´ÉÇÕ´Ï´Ù.")
-	@Max(value = 100000, message = "10¸¸¿ø ÀÌÇÏ¸¸ °¡´ÉÇÕ´Ï´Ù.")
+	@Min(value = 10, message = "10ì› ì´ìƒ ê°€ëŠ¥í•©ë‹ˆë‹¤.")
+	@Max(value = 100000, message = "10ë§Œì› ì´í•˜ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.")
 	private int price;
 	private MultipartFile itemfile1;
 	private MultipartFile itemfile2;
@@ -23,18 +23,18 @@ public class Item {
 	private String itemfile1url;
 	private String itemfile2url;
 	private String itemfile3url;
-	@NotEmpty(message = "»óÇ°¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message = "ìƒí’ˆì„¤ëª…ì„ ì…ë ¥í•˜ì„¸ìš”")
 	private String itemcontent;
-	@NotEmpty(message = "»óÇ°¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message = "ìƒí’ˆì„¤ëª…ì„ ì…ë ¥í•˜ì„¸ìš”")
 	private String itemcontent2;
 	private int category;
 	private int subcategory;
 	private int character_c;
 	private Date regdate;
 
-	/* list ºä´Ü ¼±ÅÃÀÚ */
-	private String selectvalue1; // »óÇ°¼ø¼­
-	private String selectvalue2; // Ä³¸¯ÅÍ
+	/* list ë·°ë‹¨ ì„ íƒì */
+	private String selectvalue1; // ìƒí’ˆìˆœì„œ
+	private String selectvalue2; // ìºë¦­í„°
 
 	public String getSelectvalue1() {
 		return selectvalue1;
@@ -52,7 +52,7 @@ public class Item {
 		this.selectvalue2 = selectvalue2;
 	}
 
-	/* //////¸®ºä ¸®½ºÆ®/////// */
+	/* //////ë¦¬ë·° ë¦¬ìŠ¤íŠ¸/////// */
 	List<Review> reviewlist = new ArrayList<Review>();
 	
 	public List<Review> getReviewlist() {
@@ -65,7 +65,7 @@ public class Item {
 	
 	
 	/*//////*/
-	/* //////Âò ¸®½ºÆ®/////// */
+	/* //////ì°œ ë¦¬ìŠ¤íŠ¸/////// */
 	private int pickno;
 
 	public int getPickno() {
@@ -85,7 +85,7 @@ public class Item {
 		this.wishlist = wishlist;
 	}
 
-	/* //////Âò È®ÀÎ/////// */
+	/* //////ì°œ í™•ì¸/////// */
 	
 	private int wishcheck;
 	public int getWishcheck() {
@@ -95,7 +95,7 @@ public class Item {
 	public void setWishcheck(int wishcheck) {
 		this.wishcheck = wishcheck;
 	}
-	/*////////Ä«Æ® ´ã±äÁö À¯¹«///////*/
+	/*////////ì¹´íŠ¸ ë‹´ê¸´ì§€ ìœ ë¬´///////*/
 	private int cartcheck;
 	
 	

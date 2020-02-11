@@ -43,7 +43,6 @@ public class OrderController {
 		mav.addObject("orderform", new OrderForm());
 
 		User user = (User) session.getAttribute("loginUser");
-
 		if (oitemnum == null) { // 카트에서 구매
 			System.out.println("&&&&&호출 1");
 			if (user != null) { // 로그인 후 
@@ -53,7 +52,8 @@ public class OrderController {
 					i.setItem(service.itemdetail(i.getItemnum()));
 				}
 				
-				mav.addObject("orderitems", cartlist);
+				//mav.addObject("orderitems", cartlist);
+				session.setAttribute("orderitems", cartlist);
 			}
 		} else { // 바로 구매
 			System.out.println("&&&&&호출 3");
@@ -64,7 +64,8 @@ public class OrderController {
 			i.setPrice(oprice);
 			List<ItemSet> directlist = new ArrayList<ItemSet>();
 			directlist.add(i);
-			mav.addObject("orderitems", directlist);
+			//mav.addObject("orderitems", directlist);
+			session.setAttribute("orderitems", directlist);
 		}
 		System.out.println("&&&&&호출 4");
 		return mav;
@@ -88,8 +89,11 @@ public class OrderController {
 			String num = format.format(currentTime);
 			double rand = Math.random();
 			rand = (int) (rand * 10000000) + 1;
-			orderform.setOrderno(num + "" + (int)rand);
+			orderform.setOrderno(num + "-" + (int)rand);
 
+			if(orderform.getSelectpay()==1) {
+				orderform.setOrderstate(1);
+			}
 			service.checkend(orderform); // orderlist 데이터 넣
 			// service.insertorderitem();
 
@@ -97,11 +101,14 @@ public class OrderController {
 			System.out.println("!!!!!!!"+orderform);
 			if (user != null) {
 				System.out.println("!@@@@@@@@@@@@@호출");
-				System.out.println(orderform.getOrderitems());
-				for (ItemSet s : orderform.getOrderitems()) {
-					service.insertorderitem(s.getItem().getItemnum(), num + "" + (int)rand, s.getQuantity(), s.getPrice(),
+				List<ItemSet> list =(List<ItemSet>) session.getAttribute("orderitems");
+				for (ItemSet s : list) {
+					service.insertorderitem(s.getItem().getItemnum(), num + "-" + (int)rand, s.getQuantity(), s.getPrice(),
 							orderform.getUserid());
-					service.addPoint(orderform.getUserid(),s.getPrice(),s.getQuantity(),orderform.getUsepoint());
+					if(orderform.getSelectpay()==1) {
+						
+						service.addPoint(orderform.getUserid(),s.getPrice(),s.getQuantity(),orderform.getUsepoint());
+					}
 				}
 				service.deletecart(user.getUserid());
 

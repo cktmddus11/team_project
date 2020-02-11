@@ -43,7 +43,7 @@ public class PointDao {
 		  param.put("userid", userid);
 		  param.put("pointtext", "상품 구매에 의한 포인트");
 		  param.put("pointnum", pointnum);
-		  param.put("point", (price*quantity)-usepoint);
+		  param.put("point", ((price*quantity)-usepoint)*0.002);
 		sqlSession.getMapper(PointMapper.class).addPoint(param);
 	}
 
