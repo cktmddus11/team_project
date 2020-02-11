@@ -11,21 +11,21 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class Chg {
    private int chg_no;
-   @NotEmpty(message = "ÁÖ¹®¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
+   @NotEmpty(message = "ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
    private String chg_orderno;
    
-   @Past(message="ÁÖ¹®³¯Â¥´Â °ú°Å ³¯Â¥¸¸ °¡´ÉÇÕ´Ï´Ù.")
-   @NotNull(message = "ÁÖ¹®³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
+   @Past(message="ï¿½Ö¹ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.")
+   @NotNull(message = "ï¿½Ö¹ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
    @DateTimeFormat(pattern = "yyyy-MM-dd",iso = ISO.DATE)
    private Date chg_orderdate;
 
-   @NotEmpty(message = "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
+   @NotEmpty(message = "ï¿½ï¿½È­ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
    private String chg_tel;
-   @NotEmpty(message = "»óÇ°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä")
-   private String chg_itemname;
+   @NotEmpty(message = "ì€í–‰ì´ë¦„ê³¼ ê³„ì¢Œë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”")
+   private String chg_account;
    private String chg_reseon;
    
-   @NotEmpty(message = "»ó¼¼ÀÌÀ¯¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
+   @NotEmpty(message = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½")
    private String chg_detail;
    private int chg_state;
    
@@ -57,13 +57,14 @@ public class Chg {
    public void setChg_tel(String chg_tel) {
       this.chg_tel = chg_tel;
    }
-   public String getChg_itemname() {
-      return chg_itemname;
-   }
-   public void setChg_itemname(String chg_itemname) {
-      this.chg_itemname = chg_itemname;
-   }
-   public String getChg_reseon() {
+
+   public String getChg_account() {
+	return chg_account;
+}
+public void setChg_account(String chg_account) {
+	this.chg_account = chg_account;
+}
+public String getChg_reseon() {
       return chg_reseon;
    }
    public void setChg_reseon(String chg_reseon) {
@@ -92,12 +93,6 @@ public String getUserid() {
 }
 public void setUserid(String userid) {
    this.userid = userid;
-}
-@Override
-public String toString() {
-   return "Chg [chg_no=" + chg_no + ", chg_orderno=" + chg_orderno + ", chg_orderdate=" + chg_orderdate + ", chg_tel="
-         + chg_tel + ", chg_itemname=" + chg_itemname + ", chg_reseon=" + chg_reseon + ", chg_detail=" + chg_detail
-         + ", chg_state=" + chg_state + ", chg_chkdate=" + chg_chkdate + ", userid=" + userid + "]";
 }
   
 

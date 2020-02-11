@@ -55,7 +55,7 @@
 			</div>
 		</a> <a href="orderlistpage.store?status=in-shipping" class="list_1"> <span class="list_2" id="my_bb_b">${count_inshipping}</span>
 			<div>
-				<span class="list_3" id="my_ll_b">배송 중</span> <span class="next_img"></span>
+				<span class="list_3" id="my_ll_b">배송</span> <span class="next_img"></span>
 			</div>
 		</a> <a href="orderlistpage.store?status=re-order" class="list_1"> <span class="list_2" id="my_bb_b">${count_reorder}</span>
 			<div>

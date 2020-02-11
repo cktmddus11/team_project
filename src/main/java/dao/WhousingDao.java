@@ -120,4 +120,28 @@ public class WhousingDao {
 		sqlSession.getMapper(WhousingMapper.class).order_whousing_outUpdate(param);
 	}
 
+	public void chg_w_bad_insert
+	(int whousingnum,int itemnum, int price, int quantity, Date currentTime) {
+		param.put("whousingnum",whousingnum);
+		param.put("itemnum",itemnum);
+		//기존 price
+		//기존 quant
+		param.put("whousingprice",price);
+		param.put("whousingquant",quantity);
+		param.put("in_date",currentTime);
+		sqlSession.getMapper(WhousingMapper.class).chg_w_bad_insert(param);
+	}
+
+	public void chg_w_bad_update(int itemnum, int price, int quantity, Date currentTime) {
+		param.clear();
+		param.put("itemnum",itemnum);
+		//기존 price
+		//기존 quant
+		long add = price*quantity;
+		param.put("whousingprice",add);
+		param.put("whousingquant",quantity);
+		param.put("in_date",currentTime);
+		sqlSession.getMapper(WhousingMapper.class).chg_w_bad_update(param);
+	}
+
 }

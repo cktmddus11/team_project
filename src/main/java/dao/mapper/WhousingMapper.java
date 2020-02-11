@@ -29,10 +29,10 @@ public interface WhousingMapper {
    @Select(outwhousing)
    List<Whousing> outselect(Map<String, Object> param);
    
-   String keepwhousing = " SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant "
+   String keepwhousing = " SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant, w.state "
                   + "FROM item i JOIN whousing w " 
                   + "ON i.itemnum = w.itemnum "
-                  + "where w.whousing_code = 1";
+                  + "where w.whousing_code = 0";
    
    @Select(keepwhousing)
    List<Whousing> keepselect(Map<String, Object> param);
@@ -119,6 +119,17 @@ public interface WhousingMapper {
 		   + " whousingprice=whousingprice+#{whousingprice}"
 		   + " where whousing_code = 0 and itemnum=#{itemnum}")
    void order_whousing_outUpdate(Map<String, Object> param);
+
+   @Insert(" INSERT"
+	   		+ " INTO whousing(whousingnum,whousing_code,itemnum,whousingquant,whousingprice,in_date,state)"
+	   		+ " VALUES (#{whousingnum},0,#{itemnum},#{whousingquant},#{whousingprice},#{in_date},1)" )
+   void chg_w_bad_insert(Map<String, Object> param);
+
+   @Update(" update whousing"
+		   + " set out_date=#{out_date}, "
+		   + " whousingprice=whousingprice-#{whousingprice}"
+		   + " where whousing_code = 0 and itemnum=#{itemnum}")
+void chg_w_bad_update(Map<String, Object> param);
 
 
 }

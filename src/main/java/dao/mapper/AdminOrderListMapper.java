@@ -24,7 +24,7 @@ public interface AdminOrderListMapper {
 			+ "</script>" })
 	List<AdminOrderList> select(Map<String, Object> param);
 
-	@Update(" update orderlist set orderstate= #{orderstate} where orderno= #{orderno}")
+	@Update(" update orderlist set orderstate= #{orderstate},status=#{status} where orderno= #{orderno}")
 	void orderstateUpdate(Map<String, Object> param);
 
 	@Select(" SELECT M.username," + " I.itemname, I.itemfile1url, OI.price, OI.quantity," + " OL.*"

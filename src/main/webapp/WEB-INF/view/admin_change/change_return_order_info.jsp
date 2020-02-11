@@ -111,11 +111,11 @@
 				</div>
 			</div>
 			<div class="store_write_input">
-				<span class="input_label" id="my_ll_b">상품명</span>
+				<span class="input_label" id="my_ll_b">은행명)<br>계좌 번호</span>
 				<div class="input_storename"
 					style="border: 1px solid rgb(227, 229, 232);">
 					<input type="text" class="storename my_ll_b" id="input_ch_re"
-						readonly="readonly" name="item_name" value="${chg.chg_itemname }">
+						readonly="readonly" name="chg_account" value="${chg.chg_account }">
 				</div>
 			</div>
 			<div class="store_write_input">
@@ -159,8 +159,8 @@
 	</div>
 	<div class="store_write_footer">
 	<div class="btn_block">
-	<button class="btn_cancel" id="my_bb_b" onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=1'">거절</button>
-	<button class="btn_save" id="my_bb_w" onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=2'">수락</button>
+	<button class="btn_cancel" id="my_bb_b" onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=1&chg_orderno=${chg.chg_orderno }'">거절</button>
+	<button class="btn_save" id="my_bb_w" onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=2&chg_orderno=${chg.chg_orderno }'">수락</button>
 	</div>
 	</div>
 </body>

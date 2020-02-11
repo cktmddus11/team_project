@@ -293,8 +293,8 @@ public class ShopService {
 		return adminOrderListDao.admin_orderlist(pageNum, orderstate, limit);
 	}
 
-	public void admin_orderstateUpdate(String orderno, int orderstate) {
-		adminOrderListDao.admin_orderstateUpdate(orderno, orderstate);
+	public void admin_orderstateUpdate(String orderno, int orderstate, String status) {
+		adminOrderListDao.admin_orderstateUpdate(orderno, orderstate,status);
 	}
 
 	///////////////// PHY
@@ -637,6 +637,16 @@ public class ShopService {
 
 	public void order_whousing_outUpdate(int itemnum, int price, int quantity, Date currentTime) {
 		whousingDao.order_whousing_outUpdate(itemnum,price,quantity,currentTime);
+	}
+
+	public void chg_w_bad_insert(int itemnum, int price, int quantity, Date currentTime) {
+		int whousingnum = whousingDao.maxwhousingnum();
+		whousingnum++;
+		whousingDao.chg_w_bad_insert(whousingnum,itemnum,price,quantity,currentTime);
+	}
+
+	public void chg_w_bad_update(int itemnum, int price, int quantity, Date currentTime) {
+		whousingDao.chg_w_bad_update(itemnum,price,quantity,currentTime);
 	}
 
 	

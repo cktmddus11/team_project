@@ -128,14 +128,14 @@
 				</div>
 				<form:errors path="chg_tel" cssClass="my_ll_r" cssStyle="padding-left:7vw;" element="div" />
 				<div class="store_write_input">
-					<span class="input_label" id="my_ll_b">상품명</span>
+					<span class="input_label" id="my_ll_b">계좌번호</span>
 					<div class="input_storename"
 						style="border: 1px solid rgb(227, 229, 232);">
 						<form:input type="text" class="storename my_ll_b" id="input_ch_re"
-							placeholder="상품명을 입력하세요" path="chg_itemname"/>
+							placeholder="은행명)계좌번호 형식으로 입력하세요" path="chg_account"/>
 					</div>
 				</div>
-						<form:errors path="chg_itemname" cssClass="my_ll_r" cssStyle="padding-left:7vw;" element="div" />
+						<form:errors path="chg_account" cssClass="my_ll_r" cssStyle="padding-left:7vw;" element="div" />
 				<div class="store_write_input">
 					<span class="input_label" id="my_ll_b">요청 사유</span>
 					<div class="input_checkname"

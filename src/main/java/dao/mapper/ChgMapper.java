@@ -13,10 +13,10 @@ public interface ChgMapper {
 
    @Insert(" insert into chg"
          + " (chg_no,chg_orderno,chg_orderdate,chg_tel,"
-         + " chg_itemname,chg_reseon,chg_detail,chg_state,chg_chkdate)"
+         + " chg_account,chg_reseon,chg_detail,chg_state,chg_chkdate)"
          + " values"
          + " (#{chg_no},#{chg_orderno},#{chg_orderdate},#{chg_tel},"
-         + " #{chg_itemname},#{chg_reseon},#{chg_detail},#{chg_state},now())"
+         + " #{chg_account},#{chg_reseon},#{chg_detail},#{chg_state},now())"
          )
    void insert(Chg chg);
 

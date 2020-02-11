@@ -106,9 +106,9 @@
 					<li class="out_num_1" id="my_ll_b"
 						style="text-align: center; width: 10vw;">
 						<button class="admin_store_update" id="my_ll_w"
-							onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=1'">거절</button>
+							onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=1&chg_orderno=${chg.chg_orderno }'">거절</button>
 						<button class="admin_store_update" id="my_ll_w"
-							onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=2'">수락</button>&nbsp;&nbsp;&nbsp;
+							onclick="location.href='./chg_state_yn.store?chg_no=${chg.chg_no}&yn=2&chg_orderno=${chg.chg_orderno }'">수락</button>&nbsp;&nbsp;&nbsp;
 					</li>
 				</ul>
 			</c:forEach>

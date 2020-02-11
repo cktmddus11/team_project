@@ -76,7 +76,7 @@ public class Admin_OrderController {
    public ModelAndView orderstateUpdate(String orderno,int orderstate, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
       try {
-         service.admin_orderstateUpdate(orderno,orderstate);
+         service.admin_orderstateUpdate(orderno,orderstate,"in-shipping");
          if(orderstate==2) {
         	 Orderitem oi =service.orderlist_out(orderno);
         	 Date currentTime = new Date();

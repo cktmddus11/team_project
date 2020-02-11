@@ -212,7 +212,7 @@
 						</div>
 					</c:if>
 					<span class="page_nums" style="    width: 22vw;">
-						<form action="pointlist.store" method="post"
+						<form action="order_item_in.store" method="post"
 							name="f">
 							<input type="hidden" name="pageNum" value="1" />
 							<c:forEach var="a" begin="${startpage }" end="${endpage }">

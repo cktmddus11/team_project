@@ -52,10 +52,11 @@ public class AdminOrderListDao {
 		return sqlSession.getMapper(AdminOrderListMapper.class).orderlist(param);
 	}
 
-	public void admin_orderstateUpdate(String orderno, int orderstate) {
+	public void admin_orderstateUpdate(String orderno, int orderstate, String status) {
 		param.clear();
 		param.put("orderno", orderno);
 		param.put("orderstate", orderstate);
+		param.put("status", status);
 		sqlSession.getMapper(AdminOrderListMapper.class).orderstateUpdate(param);
 	}
 

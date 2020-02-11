@@ -14,6 +14,7 @@ public class Whousing {
    private int whousing_code;
    private Date in_date;
    private Date out_date;
+   private int state;
    
    private String itemname;
    private int price;
@@ -100,6 +101,14 @@ public class Whousing {
 	
 	public void setOut_date(Date out_date) {
 		this.out_date = out_date;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
    
    

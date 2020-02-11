@@ -64,8 +64,8 @@ public interface OrderlistMapper {
 			+ " values (#{itemnum}, #{orderno}, #{quantity}, #{price}, #{userid})")
 	void insertorderitem(Map<String, Object> param);
 	
-	@Select(" SELECT itemnum, quantity,price"
-			+ " FROM orderitem OI "
+	@Select(" SELECT itemnum, quantity, price"
+			+ " FROM orderitem "
 			+ " WHERE orderno=#{orderno}")
 	Orderitem orderlist_out(Map<String, Object> param);
 

@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import exception.ChgException;
 import exception.StoreInfoException;
 import logic.Chg;
+import logic.Orderitem;
 import logic.ShopService;
 
 @Controller
@@ -71,6 +73,13 @@ public class Admin_ChangeController {
       try {
          service.chgstateupdate(chg_no,yn);
          if(yn==2) {
+        	 // 불량 상태의 재고 생김
+        	 Date currentTime = new Date();
+        	 Orderitem oi =service.orderlist_out(chg_orderno);
+        	 service.chg_w_bad_insert(oi.getItemnum(),oi.getPrice(),oi.getQuantity(),currentTime);
+        	 // 환불-> 재고 상태 돈 - 환불할 가격
+        	 service.chg_w_bad_update(oi.getItemnum(),oi.getPrice(),oi.getQuantity(),currentTime);
+        	 
             service.orderstateupdate(chg.getChg_orderno(),chg.getUserid());
          }
          mav.setViewName("redirect:change_return_order_list.store");
