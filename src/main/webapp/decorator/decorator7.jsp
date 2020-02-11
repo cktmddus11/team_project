@@ -203,19 +203,19 @@ hover {
                            </li>
                            <li>
                               <div style="width: 90%;" id="h">
-                                 <a href="../admin_in/order_item_in.store"
+                                 <a href="../admin_in/order_item_in.store?pageNum=1"
                                     id="lightfont_black_de">상품 입고 관리</a>
                               </div>
                            </li>
                            <li>
                               <div style="width: 90%;" id="h">
-                                 <a href="../admin_keep/order_item_list.store"
+                                 <a href="../admin_keep/order_item_list.store?pageNum=1"
                                     id="lightfont_black_de">상품 재고 관리</a>
                               </div>
                            </li>
                            <li>
                               <div style="width: 90%;" id="h">
-                                 <a href="../admin_out/order_item_out.store"
+                                 <a href="../admin_out/order_item_out.store?pageNum=1"
                                     id="lightfont_black_de">상품 출고 관리</a>
                               </div>
                            </li>

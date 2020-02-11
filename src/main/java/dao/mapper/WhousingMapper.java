@@ -54,12 +54,14 @@ public interface WhousingMapper {
    List<Whousing> inselect(Map<String, Object> param);
    
    String whousingoutwhousing = "SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant, i.price " 
-         + "FROM item i left JOIN whousing w " 
+         + "FROM item i JOIN whousing w " 
          + "ON i.itemnum = w.itemnum " 
          + "where w.whousingquant > 0 "
          + "and w.whousing_code = 2 ";
    
-   @Select(whousingoutwhousing)
+   @Select(whousingoutwhousing
+		   + "order by whousingnum desc, whousingnum limit #{startrow},#{limit}"
+		   )
    List<Whousing> whousingoutwhousing(Map<String, Object> param);
          
    @Select("select ifnull(max(whousingnum),0) from whousing")
@@ -135,6 +137,9 @@ public interface WhousingMapper {
 		   + " whousingprice=whousingprice-#{whousingprice}"
 		   + " where whousing_code = 0 and itemnum=#{itemnum}")
 void chg_w_bad_update(Map<String, Object> param);
+
+   @Select("select count(*) from whousing where whousing_code=2")
+int admin_incount_out();
 
 
 }

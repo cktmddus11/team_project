@@ -83,7 +83,10 @@ public class WhousingDao {
 		return sqlSession.getMapper(WhousingMapper.class).inselect(param);
 	}
 
-	public List<Whousing> whousingoutwhousing() {
+	public List<Whousing> whousingoutwhousing(Integer pageNum, int limit) {
+		param.clear();
+		param.put("startrow", (pageNum - 1) * limit);
+		param.put("limit", limit);
 		return sqlSession.getMapper(WhousingMapper.class).whousingoutwhousing(param);
 	}
 
@@ -148,6 +151,10 @@ public class WhousingDao {
 		param.put("whousingquant", quantity);
 		param.put("in_date", currentTime);
 		sqlSession.getMapper(WhousingMapper.class).chg_w_bad_update(param);
+	}
+
+	public int admin_incount_out() {
+		return sqlSession.getMapper(WhousingMapper.class).admin_incount_out();
 	}
 
 }

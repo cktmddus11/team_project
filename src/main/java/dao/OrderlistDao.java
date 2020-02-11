@@ -109,6 +109,12 @@ public class OrderlistDao {
 		return sqlSession.getMapper(OrderlistMapper.class).orderlist_out(param);
 	}
 
+	public void orderstate_chg(String chg_orderno) {
+		param.clear();
+		param.put("orderno",  chg_orderno);
+		sqlSession.getMapper(OrderlistMapper.class).orderstate_chg(param);
+	}
+
 
 	
 

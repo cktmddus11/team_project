@@ -69,6 +69,10 @@ public interface OrderlistMapper {
 			+ " WHERE orderno=#{orderno}")
 	Orderitem orderlist_out(Map<String, Object> param);
 
+	@Update(" update orderlist set orderstate=6, status='re-order'"
+			+ " where orderno=#{orderno}")
+	void orderstate_chg(Map<String, Object> param);
+
 
 
 }

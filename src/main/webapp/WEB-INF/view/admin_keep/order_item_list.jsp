@@ -143,6 +143,12 @@
 }
 </style>
 <script type="text/javascript">
+   function listdo(page){
+      document.selectform.pageNum.value=page;
+      document.selectform.submit();
+   }
+</script>
+<script type="text/javascript">
 $(function(){
 	   $(".dropdown-menu li").click(function(){
 	      console.log($(this).children('a').text())
@@ -159,8 +165,7 @@ $(function(){
 <body>
 <form action="order_item_list.store" method="post" name="selectform">
 <input type="hidden" name="selectvalue" value="${param.selectvalue}">
-<input type="hidden" name="select_2_value" value="${param.select_2_value}">
-
+<input type="hidden" name="pageNum" value="1">
 </form>
 	<div class="admin_order_list">
 		<div class="admin_order_header">

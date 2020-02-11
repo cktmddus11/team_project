@@ -73,6 +73,8 @@ public class Admin_ChangeController {
       try {
          service.chgstateupdate(chg_no,yn);
          if(yn==2) {
+        	 // 교환 반품 상태로 orderlist 변경
+        	 service.orderstate_chg(chg_orderno);
         	 // 불량 상태의 재고 생김
         	 Date currentTime = new Date();
         	 Orderitem oi =service.orderlist_out(chg_orderno);

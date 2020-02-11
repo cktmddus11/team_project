@@ -566,8 +566,8 @@ public class ShopService {
 		return whousingDao.in(pageNum, limit);
 	}
 
-	public List<Whousing> whousingoutwhousing() {
-		return whousingDao.whousingoutwhousing();
+	public List<Whousing> whousingoutwhousing(Integer pageNum, int limit) {
+		return whousingDao.whousingoutwhousing(pageNum,limit);
 	}
 
 	public int admin_incount_new() {
@@ -658,6 +658,14 @@ public class ShopService {
 
 	public void chg_w_bad_update(int itemnum, int price, int quantity, Date currentTime) {
 		whousingDao.chg_w_bad_update(itemnum,price,quantity,currentTime);
+	}
+
+	public int admin_incount_out() {
+		return whousingDao.admin_incount_out();
+	}
+
+	public void orderstate_chg(String chg_orderno) {
+		orderlistDao.orderstate_chg(chg_orderno);
 	}
 
 	

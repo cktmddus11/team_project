@@ -21,9 +21,24 @@ public class Admin_OutController {
    private ShopService service;
    
    @RequestMapping("order_item_out")
-   public ModelAndView order_item_in() {
+   public ModelAndView order_item_in(Integer pageNum) {
       ModelAndView mav = new ModelAndView();
-      List<Whousing> whousingoutwhousing = service.whousingoutwhousing();
+      int limit = 10; //페이지당 보여지는 게시물 건수
+      int wow_cnt = service.admin_incount_out(); //전체 등록된 게시물 건수
+      int maxpage = (int)((double)wow_cnt/limit + 0.95); 
+       //보여지는 첫번째 페이지
+       int startpage = (int)((pageNum/10.0 + 0.9) -1) * 10 + 1; 
+       //보여지는 마지막 페이지
+       int endpage = startpage + 9;
+       if(endpage > maxpage) endpage = maxpage;
+       int boardno = wow_cnt - (pageNum - 1) * limit;
+       mav.addObject("pageNum", pageNum);
+       mav.addObject("maxpage", maxpage);
+       mav.addObject("startpage", startpage);
+       mav.addObject("endpage", endpage);
+       mav.addObject("keeplist_cnt", wow_cnt);
+       mav.addObject("boardno", boardno);
+      List<Whousing> whousingoutwhousing = service.whousingoutwhousing(pageNum,limit);
       mav.addObject("whousingoutwhousing", whousingoutwhousing);
       return mav;
    }
