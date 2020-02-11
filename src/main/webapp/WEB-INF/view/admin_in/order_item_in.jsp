@@ -196,45 +196,48 @@
 				</li>
 			</ul>	
 			</c:forEach>
-			         <div class="list_footer" style="border-top: 1px solid;">
-            <div class="page_block">
+<div class="list_footer" style="border-top: 1px solid;">
+				<div class="page_block">
 
-               <c:if test="${pageNum > 1 }">
-                  <div class="arrow_box_new">
-                     <div class="arrow_pre_new"
-                        onclick="javascript:listdo(${pageNum-1 })"></div>
-                  </div>
-               </c:if>
-               <c:if test="${pageNum <= 1 }">
-                  <div class="arrow_box_new">
-                     <div class="arrow_pre_new"></div>
-                  </div>
-               </c:if>
-               <span class="page_nums">
-                 <!--  <form action="order_item_in.store" method="post" name="f">  -->
-                     <c:forEach var="a" begin="${startpage}" end="${endpage}">
-                        <c:if test="${pageNum==a}">
-                           <a href="javascript:listdo(${a})" class="clicka"
-                              id="my_bb_20b">${a}</a>
-                        </c:if>
-                        <c:if test="${pageNum!=a}">
-                           <a href="javascript:listdo(${a})" id="my_ll_b">${a}</a>
-                        </c:if>
-                     </c:forEach>
-               <!--  </form>  -->
-               </span>
-               <c:if test="${pageNum < maxpage}">
-               <div class="arrow_box_new">
-                  <div class="arrow_next_new" onclick="javascript:listdo(${pageNum+1})"></div>
-               </div>
-               </c:if>
-               <c:if test="${pageNum >= maxpage}">
-               <div class="arrow_box_new">
-                  <div class="arrow_next_new"></div>
-               </div>
-               </c:if>
-            </div>
-         </div>
+					<c:if test="${pageNum > 1 }">
+						<div class="arrow_box_new">
+							<div class="arrow_pre_new"
+								onclick="javascript:listdo('${pageNum-1 }')"></div>
+						</div>
+					</c:if>
+					<c:if test="${pageNum <= 1 }">
+						<div class="arrow_box_new">
+							<div class="arrow_pre_new"></div>
+						</div>
+					</c:if>
+					<span class="page_nums" style="    width: 22vw;">
+						<form action="pointlist.store" method="post"
+							name="f">
+							<input type="hidden" name="pageNum" value="1" />
+							<c:forEach var="a" begin="${startpage }" end="${endpage }">
+								<c:if test="${param.pageNum==a }">
+									<a href="javascript:listdo('${a }')" class="clicka"
+										id="my_bb_20b">${a }</a>
+								</c:if>
+								<c:if test="${param.pageNum!=a }">
+									<a href="javascript:listdo('${a }')" id="my_ll_b">${a }</a>
+								</c:if>
+							</c:forEach>
+
+						</form>
+					</span>
+					<c:if test="${pageNum <= 1 }">
+					<div class="arrow_box_new">
+						<div class="arrow_next_new" onclick="javascript:listdo('${pageNum+1 }')"></div>
+					</div>
+					</c:if>
+					<c:if test="${pageNum > 1 }">
+					<div class="arrow_box_new">
+						<div class="arrow_next_new"></div>
+					</div>
+					</c:if>
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
