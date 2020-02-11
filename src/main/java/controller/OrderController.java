@@ -43,11 +43,11 @@ public class OrderController {
 		mav.addObject("orderform", new OrderForm());
 
 		User user = (User) session.getAttribute("loginUser");
-		int totalpoint =service.totalpoint(user.getUserid());
-		session.setAttribute("totalpoint", totalpoint);
 		if (oitemnum == null) { // 카트에서 구매
 			System.out.println("&&&&&호출 1");
 			if (user != null) { // 로그인 후 
+				int totalpoint =service.totalpoint(user.getUserid());
+				session.setAttribute("totalpoint", totalpoint);
 				System.out.println("&&&&&호출 2"); 
 				List<ItemSet> cartlist = service.cartview(user.getUserid());
 				for (ItemSet i : cartlist) {
@@ -167,7 +167,7 @@ public class OrderController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mav.setViewName("redirect:orderchk.store");
+		mav.setViewName("redirect:index.store");
 		return mav;
 		
 	
