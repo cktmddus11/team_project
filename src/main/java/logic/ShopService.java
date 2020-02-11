@@ -624,4 +624,15 @@ public class ShopService {
 		whousingDao.whousing_Update(whousing);
 	}
 
+	public Orderitem orderlist_out(String orderno) {
+		return orderlistDao.orderlist_out(orderno);
+	}
+
+	public void order_whousing_outWrite(int itemnum, int price, int quantity) {
+		int whousingnum = whousingDao.maxwhousingnum();
+		whousingnum++;
+		whousingDao.order_whousing_outWrite(whousingnum,itemnum,price,quantity);
+	}
+
+	
 }

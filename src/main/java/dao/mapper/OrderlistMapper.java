@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import logic.Orderitem;
 import logic.Orderlist;
 
 public interface OrderlistMapper {
@@ -62,5 +63,12 @@ public interface OrderlistMapper {
 			+ " (itemnum, orderno, quantity, price, userid)"
 			+ " values (#{itemnum}, #{orderno}, #{quantity}, #{price}, #{userid})")
 	void insertorderitem(Map<String, Object> param);
+	
+	@Select(" SELECT itemnum, quantity,price"
+			+ " FROM orderitem OI "
+			+ " WHERE orderno=#{orderno}")
+	Orderitem orderlist_out(Map<String, Object> param);
+
+
 
 }

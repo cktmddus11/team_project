@@ -87,7 +87,20 @@ public class WhousingDao {
    }
 
 	public void whousing_Update(Whousing whousing) {
+		long sub = -whousing.getWhousingprice();
+		whousing.setWhousingprice(sub*whousing.getWhousingquant());
+		
 		sqlSession.getMapper(WhousingMapper.class).whousing_Update(whousing);
+	}
+
+
+	public void order_whousing_outWrite(int whousingnum, int itemnum, int price, int quantity) {
+		param.clear();
+		param.put("itemnum",itemnum);
+		param.put("whousingprice",price);
+		param.put("whousingquant",quantity);
+		param.put("whousingnum",whousingnum);
+		sqlSession.getMapper(WhousingMapper.class).order_whousing_outWrite(param);
 	}
 
 }

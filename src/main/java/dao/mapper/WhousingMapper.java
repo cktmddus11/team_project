@@ -103,10 +103,16 @@ public interface WhousingMapper {
          ,"</script>"})
    int count(Map<String, Object> param);
 
-   @Update(" update "+whousingcolumn
-		   + " set w.whousingquant=#{whousingquant} , w.in_date=#{in_date}"
-		   + "where w.whousing_code = 0")
+   @Update(" update whousing"
+		   + " set whousingquant=#{whousingquant}, in_date=#{in_date}, whousingprice=#{whousingprice}"
+		   + " where whousing_code = 0 and itemnum=#{itemnum}")
    void whousing_Update(Whousing whousing);
+
+   @Insert(" INSERT"
+   		+ " INTO whousing(whousingnum,whousing_code,itemnum,whousingquant,whousingprice,out_date)"
+   		+ " VALUES (#{whousingnum},2,#{itemnum},#{whousingquant},#{whousingprice},NOW())" 
+		   )
+   void order_whousing_outWrite(Map<String, Object> param);
 
 
 }

@@ -10,9 +10,10 @@ public class Whousing {
    private int whousingnum;
    private int itemnum;
    private int whousingquant;
-   private int whousingprice;
+   private long whousingprice;
    private int whousing_code;
-   private Date whousing_date;
+   private Date in_date;
+   private Date out_date;
    
    private String itemname;
    private int price;
@@ -58,10 +59,10 @@ public class Whousing {
    public void setWhousingquant(int whousingquant) {
       this.whousingquant = whousingquant;
    }
-   public int getWhousingprice() {
+   public long getWhousingprice() {
       return whousingprice;
    }
-   public void setWhousingprice(int whousingprice) {
+   public void setWhousingprice(long whousingprice) {
       this.whousingprice = whousingprice;
    }
    public int getWhousing_code() {
@@ -69,12 +70,6 @@ public class Whousing {
    }
    public void setWhousing_code(int whousing_code) {
       this.whousing_code = whousing_code;
-   }
-   public Date getWhousing_date() {
-      return whousing_date;
-   }
-   public void setWhousing_date(Date whousing_date) {
-      this.whousing_date = whousing_date;
    }
    public String getItemname() {
       return itemname;
@@ -90,6 +85,23 @@ public class Whousing {
    public void setPrice(int price) {
       this.price = price;
    }
+
+	public Date getIn_date() {
+		return in_date;
+	}
+	
+	public void setIn_date(Date in_date) {
+		this.in_date = in_date;
+	}
+	
+	public Date getOut_date() {
+		return out_date;
+	}
+	
+	public void setOut_date(Date out_date) {
+		this.out_date = out_date;
+	}
+   
    
    
 }

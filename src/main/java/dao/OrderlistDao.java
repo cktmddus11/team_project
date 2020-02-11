@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import dao.mapper.OrderlistMapper;
 import logic.OrderForm;
+import logic.Orderitem;
 import logic.Orderlist;
 
 @Repository
@@ -73,6 +74,7 @@ public class OrderlistDao {
 
 
 	public void checkend(OrderForm order) {
+		param.clear();
 		param.put("orderno", order.getOrderno());
 		param.put("datepay", order.getDatepay());
 		param.put("userid", order.getUserid());
@@ -91,6 +93,7 @@ public class OrderlistDao {
 	}
 
 	public void insertorderitem(int itemnum, String orderno, int quantity, int price, String userid) {
+		param.clear();
 		param.put("itemnum", itemnum);
 		param.put("orderno",  orderno);
 		param.put("quantity", quantity);
@@ -99,6 +102,13 @@ public class OrderlistDao {
 		 sqlSession.getMapper(OrderlistMapper.class).insertorderitem(param);
 			
 	}
+
+	public Orderitem orderlist_out(String orderno) {
+		param.clear();
+		param.put("orderno",  orderno);
+		return sqlSession.getMapper(OrderlistMapper.class).orderlist_out(param);
+	}
+
 
 	
 

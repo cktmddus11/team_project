@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import exception.AdminOrderException;
 import logic.AdminOrderList;
+import logic.Orderitem;
 import logic.Orderlist;
 import logic.ShopService;
 
@@ -75,6 +76,13 @@ public class Admin_OrderController {
       ModelAndView mav = new ModelAndView();
       try {
          service.admin_orderstateUpdate(orderno,orderstate);
+         if(orderstate==2) {
+        	 Orderitem oi =service.orderlist_out(orderno);
+        	 service.order_whousing_outWrite
+        	 	(oi.getItemnum(),oi.getPrice(),oi.getQuantity());
+//        	 service.order_whousing_outUpdate
+//        	 	(oi.getItemnum(),oi.getPrice(),oi.getQuantity());
+         }
          mav.setViewName("redirect:orderstate.store");
       }catch (Exception e) {
          e.printStackTrace();
