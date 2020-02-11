@@ -62,6 +62,99 @@
 	color: black;
 	font-size: 20px;
 }
+
+.page_block {
+   display: flex;
+   -webkit-box-pack: center;
+   justify-content: center;
+}
+
+.arrow_box_new {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: rgb(60, 64, 75);
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+    margin: 0px 10px;
+}
+
+.arrow_pre_new {
+   width: 10px;
+    height: 17px;
+    background-image:  url('../images/icons/icon-prev.png');
+    background-size: 10px;
+    margin: 0px 0px 0px -3px;
+}
+
+.arrow_pre_new:after {
+   content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -2px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: white;
+    border-image: initial;
+}
+
+.page_nums {
+   display: flex;
+   flex-direction: column;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   width: 37px;
+   height: 30px;
+   cursor: pointer;
+}
+
+.arrow_next_new {
+   width: 10px;
+    height: 17px;
+    background-size: 10px;
+    background-image: url('../images/icons/icon-next.png');
+    margin: 0px 0px 0px 3px;
+}
+
+.arrow_next_new:after {
+   content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: -2px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: white;
+    border-image: initial;
+}
+
+.page_nums .clicka {
+    letter-spacing: -0.23px;
+    color: rgb(0, 0, 0);
+    height: 19px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    font-size: 22px;
+    border-bottom: 1px solid black;
+}
+.page_nums a {
+    letter-spacing: -0.23px;
+    color: rgb(212, 215, 225);
+    height: 19px;
+    margin-bottom: 3px;
+}
 </style>
 </head>
 <body>
@@ -170,23 +263,48 @@
 						</ul>
 					</c:forEach>
 					<%-- 이전페이지가 있는 경우 --%>
-					<c:if test="${pageNum > 1}">
-						<a href="javascript:listdo(${pageNum - 1})">[이전]</a>
+					<div class="list_footer" style="border-top: 1px solid;">
+				<div class="page_block">
+
+					<c:if test="${pageNum > 1 }">
+						<div class="arrow_box_new">
+							<div class="arrow_pre_new"
+								onclick="javascript:listdo('${pageNum-1 }')"></div>
+						</div>
 					</c:if>
-					<%-- 이전페이지가 없는 경우 --%>
-					<c:if test="${pageNum <= 1}">[이전]</c:if>
-					<c:forEach var="a" begin="${startpage}" end="${endpage}">
-						<c:if test="${a == pageNum}">[${a}]</c:if>
-						<c:if test="${a != pageNum}">
-							<a href="javascript:listdo(${a})">[${a}]</a>
-						</c:if>
-					</c:forEach>
-					<%-- 다음페이지가 존재하는 경우 link 연결 --%>
-					<c:if test="${pageNum < maxpage}">
-						<a href="javascript:listdo(${pageNum + 1})">[다음]</a>
+					<c:if test="${pageNum <= 1 }">
+						<div class="arrow_box_new">
+							<div class="arrow_pre_new"></div>
+						</div>
 					</c:if>
-					<%-- 다음페이지가 존재하지 않는 경우 --%>
-					<c:if test="${pageNum >= maxpage}">[다음]</c:if>
+					<span class="page_nums" style="    width: 22vw;">
+						<form action="pointlist.store" method="post"
+							name="f">
+							<input type="hidden" name="pageNum" value="1" />
+							<c:forEach var="a" begin="${startpage }" end="${endpage }">
+								<c:if test="${param.pageNum==a }">
+									<a href="javascript:listdo('${a }')" class="clicka"
+										id="my_bb_20b">${a }</a>
+								</c:if>
+								<c:if test="${param.pageNum!=a }">
+									<a href="javascript:listdo('${a }')" id="my_ll_b">${a }</a>
+								</c:if>
+							</c:forEach>
+
+						</form>
+					</span>
+					<c:if test="${pageNum <= 1 }">
+					<div class="arrow_box_new">
+						<div class="arrow_next_new" onclick="javascript:listdo('${pageNum+1 }')"></div>
+					</div>
+					</c:if>
+					<c:if test="${pageNum > 1 }">
+					<div class="arrow_box_new">
+						<div class="arrow_next_new"></div>
+					</div>
+					</c:if>
+				</div>
+			</div>
 				</div>
 			</c:if>
 		</div>

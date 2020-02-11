@@ -62,6 +62,7 @@ public class Admin_InController {
       ModelAndView mav = new ModelAndView();
       try {
          service.whousing_inWrite(whousing, request); //게시물등록
+         service.whousing_Update(whousing, request); //게시물등록
          mav.setViewName("redirect:order_item_in.store");
       } catch (Exception e) {
          e.printStackTrace();

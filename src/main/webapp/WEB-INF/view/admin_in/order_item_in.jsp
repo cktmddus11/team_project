@@ -132,6 +132,7 @@
     height: 19px;
     font-weight: bold;
     margin-bottom: 0px;
+    font-size: 22px;
     border-bottom: 1px solid black;
 }
 .page_nums a {

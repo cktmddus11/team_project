@@ -14,8 +14,7 @@ public interface WhousingMapper {
    String whousingcolumn = " SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant, w.whousingprice " 
                      + "FROM item i JOIN whousing w " 
                      + "ON i.itemnum = w.itemnum "
-                     + "where w.whousingquant = 0 "
-                     + "and w.whousing_code = 1";
+                     + "where w.whousingquant = 0 ";
    
    @Select(whousingcolumn)
    List<Whousing> select(Map<String, Object> param);
@@ -38,11 +37,11 @@ public interface WhousingMapper {
    @Select(keepwhousing)
    List<Whousing> keepselect(Map<String, Object> param);
    
-   String inwhousing = "SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant, w.whousingprice " 
-                  + "FROM item i left JOIN whousing w " 
-                  + "ON i.itemnum = w.itemnum " 
-                  + "where w.whousingquant > 0 "
-                  + "and w.whousing_code=1"; 
+   String inwhousing = " SELECT i.itemnum, i.itemname, w.whousingnum, w.whousingquant, w.whousingprice " 
+                  + " FROM item i left JOIN whousing w " 
+                  + " ON i.itemnum = w.itemnum " 
+                  + " where w.whousingquant = 0 "
+                  + " and w.whousing_code = 0"; 
    
    @Select({"<script>", inwhousing
       ,"<if test='whousingnum != null'> where whousingnum=#{whousingnum}</if>"
@@ -66,7 +65,7 @@ public interface WhousingMapper {
    @Insert("insert into whousing " 
    + "(whousingnum, itemnum, whousingquant, whousingprice, whousing_code, in_date) "
    + " values (#{whousingnum}, #{itemnum}, #{whousingquant}, #{whousingprice}, 1, now())") 
-   void insert(Whousing whousing); //ÀÔ°í
+   void insert(Whousing whousing); //ï¿½Ô°ï¿½
    
    
    @Update("update whousing set "
@@ -83,7 +82,7 @@ public interface WhousingMapper {
    @Insert("insert into whousing "
          + "(whousingnum, itemnum, whousingquant, whousingprice, whousing_code, out_date) "
          + " values (#{whousingnum}, #{itemnum}, #{whousingquant}, #{whousingprice}, 2, now())") 
-   void outinsert(Whousing whousing); //Ãâ°í
+   void outinsert(Whousing whousing); //ï¿½ï¿½ï¿½
 
    @Select(outwhousing+" and w.itemnum=#{itemnum} and w.whousing_code=#{whousing_code}")
    Whousing dbselect(Map<String, Object> param);
@@ -103,6 +102,11 @@ public interface WhousingMapper {
          ,"<if test='whousingnum != null'> where whousingnum=#{whousingnum}</if>"
          ,"</script>"})
    int count(Map<String, Object> param);
+
+   @Update(" update "+whousingcolumn
+		   + " set w.whousingquant=#{whousingquant} , w.in_date=#{in_date}"
+		   + "where w.whousing_code = 0")
+   void whousing_Update(Whousing whousing);
 
 
 }

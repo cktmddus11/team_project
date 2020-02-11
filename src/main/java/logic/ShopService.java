@@ -603,7 +603,7 @@ public class ShopService {
 		  }
 		  qnaboardDao.qnainsert(qnaboard);
 		}
-	/*//////////////// */
+	/*//////////////// */	/*//////////////// */	/*//////////////// */
 
 	public void addPoint(String userid, String totprice) {
 		int pointnum = pointDao.pointmax(userid);
@@ -618,6 +618,10 @@ public class ShopService {
 		pointnum++;
 		pointDao.subPoint(userid,pointnum,subpoint);	
 		
+	}
+	/*//////////////// */	/*//////////////// */	/*//////////////// */
+	public void whousing_Update(Whousing whousing, HttpServletRequest request) {
+		whousingDao.whousing_Update(whousing);
 	}
 
 }
