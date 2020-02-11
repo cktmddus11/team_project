@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,21 +87,37 @@ public class WhousingDao {
       return sqlSession.getMapper(WhousingMapper.class).count(param);
    }
 
-	public void whousing_Update(Whousing whousing) {
+	public void whousing_Update(Whousing whousing,Date currentTime) {
 		long sub = -whousing.getWhousingprice();
 		whousing.setWhousingprice(sub*whousing.getWhousingquant());
+		whousing.setIn_date(currentTime);
 		
 		sqlSession.getMapper(WhousingMapper.class).whousing_Update(whousing);
 	}
 
 
-	public void order_whousing_outWrite(int whousingnum, int itemnum, int price, int quantity) {
+	public void order_whousing_outWrite
+	(int whousingnum, int itemnum, int price, int quantity, Date currentTime) {
 		param.clear();
 		param.put("itemnum",itemnum);
 		param.put("whousingprice",price);
 		param.put("whousingquant",quantity);
 		param.put("whousingnum",whousingnum);
+		param.put("out_date",currentTime);
 		sqlSession.getMapper(WhousingMapper.class).order_whousing_outWrite(param);
+	}
+
+	public void order_whousing_outUpdate
+	(int itemnum, int price, int quantity, Date currentTime) {
+		param.clear();
+		param.put("itemnum",itemnum);
+		//기존 price
+		//기존 quant
+		long add = price*quantity;
+		param.put("whousingprice",add);
+		param.put("whousingquant",quantity);
+		param.put("out_date",currentTime);
+		sqlSession.getMapper(WhousingMapper.class).order_whousing_outUpdate(param);
 	}
 
 }

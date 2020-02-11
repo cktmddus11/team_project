@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,8 +62,9 @@ public class Admin_InController {
    public ModelAndView order_item_in_write(Whousing whousing, HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
       try {
-         service.whousing_inWrite(whousing, request); //게시물등록
-         service.whousing_Update(whousing, request); //게시물등록
+    	  Date currentTime = new Date();
+         service.whousing_inWrite(whousing,currentTime, request); //게시물등록
+         service.whousing_Update(whousing,currentTime, request); //게시물등록
          mav.setViewName("redirect:order_item_in.store");
       } catch (Exception e) {
          e.printStackTrace();

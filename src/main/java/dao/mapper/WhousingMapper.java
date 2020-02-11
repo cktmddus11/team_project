@@ -64,12 +64,12 @@ public interface WhousingMapper {
 
    @Insert("insert into whousing " 
    + "(whousingnum, itemnum, whousingquant, whousingprice, whousing_code, in_date) "
-   + " values (#{whousingnum}, #{itemnum}, #{whousingquant}, #{whousingprice}, 1, now())") 
+   + " values (#{whousingnum}, #{itemnum}, #{whousingquant}, #{whousingprice}, 1, #{in_date})") 
    void insert(Whousing whousing); //�԰�
    
    
    @Update("update whousing set "
-      + "whousingquant=#{whousingquant}, whousingprice=#{whousingprice}, in_date=now() "
+      + "whousingquant=#{whousingquant}, whousingprice=#{whousingprice}, in_date=#{in_date} "
       + "where itemnum=#{itemnum} and whousing_code=1" )
    void update(Whousing whousing);
    
@@ -110,9 +110,15 @@ public interface WhousingMapper {
 
    @Insert(" INSERT"
    		+ " INTO whousing(whousingnum,whousing_code,itemnum,whousingquant,whousingprice,out_date)"
-   		+ " VALUES (#{whousingnum},2,#{itemnum},#{whousingquant},#{whousingprice},NOW())" 
+   		+ " VALUES (#{whousingnum},2,#{itemnum},#{whousingquant},#{whousingprice},#{out_date})" 
 		   )
    void order_whousing_outWrite(Map<String, Object> param);
+
+   @Update(" update whousing"
+		   + " set whousingquant=whousingquant-#{whousingquant}, out_date=#{out_date}, "
+		   + " whousingprice=whousingprice+#{whousingprice}"
+		   + " where whousing_code = 0 and itemnum=#{itemnum}")
+   void order_whousing_outUpdate(Map<String, Object> param);
 
 
 }

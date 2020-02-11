@@ -525,9 +525,10 @@ public class ShopService {
 
 	/* ///////kje/////// */
 //////////////////////////��ǰ �԰�
-	public void whousing_inWrite(Whousing whousing, HttpServletRequest request) {
+	public void whousing_inWrite(Whousing whousing, Date currentTime, HttpServletRequest request) {
 		int inmax = whousingDao.maxwhousingnum();
 		whousing.setWhousingnum(++inmax);
+		whousing.setIn_date(currentTime);
 		whousingDao.insert(whousing);
 	}
 
@@ -620,18 +621,22 @@ public class ShopService {
 		
 	}
 	/*//////////////// */	/*//////////////// */	/*//////////////// */
-	public void whousing_Update(Whousing whousing, HttpServletRequest request) {
-		whousingDao.whousing_Update(whousing);
+	public void whousing_Update(Whousing whousing,Date currentTime, HttpServletRequest request) {
+		whousingDao.whousing_Update(whousing,currentTime);
 	}
 
 	public Orderitem orderlist_out(String orderno) {
 		return orderlistDao.orderlist_out(orderno);
 	}
 
-	public void order_whousing_outWrite(int itemnum, int price, int quantity) {
+	public void order_whousing_outWrite(int itemnum, int price, int quantity, Date currentTime) {
 		int whousingnum = whousingDao.maxwhousingnum();
 		whousingnum++;
-		whousingDao.order_whousing_outWrite(whousingnum,itemnum,price,quantity);
+		whousingDao.order_whousing_outWrite(whousingnum,itemnum,price,quantity,currentTime);
+	}
+
+	public void order_whousing_outUpdate(int itemnum, int price, int quantity, Date currentTime) {
+		whousingDao.order_whousing_outUpdate(itemnum,price,quantity,currentTime);
 	}
 
 	

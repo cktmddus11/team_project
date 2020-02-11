@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,10 +79,12 @@ public class Admin_OrderController {
          service.admin_orderstateUpdate(orderno,orderstate);
          if(orderstate==2) {
         	 Orderitem oi =service.orderlist_out(orderno);
+        	 Date currentTime = new Date();
         	 service.order_whousing_outWrite
-        	 	(oi.getItemnum(),oi.getPrice(),oi.getQuantity());
-//        	 service.order_whousing_outUpdate
-//        	 	(oi.getItemnum(),oi.getPrice(),oi.getQuantity());
+        	 	(oi.getItemnum(),oi.getPrice(),oi.getQuantity(),currentTime);
+        	 
+        	 service.order_whousing_outUpdate
+        	 	(oi.getItemnum(),oi.getPrice(),oi.getQuantity(),currentTime);
          }
          mav.setViewName("redirect:orderstate.store");
       }catch (Exception e) {
