@@ -35,18 +35,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import logic.Kakaoupdate;
+
 
 public class KakaoController {
-
-	/*
-	 * static 메서드로 선언해서 객체가 생성되지 않은 상황에서도 사용이 가능. 그래서 static 멤버들만 사용 가능
-	 */
 
 	private final static String K_CLIENT_ID = "e26813a1bfbea6b3df6f9370af454e33";
 	private final static String K_REDIRECT_URl = "http://localhost:8080/kakaofriends/user/login.store";
 
-	// 카카오 로그인 화면이로 이동하는 주소값 리턴
 	public static String getAuthorizationUrl(HttpSession session) {
 		String kakaoUrl = "https://kauth.kakao.com/oauth/authorize?" + "client_id=" + K_CLIENT_ID + "&redirect_uri="
 				+ K_REDIRECT_URl + "&response_type=code";
@@ -54,14 +49,13 @@ public class KakaoController {
 
 	}
 
-	// 사용자 정보가 저장되어있는 토큰 불러오는 함수
 	public static JsonNode getAccessToken(String autorize_code) {
 		final String RequestUrl = "https://kauth.kakao.com/oauth/token";
 		final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
 		postParams.add(new BasicNameValuePair("grant_type", "authorization_code"));
 		postParams.add(new BasicNameValuePair("client_id", K_CLIENT_ID));// REST API KEY
-		postParams.add(new BasicNameValuePair("redirect_uri", K_REDIRECT_URl)); // 리다이렉트 URI
-		postParams.add(new BasicNameValuePair("code", autorize_code)); // 로그인 과정중 얻은 코드
+		postParams.add(new BasicNameValuePair("redirect_uri", K_REDIRECT_URl));
+		postParams.add(new BasicNameValuePair("code", autorize_code));
 		final HttpClient client = HttpClientBuilder.create().build();
 		final HttpPost post = new HttpPost(RequestUrl);
 		JsonNode returnNode = null;
@@ -71,7 +65,6 @@ public class KakaoController {
 			final HttpResponse response = client.execute(post);
 			final int responseCode = response.getStatusLine().getStatusCode();
 
-			// JSON 형태 반환값 처리
 			ObjectMapper mapper = new ObjectMapper();
 			returnNode = mapper.readTree(response.getEntity().getContent());
 
@@ -87,9 +80,7 @@ public class KakaoController {
 		return returnNode;
 	}
 
-	// 사용자 정보를 jsonNode 타입으로 리턴시킴
 	public static JsonNode getKakaoUserInfo(JsonNode accessToken) {
-		// v1으로 하면 이메일 정보정도만 가져옴
 		final String RequestUrl = "https://kapi.kakao.com/v2/user/me";
 		final HttpClient client = HttpClientBuilder.create().build();
 		final HttpPost post = new HttpPost(RequestUrl);
@@ -106,7 +97,6 @@ public class KakaoController {
 			System.out.println("\nSending 'POST' request to URL : " + RequestUrl);
 			System.out.println("Response Code : " + responseCode);
 
-			// JSON 형태 반환값 처리
 			ObjectMapper mapper = new ObjectMapper();
 			returnNode = mapper.readTree(response.getEntity().getContent());
 			System.out.println(returnNode);
@@ -127,10 +117,6 @@ public class KakaoController {
 
 	}
 
-	/*
-	 * 헤더에 Authorization : "Bearer {access_Token}" 을 포함하여 요청하면 로그아웃을 수행한 클라이언트의 아이디를
-	 * 반환
-	 */
 	public static JsonNode kakaoLogout(String autorize_code) {
 		final String RequestUrl = "https://kapi.kakao.com/v2/user/logout";
 		final HttpClient client = HttpClientBuilder.create().build();
@@ -161,28 +147,22 @@ public class KakaoController {
 	      final HttpPost post = new HttpPost(RequestUrl);
 	      
 	      post.addHeader("Authorization","Bearer "+autorize_code);
-	      // JSON으로 받은 데이터를 저장하기 위한 것으로 앞, 뒤의 "를 제거
 	      nickname = nickname.replace("\"", "");
 	      gender = gender.replace("\"", "");
 	      
-	      // json 데이터 생성
 	      JSONObject personInfo = new JSONObject();
-	      // 데이터 추가
 	      personInfo.put("nickname", nickname);
 	      //personInfo.put("gender", gender);
 	      
-	      // body 에 추가하기 위한 List생성
 	      final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
 	      postParams.add(new BasicNameValuePair("properties", ""+personInfo));
 	      System.out.println(personInfo);
 	      JsonNode returnNode = null;
 	      try {
-	         // 요청 url의 body에 정보 추가
 	         post.setEntity(new UrlEncodedFormEntity(postParams));
 	         final HttpResponse response = client.execute(post);
-	         // 응답코드
 	         final int responseCode = response.getStatusLine().getStatusCode();
-	         System.out.println("응답 Code : "+responseCode);
+	         System.out.println("占쏙옙占쏙옙 Code : "+responseCode);
 	         ObjectMapper mapper = new ObjectMapper();
 	         returnNode = mapper.readTree(response.getEntity().getContent());
 	      }catch (UnsupportedEncodingException e) {
@@ -193,7 +173,7 @@ public class KakaoController {
 	         e.printStackTrace();
 	      }
 	      
-	      System.out.println("ㅜㅡㅜ"+returnNode);
+	      System.out.println("占싱ㅡㅿ옙"+returnNode);
 	      return  returnNode;
 	}
 

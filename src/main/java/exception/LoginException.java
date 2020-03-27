@@ -9,5 +9,4 @@ public class LoginException extends RuntimeException{
 	public String getUrl() {
 		return url;
 	}
-
 }

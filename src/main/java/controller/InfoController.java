@@ -1,17 +1,37 @@
 package controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import logic.ShopService;
+import logic.StoreInfo;
 
 @Controller
 @RequestMapping("info")
 public class InfoController {
-	@GetMapping("*") // getÀ¸·Î µé¾î¿Â ¿äÃ»Áß Á¤ÇØÁø°Ô ¾øÀ¸¸é ÀÌ°É·Î ½ÇÇà?
-	public String form(Model model) {
-		return null; // null : url·Î  º¸°í ÀÌµ¿?
-	}
-	
+   @Autowired
+      private ShopService service;
+   
+   @GetMapping("*")
+      public ModelAndView getCharacterInfo() {
+         ModelAndView mav = new ModelAndView();
+         return mav;
+      }
+   
+   @RequestMapping("storeInfo")
+   public ModelAndView storeInfo() {
+    ModelAndView mav = new ModelAndView();
+       int limit = 10; //í˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ ê±´ ìˆ˜
+       int listcount = service.storecount(); //ì „ì²´ ë“±ë¡ëœ ê²Œì‹œë¬¼ ê±´ ìˆ˜
+       List<StoreInfo> storelist = service.storelist();
+       mav.addObject("listcount", listcount);
+       mav.addObject("storelist", storelist);
+       return mav;
+   }
+   
 }

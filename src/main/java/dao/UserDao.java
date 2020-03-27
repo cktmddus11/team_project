@@ -1,40 +1,101 @@
 package dao;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import dao.mapper.UserMapper;
+import exception.LoginException;
+import logic.Point;
+import logic.User;
+
+@Repository
 public class UserDao {
-	private String user_id;
-	private String user_email;
-	private String user_name;
-	private String user_password;
-	public String getUser_id() {
-		return user_id;
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	private Map<String, Object> param = new HashMap<String, Object>();
+
+	public boolean selectOne(String kemail) {
+		param.clear();
+		param.put("userid", kemail);
+		List<User> list = sqlSession.getMapper(UserMapper.class).select(param);
+		if (list == null || list.isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+
+	public void memberInsert(User user) {
+		sqlSession.getMapper(UserMapper.class).memberInsert(user);
 	}
-	public String getUser_email() {
-		return user_email;
+
+	public User selectOne2(String userid) {
+		param.clear();
+		param.put("userid", userid);
+		List<User> list = sqlSession.getMapper(UserMapper.class).SelectOne2(param);
+		if (list == null || list.isEmpty()) {
+			throw new LoginException("�ش� ���̵� ����", "");
+		} else
+			return list.get(0);
 	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+
+	public List<User> list() {
+		return sqlSession.getMapper(UserMapper.class).select(null);
 	}
-	public String getUser_name() {
-		return user_name;
+
+	public int numcntadd() {
+		return sqlSession.getMapper(UserMapper.class).numcntadd();
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+
+	public void memberInsert2(User user) {
+		System.out.println("!!!!" + user);
+		sqlSession.getMapper(UserMapper.class).memberInsert2(user);
+
 	}
-	public String getUser_password() {
-		return user_password;
+
+	public void adminInsert(User user) {
+		sqlSession.getMapper(UserMapper.class).adminInsert(user);
 	}
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+
+	public List<User> list(int access) {
+		param.clear();
+		param.put("access", access);
+		return sqlSession.getMapper(UserMapper.class).SelectOne2(param);
 	}
-	@Override
-	public String toString() {
-		return "UserDao [user_id=" + user_id + ", user_email=" + user_email + ", user_name=" + user_name
-				+ ", user_password=" + user_password + "]";
+
+	public void pointinsert(Point p) {
+		param.clear();
+		param.put("userid", p.getUserid());
+		param.put("pointnum", p.getPointnum());
+		param.put("point", p.getPoint());
+		param.put("pointtext", p.getPointtext());
+		sqlSession.getMapper(UserMapper.class).pointinsert(param);
 	}
-	
-	
-	
+
+	public int maxpointnum() {
+		return sqlSession.getMapper(UserMapper.class).maxpointnum();
+	}
+
+	public void codeUpdate(Integer member_code, String userid) {
+		param.clear();
+		param.put("member_code", member_code);
+		param.put("userid", userid);
+		sqlSession.getMapper(UserMapper.class).codeUpdate(param);
+	}
+
+	public void userdelete(String userid) {
+		param.clear();
+		param.put("userid", userid);
+		sqlSession.getMapper(UserMapper.class).delete(param);
+	}
+
+	public void adminUpdate(User user) {
+		sqlSession.getMapper(UserMapper.class).update(param);
+	}
+
 }
