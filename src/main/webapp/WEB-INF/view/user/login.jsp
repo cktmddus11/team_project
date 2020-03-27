@@ -38,14 +38,10 @@
 	    	<tr>
 	    		<td>나이</td>
 	    		<td>${sessionScope.kage}</td>
-	    	</tr>
-	    	
+	    	</tr>	
 	    </table>
 	  <h1>로그아웃 </h1> 
 	  <a href="logout.store">로그아웃</a>
 	  <a href="updateForm.store">정보 수정</a>
-	  
-	  
-	  
 </body>
 </html>
